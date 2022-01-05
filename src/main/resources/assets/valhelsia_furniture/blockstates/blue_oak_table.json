@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "rotated=false": {
+      "model": "valhelsia_furniture:block/blue_oak_table"
+    },
+    "rotated=true": {
+      "model": "valhelsia_furniture:block/blue_oak_table",
+      "y": 90
+    }
+  }
+}
