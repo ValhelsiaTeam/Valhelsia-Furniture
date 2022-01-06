@@ -103,8 +103,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-
+            args '--mod', 'valhelsia_furniture', '--all',
+                    '--output', file('src/generated/resources/'),
+                    '--existing', file('src/main/resources/').toString(),
+                    '--existing', file('src/generated/resources').toString()
             mods {
                 examplemod {
                     source sourceSets.main

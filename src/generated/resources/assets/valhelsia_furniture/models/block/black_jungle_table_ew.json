@@ -1,0 +1,7 @@
+{
+  "parent": "valhelsia_furniture:block/template_table_ew",
+  "textures": {
+    "table": "valhelsia_furniture:block/jungle_table/black_jungle_table",
+    "connected_table": "valhelsia_furniture:block/jungle_table/black_jungle_table_connected"
+  }
+}

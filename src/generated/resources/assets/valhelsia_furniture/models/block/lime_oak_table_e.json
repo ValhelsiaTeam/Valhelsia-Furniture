@@ -1,0 +1,7 @@
+{
+  "parent": "valhelsia_furniture:block/template_table_e",
+  "textures": {
+    "table": "valhelsia_furniture:block/oak_table/lime_oak_table",
+    "connected_table": "valhelsia_furniture:block/oak_table/lime_oak_table_connected"
+  }
+}

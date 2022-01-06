@@ -1,0 +1,7 @@
+{
+  "parent": "valhelsia_furniture:block/template_table_nsw",
+  "textures": {
+    "table": "valhelsia_furniture:block/birch_table/light_gray_birch_table",
+    "connected_table": "valhelsia_furniture:block/birch_table/light_gray_birch_table_connected"
+  }
+}

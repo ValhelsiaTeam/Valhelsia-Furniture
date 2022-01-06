@@ -1,0 +1,29 @@
+{
+    "itemGroup.valhelsia_furniture_main": "Valhelsia Furniture",
+
+    "block.valhelsia_furniture.oak_table": "Oak Table",
+    "block.valhelsia_furniture.spruce_table": "Spruce Table",
+    "block.valhelsia_furniture.birch_table": "Birch Table",
+    "block.valhelsia_furniture.jungle_table": "Jungle Table",
+    "block.valhelsia_furniture.acacia_table": "Acacia Table",
+    "block.valhelsia_furniture.dark_oak_table": "Dark Oak Table",
+    "block.valhelsia_furniture.crimson_table": "Crimson Table",
+    "block.valhelsia_furniture.warped_table": "Warped Table",
+
+    "tooltip.valhelsia_furniture.white_tablecloth": "White Tablecloth",
+    "tooltip.valhelsia_furniture.orange_tablecloth": "Orange Tablecloth",
+    "tooltip.valhelsia_furniture.magenta_tablecloth": "Magenta Tablecloth",
+    "tooltip.valhelsia_furniture.light_blue_tablecloth": "Light Blue Tablecloth",
+    "tooltip.valhelsia_furniture.yellow_tablecloth": "Yellow Tablecloth",
+    "tooltip.valhelsia_furniture.lime_tablecloth": "Lime Tablecloth",
+    "tooltip.valhelsia_furniture.pink_tablecloth": "Pink Tablecloth",
+    "tooltip.valhelsia_furniture.gray_tablecloth": "Gray Tablecloth",
+    "tooltip.valhelsia_furniture.light_gray_tablecloth": "Light Gray Tablecloth",
+    "tooltip.valhelsia_furniture.cyan_tablecloth": "Cyan Tablecloth",
+    "tooltip.valhelsia_furniture.purple_tablecloth": "Purple Tablecloth",
+    "tooltip.valhelsia_furniture.blue_tablecloth": "Blue Tablecloth",
+    "tooltip.valhelsia_furniture.brown_tablecloth": "Brown Tablecloth",
+    "tooltip.valhelsia_furniture.green_tablecloth": "Green Tablecloth",
+    "tooltip.valhelsia_furniture.red_tablecloth": "Red Tablecloth",
+    "tooltip.valhelsia_furniture.black_tablecloth": "Black Tablecloth"
+}

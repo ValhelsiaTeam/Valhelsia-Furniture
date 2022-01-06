@@ -1,0 +1,7 @@
+{
+  "parent": "valhelsia_furniture:block/template_table_ne",
+  "textures": {
+    "table": "valhelsia_furniture:block/spruce_table/pink_spruce_table",
+    "connected_table": "valhelsia_furniture:block/spruce_table/pink_spruce_table_connected"
+  }
+}
