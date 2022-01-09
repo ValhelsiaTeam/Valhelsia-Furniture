@@ -16,6 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -43,7 +44,7 @@ import java.util.Map;
  * @version 1.18.1 - 0.1.0
  * @since 2022-01-02
  */
-public class TableBlock extends Block {
+public class TableBlock extends Block implements SimpleWaterloggedBlock {
 
     private static final int MAX_LENGTH = 5;
 
@@ -83,7 +84,12 @@ public class TableBlock extends Block {
     );
 
     private final String baseName;
+    @Nullable
     private final DyeColor color;
+
+    public TableBlock(String baseName, Properties properties) {
+        this(baseName, null, properties);
+    }
 
     public TableBlock(String baseName, DyeColor color, Properties properties) {
         super(properties);
@@ -330,11 +336,12 @@ public class TableBlock extends Block {
         }
 
         list.forEach(tablePos -> {
-            boolean rotated = level.getBlockState(tablePos).getValue(ROTATED);
+            BlockState state = level.getBlockState(tablePos);
+            boolean rotated = state.getValue(ROTATED);
 
             level.setBlock(tablePos, Blocks.AIR.defaultBlockState(), 3);
 
-            level.setBlock(tablePos, this.defaultBlockState().setValue(ROTATED, rotated), 3);
+            level.setBlock(tablePos, state.getBlock().defaultBlockState().setValue(ROTATED, rotated), 3);
         });
     }
 
@@ -361,11 +368,19 @@ public class TableBlock extends Block {
 
     @Override
     public void appendHoverText(@Nonnull ItemStack stack, @Nullable BlockGetter level, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag flag) {
-        tooltip.add(new TranslatableComponent("tooltip.valhelsia_furniture." + this.color + "_tablecloth").withStyle(ChatFormatting.GRAY));
+        if (this.color != null) {
+            tooltip.add(new TranslatableComponent("tooltip.valhelsia_furniture." + this.color + "_tablecloth").withStyle(ChatFormatting.GRAY));
+        }
     }
 
     @Override
     protected void createBlockStateDefinition(@Nonnull StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(NORTH, EAST, SOUTH, WEST, ROTATED, WATERLOGGED);
+    }
+
+    @Nonnull
+    @Override
+    public FluidState getFluidState(BlockState state) {
+        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 }
