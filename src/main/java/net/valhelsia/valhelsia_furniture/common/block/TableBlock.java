@@ -91,7 +91,7 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock {
         this(baseName, null, properties);
     }
 
-    public TableBlock(String baseName, DyeColor color, Properties properties) {
+    public TableBlock(String baseName, @Nullable DyeColor color, Properties properties) {
         super(properties);
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(NORTH, false)
@@ -382,5 +382,10 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock {
     @Override
     public FluidState getFluidState(BlockState state) {
         return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
+    }
+
+    @Override
+    public boolean useShapeForLightOcclusion(@Nonnull BlockState state) {
+        return true;
     }
 }

@@ -1,13 +1,13 @@
 package net.valhelsia.valhelsia_furniture.data.models;
 
 import net.minecraft.data.DataGenerator;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.valhelsia.valhelsia_core.core.data.ValhelsiaBlockStateProvider;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
+import net.valhelsia.valhelsia_furniture.common.block.ChairBlock;
 import net.valhelsia.valhelsia_furniture.common.block.TableBlock;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
 
@@ -28,6 +28,11 @@ public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         forEach(block -> block instanceof TableBlock, block -> this.tableBlock((TableBlock) block));
+        forEach(block -> block instanceof ChairBlock, block -> {
+            horizontalBlock(block, models()
+                    .withExistingParent(getName(block), modLoc("block/template_chair"))
+                    .texture("chair", modLoc("block/chair/" + ((ChairBlock) block).getBaseName() + "/" + getName(block))));
+        });
 
        // forEach(this::simpleBlock);
     }
