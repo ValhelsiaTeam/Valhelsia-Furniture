@@ -10,6 +10,7 @@ import net.valhelsia.valhelsia_core.core.registry.block.BlockRegistryHelper;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.ChairBlock;
 import net.valhelsia.valhelsia_furniture.common.block.TableBlock;
+import net.valhelsia.valhelsia_furniture.common.block.UpholsteredChairBlock;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,6 +73,15 @@ public class ModBlocks {
     public static final List<RegistryObject<ChairBlock>> WOOL_CRIMSON_CHAIRS = registerWoolChairs("crimson_chair", ValhelsiaRenderType.CUTOUT);
     public static final List<RegistryObject<ChairBlock>> WOOL_WARPED_CHAIRS = registerWoolChairs("warped_chair", ValhelsiaRenderType.CUTOUT);
 
+    public static final List<RegistryObject<UpholsteredChairBlock>> WOOL_UPHOLSTERED_OAK_CHAIRS = registerUpholsteredWoolChairs("oak", ValhelsiaRenderType.CUTOUT);
+    public static final List<RegistryObject<UpholsteredChairBlock>> WOOL_UPHOLSTERED_SPRUCE_CHAIRS = registerUpholsteredWoolChairs("spruce", ValhelsiaRenderType.CUTOUT);
+    public static final List<RegistryObject<UpholsteredChairBlock>> WOOL_UPHOLSTERED_BIRCH_CHAIRS = registerUpholsteredWoolChairs("birch", ValhelsiaRenderType.CUTOUT);
+    public static final List<RegistryObject<UpholsteredChairBlock>> WOOL_UPHOLSTERED_JUNGLE_CHAIRS = registerUpholsteredWoolChairs("jungle", ValhelsiaRenderType.CUTOUT);
+    public static final List<RegistryObject<UpholsteredChairBlock>> WOOL_UPHOLSTERED_ACACIA_CHAIRS = registerUpholsteredWoolChairs("acacia", ValhelsiaRenderType.CUTOUT);
+    public static final List<RegistryObject<UpholsteredChairBlock>> WOOL_UPHOLSTERED_DARK_OAK_CHAIRS = registerUpholsteredWoolChairs("dark_oak", ValhelsiaRenderType.CUTOUT);
+    public static final List<RegistryObject<UpholsteredChairBlock>> WOOL_UPHOLSTERED_CRIMSON_CHAIRS = registerUpholsteredWoolChairs("crimson", ValhelsiaRenderType.CUTOUT);
+    public static final List<RegistryObject<UpholsteredChairBlock>> WOOL_UPHOLSTERED_WARPED_CHAIRS = registerUpholsteredWoolChairs("warped", ValhelsiaRenderType.CUTOUT);
+
     public static List<RegistryObject<TableBlock>> registerTables(String name, ValhelsiaRenderType renderType) {
         List<RegistryObject<TableBlock>> list = new ArrayList<>();
 
@@ -87,6 +97,16 @@ public class ModBlocks {
 
         for (DyeColor color : DyeColor.values()) {
             list.add(HELPER.register(color.getName() + "_" + name, new ChairBlock(name.substring(0, name.length() - 6), color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), renderType));
+        }
+
+        return list;
+    }
+
+    public static List<RegistryObject<UpholsteredChairBlock>> registerUpholsteredWoolChairs(String name, ValhelsiaRenderType renderType) {
+        List<RegistryObject<UpholsteredChairBlock>> list = new ArrayList<>();
+
+        for (DyeColor color : DyeColor.values()) {
+            list.add(HELPER.register(color.getName() + "_upholstered_" + name + "_chair", new UpholsteredChairBlock(name, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), renderType));
         }
 
         return list;

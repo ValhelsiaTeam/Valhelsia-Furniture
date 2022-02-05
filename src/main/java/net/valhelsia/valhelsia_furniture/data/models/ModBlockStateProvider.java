@@ -9,6 +9,7 @@ import net.valhelsia.valhelsia_core.core.data.ValhelsiaBlockStateProvider;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.ChairBlock;
 import net.valhelsia.valhelsia_furniture.common.block.TableBlock;
+import net.valhelsia.valhelsia_furniture.common.block.UpholsteredChairBlock;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
 
 /**
@@ -28,6 +29,12 @@ public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         forEach(block -> block instanceof TableBlock, block -> this.tableBlock((TableBlock) block));
+        forEach(block -> block instanceof UpholsteredChairBlock, block -> {
+            horizontalBlock(block, models()
+                    .withExistingParent(getName(block), modLoc("block/template_upholstered_chair"))
+                    .texture("wool", modLoc("block/upholstered_chair/colors/" + ((ChairBlock) block).getColor()))
+                    .texture("wood", modLoc("block/upholstered_chair/base/" + ((ChairBlock) block).getBaseName())));
+        });
         forEach(block -> block instanceof ChairBlock, block -> {
             horizontalBlock(block, models()
                     .withExistingParent(getName(block), modLoc("block/template_chair"))
@@ -40,7 +47,7 @@ public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
     private void tableBlock(TableBlock block) {
         String name = this.getName(block);
 
-        getVariantBuilder(block).forAllStatesExcept(state -> {
+        this.getVariantBuilder(block).forAllStatesExcept(state -> {
             boolean north = state.getValue(BlockStateProperties.NORTH);
             boolean east = state.getValue(BlockStateProperties.EAST);
             boolean south = state.getValue(BlockStateProperties.SOUTH);

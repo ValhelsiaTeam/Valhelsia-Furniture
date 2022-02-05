@@ -112,6 +112,11 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
         return this.baseName;
     }
 
+    @Nullable
+    public DyeColor getColor() {
+        return this.color;
+    }
+
     @Nonnull
     @Override
     public InteractionResult use(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos, @Nonnull Player player, @Nonnull InteractionHand hand, @Nonnull BlockHitResult hit) {
