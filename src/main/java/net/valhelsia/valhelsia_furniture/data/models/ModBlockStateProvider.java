@@ -1,6 +1,8 @@
 package net.valhelsia.valhelsia_furniture.data.models;
 
 import net.minecraft.data.DataGenerator;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -11,6 +13,8 @@ import net.valhelsia.valhelsia_furniture.common.block.ChairBlock;
 import net.valhelsia.valhelsia_furniture.common.block.TableBlock;
 import net.valhelsia.valhelsia_furniture.common.block.UpholsteredChairBlock;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
+
+import java.util.function.Function;
 
 /**
  * Mod Block State Provider <br>
@@ -42,6 +46,16 @@ public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
         });
 
        // forEach(this::simpleBlock);
+    }
+
+    @Override
+    public void horizontalBlock(Block block, Function<BlockState, ModelFile> modelFunc, int angleOffset) {
+        this.getVariantBuilder(block).forAllStatesExcept(state -> ConfiguredModel.builder()
+                .modelFile(modelFunc.apply(state))
+                .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + angleOffset) % 360)
+                .build(),
+                BlockStateProperties.WATERLOGGED
+        );
     }
 
     private void tableBlock(TableBlock block) {

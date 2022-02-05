@@ -1,32 +1,17 @@
 {
   "variants": {
-    "facing=north,waterlogged=false": {
+    "facing=north": {
       "model": "valhelsia_furniture:block/green_jungle_chair"
     },
-    "facing=south,waterlogged=false": {
+    "facing=south": {
       "model": "valhelsia_furniture:block/green_jungle_chair",
       "y": 180
     },
-    "facing=west,waterlogged=false": {
+    "facing=west": {
       "model": "valhelsia_furniture:block/green_jungle_chair",
       "y": 270
     },
-    "facing=east,waterlogged=false": {
-      "model": "valhelsia_furniture:block/green_jungle_chair",
-      "y": 90
-    },
-    "facing=north,waterlogged=true": {
-      "model": "valhelsia_furniture:block/green_jungle_chair"
-    },
-    "facing=south,waterlogged=true": {
-      "model": "valhelsia_furniture:block/green_jungle_chair",
-      "y": 180
-    },
-    "facing=west,waterlogged=true": {
-      "model": "valhelsia_furniture:block/green_jungle_chair",
-      "y": 270
-    },
-    "facing=east,waterlogged=true": {
+    "facing=east": {
       "model": "valhelsia_furniture:block/green_jungle_chair",
       "y": 90
     }
