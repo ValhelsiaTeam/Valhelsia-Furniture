@@ -9,6 +9,7 @@ import net.valhelsia.valhelsia_core.client.util.ValhelsiaRenderType;
 import net.valhelsia.valhelsia_core.core.registry.block.BlockRegistryHelper;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.ChairBlock;
+import net.valhelsia.valhelsia_furniture.common.block.StoolBlock;
 import net.valhelsia.valhelsia_furniture.common.block.TableBlock;
 import net.valhelsia.valhelsia_furniture.common.block.UpholsteredChairBlock;
 
@@ -81,6 +82,15 @@ public class ModBlocks {
     public static final List<RegistryObject<UpholsteredChairBlock>> WOOL_UPHOLSTERED_DARK_OAK_CHAIRS = registerUpholsteredWoolChairs("dark_oak", ValhelsiaRenderType.CUTOUT);
     public static final List<RegistryObject<UpholsteredChairBlock>> WOOL_UPHOLSTERED_CRIMSON_CHAIRS = registerUpholsteredWoolChairs("crimson", ValhelsiaRenderType.CUTOUT);
     public static final List<RegistryObject<UpholsteredChairBlock>> WOOL_UPHOLSTERED_WARPED_CHAIRS = registerUpholsteredWoolChairs("warped", ValhelsiaRenderType.CUTOUT);
+
+    public static final RegistryObject<StoolBlock> OAK_STOOL = HELPER.register("oak_stool", new StoolBlock("oak", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()), ValhelsiaRenderType.SOLID);
+    public static final RegistryObject<StoolBlock> SPRUCE_STOOL = HELPER.register("spruce_stool", new StoolBlock("spruce", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), ValhelsiaRenderType.SOLID);
+    public static final RegistryObject<StoolBlock> BIRCH_STOOL = HELPER.register("birch_stool", new StoolBlock("birch", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), ValhelsiaRenderType.SOLID);
+    public static final RegistryObject<StoolBlock> JUNGLE_STOOL = HELPER.register("jungle_stool", new StoolBlock("jungle", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), ValhelsiaRenderType.SOLID);
+    public static final RegistryObject<StoolBlock> ACACIA_STOOL = HELPER.register("acacia_stool", new StoolBlock("acacia", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), ValhelsiaRenderType.SOLID);
+    public static final RegistryObject<StoolBlock> DARK_OAK_STOOL = HELPER.register("dark_oak_stool", new StoolBlock("dark_oak", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), ValhelsiaRenderType.SOLID);
+    public static final RegistryObject<StoolBlock> CRIMSON_STOOL = HELPER.register("crimson_stool", new StoolBlock("crimson", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), ValhelsiaRenderType.SOLID);
+    public static final RegistryObject<StoolBlock> WARPED_STOOL = HELPER.register("warped_stool", new StoolBlock("warped", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), ValhelsiaRenderType.SOLID);
 
     public static List<RegistryObject<TableBlock>> registerTables(String name, ValhelsiaRenderType renderType) {
         List<RegistryObject<TableBlock>> list = new ArrayList<>();

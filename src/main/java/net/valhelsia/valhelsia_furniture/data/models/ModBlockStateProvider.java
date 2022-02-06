@@ -10,6 +10,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.valhelsia.valhelsia_core.core.data.ValhelsiaBlockStateProvider;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.ChairBlock;
+import net.valhelsia.valhelsia_furniture.common.block.StoolBlock;
 import net.valhelsia.valhelsia_furniture.common.block.TableBlock;
 import net.valhelsia.valhelsia_furniture.common.block.UpholsteredChairBlock;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
@@ -43,6 +44,9 @@ public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
             horizontalBlock(block, models()
                     .withExistingParent(getName(block), modLoc("block/template_chair"))
                     .texture("chair", modLoc("block/chair/" + ((ChairBlock) block).getBaseName() + "/" + getName(block))));
+        });
+        forEach(block -> block instanceof StoolBlock, block -> {
+            this.simpleBlock(block, models().withExistingParent(getName(block), modLoc("block/template_stool")).texture("stool", modLoc("block/stool/" + this.getName(block))));
         });
 
        // forEach(this::simpleBlock);

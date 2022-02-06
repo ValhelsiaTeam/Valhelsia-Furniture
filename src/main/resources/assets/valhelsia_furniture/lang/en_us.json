@@ -28,6 +28,15 @@
     "block.valhelsia_furniture.upholstered_crimson_chair": "Upholstered Crimson Chair",
     "block.valhelsia_furniture.upholstered_warped_chair": "Upholstered Warped Chair",
 
+    "block.valhelsia_furniture.oak_stool": "Oak Stool",
+    "block.valhelsia_furniture.spruce_stool": "Spruce Stool",
+    "block.valhelsia_furniture.birch_stool": "Birch Stool",
+    "block.valhelsia_furniture.jungle_stool": "Jungle Stool",
+    "block.valhelsia_furniture.acacia_stool": "Acacia Stool",
+    "block.valhelsia_furniture.dark_oak_stool": "Dark Oak Stool",
+    "block.valhelsia_furniture.crimson_stool": "Crimson Stool",
+    "block.valhelsia_furniture.warped_stool": "Warped Stool",
+
     "tooltip.valhelsia_furniture.white_tablecloth": "White Tablecloth",
     "tooltip.valhelsia_furniture.orange_tablecloth": "Orange Tablecloth",
     "tooltip.valhelsia_furniture.magenta_tablecloth": "Magenta Tablecloth",
