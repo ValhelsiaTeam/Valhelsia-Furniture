@@ -46,7 +46,11 @@ public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
                     .texture("chair", modLoc("block/chair/" + ((ChairBlock) block).getBaseName() + "/" + getName(block))));
         });
         forEach(block -> block instanceof StoolBlock, block -> {
-            this.simpleBlock(block, models().withExistingParent(getName(block), modLoc("block/template_stool")).texture("stool", modLoc("block/stool/" + this.getName(block))));
+            if (((StoolBlock) block).getColor() != null) {
+                this.simpleBlock(block, models().withExistingParent(getName(block), modLoc("block/template_upholstered_stool")).texture("wood", modLoc("block/upholstered_stool/base/" + ((StoolBlock) block).getBaseName())).texture("wool", modLoc("block/upholstered_stool/colors/" + ((StoolBlock) block).getColor())));
+            } else {
+                this.simpleBlock(block, models().withExistingParent(getName(block), modLoc("block/template_stool")).texture("stool", modLoc("block/stool/" + this.getName(block))));
+            }
         });
 
        // forEach(this::simpleBlock);

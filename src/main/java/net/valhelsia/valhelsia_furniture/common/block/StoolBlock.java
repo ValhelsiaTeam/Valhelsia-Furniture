@@ -1,11 +1,17 @@
 package net.valhelsia.valhelsia_furniture.common.block;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -27,6 +33,8 @@ import net.valhelsia.valhelsia_furniture.common.entity.SeatEntity;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * Stool Block <br>
@@ -45,18 +53,30 @@ public class StoolBlock extends Block implements SimpleWaterloggedBlock {
             Block.box(3.0D, 7.0D, 3.0D, 13.0D, 9.0D, 13.0D)
     );
 
+    private static final VoxelShape UPHOLSTERED_SHAPE = Shapes.or(
+            Block.box(4.0D, 0.0D, 4.0D, 12.0D, 7.0D, 12.0D),
+            Block.box(3.0D, 7.0D, 3.0D, 13.0D, 10.0D, 13.0D)
+    );
+
     private final String baseName;
+    @Nullable
+    private final DyeColor color;
 
     public StoolBlock(String baseName, Properties properties) {
+        this(baseName, null, properties);
+    }
+
+    public StoolBlock(String baseName, @Nullable DyeColor color, Properties properties) {
         super(properties);
         this.registerDefaultState(this.getStateDefinition().any().setValue(WATERLOGGED, false));
         this.baseName = baseName;
+        this.color = color;
     }
 
     @Nonnull
     @Override
     public VoxelShape getShape(@Nonnull BlockState state, @Nonnull BlockGetter level, @Nonnull BlockPos pos, @Nonnull CollisionContext context) {
-        return SHAPE;
+        return this.getColor() != null? UPHOLSTERED_SHAPE : SHAPE;
     }
 
     @Nullable
@@ -138,6 +158,18 @@ public class StoolBlock extends Block implements SimpleWaterloggedBlock {
     @Override
     public int getAnalogOutputSignal(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos) {
         return this.isEntitySitting(level, pos) ? 15 : 0;
+    }
+
+    @Nullable
+    public DyeColor getColor() {
+        return this.color;
+    }
+
+    @Override
+    public void appendHoverText(@Nonnull ItemStack stack, @Nullable BlockGetter level, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag flag) {
+        if (this.color != null) {
+            tooltip.add(new TranslatableComponent("tooltip.valhelsia_furniture." + this.color + "_wool_seat").withStyle(ChatFormatting.GRAY));
+        }
     }
 
     @Override
