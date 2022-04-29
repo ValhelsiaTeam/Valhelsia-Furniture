@@ -14,9 +14,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -371,6 +369,45 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock {
         if (this.color != null) {
             tooltip.add(new TranslatableComponent("tooltip.valhelsia_furniture." + this.color + "_tablecloth").withStyle(ChatFormatting.GRAY));
         }
+    }
+
+    @Nonnull
+    @Override
+    public BlockState rotate(@Nonnull BlockState state, @Nonnull Rotation rotation) {
+        List<Direction> directions = new ArrayList<>();
+
+        PROPERTY_BY_DIRECTION.forEach((direction, property) -> {
+            state.setValue(property, false);
+
+            if (state.getValue(property)) {
+                directions.add(rotation.rotate(direction));
+            }
+        });
+
+        directions.forEach(direction -> {
+            state.setValue(PROPERTY_BY_DIRECTION.get(direction), true);
+        });
+        return state;
+    }
+
+    @Nonnull
+    @Override
+    public BlockState mirror(@Nonnull BlockState state, @Nonnull Mirror mirror) {
+        List<Direction> directions = new ArrayList<>();
+
+        PROPERTY_BY_DIRECTION.forEach((direction, property) -> {
+            state.setValue(property, false);
+
+            if (state.getValue(property)) {
+                directions.add(mirror.mirror(direction));
+            }
+        });
+
+        directions.forEach(direction -> {
+            state.setValue(PROPERTY_BY_DIRECTION.get(direction), true);
+        });
+
+        return state;
     }
 
     @Override
