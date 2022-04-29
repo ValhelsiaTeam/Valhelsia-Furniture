@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "rotated=false": {
       "model": "valhelsia_furniture:block/yellow_upholstered_warped_stool"
+    },
+    "rotated=true": {
+      "model": "valhelsia_furniture:block/yellow_upholstered_warped_stool_rotated"
     }
   }
 }

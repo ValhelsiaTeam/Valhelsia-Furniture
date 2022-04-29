@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "rotated=false": {
       "model": "valhelsia_furniture:block/blue_upholstered_spruce_stool"
+    },
+    "rotated=true": {
+      "model": "valhelsia_furniture:block/blue_upholstered_spruce_stool_rotated"
     }
   }
 }

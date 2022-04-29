@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -29,22 +30,24 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
 import net.valhelsia.valhelsia_furniture.common.entity.SeatEntity;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Stool Block <br>
  * Valhelsia Furniture - net.valhelsia.valhelsia_furniture.common.block.StoolBlock
  *
  * @author Valhelsia Team
- * @version 1.18.1 - 0.1.0
+ * @version 1.18.2 - 0.1.0
  * @since 2022-02-05
  */
 public class StoolBlock extends Block implements SimpleWaterloggedBlock {
+
+    public static final BooleanProperty ROTATED = ModBlockStateProperties.ROTATED;
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
@@ -68,7 +71,7 @@ public class StoolBlock extends Block implements SimpleWaterloggedBlock {
 
     public StoolBlock(String baseName, @Nullable DyeColor color, Properties properties) {
         super(properties);
-        this.registerDefaultState(this.getStateDefinition().any().setValue(WATERLOGGED, false));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(ROTATED, false).setValue(WATERLOGGED, false));
         this.baseName = baseName;
         this.color = color;
     }
@@ -84,7 +87,7 @@ public class StoolBlock extends Block implements SimpleWaterloggedBlock {
     public BlockState getStateForPlacement(@Nonnull BlockPlaceContext context) {
         boolean flag = context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER;
 
-        return this.defaultBlockState().setValue(WATERLOGGED, flag);
+        return this.defaultBlockState().setValue(WATERLOGGED, flag).setValue(ROTATED, (Mth.floor((double) ((180.0F + context.getRotation()) * 8.0F / 360.0F) + 0.5D) & 7) % 2 != 0);
     }
 
     @Nonnull
@@ -174,7 +177,7 @@ public class StoolBlock extends Block implements SimpleWaterloggedBlock {
 
     @Override
     protected void createBlockStateDefinition(@Nonnull StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(WATERLOGGED);
+        builder.add(WATERLOGGED, ROTATED);
     }
 
     @Nonnull

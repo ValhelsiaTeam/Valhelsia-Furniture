@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "rotated=false": {
       "model": "valhelsia_furniture:block/pink_upholstered_acacia_stool"
+    },
+    "rotated=true": {
+      "model": "valhelsia_furniture:block/pink_upholstered_acacia_stool_rotated"
     }
   }
 }

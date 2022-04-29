@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "rotated=false": {
       "model": "valhelsia_furniture:block/magenta_upholstered_oak_stool"
+    },
+    "rotated=true": {
+      "model": "valhelsia_furniture:block/magenta_upholstered_oak_stool_rotated"
     }
   }
 }

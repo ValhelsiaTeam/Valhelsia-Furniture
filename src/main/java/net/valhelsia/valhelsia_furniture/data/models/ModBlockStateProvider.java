@@ -45,13 +45,7 @@ public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
                     .withExistingParent(getName(block), modLoc("block/template_chair"))
                     .texture("chair", modLoc("block/chair/" + ((ChairBlock) block).getBaseName() + "/" + getName(block))));
         });
-        forEach(block -> block instanceof StoolBlock, block -> {
-            if (((StoolBlock) block).getColor() != null) {
-                this.simpleBlock(block, models().withExistingParent(getName(block), modLoc("block/template_upholstered_stool")).texture("wood", modLoc("block/upholstered_stool/base/" + ((StoolBlock) block).getBaseName())).texture("wool", modLoc("block/upholstered_stool/colors/" + ((StoolBlock) block).getColor())));
-            } else {
-                this.simpleBlock(block, models().withExistingParent(getName(block), modLoc("block/template_stool")).texture("stool", modLoc("block/stool/" + this.getName(block))));
-            }
-        });
+        forEach(block -> block instanceof StoolBlock, block -> this.stoolBlock((StoolBlock) block));
 
        // forEach(this::simpleBlock);
     }
@@ -114,5 +108,24 @@ public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
                     .rotationY(!connected && rotated ? 90 : rotated ? 270 : 0)
                     .build();
         }, BlockStateProperties.WATERLOGGED);
+    }
+
+    private void stoolBlock(StoolBlock block) {
+        ModelFile model;
+        ModelFile rotatedModel;
+
+        if (block.getColor() != null) {
+            model = models().withExistingParent(getName(block), modLoc("block/template_upholstered_stool")).texture("wood", modLoc("block/upholstered_stool/base/" + block.getBaseName())).texture("wool", modLoc("block/upholstered_stool/colors/" + block.getColor()));
+            rotatedModel = models().withExistingParent(getName(block) + "_rotated", modLoc("block/template_upholstered_stool_rotated")).texture("wood", modLoc("block/upholstered_stool/base/" + block.getBaseName())).texture("wool", modLoc("block/upholstered_stool/colors/" + block.getColor()));
+
+        } else {
+            model = models().withExistingParent(getName(block), modLoc("block/template_stool")).texture("stool", modLoc("block/stool/" + this.getName(block)));
+            rotatedModel = models().withExistingParent(getName(block) + "_rotated", modLoc("block/template_stool_rotated")).texture("stool", modLoc("block/stool/" + this.getName(block)));
+        }
+
+        this.getVariantBuilder(block).forAllStatesExcept(state -> {
+            return ConfiguredModel.builder().modelFile(state.getValue(ModBlockStateProperties.ROTATED) ? rotatedModel : model).build();
+            }, BlockStateProperties.WATERLOGGED
+        );
     }
 }
