@@ -39,7 +39,7 @@ import java.util.Map;
  * Valhelsia Furniture - net.valhelsia.valhelsia_furniture.common.block.TableBlock
  *
  * @author Valhelsia Team
- * @version 1.18.1 - 0.1.0
+ * @version 1.18.2 - 0.1.0
  * @since 2022-01-02
  */
 public class TableBlock extends Block implements SimpleWaterloggedBlock {
@@ -376,17 +376,17 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock {
     public BlockState rotate(@Nonnull BlockState state, @Nonnull Rotation rotation) {
         List<Direction> directions = new ArrayList<>();
 
-        PROPERTY_BY_DIRECTION.forEach((direction, property) -> {
-            state.setValue(property, false);
-
-            if (state.getValue(property)) {
-                directions.add(rotation.rotate(direction));
+        for (Map.Entry<Direction, BooleanProperty> entry : PROPERTY_BY_DIRECTION.entrySet()) {
+            if (state.getValue(entry.getValue())) {
+                directions.add(rotation.rotate(entry.getKey()));
             }
-        });
 
-        directions.forEach(direction -> {
-            state.setValue(PROPERTY_BY_DIRECTION.get(direction), true);
-        });
+            state = state.setValue(entry.getValue(), false);
+        }
+
+        for (Direction direction : directions) {
+            state = state.setValue(PROPERTY_BY_DIRECTION.get(direction), true);
+        }
         return state;
     }
 
@@ -395,18 +395,17 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock {
     public BlockState mirror(@Nonnull BlockState state, @Nonnull Mirror mirror) {
         List<Direction> directions = new ArrayList<>();
 
-        PROPERTY_BY_DIRECTION.forEach((direction, property) -> {
-            state.setValue(property, false);
-
-            if (state.getValue(property)) {
-                directions.add(mirror.mirror(direction));
+        for (Map.Entry<Direction, BooleanProperty> entry : PROPERTY_BY_DIRECTION.entrySet()) {
+            if (state.getValue(entry.getValue())) {
+                directions.add(mirror.mirror(entry.getKey()));
             }
-        });
 
-        directions.forEach(direction -> {
-            state.setValue(PROPERTY_BY_DIRECTION.get(direction), true);
-        });
+            state = state.setValue(entry.getValue(), false);
+        }
 
+        for (Direction direction : directions) {
+            state = state.setValue(PROPERTY_BY_DIRECTION.get(direction), true);
+        }
         return state;
     }
 
