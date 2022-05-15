@@ -8,10 +8,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.valhelsia.valhelsia_core.client.util.ValhelsiaRenderType;
 import net.valhelsia.valhelsia_core.core.registry.block.BlockRegistryHelper;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
-import net.valhelsia.valhelsia_furniture.common.block.ChairBlock;
-import net.valhelsia.valhelsia_furniture.common.block.StoolBlock;
-import net.valhelsia.valhelsia_furniture.common.block.TableBlock;
-import net.valhelsia.valhelsia_furniture.common.block.UpholsteredChairBlock;
+import net.valhelsia.valhelsia_furniture.common.block.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +18,7 @@ import java.util.List;
  * Valhelsia Furniture - net.valhelsia.valhelsia_furniture.core.registry.ModBlocks
  *
  * @author Valhelsia Team
- * @version 1.18.1 - 0.1.0
+ * @version 1.18.2 - 0.1.0
  * @since 2022-01-02
  */
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -100,6 +97,26 @@ public class ModBlocks {
     public static final List<RegistryObject<StoolBlock>> WOOL_UPHOLSTERED_DARK_OAK_STOOLS = registerUpholsteredStools("dark_oak", ValhelsiaRenderType.CUTOUT);
     public static final List<RegistryObject<StoolBlock>> WOOL_UPHOLSTERED_CRIMSON_STOOLS = registerUpholsteredStools("crimson", ValhelsiaRenderType.CUTOUT);
     public static final List<RegistryObject<StoolBlock>> WOOL_UPHOLSTERED_WARPED_STOOLS = registerUpholsteredStools("warped", ValhelsiaRenderType.CUTOUT);
+
+    // Desks
+    public static final RegistryObject<DeskBlock> OAK_DESK = HELPER.register("oak_desk", () -> new DeskBlock(ModTags.Blocks.OAK_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<DeskBlock> SPRUCE_DESK = HELPER.register("spruce_desk", () -> new DeskBlock(ModTags.Blocks.SPRUCE_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<DeskBlock> BIRCH_DESK = HELPER.register("birch_desk", () -> new DeskBlock(ModTags.Blocks.BIRCH_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<DeskBlock> JUNGLE_DESK = HELPER.register("jungle_desk", () -> new DeskBlock(ModTags.Blocks.JUNGLE_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<DeskBlock> ACACIA_DESK = HELPER.register("acacia_desk", () -> new DeskBlock(ModTags.Blocks.ACACIA_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<DeskBlock> DARK_OAK_DESK = HELPER.register("dark_oak_desk", () -> new DeskBlock(ModTags.Blocks.DARK_OAK_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<DeskBlock> CRIMSON_DESK = HELPER.register("crimson_desk", () -> new DeskBlock(ModTags.Blocks.CRIMSON_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<DeskBlock> WARPED_DESK = HELPER.register("warped_desk", () -> new DeskBlock(ModTags.Blocks.WARPED_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+
+    // Desk Drawers
+    public static final RegistryObject<DeskDrawerBlock> OAK_DESK_DRAWER = HELPER.register("oak_desk_drawer", () -> new DeskDrawerBlock(ModTags.Blocks.OAK_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<DeskDrawerBlock> SPRUCE_DESK_DRAWER = HELPER.register("spruce_desk_drawer", () -> new DeskDrawerBlock(ModTags.Blocks.SPRUCE_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<DeskDrawerBlock> BIRCH_DESK_DRAWER = HELPER.register("birch_desk_drawer", () -> new DeskDrawerBlock(ModTags.Blocks.BIRCH_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<DeskDrawerBlock> JUNGLE_DESK_DRAWER = HELPER.register("jungle_desk_drawer", () -> new DeskDrawerBlock(ModTags.Blocks.JUNGLE_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<DeskDrawerBlock> ACACIA_DESK_DRAWER = HELPER.register("acacia_desk_drawer", () -> new DeskDrawerBlock(ModTags.Blocks.ACACIA_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<DeskDrawerBlock> DARK_OAK_DESK_DRAWER = HELPER.register("dark_oak_desk_drawer", () -> new DeskDrawerBlock(ModTags.Blocks.DARK_OAK_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<DeskDrawerBlock> CRIMSON_DESK_DRAWER = HELPER.register("crimson_desk_drawer", () -> new DeskDrawerBlock(ModTags.Blocks.CRIMSON_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static final RegistryObject<DeskDrawerBlock> WARPED_DESK_DRAWER = HELPER.register("warped_desk_drawer", () -> new DeskDrawerBlock(ModTags.Blocks.WARPED_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
 
     public static List<RegistryObject<TableBlock>> registerTables(String name, ValhelsiaRenderType renderType) {
         List<RegistryObject<TableBlock>> list = new ArrayList<>();

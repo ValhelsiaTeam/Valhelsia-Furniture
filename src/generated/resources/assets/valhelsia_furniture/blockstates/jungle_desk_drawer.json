@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=north,left=false,right=false": {
+      "model": "valhelsia_furniture:block/jungle_desk_drawer"
+    },
+    "facing=south,left=false,right=false": {
+      "model": "valhelsia_furniture:block/jungle_desk_drawer",
+      "y": 180
+    },
+    "facing=west,left=false,right=false": {
+      "model": "valhelsia_furniture:block/jungle_desk_drawer",
+      "y": 270
+    },
+    "facing=east,left=false,right=false": {
+      "model": "valhelsia_furniture:block/jungle_desk_drawer",
+      "y": 90
+    },
+    "facing=north,left=true,right=false": {
+      "model": "valhelsia_furniture:block/jungle_desk_drawer_left"
+    },
+    "facing=south,left=true,right=false": {
+      "model": "valhelsia_furniture:block/jungle_desk_drawer_left",
+      "y": 180
+    },
+    "facing=west,left=true,right=false": {
+      "model": "valhelsia_furniture:block/jungle_desk_drawer_left",
+      "y": 270
+    },
+    "facing=east,left=true,right=false": {
+      "model": "valhelsia_furniture:block/jungle_desk_drawer_left",
+      "y": 90
+    },
+    "facing=north,left=false,right=true": {
+      "model": "valhelsia_furniture:block/jungle_desk_drawer_right"
+    },
+    "facing=south,left=false,right=true": {
+      "model": "valhelsia_furniture:block/jungle_desk_drawer_right",
+      "y": 180
+    },
+    "facing=west,left=false,right=true": {
+      "model": "valhelsia_furniture:block/jungle_desk_drawer_right",
+      "y": 270
+    },
+    "facing=east,left=false,right=true": {
+      "model": "valhelsia_furniture:block/jungle_desk_drawer_right",
+      "y": 90
+    },
+    "facing=north,left=true,right=true": {
+      "model": "valhelsia_furniture:block/jungle_desk_drawer_center"
+    },
+    "facing=south,left=true,right=true": {
+      "model": "valhelsia_furniture:block/jungle_desk_drawer_center",
+      "y": 180
+    },
+    "facing=west,left=true,right=true": {
+      "model": "valhelsia_furniture:block/jungle_desk_drawer_center",
+      "y": 270
+    },
+    "facing=east,left=true,right=true": {
+      "model": "valhelsia_furniture:block/jungle_desk_drawer_center",
+      "y": 90
+    }
+  }
+}

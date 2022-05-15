@@ -9,10 +9,7 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.valhelsia.valhelsia_core.core.data.ValhelsiaBlockStateProvider;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
-import net.valhelsia.valhelsia_furniture.common.block.ChairBlock;
-import net.valhelsia.valhelsia_furniture.common.block.StoolBlock;
-import net.valhelsia.valhelsia_furniture.common.block.TableBlock;
-import net.valhelsia.valhelsia_furniture.common.block.UpholsteredChairBlock;
+import net.valhelsia.valhelsia_furniture.common.block.*;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
 
 import java.util.function.Function;
@@ -46,6 +43,30 @@ public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
                     .texture("chair", modLoc("block/chair/" + ((ChairBlock) block).getBaseName() + "/" + getName(block))));
         });
         forEach(block -> block instanceof StoolBlock, block -> this.stoolBlock((StoolBlock) block));
+        forEach(block -> block instanceof DeskBlock, block -> this.horizontalBlock(block, state -> {
+            boolean left = state.getValue(ModBlockStateProperties.LEFT);
+            boolean right = state.getValue(ModBlockStateProperties.RIGHT);
+
+            String variant = "";
+
+            if (left && right) {
+                variant = "_center";
+            } else if (left) {
+                variant = "_left";
+            } else if (right) {
+                variant = "_right";
+            }
+
+            String name = getName(block);
+            boolean drawer = false;
+
+            if (name.contains("drawer")) {
+                name = name.substring(0, name.length() - 7);
+                drawer = true;
+            }
+
+            return models().withExistingParent(getName(block) + variant, modLoc("block/template_desk" + (drawer ? "_drawer" : "" )+ variant)).texture("desk", modLoc("block/desk/" + name));
+        }));
 
        // forEach(this::simpleBlock);
     }
