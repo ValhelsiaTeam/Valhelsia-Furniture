@@ -113,8 +113,8 @@ public class DeskBlock extends Block implements SimpleWaterloggedBlock {
         BlockState rightState = level.getBlockState(pos.relative(facing.getCounterClockWise()));
         BlockState secondRightState = level.getBlockState(pos.relative(facing.getCounterClockWise(), 2));
 
-        boolean left = this.hasSameFacing(leftState, facing) && (!secondLefState.is(this) || secondLefState.getValue(FACING) != facing || !this.isCenterPart(secondLefState));
-        boolean right = this.hasSameFacing(rightState, facing) && (!secondRightState.is(this) || secondRightState.getValue(FACING) != facing || !this.isCenterPart(secondRightState));
+        boolean left = this.hasSameFacing(leftState, facing) && (!secondLefState.is(this.tag) || secondLefState.getValue(FACING) != facing || !this.isCenterPart(secondLefState));
+        boolean right = this.hasSameFacing(rightState, facing) && (!secondRightState.is(this.tag) || secondRightState.getValue(FACING) != facing || !this.isCenterPart(secondRightState));
 
         if (left && right) {
             if (this.hasSameFacing(secondRightState, facing) && secondRightState.getValue(LEFT)) {
