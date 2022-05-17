@@ -11,6 +11,7 @@ import net.valhelsia.valhelsia_core.core.data.ValhelsiaBlockStateProvider;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.*;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
+import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
 
 import java.util.function.Function;
 
@@ -67,8 +68,16 @@ public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
 
             return models().withExistingParent(getName(block) + variant, modLoc("block/template_desk" + (drawer ? "_drawer" : "" )+ variant)).texture("desk", modLoc("block/desk/" + name));
         }));
+        ModBlocks.FABRIC_DESK_LAMPS.forEach((color, registryObject) -> take(block -> {
+            ModelFile model = models().withExistingParent(getName(block), modLoc("block/template_fabric_desk_lamp")).texture("color", modLoc("block/fabric_desk_lamp/colors/" + color));
+            ModelFile modelOn = models().withExistingParent(getName(block) + "_on", modLoc("block/template_fabric_desk_lamp_on")).texture("color", modLoc("block/fabric_desk_lamp/colors/" + color));
 
-       // forEach(this::simpleBlock);
+            this.getVariantBuilder(block).forAllStatesExcept(blockState -> {
+                return ConfiguredModel.builder().modelFile(blockState.getValue(ModBlockStateProperties.SWITCHED_ON) ? modelOn : model).build();
+            }, BlockStateProperties.WATERLOGGED);
+        }, registryObject));
+
+        // forEach(this::simpleBlock);
     }
 
     @Override

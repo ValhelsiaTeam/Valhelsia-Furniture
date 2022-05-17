@@ -1,6 +1,7 @@
 package net.valhelsia.valhelsia_furniture.core.registry;
 
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.fml.common.Mod;
@@ -9,9 +10,13 @@ import net.valhelsia.valhelsia_core.client.util.ValhelsiaRenderType;
 import net.valhelsia.valhelsia_core.core.registry.block.BlockRegistryHelper;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.*;
+import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Supplier;
 
 /**
  * Mod Blocks <br>
@@ -118,6 +123,11 @@ public class ModBlocks {
     public static final RegistryObject<DeskDrawerBlock> CRIMSON_DESK_DRAWER = HELPER.register("crimson_desk_drawer", () -> new DeskDrawerBlock(ModTags.Blocks.CRIMSON_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
     public static final RegistryObject<DeskDrawerBlock> WARPED_DESK_DRAWER = HELPER.register("warped_desk_drawer", () -> new DeskDrawerBlock(ModTags.Blocks.WARPED_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
 
+    // Fabric Desk Lamps
+    public static final Map<DyeColor, RegistryObject<FabricDeskLampBlock>> FABRIC_DESK_LAMPS = registerColorVariants("fabric_desk_lamp", () -> new FabricDeskLampBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion().lightLevel(state -> {
+        return state.getValue(ModBlockStateProperties.SWITCHED_ON) ? 14 : 0;
+    })), ValhelsiaRenderType.CUTOUT);
+
     public static List<RegistryObject<TableBlock>> registerTables(String name, ValhelsiaRenderType renderType) {
         List<RegistryObject<TableBlock>> list = new ArrayList<>();
 
@@ -156,5 +166,15 @@ public class ModBlocks {
         }
 
         return list;
+    }
+
+    public static<T extends Block> Map<DyeColor, RegistryObject<T>> registerColorVariants(String name, Supplier<T> block, ValhelsiaRenderType renderType) {
+        Map<DyeColor, RegistryObject<T>> map = new HashMap<>();
+
+        for (DyeColor color : DyeColor.values()) {
+            map.put(color, HELPER.register(color.getName() + "_" + name, block, renderType));
+        }
+
+        return map;
     }
 }

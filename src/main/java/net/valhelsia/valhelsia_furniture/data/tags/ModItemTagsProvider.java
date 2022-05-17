@@ -32,5 +32,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         this.copy(ModTags.Blocks.CRIMSON_DESKS, ModTags.Items.CRIMSON_DESKS);
         this.copy(ModTags.Blocks.WARPED_DESKS, ModTags.Items.WARPED_DESKS);
         this.copy(ModTags.Blocks.DESKS, ModTags.Items.DESKS);
+        this.copy(ModTags.Blocks.FABRIC_DESK_LAMPS, ModTags.Items.FABRIC_DESK_LAMPS);
     }
 }

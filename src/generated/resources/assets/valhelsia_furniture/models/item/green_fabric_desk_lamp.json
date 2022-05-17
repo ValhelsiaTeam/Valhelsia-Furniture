@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "valhelsia_furniture:item/green_fabric_desk_lamp"
+  }
+}

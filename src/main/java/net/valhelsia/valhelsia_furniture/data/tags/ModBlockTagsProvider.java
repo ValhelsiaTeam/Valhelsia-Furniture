@@ -34,6 +34,6 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         this.tag(ModTags.Blocks.CRIMSON_DESKS).add(ModBlocks.CRIMSON_DESK.get(), ModBlocks.CRIMSON_DESK_DRAWER.get());
         this.tag(ModTags.Blocks.WARPED_DESKS).add(ModBlocks.WARPED_DESK.get(), ModBlocks.WARPED_DESK_DRAWER.get());
         this.tag(ModTags.Blocks.DESKS).addTag(ModTags.Blocks.OAK_DESKS).addTag(ModTags.Blocks.SPRUCE_DESKS).addTag(ModTags.Blocks.BIRCH_DESKS).addTag(ModTags.Blocks.JUNGLE_DESKS).addTag(ModTags.Blocks.ACACIA_DESKS).addTag(ModTags.Blocks.DARK_OAK_DESKS).addTag(ModTags.Blocks.CRIMSON_DESKS).addTag(ModTags.Blocks.WARPED_DESKS);
-
+        ModBlocks.FABRIC_DESK_LAMPS.values().forEach(registryObject -> this.tag(ModTags.Blocks.FABRIC_DESK_LAMPS).add(registryObject.get()));
     }
 }

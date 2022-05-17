@@ -28,6 +28,7 @@ public class ModTags {
         public static final TagKey<Block> CRIMSON_DESKS = modTag("crimson_desks");
         public static final TagKey<Block> WARPED_DESKS = modTag("warped_desks");
         public static final TagKey<Block> DESKS = modTag("desks");
+        public static final TagKey<Block> FABRIC_DESK_LAMPS = modTag("fabric_desk_lamps");
 
         private static TagKey<Block> forgeTag(String name) {
             return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation("forge", name));
@@ -49,6 +50,7 @@ public class ModTags {
         public static final TagKey<Item> CRIMSON_DESKS = modTag("crimson_desks");
         public static final TagKey<Item> WARPED_DESKS = modTag("warped_desks");
         public static final TagKey<Item> DESKS = modTag("desks");
+        public static final TagKey<Item> FABRIC_DESK_LAMPS = modTag("fabric_desk_lamps");
 
         private static TagKey<Item> forgeTag(String name) {
             return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("forge", name));
