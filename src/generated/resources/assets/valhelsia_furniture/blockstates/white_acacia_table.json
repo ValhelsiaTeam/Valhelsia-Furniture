@@ -3,109 +3,109 @@
     "east=false,north=false,rotated=false,south=false,west=false": {
       "model": "valhelsia_furniture:block/white_acacia_table"
     },
-    "east=true,north=false,rotated=false,south=false,west=false": {
-      "model": "valhelsia_furniture:block/white_acacia_table_e"
+    "east=false,north=false,rotated=false,south=false,west=true": {
+      "model": "valhelsia_furniture:block/white_acacia_table_w"
     },
-    "east=false,north=true,rotated=false,south=false,west=false": {
-      "model": "valhelsia_furniture:block/white_acacia_table_n"
+    "east=false,north=false,rotated=false,south=true,west=false": {
+      "model": "valhelsia_furniture:block/white_acacia_table_s"
     },
-    "east=true,north=true,rotated=false,south=false,west=false": {
-      "model": "valhelsia_furniture:block/white_acacia_table_ne"
+    "east=false,north=false,rotated=false,south=true,west=true": {
+      "model": "valhelsia_furniture:block/white_acacia_table_sw"
     },
     "east=false,north=false,rotated=true,south=false,west=false": {
       "model": "valhelsia_furniture:block/white_acacia_table",
       "y": 90
     },
-    "east=true,north=false,rotated=true,south=false,west=false": {
-      "model": "valhelsia_furniture:block/white_acacia_table_s",
+    "east=false,north=false,rotated=true,south=false,west=true": {
+      "model": "valhelsia_furniture:block/white_acacia_table_n",
       "y": 270
-    },
-    "east=false,north=true,rotated=true,south=false,west=false": {
-      "model": "valhelsia_furniture:block/white_acacia_table_e",
-      "y": 270
-    },
-    "east=true,north=true,rotated=true,south=false,west=false": {
-      "model": "valhelsia_furniture:block/white_acacia_table_es",
-      "y": 270
-    },
-    "east=false,north=false,rotated=false,south=true,west=false": {
-      "model": "valhelsia_furniture:block/white_acacia_table_s"
-    },
-    "east=true,north=false,rotated=false,south=true,west=false": {
-      "model": "valhelsia_furniture:block/white_acacia_table_es"
-    },
-    "east=false,north=true,rotated=false,south=true,west=false": {
-      "model": "valhelsia_furniture:block/white_acacia_table_ns"
-    },
-    "east=true,north=true,rotated=false,south=true,west=false": {
-      "model": "valhelsia_furniture:block/white_acacia_table_nes"
     },
     "east=false,north=false,rotated=true,south=true,west=false": {
       "model": "valhelsia_furniture:block/white_acacia_table_w",
       "y": 270
     },
-    "east=true,north=false,rotated=true,south=true,west=false": {
-      "model": "valhelsia_furniture:block/white_acacia_table_sw",
+    "east=false,north=false,rotated=true,south=true,west=true": {
+      "model": "valhelsia_furniture:block/white_acacia_table_nw",
       "y": 270
     },
-    "east=false,north=true,rotated=true,south=true,west=false": {
-      "model": "valhelsia_furniture:block/white_acacia_table_ew",
-      "y": 270
-    },
-    "east=true,north=true,rotated=true,south=true,west=false": {
-      "model": "valhelsia_furniture:block/white_acacia_table_esw",
-      "y": 270
-    },
-    "east=false,north=false,rotated=false,south=false,west=true": {
-      "model": "valhelsia_furniture:block/white_acacia_table_w"
-    },
-    "east=true,north=false,rotated=false,south=false,west=true": {
-      "model": "valhelsia_furniture:block/white_acacia_table_ew"
+    "east=false,north=true,rotated=false,south=false,west=false": {
+      "model": "valhelsia_furniture:block/white_acacia_table_n"
     },
     "east=false,north=true,rotated=false,south=false,west=true": {
       "model": "valhelsia_furniture:block/white_acacia_table_nw"
     },
-    "east=true,north=true,rotated=false,south=false,west=true": {
-      "model": "valhelsia_furniture:block/white_acacia_table_new"
+    "east=false,north=true,rotated=false,south=true,west=false": {
+      "model": "valhelsia_furniture:block/white_acacia_table_ns"
     },
-    "east=false,north=false,rotated=true,south=false,west=true": {
-      "model": "valhelsia_furniture:block/white_acacia_table_n",
-      "y": 270
+    "east=false,north=true,rotated=false,south=true,west=true": {
+      "model": "valhelsia_furniture:block/white_acacia_table_nsw"
     },
-    "east=true,north=false,rotated=true,south=false,west=true": {
-      "model": "valhelsia_furniture:block/white_acacia_table_ns",
+    "east=false,north=true,rotated=true,south=false,west=false": {
+      "model": "valhelsia_furniture:block/white_acacia_table_e",
       "y": 270
     },
     "east=false,north=true,rotated=true,south=false,west=true": {
       "model": "valhelsia_furniture:block/white_acacia_table_ne",
       "y": 270
     },
-    "east=true,north=true,rotated=true,south=false,west=true": {
-      "model": "valhelsia_furniture:block/white_acacia_table_nes",
+    "east=false,north=true,rotated=true,south=true,west=false": {
+      "model": "valhelsia_furniture:block/white_acacia_table_ew",
       "y": 270
     },
-    "east=false,north=false,rotated=false,south=true,west=true": {
-      "model": "valhelsia_furniture:block/white_acacia_table_sw"
+    "east=false,north=true,rotated=true,south=true,west=true": {
+      "model": "valhelsia_furniture:block/white_acacia_table_new",
+      "y": 270
+    },
+    "east=true,north=false,rotated=false,south=false,west=false": {
+      "model": "valhelsia_furniture:block/white_acacia_table_e"
+    },
+    "east=true,north=false,rotated=false,south=false,west=true": {
+      "model": "valhelsia_furniture:block/white_acacia_table_ew"
+    },
+    "east=true,north=false,rotated=false,south=true,west=false": {
+      "model": "valhelsia_furniture:block/white_acacia_table_es"
     },
     "east=true,north=false,rotated=false,south=true,west=true": {
       "model": "valhelsia_furniture:block/white_acacia_table_esw"
     },
-    "east=false,north=true,rotated=false,south=true,west=true": {
-      "model": "valhelsia_furniture:block/white_acacia_table_nsw"
+    "east=true,north=false,rotated=true,south=false,west=false": {
+      "model": "valhelsia_furniture:block/white_acacia_table_s",
+      "y": 270
     },
-    "east=true,north=true,rotated=false,south=true,west=true": {
-      "model": "valhelsia_furniture:block/white_acacia_table_nesw"
+    "east=true,north=false,rotated=true,south=false,west=true": {
+      "model": "valhelsia_furniture:block/white_acacia_table_ns",
+      "y": 270
     },
-    "east=false,north=false,rotated=true,south=true,west=true": {
-      "model": "valhelsia_furniture:block/white_acacia_table_nw",
+    "east=true,north=false,rotated=true,south=true,west=false": {
+      "model": "valhelsia_furniture:block/white_acacia_table_sw",
       "y": 270
     },
     "east=true,north=false,rotated=true,south=true,west=true": {
       "model": "valhelsia_furniture:block/white_acacia_table_nsw",
       "y": 270
     },
-    "east=false,north=true,rotated=true,south=true,west=true": {
-      "model": "valhelsia_furniture:block/white_acacia_table_new",
+    "east=true,north=true,rotated=false,south=false,west=false": {
+      "model": "valhelsia_furniture:block/white_acacia_table_ne"
+    },
+    "east=true,north=true,rotated=false,south=false,west=true": {
+      "model": "valhelsia_furniture:block/white_acacia_table_new"
+    },
+    "east=true,north=true,rotated=false,south=true,west=false": {
+      "model": "valhelsia_furniture:block/white_acacia_table_nes"
+    },
+    "east=true,north=true,rotated=false,south=true,west=true": {
+      "model": "valhelsia_furniture:block/white_acacia_table_nesw"
+    },
+    "east=true,north=true,rotated=true,south=false,west=false": {
+      "model": "valhelsia_furniture:block/white_acacia_table_es",
+      "y": 270
+    },
+    "east=true,north=true,rotated=true,south=false,west=true": {
+      "model": "valhelsia_furniture:block/white_acacia_table_nes",
+      "y": 270
+    },
+    "east=true,north=true,rotated=true,south=true,west=false": {
+      "model": "valhelsia_furniture:block/white_acacia_table_esw",
       "y": 270
     },
     "east=true,north=true,rotated=true,south=true,west=true": {

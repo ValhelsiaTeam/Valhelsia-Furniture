@@ -5,7 +5,6 @@ import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
@@ -39,7 +38,7 @@ import java.util.Map;
  * Valhelsia Furniture - net.valhelsia.valhelsia_furniture.common.block.TableBlock
  *
  * @author Valhelsia Team
- * @version 1.18.2 - 0.1.0
+ * @version 1.19 - 0.1.0
  * @since 2022-01-02
  */
 public class TableBlock extends Block implements SimpleWaterloggedBlock {
@@ -367,7 +366,7 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock {
     @Override
     public void appendHoverText(@Nonnull ItemStack stack, @Nullable BlockGetter level, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag flag) {
         if (this.color != null) {
-            tooltip.add(new TranslatableComponent("tooltip.valhelsia_furniture." + this.color + "_tablecloth").withStyle(ChatFormatting.GRAY));
+            tooltip.add(Component.translatable("tooltip.valhelsia_furniture." + this.color + "_tablecloth").withStyle(ChatFormatting.GRAY));
         }
     }
 

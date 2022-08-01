@@ -1,7 +1,7 @@
 {
   "parent": "valhelsia_furniture:block/template_upholstered_chair",
   "textures": {
-    "wool": "valhelsia_furniture:block/upholstered_chair/colors/lime",
-    "wood": "valhelsia_furniture:block/upholstered_chair/base/warped"
+    "wood": "valhelsia_furniture:block/upholstered_chair/base/warped",
+    "wool": "valhelsia_furniture:block/upholstered_chair/colors/lime"
   }
 }

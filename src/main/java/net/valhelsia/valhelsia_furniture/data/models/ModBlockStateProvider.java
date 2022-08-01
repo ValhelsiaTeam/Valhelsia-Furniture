@@ -10,6 +10,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.valhelsia.valhelsia_core.core.data.ValhelsiaBlockStateProvider;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.*;
+import net.valhelsia.valhelsia_furniture.common.block.properties.CurtainPart;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
 
@@ -72,11 +73,20 @@ public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
             ModelFile model = models().withExistingParent(getName(block), modLoc("block/template_fabric_desk_lamp")).texture("color", modLoc("block/fabric_desk_lamp/colors/" + color));
             ModelFile modelOn = models().withExistingParent(getName(block) + "_on", modLoc("block/template_fabric_desk_lamp_on")).texture("color", modLoc("block/fabric_desk_lamp/colors/" + color));
 
-            this.getVariantBuilder(block).forAllStatesExcept(blockState -> {
-                return ConfiguredModel.builder().modelFile(blockState.getValue(ModBlockStateProperties.SWITCHED_ON) ? modelOn : model).build();
+            this.getVariantBuilder(block).forAllStatesExcept(state -> {
+                return ConfiguredModel.builder().modelFile(state.getValue(ModBlockStateProperties.SWITCHED_ON) ? modelOn : model).build();
             }, BlockStateProperties.WATERLOGGED);
         }, registryObject));
+        ModBlocks.CURTAINS.forEach((color, registryObject) -> take(block -> {
+            this.horizontalBlock(block, state -> {
+                CurtainPart part = state.getValue(ModBlockStateProperties.CURTAIN_PART);
+                boolean open = state.getValue(BlockStateProperties.OPEN);
 
+                return models().withExistingParent(getName(block) + part.getModelName() + (open ? "_open" : ""), part.getParentModel())
+                        .texture("top", modLoc("block/curtain/" + color + "/" + part.getTopTexture(open)))
+                        .texture("down", modLoc("block/curtain/" + color + "/" + part.getBottomTexture(open)));
+            });
+        }, registryObject));
         // forEach(this::simpleBlock);
     }
 
