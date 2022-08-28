@@ -82,6 +82,10 @@ public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
                 CurtainPart part = state.getValue(ModBlockStateProperties.CURTAIN_PART);
                 boolean open = state.getValue(BlockStateProperties.OPEN);
 
+                if (part == CurtainPart.TOP) {
+                    return models().getExistingFile(modLoc("block/curtain_bracket"));
+                }
+
                 return models().withExistingParent(getName(block) + part.getModelName() + (open ? "_open" : ""), part.getParentModel())
                         .texture("top", modLoc("block/curtain/" + color + "/" + part.getTopTexture(open)))
                         .texture("down", modLoc("block/curtain/" + color + "/" + part.getBottomTexture(open)));
