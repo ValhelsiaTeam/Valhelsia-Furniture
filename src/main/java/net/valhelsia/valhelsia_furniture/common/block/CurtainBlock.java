@@ -38,7 +38,14 @@ import java.util.Map;
 public class CurtainBlock extends Block {
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    private static final Map<Direction, VoxelShape> SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(0.0D, 0.0D, 14.0D, 16.0D, 16.0D, 16.0D));
+
+    private static final VoxelShape BRACKET_SHAPE = Block.box(0.0D, 14.0D, 14.0D, 16.0D, 16.0D, 16.0D);
+    private static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 15.0D, 16.0D, 16.0D, 16.0D);
+
+    private static final Map<Direction, VoxelShape> TOP_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Shapes.or(SHAPE, BRACKET_SHAPE));
+    private static final Map<Direction, VoxelShape> SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(SHAPE);
+    private static final Map<Direction, VoxelShape> BRACKET_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(BRACKET_SHAPE);
+
     public static BooleanProperty OPEN = BlockStateProperties.OPEN;
     public static EnumProperty<CurtainPart> PART = ModBlockStateProperties.CURTAIN_PART;
 
@@ -59,13 +66,30 @@ public class CurtainBlock extends Block {
     @Nonnull
     @Override
     public VoxelShape getShape(@Nonnull BlockState state, @Nonnull BlockGetter level, @Nonnull BlockPos pos, @Nonnull CollisionContext context) {
-        return SHAPES.get(state.getValue(FACING));
+        Direction facing = state.getValue(FACING);
+        CurtainPart part = state.getValue(PART);
+
+        if (state.getValue(OPEN)) {
+            if (part == CurtainPart.MIDDLE) {
+                return Shapes.empty();
+            } else if (part == CurtainPart.TOP) {
+                return BRACKET_SHAPES.get(facing);
+            }
+        }
+
+        return part.isTopOrSingle() ? TOP_SHAPES.get(facing) : SHAPES.get(facing);
     }
 
     @Nonnull
     @Override
     public VoxelShape getBlockSupportShape(@Nonnull BlockState state, @Nonnull BlockGetter blockGetter, @Nonnull BlockPos pos) {
         return Shapes.empty();
+    }
+
+    @Nonnull
+    @Override
+    public VoxelShape getCollisionShape(@Nonnull BlockState state, @Nonnull BlockGetter level, @Nonnull BlockPos pos, @Nonnull CollisionContext context) {
+        return state.getValue(PART).isTopOrSingle() ? BRACKET_SHAPES.get(state.getValue(FACING)) : Shapes.empty();
     }
 
     @Nonnull
@@ -157,7 +181,7 @@ public class CurtainBlock extends Block {
     }
 
     private boolean belongTogether(BlockState state, BlockState neighborState) {
-        return neighborState.is(state.getBlock()) && this.hasSameFacing(state, neighborState) && this.isOpen(state) == this.isOpen(neighborState);
+        return neighborState.is(state.getBlock()) && this.hasSameFacing(state, neighborState) && state.getValue(OPEN) == neighborState.getValue(OPEN);
     }
 
     private boolean bothSingle(BlockState state, BlockState neighborState) {
@@ -165,7 +189,7 @@ public class CurtainBlock extends Block {
     }
 
     private boolean hasSameFacing(BlockState state, BlockState neighborState) {
-        return this.getFacing(state) == this.getFacing(neighborState);
+        return state.getValue(FACING) == neighborState.getValue(FACING);
     }
 
     private void openRow(Level level, BlockPos topPos, int length, boolean leftConnected, boolean rightConnected, boolean open) {
@@ -269,7 +293,7 @@ public class CurtainBlock extends Block {
         BlockPos.MutableBlockPos pos = currentPos.mutable();
         BlockState state = level.getBlockState(pos.above());
 
-        while (state.is(this) && !state.getValue(PART).isBottomOrSingle() && this.isOpen(state) == open) {
+        while (state.is(this) && !state.getValue(PART).isBottomOrSingle() && state.getValue(OPEN) == open) {
             pos.move(Direction.UP);
 
             state = level.getBlockState(pos.above());
@@ -284,7 +308,7 @@ public class CurtainBlock extends Block {
 
         int length = 1;
 
-        while (state.is(this) && !state.getValue(PART).isTopOrSingle() && this.isOpen(state) == open) {
+        while (state.is(this) && !state.getValue(PART).isTopOrSingle() && state.getValue(OPEN) == open) {
             state = level.getBlockState(pos.move(Direction.DOWN));
 
             length++;
@@ -295,7 +319,7 @@ public class CurtainBlock extends Block {
 
     @Override
     public void onRemove(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos, @Nonnull BlockState newState, boolean isMoving) {
-        if (!state.is(newState.getBlock()) && this.isOpen(state) && state.getValue(PART) != CurtainPart.SINGLE) {
+        if (!state.is(newState.getBlock()) && state.getValue(OPEN) && state.getValue(PART) != CurtainPart.SINGLE) {
             level.setBlockAndUpdate(pos, state);
 
             this.updateOpen(state, level, pos);
@@ -303,21 +327,13 @@ public class CurtainBlock extends Block {
             level.removeBlock(pos, false);
         }
 
+
         if (!state.is(newState.getBlock())) {
             this.updateAboveAndBelow(level, newState, pos.above(), pos.below(), state.getValue(FACING));
         }
 
         super.onRemove(state, level, pos, newState, isMoving);
     }
-
-    private boolean isOpen(BlockState state) {
-        return state.getValue(OPEN);
-    }
-
-    private Direction getFacing(BlockState state) {
-        return state.getValue(FACING);
-    }
-
     @Override
     protected void createBlockStateDefinition(@Nonnull StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(OPEN, PART, FACING);
