@@ -232,46 +232,5 @@
 				"down": {"uv": [3.66667, 9.66667, 2.66667, 10.66667], "texture": "#0", "cullface": "down"}
 			}
 		}
-	],
-	"groups": [
-		{
-			"name": "Desk_drawer",
-			"origin": [8, 0, 8],
-			"color": 0,
-			"nbt": "{}",
-			"armAnimationEnabled": false,
-			"children": [
-				{
-					"name": "top",
-					"origin": [8, 0, 8],
-					"color": 0,
-					"nbt": "{}",
-					"armAnimationEnabled": false,
-					"children": [0]
-				},
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				{
-					"name": "adorn",
-					"origin": [8, 0, 8],
-					"color": 0,
-					"nbt": "{}",
-					"armAnimationEnabled": false,
-					"children": [7, 8, 9, 10, 11]
-				},
-				12,
-				13,
-				14,
-				15,
-				16,
-				17,
-				18,
-				19
-			]
-		}
 	]
 }

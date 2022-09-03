@@ -41,32 +41,5 @@
 				"down": {"uv": [13.33333, 5, 16, 5.33333], "texture": "#0"}
 			}
 		}
-	],
-	"groups": [
-		{
-			"name": "Desk",
-			"origin": [8, 0, 8],
-			"color": 0,
-			"nbt": "{}",
-			"armAnimationEnabled": false,
-			"children": [
-				{
-					"name": "top",
-					"origin": [8, 0, 8],
-					"color": 0,
-					"nbt": "{}",
-					"armAnimationEnabled": false,
-					"children": [0]
-				},
-				{
-					"name": "adorn",
-					"origin": [8, 0, 8],
-					"color": 0,
-					"nbt": "{}",
-					"armAnimationEnabled": false,
-					"children": [1, 2]
-				}
-			]
-		}
 	]
 }
