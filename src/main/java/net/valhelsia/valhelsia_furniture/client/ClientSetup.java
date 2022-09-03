@@ -39,11 +39,23 @@ public class ClientSetup {
             list.add(pos);
 
             if (state.getValue(ModBlockStateProperties.LEFT)) {
-                list.add(pos.relative(facing.getClockWise()));
+                BlockPos relativePos = pos.relative(facing.getClockWise());
+
+                list.add(relativePos);
+
+                if (level.getBlockState(relativePos).getValue(ModBlockStateProperties.LEFT)) {
+                    list.add(relativePos.relative(facing.getClockWise()));
+                }
             }
 
             if (state.getValue(ModBlockStateProperties.RIGHT)) {
-                list.add(pos.relative(facing.getCounterClockWise()));
+                BlockPos relativePos = pos.relative(facing.getCounterClockWise());
+
+                list.add(relativePos);
+
+                if (level.getBlockState(relativePos).getValue(ModBlockStateProperties.RIGHT)) {
+                    list.add(relativePos.relative(facing.getCounterClockWise()));
+                }
             }
 
             return BlockCombiner.combine(list);
