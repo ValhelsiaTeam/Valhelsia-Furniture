@@ -1,5 +1,5 @@
 {
-    "itemGroup.valhelsia_furniture_main": "Valhelsia Furniture",
+    "itemGroup.valhelsia_furniture": "Valhelsia Furniture",
 
     "block.valhelsia_furniture.oak_table": "Oak Table",
     "block.valhelsia_furniture.spruce_table": "Spruce Table",
@@ -123,5 +123,7 @@
     "tooltip.valhelsia_furniture.red_wool_seat": "Red Wool Seat",
     "tooltip.valhelsia_furniture.black_wool_seat": "Black Wool Seat",
 
-    "tooltip.valhelsia_furniture.hay_seat": "Hay Seat"
+    "tooltip.valhelsia_furniture.hay_seat": "Hay Seat",
+
+    "container.valhelsia_furniture.desk_drawer": "Desk Drawer"
 }

@@ -12,7 +12,9 @@ import net.valhelsia.valhelsia_core.core.registry.helper.RegistryHelper;
 import net.valhelsia.valhelsia_core.core.registry.helper.block.BlockRegistryHelper;
 import net.valhelsia.valhelsia_furniture.client.ClientSetup;
 import net.valhelsia.valhelsia_furniture.common.item.FurnitureCreativeModeTab;
+import net.valhelsia.valhelsia_furniture.core.registry.ModBlockEntities;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
+import net.valhelsia.valhelsia_furniture.core.registry.ModEntities;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,7 +30,8 @@ public class ValhelsiaFurniture {
     public static final RegistryManager REGISTRY_MANAGER = RegistryManager.builder(MOD_ID)
             .addHelper(ForgeRegistries.Keys.BLOCKS, new BlockRegistryHelper(CREATIVE_MODE_TAB, ModBlocks::new))
             .addHelper(ForgeRegistries.Keys.ITEMS, new RegistryHelper<>())
-            .addHelper(ForgeRegistries.Keys.ENTITY_TYPES, new RegistryHelper<>())
+            .addHelper(ForgeRegistries.Keys.ENTITY_TYPES, new RegistryHelper<>(ModEntities::new))
+            .addHelper(ForgeRegistries.Keys.BLOCK_ENTITY_TYPES, new RegistryHelper<>(ModBlockEntities::new))
             .create();
 
     public ValhelsiaFurniture() {
