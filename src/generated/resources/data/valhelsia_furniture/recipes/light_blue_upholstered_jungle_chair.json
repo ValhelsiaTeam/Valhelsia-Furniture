@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "valhelsia_furniture:upholstered_jungle",
+  "key": {
+    "#": {
+      "item": "minecraft:jungle_planks"
+    },
+    "W": {
+      "item": "minecraft:light_blue_wool"
+    },
+    "X": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "W  ",
+    "#WW",
+    "X X"
+  ],
+  "result": {
+    "count": 2,
+    "item": "valhelsia_furniture:light_blue_upholstered_jungle_chair"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "valhelsia_furniture:upholstered_jungle",
+  "key": {
+    "#": {
+      "item": "minecraft:jungle_slab"
+    },
+    "W": {
+      "item": "minecraft:black_wool"
+    },
+    "X": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "#W#",
+    "X X"
+  ],
+  "result": {
+    "count": 2,
+    "item": "valhelsia_furniture:black_upholstered_jungle_stool"
+  }
+}

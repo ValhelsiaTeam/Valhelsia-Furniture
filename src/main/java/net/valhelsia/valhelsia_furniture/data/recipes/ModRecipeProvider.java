@@ -50,16 +50,25 @@ public class ModRecipeProvider extends RecipeProvider {
         this.addDeskRecipes(ModBlocks.CRIMSON_DESK, ModBlocks.CRIMSON_DESK_DRAWER, Blocks.CRIMSON_PLANKS, Blocks.CRIMSON_SLAB, consumer);
         this.addDeskRecipes(ModBlocks.WARPED_DESK, ModBlocks.WARPED_DESK_DRAWER, Blocks.WARPED_PLANKS, Blocks.WARPED_SLAB, consumer);
 
-        this.addChairRecipes(ModBlocks.OAK_CHAIR, ModBlocks.HAY_OAK_CHAIR, Blocks.OAK_PLANKS, ModBlocks.WOOL_OAK_CHAIRS, consumer);
-        this.addChairRecipes(ModBlocks.SPRUCE_CHAIR, ModBlocks.HAY_SPRUCE_CHAIR, Blocks.SPRUCE_PLANKS, ModBlocks.WOOL_SPRUCE_CHAIRS, consumer);
-        this.addChairRecipes(ModBlocks.BIRCH_CHAIR, ModBlocks.HAY_BIRCH_CHAIR, Blocks.BIRCH_PLANKS, ModBlocks.WOOL_BIRCH_CHAIRS, consumer);
-        this.addChairRecipes(ModBlocks.JUNGLE_CHAIR, ModBlocks.HAY_JUNGLE_CHAIR, Blocks.JUNGLE_PLANKS, ModBlocks.WOOL_JUNGLE_CHAIRS, consumer);
-        this.addChairRecipes(ModBlocks.ACACIA_CHAIR, ModBlocks.HAY_ACACIA_CHAIR, Blocks.ACACIA_PLANKS, ModBlocks.WOOL_ACACIA_CHAIRS, consumer);
-        this.addChairRecipes(ModBlocks.DARK_OAK_CHAIR, ModBlocks.HAY_DARK_OAK_CHAIR, Blocks.DARK_OAK_PLANKS, ModBlocks.WOOL_DARK_OAK_CHAIRS, consumer);
-        this.addChairRecipes(ModBlocks.CRIMSON_CHAIR, ModBlocks.HAY_CRIMSON_CHAIR, Blocks.CRIMSON_PLANKS, ModBlocks.WOOL_CRIMSON_CHAIRS, consumer);
-        this.addChairRecipes(ModBlocks.WARPED_CHAIR, ModBlocks.HAY_WARPED_CHAIR, Blocks.WARPED_PLANKS, ModBlocks.WOOL_WARPED_CHAIRS, consumer);
+        this.addChairRecipes(ModBlocks.OAK_CHAIR, ModBlocks.HAY_OAK_CHAIR, Blocks.OAK_PLANKS, ModBlocks.WOOL_OAK_CHAIRS, ModBlocks.WOOL_UPHOLSTERED_OAK_CHAIRS, consumer);
+        this.addChairRecipes(ModBlocks.SPRUCE_CHAIR, ModBlocks.HAY_SPRUCE_CHAIR, Blocks.SPRUCE_PLANKS, ModBlocks.WOOL_SPRUCE_CHAIRS, ModBlocks.WOOL_UPHOLSTERED_SPRUCE_CHAIRS, consumer);
+        this.addChairRecipes(ModBlocks.BIRCH_CHAIR, ModBlocks.HAY_BIRCH_CHAIR, Blocks.BIRCH_PLANKS, ModBlocks.WOOL_BIRCH_CHAIRS, ModBlocks.WOOL_UPHOLSTERED_BIRCH_CHAIRS, consumer);
+        this.addChairRecipes(ModBlocks.JUNGLE_CHAIR, ModBlocks.HAY_JUNGLE_CHAIR, Blocks.JUNGLE_PLANKS, ModBlocks.WOOL_JUNGLE_CHAIRS, ModBlocks.WOOL_UPHOLSTERED_JUNGLE_CHAIRS, consumer);
+        this.addChairRecipes(ModBlocks.ACACIA_CHAIR, ModBlocks.HAY_ACACIA_CHAIR, Blocks.ACACIA_PLANKS, ModBlocks.WOOL_ACACIA_CHAIRS, ModBlocks.WOOL_UPHOLSTERED_ACACIA_CHAIRS, consumer);
+        this.addChairRecipes(ModBlocks.DARK_OAK_CHAIR, ModBlocks.HAY_DARK_OAK_CHAIR, Blocks.DARK_OAK_PLANKS, ModBlocks.WOOL_DARK_OAK_CHAIRS, ModBlocks.WOOL_UPHOLSTERED_DARK_OAK_CHAIRS, consumer);
+        this.addChairRecipes(ModBlocks.CRIMSON_CHAIR, ModBlocks.HAY_CRIMSON_CHAIR, Blocks.CRIMSON_PLANKS, ModBlocks.WOOL_CRIMSON_CHAIRS, ModBlocks.WOOL_UPHOLSTERED_CRIMSON_CHAIRS, consumer);
+        this.addChairRecipes(ModBlocks.WARPED_CHAIR, ModBlocks.HAY_WARPED_CHAIR, Blocks.WARPED_PLANKS, ModBlocks.WOOL_WARPED_CHAIRS, ModBlocks.WOOL_UPHOLSTERED_WARPED_CHAIRS, consumer);
 
         ModBlocks.CURTAINS.forEach((dyeColor, registryObject) -> this.curtain(registryObject, dyeColor, consumer));
+
+        this.addStoolRecipes(ModBlocks.OAK_STOOL, Blocks.OAK_SLAB, ModBlocks.WOOL_UPHOLSTERED_OAK_STOOLS, consumer);
+        this.addStoolRecipes(ModBlocks.SPRUCE_STOOL, Blocks.SPRUCE_SLAB, ModBlocks.WOOL_UPHOLSTERED_SPRUCE_STOOLS, consumer);
+        this.addStoolRecipes(ModBlocks.BIRCH_STOOL, Blocks.BIRCH_SLAB, ModBlocks.WOOL_UPHOLSTERED_BIRCH_STOOLS, consumer);
+        this.addStoolRecipes(ModBlocks.JUNGLE_STOOL, Blocks.JUNGLE_SLAB, ModBlocks.WOOL_UPHOLSTERED_JUNGLE_STOOLS, consumer);
+        this.addStoolRecipes(ModBlocks.ACACIA_STOOL, Blocks.ACACIA_SLAB, ModBlocks.WOOL_UPHOLSTERED_ACACIA_STOOLS, consumer);
+        this.addStoolRecipes(ModBlocks.DARK_OAK_STOOL, Blocks.DARK_OAK_SLAB, ModBlocks.WOOL_UPHOLSTERED_DARK_OAK_STOOLS, consumer);
+        this.addStoolRecipes(ModBlocks.CRIMSON_STOOL, Blocks.CRIMSON_SLAB, ModBlocks.WOOL_UPHOLSTERED_CRIMSON_STOOLS, consumer);
+        this.addStoolRecipes(ModBlocks.WARPED_STOOL, Blocks.WARPED_SLAB, ModBlocks.WOOL_UPHOLSTERED_WARPED_STOOLS, consumer);
     }
 
     private void addTableRecipes(RegistryObject<TableBlock> table, ItemLike material, List<RegistryObject<TableBlock>> coloredTables, @Nonnull Consumer<FinishedRecipe> consumer) {
@@ -95,12 +104,16 @@ public class ModRecipeProvider extends RecipeProvider {
         ShapedRecipeBuilder.shaped(block.get()).group("valhelsia_furniture:desk_drawer").pattern("###").pattern("#S#").pattern("X X").define('#', material).define('X', Tags.Items.RODS_WOODEN).define('S', materialSlab).unlockedBy("has_item", has(material)).unlockedBy("has_slab", has(materialSlab)).save(consumer);
     }
 
-    private void addChairRecipes(RegistryObject<ChairBlock> chair, RegistryObject<ChairBlock> hayChair, ItemLike material, List<RegistryObject<ChairBlock>> coloredChairs, @Nonnull Consumer<FinishedRecipe> consumer) {
+    private void addChairRecipes(RegistryObject<ChairBlock> chair, RegistryObject<ChairBlock> hayChair, ItemLike material, List<RegistryObject<ChairBlock>> coloredChairs, List<RegistryObject<UpholsteredChairBlock>> upholsteredChairs, @Nonnull Consumer<FinishedRecipe> consumer) {
         this.chair(chair, material, consumer);
         this.hayChair(hayChair, material, consumer);
 
         coloredChairs.forEach(registryObject -> {
             this.coloredChair(registryObject, material, consumer);
+        });
+
+        upholsteredChairs.forEach(registryObject -> {
+            this.upholsteredChair(registryObject, material, consumer);
         });
     }
 
@@ -120,11 +133,40 @@ public class ModRecipeProvider extends RecipeProvider {
         ShapedRecipeBuilder.shaped(block.get(), 2).group("valhelsia_furniture:hayChair").pattern("X  ").pattern("#HH").pattern("X X").define('#', material).define('X', Tags.Items.RODS_WOODEN).define('H', Blocks.HAY_BLOCK).unlockedBy("has_item", has(material)).unlockedBy("has_hay_block", has(Blocks.HAY_BLOCK)).save(consumer);
     }
 
+    private void upholsteredChair(RegistryObject<UpholsteredChairBlock> block, ItemLike material, @Nonnull Consumer<FinishedRecipe> consumer) {
+        Block wool = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(Objects.requireNonNull(block.get().getColor()).getName() + "_wool"));
+
+        if (wool != null) {
+            ShapedRecipeBuilder.shaped(block.get(), 2).group("valhelsia_furniture:upholstered_" + block.get().getBaseName()).pattern("W  ").pattern("#WW").pattern("X X").define('#', material).define('X', Tags.Items.RODS_WOODEN).define('W', wool).unlockedBy("has_item", has(material)).unlockedBy("has_wool", has(wool)).save(consumer);
+        }
+    }
+
     private void curtain(RegistryObject<CurtainBlock> block, DyeColor color, @Nonnull Consumer<FinishedRecipe> consumer) {
         Block wool = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(color.getName() + "_wool"));
 
         if (wool != null) {
             ShapedRecipeBuilder.shaped(block.get(), 2).group("valhelsia_furniture:curtain").pattern("XX").pattern("##").pattern("##").define('#', wool).define('X', Tags.Items.RODS_WOODEN).unlockedBy("has_item", has(wool)).save(consumer);
+        }
+    }
+
+    private void addStoolRecipes(RegistryObject<StoolBlock> stool, ItemLike material, List<RegistryObject<StoolBlock>> upholsteredStools, @Nonnull Consumer<FinishedRecipe> consumer) {
+        this.stool(stool, material, consumer);
+
+        upholsteredStools.forEach(registryObject -> {
+            this.upholsteredStool(registryObject, material, consumer);
+        });
+    }
+
+
+    private void stool(RegistryObject<StoolBlock> block, ItemLike material, @Nonnull Consumer<FinishedRecipe> consumer) {
+        ShapedRecipeBuilder.shaped(block.get(), 2).group("valhelsia_furniture:stool").pattern("###").pattern("X X").define('#', material).define('X', Tags.Items.RODS_WOODEN).unlockedBy("has_item", has(material)).save(consumer);
+    }
+
+    private void upholsteredStool(RegistryObject<StoolBlock> block, ItemLike material, @Nonnull Consumer<FinishedRecipe> consumer) {
+        Block wool = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(Objects.requireNonNull(block.get().getColor()).getName() + "_wool"));
+
+        if (wool != null) {
+            ShapedRecipeBuilder.shaped(block.get(), 2).group("valhelsia_furniture:upholstered_" + block.get().getBaseName()).pattern("#W#").pattern("X X").define('#', material).define('X', Tags.Items.RODS_WOODEN).define('W', wool).unlockedBy("has_item", has(material)).unlockedBy("has_wool", has(wool)).save(consumer);
         }
     }
 }
