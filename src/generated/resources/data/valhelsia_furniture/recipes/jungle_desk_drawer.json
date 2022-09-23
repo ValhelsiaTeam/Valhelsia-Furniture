@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "valhelsia_furniture:desk_drawer",
+  "key": {
+    "#": {
+      "item": "minecraft:jungle_planks"
+    },
+    "S": {
+      "item": "minecraft:jungle_slab"
+    },
+    "X": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "###",
+    "#S#",
+    "X X"
+  ],
+  "result": {
+    "item": "valhelsia_furniture:jungle_desk_drawer"
+  }
+}

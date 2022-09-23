@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "valhelsia_furniture:curtain",
+  "key": {
+    "#": {
+      "item": "minecraft:yellow_wool"
+    },
+    "X": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "XX",
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 2,
+    "item": "valhelsia_furniture:yellow_curtain"
+  }
+}

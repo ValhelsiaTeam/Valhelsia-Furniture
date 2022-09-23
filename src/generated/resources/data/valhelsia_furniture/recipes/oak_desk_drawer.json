@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "valhelsia_furniture:desk_drawer",
+  "key": {
+    "#": {
+      "item": "minecraft:oak_planks"
+    },
+    "S": {
+      "item": "minecraft:oak_slab"
+    },
+    "X": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "###",
+    "#S#",
+    "X X"
+  ],
+  "result": {
+    "item": "valhelsia_furniture:oak_desk_drawer"
+  }
+}

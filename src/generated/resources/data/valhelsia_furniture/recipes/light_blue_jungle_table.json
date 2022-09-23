@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "valhelsia_furniture:colored_jungle_table",
+  "key": {
+    "#": {
+      "item": "minecraft:light_blue_carpet"
+    },
+    "X": {
+      "item": "valhelsia_furniture:jungle_table"
+    }
+  },
+  "pattern": [
+    "#",
+    "X"
+  ],
+  "result": {
+    "item": "valhelsia_furniture:light_blue_jungle_table"
+  }
+}

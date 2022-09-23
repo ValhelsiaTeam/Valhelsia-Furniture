@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.data.models.ModBlockStateProvider;
 import net.valhelsia.valhelsia_furniture.data.models.ModItemModelProvider;
+import net.valhelsia.valhelsia_furniture.data.recipes.ModRecipeProvider;
 import net.valhelsia.valhelsia_furniture.data.tags.ModBlockTagsProvider;
 import net.valhelsia.valhelsia_furniture.data.tags.ModItemTagsProvider;
 
@@ -29,9 +30,10 @@ public class DataGenerators {
         ModBlockTagsProvider blockTagsProvider = new ModBlockTagsProvider(generator, existingFileHelper);
         generator.addProvider(event.includeServer(), blockTagsProvider);
         generator.addProvider(event.includeServer(), new ModItemTagsProvider(generator, blockTagsProvider, existingFileHelper));
+
+        generator.addProvider(event.includeServer(), new ModRecipeProvider(generator));
 //
 //      generator.addProvider(new ModLootTableProvider(generator));
-//      generator.addProvider(new ModRecipeProvider(generator));
 //      generator.addProvider(new ModLootModifierProvider(generator));
     }
 }

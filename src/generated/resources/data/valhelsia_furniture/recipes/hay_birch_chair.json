@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "valhelsia_furniture:hayChair",
+  "key": {
+    "#": {
+      "item": "minecraft:birch_planks"
+    },
+    "H": {
+      "item": "minecraft:hay_block"
+    },
+    "X": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "X  ",
+    "#HH",
+    "X X"
+  ],
+  "result": {
+    "count": 2,
+    "item": "valhelsia_furniture:hay_birch_chair"
+  }
+}

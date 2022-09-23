@@ -360,7 +360,12 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock {
     }
 
     public String getBaseName() {
-        return baseName;
+        return this.baseName;
+    }
+
+    @Nullable
+    public DyeColor getColor() {
+        return this.color;
     }
 
     @Override
