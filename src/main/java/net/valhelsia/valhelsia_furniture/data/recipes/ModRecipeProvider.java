@@ -6,6 +6,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -59,7 +60,7 @@ public class ModRecipeProvider extends RecipeProvider {
         this.addChairRecipes(ModBlocks.CRIMSON_CHAIR, ModBlocks.HAY_CRIMSON_CHAIR, Blocks.CRIMSON_PLANKS, ModBlocks.WOOL_CRIMSON_CHAIRS, ModBlocks.WOOL_UPHOLSTERED_CRIMSON_CHAIRS, consumer);
         this.addChairRecipes(ModBlocks.WARPED_CHAIR, ModBlocks.HAY_WARPED_CHAIR, Blocks.WARPED_PLANKS, ModBlocks.WOOL_WARPED_CHAIRS, ModBlocks.WOOL_UPHOLSTERED_WARPED_CHAIRS, consumer);
 
-        ModBlocks.CURTAINS.forEach((dyeColor, registryObject) -> this.curtain(registryObject, dyeColor, consumer));
+        ModBlocks.CURTAINS.forEach((color, registryObject) -> this.curtain(registryObject, color, consumer));
 
         this.addStoolRecipes(ModBlocks.OAK_STOOL, Blocks.OAK_SLAB, ModBlocks.WOOL_UPHOLSTERED_OAK_STOOLS, consumer);
         this.addStoolRecipes(ModBlocks.SPRUCE_STOOL, Blocks.SPRUCE_SLAB, ModBlocks.WOOL_UPHOLSTERED_SPRUCE_STOOLS, consumer);
@@ -69,6 +70,8 @@ public class ModRecipeProvider extends RecipeProvider {
         this.addStoolRecipes(ModBlocks.DARK_OAK_STOOL, Blocks.DARK_OAK_SLAB, ModBlocks.WOOL_UPHOLSTERED_DARK_OAK_STOOLS, consumer);
         this.addStoolRecipes(ModBlocks.CRIMSON_STOOL, Blocks.CRIMSON_SLAB, ModBlocks.WOOL_UPHOLSTERED_CRIMSON_STOOLS, consumer);
         this.addStoolRecipes(ModBlocks.WARPED_STOOL, Blocks.WARPED_SLAB, ModBlocks.WOOL_UPHOLSTERED_WARPED_STOOLS, consumer);
+
+        ModBlocks.FABRIC_DESK_LAMPS.forEach((color, registryObject) -> this.fabricDeskLamp(registryObject, color, consumer));
     }
 
     private void addTableRecipes(RegistryObject<TableBlock> table, ItemLike material, List<RegistryObject<TableBlock>> coloredTables, @Nonnull Consumer<FinishedRecipe> consumer) {
@@ -167,6 +170,14 @@ public class ModRecipeProvider extends RecipeProvider {
 
         if (wool != null) {
             ShapedRecipeBuilder.shaped(block.get(), 2).group("valhelsia_furniture:upholstered_" + block.get().getBaseName()).pattern("#W#").pattern("X X").define('#', material).define('X', Tags.Items.RODS_WOODEN).define('W', wool).unlockedBy("has_item", has(material)).unlockedBy("has_wool", has(wool)).save(consumer);
+        }
+    }
+
+    private void fabricDeskLamp(RegistryObject<FabricDeskLampBlock> block, DyeColor color, @Nonnull Consumer<FinishedRecipe> consumer) {
+        Block wool = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(color.getName() + "_wool"));
+
+        if (wool != null) {
+            ShapedRecipeBuilder.shaped(block.get()).group("valhelsia_furniture:fabric_desk_lamp").pattern("#").pattern("G").pattern("X").define('#', wool).define('X', Tags.Items.RODS_WOODEN).define('G', Items.GLOWSTONE_DUST).unlockedBy("has_item", has(wool)).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
         }
     }
 }
