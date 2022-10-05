@@ -6,6 +6,7 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
+import net.valhelsia.valhelsia_furniture.data.loot.ModLootTableProvider;
 import net.valhelsia.valhelsia_furniture.data.models.ModBlockStateProvider;
 import net.valhelsia.valhelsia_furniture.data.models.ModItemModelProvider;
 import net.valhelsia.valhelsia_furniture.data.recipes.ModRecipeProvider;
@@ -32,8 +33,7 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new ModItemTagsProvider(generator, blockTagsProvider, existingFileHelper));
 
         generator.addProvider(event.includeServer(), new ModRecipeProvider(generator));
-//
-//      generator.addProvider(new ModLootTableProvider(generator));
-//      generator.addProvider(new ModLootModifierProvider(generator));
+
+        generator.addProvider(event.includeServer(), new ModLootTableProvider(generator));
     }
 }
