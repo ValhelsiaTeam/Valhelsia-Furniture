@@ -24,13 +24,12 @@ public enum CurtainPart implements StringRepresentable {
     LEFT_SIDE_BOTTOM("left_side_bottom", CurtainPart.CURTAIN_FULL, "down_side_open", "down_side_open", "down_side_open", "down_side_open"),
     RIGHT_SIDE_TOP("right_side_top", CurtainPart.CURTAIN_MIRRORED, "middle", "top_side_open", "middle", "top_side_open"),
     RIGHT_SIDE_MIDDLE("right_side_middle", CurtainPart.CURTAIN_FULL_MIRRORED, "middle_side_open", "middle_side_open", "middle_side_open", "middle_side_open"),
-    RIGHT_SIDE_BOTTOM("right_side_bottom", CurtainPart.CURTAIN_FULL_MIRRORED, "down_side_open", "down_side_open", "down_side_open", "down_side_open")
-    ;
+    RIGHT_SIDE_BOTTOM("right_side_bottom", CurtainPart.CURTAIN_FULL_MIRRORED, "down_side_open", "down_side_open", "down_side_open", "down_side_open");
 
-    private static final String CURTAIN = "block/template_curtain";
-    private static final String CURTAIN_MIRRORED = "block/template_curtain_mirrored";
-    private static final String CURTAIN_FULL = "block/template_curtain_full";
-    private static final String CURTAIN_FULL_MIRRORED = "block/template_curtain_full_mirrored";
+    private static final String CURTAIN = "template_curtain";
+    private static final String CURTAIN_MIRRORED = "template_curtain_mirrored";
+    private static final String CURTAIN_FULL = "template_curtain_full";
+    private static final String CURTAIN_FULL_MIRRORED = "template_curtain_full_mirrored";
 
     private final String name;
     private final ResourceLocation parentModel;
@@ -39,7 +38,7 @@ public enum CurtainPart implements StringRepresentable {
 
     CurtainPart(String name, String parentModel, String topTexture, String openTopTexture, String bottomTexture, String openBottomTexture) {
         this.name = name;
-        this.parentModel = new ResourceLocation(ValhelsiaFurniture.MOD_ID, parentModel);
+        this.parentModel = new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/curtain/" + parentModel + (name.contains("bottom") || name.equals("left") || name.equals("right") || name.equals("single") ? "_bottom" : ""));
         this.textures = new String[]{topTexture, openTopTexture, bottomTexture, openBottomTexture};
     }
 

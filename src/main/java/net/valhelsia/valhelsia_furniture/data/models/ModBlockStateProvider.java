@@ -83,7 +83,7 @@ public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
                 boolean open = state.getValue(BlockStateProperties.OPEN);
 
                 if (part == CurtainPart.TOP) {
-                    return models().getExistingFile(modLoc("block/curtain_bracket"));
+                    return models().getExistingFile(modLoc("block/curtain/curtain_bracket"));
                 }
 
                 return models().withExistingParent(getName(block) + part.getModelName() + (open ? "_open" : ""), part.getParentModel())

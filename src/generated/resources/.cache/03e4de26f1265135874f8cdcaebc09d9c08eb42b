@@ -1,10 +1,10 @@
-// 1.19.2	2022-10-05T16:44:47.0605644	Tags for minecraft:item
+// 1.19.2	2022-10-19T17:59:09.9615998	Tags for minecraft:item
 b63fc0943fb1b688984b1b9d3fa652aea77df610 data/valhelsia_furniture/tags/items/acacia_desks.json
 3096360a2de88e2bb026cc52ac89fcfde03017cf data/valhelsia_furniture/tags/items/birch_desks.json
 0c58e3417ef05599bcc7bb07289a9bfcabf7d69f data/valhelsia_furniture/tags/items/crimson_desks.json
 60ea4e49f4bd92789e25c07847e9195e11fd836e data/valhelsia_furniture/tags/items/dark_oak_desks.json
 728a5257f05ccde4c42c39898917cc2ac1be38b3 data/valhelsia_furniture/tags/items/desks.json
-0d40f87c6688fe0fd9a8d768437a49fd3209f2f9 data/valhelsia_furniture/tags/items/fabric_desk_lamps.json
+d20dd480f56945588fd5b58a34f6a3b88d790c50 data/valhelsia_furniture/tags/items/fabric_desk_lamps.json
 326e9e7e6338d590e34ee08f0a5322764bc0fb6d data/valhelsia_furniture/tags/items/jungle_desks.json
 7e76c2314f6121aba306d72a8dfb832f30d33eae data/valhelsia_furniture/tags/items/oak_desks.json
 8a49abd566c0b777e61b6aed98c6546dd9b1b4bd data/valhelsia_furniture/tags/items/spruce_desks.json

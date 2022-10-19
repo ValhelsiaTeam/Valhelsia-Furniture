@@ -53,7 +53,7 @@
       "y": 90
     },
     "facing=east,open=false,part=top": {
-      "model": "valhelsia_furniture:block/curtain_bracket",
+      "model": "valhelsia_furniture:block/curtain/curtain_bracket",
       "y": 90
     },
     "facing=east,open=true,part=left": {
@@ -109,7 +109,7 @@
       "y": 90
     },
     "facing=east,open=true,part=top": {
-      "model": "valhelsia_furniture:block/curtain_bracket",
+      "model": "valhelsia_furniture:block/curtain/curtain_bracket",
       "y": 90
     },
     "facing=north,open=false,part=left": {
@@ -152,7 +152,7 @@
       "model": "valhelsia_furniture:block/white_curtain_single_top"
     },
     "facing=north,open=false,part=top": {
-      "model": "valhelsia_furniture:block/curtain_bracket"
+      "model": "valhelsia_furniture:block/curtain/curtain_bracket"
     },
     "facing=north,open=true,part=left": {
       "model": "valhelsia_furniture:block/white_curtain_left_open"
@@ -194,7 +194,7 @@
       "model": "valhelsia_furniture:block/white_curtain_single_top_open"
     },
     "facing=north,open=true,part=top": {
-      "model": "valhelsia_furniture:block/curtain_bracket"
+      "model": "valhelsia_furniture:block/curtain/curtain_bracket"
     },
     "facing=south,open=false,part=left": {
       "model": "valhelsia_furniture:block/white_curtain_left",
@@ -249,7 +249,7 @@
       "y": 180
     },
     "facing=south,open=false,part=top": {
-      "model": "valhelsia_furniture:block/curtain_bracket",
+      "model": "valhelsia_furniture:block/curtain/curtain_bracket",
       "y": 180
     },
     "facing=south,open=true,part=left": {
@@ -305,7 +305,7 @@
       "y": 180
     },
     "facing=south,open=true,part=top": {
-      "model": "valhelsia_furniture:block/curtain_bracket",
+      "model": "valhelsia_furniture:block/curtain/curtain_bracket",
       "y": 180
     },
     "facing=west,open=false,part=left": {
@@ -361,7 +361,7 @@
       "y": 270
     },
     "facing=west,open=false,part=top": {
-      "model": "valhelsia_furniture:block/curtain_bracket",
+      "model": "valhelsia_furniture:block/curtain/curtain_bracket",
       "y": 270
     },
     "facing=west,open=true,part=left": {
@@ -417,7 +417,7 @@
       "y": 270
     },
     "facing=west,open=true,part=top": {
-      "model": "valhelsia_furniture:block/curtain_bracket",
+      "model": "valhelsia_furniture:block/curtain/curtain_bracket",
       "y": 270
     }
   }
