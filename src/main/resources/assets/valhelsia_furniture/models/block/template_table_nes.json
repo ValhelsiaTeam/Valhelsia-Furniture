@@ -1,6 +1,6 @@
 {
 	"credit": "Blockbench Model - Do you want a textured model? Contact me on Discord: CesarZorak#0808",
-	"parent": "block/block",
+	"ambientocclusion": false,
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "#table",
