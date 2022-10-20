@@ -28,17 +28,14 @@ import javax.annotation.Nullable;
 import java.util.Map;
 
 /**
- * Desk Drawer Block <br>
- * Valhelsia Furniture - net.valhelsia.valhelsia_furniture.common.block.DeskDrawerBlock
- *
  * @author Valhelsia Team
  * @since 2022-05-13
  */
 public class DeskDrawerBlock extends DeskBlock implements EntityBlock {
 
-    private static final VoxelShape DRAWER_SHAPE = Block.box(2.0D, 4.0D, 2.0D, 14.0D, 12.0D, 14.0D);
-    private static final Map<Direction, VoxelShape> LEFT_CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(0.0D, 4.0D, 2.0D, 1.0D, 12.0D, 3.0D));
-    private static final Map<Direction, VoxelShape> RIGHT_CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(15.0D, 4.0D, 2.0D, 16.0D, 12.0D, 3.0D));
+    private static final VoxelShape DRAWER_SHAPE = Block.box(1.0D, 4.0D, 1.0D, 15.0D, 12.0D, 15.0D);
+    private static final Map<Direction, VoxelShape> LEFT_CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(0.0D, 4.0D, 1.0D, 1.0D, 12.0D, 4.0D));
+    private static final Map<Direction, VoxelShape> RIGHT_CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(15.0D, 4.0D, 1.0D, 16.0D, 12.0D, 4.0D));
 
     private final Map<BlockState, VoxelShape> shapesCache;
 

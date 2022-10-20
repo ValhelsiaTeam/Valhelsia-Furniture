@@ -1,6 +1,9 @@
 {
-  "parent": "valhelsia_furniture:block/template_desk_drawer",
+  "parent": "valhelsia_furniture:block/desk/template_desk_drawer",
   "textures": {
-    "desk": "valhelsia_furniture:block/desk/spruce_desk"
+    "front": "valhelsia_furniture:block/desk/spruce/front",
+    "side": "valhelsia_furniture:block/desk/spruce/side",
+    "top": "valhelsia_furniture:block/desk/spruce/top",
+    "top_middle": "valhelsia_furniture:block/desk/spruce/top_middle"
   }
 }

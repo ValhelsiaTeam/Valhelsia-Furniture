@@ -5,11 +5,11 @@
       "y": 90
     },
     "facing=east,left=false,right=true": {
-      "model": "valhelsia_furniture:block/warped_desk_drawer_right",
+      "model": "valhelsia_furniture:block/warped_desk_drawer_left",
       "y": 90
     },
     "facing=east,left=true,right=false": {
-      "model": "valhelsia_furniture:block/warped_desk_drawer_left",
+      "model": "valhelsia_furniture:block/warped_desk_drawer_right",
       "y": 90
     },
     "facing=east,left=true,right=true": {
@@ -20,10 +20,10 @@
       "model": "valhelsia_furniture:block/warped_desk_drawer"
     },
     "facing=north,left=false,right=true": {
-      "model": "valhelsia_furniture:block/warped_desk_drawer_right"
+      "model": "valhelsia_furniture:block/warped_desk_drawer_left"
     },
     "facing=north,left=true,right=false": {
-      "model": "valhelsia_furniture:block/warped_desk_drawer_left"
+      "model": "valhelsia_furniture:block/warped_desk_drawer_right"
     },
     "facing=north,left=true,right=true": {
       "model": "valhelsia_furniture:block/warped_desk_drawer_center"
@@ -33,11 +33,11 @@
       "y": 180
     },
     "facing=south,left=false,right=true": {
-      "model": "valhelsia_furniture:block/warped_desk_drawer_right",
+      "model": "valhelsia_furniture:block/warped_desk_drawer_left",
       "y": 180
     },
     "facing=south,left=true,right=false": {
-      "model": "valhelsia_furniture:block/warped_desk_drawer_left",
+      "model": "valhelsia_furniture:block/warped_desk_drawer_right",
       "y": 180
     },
     "facing=south,left=true,right=true": {
@@ -49,11 +49,11 @@
       "y": 270
     },
     "facing=west,left=false,right=true": {
-      "model": "valhelsia_furniture:block/warped_desk_drawer_right",
+      "model": "valhelsia_furniture:block/warped_desk_drawer_left",
       "y": 270
     },
     "facing=west,left=true,right=false": {
-      "model": "valhelsia_furniture:block/warped_desk_drawer_left",
+      "model": "valhelsia_furniture:block/warped_desk_drawer_right",
       "y": 270
     },
     "facing=west,left=true,right=true": {

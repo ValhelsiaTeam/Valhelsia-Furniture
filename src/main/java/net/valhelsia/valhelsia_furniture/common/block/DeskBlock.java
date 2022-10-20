@@ -1,5 +1,6 @@
 package net.valhelsia.valhelsia_furniture.common.block;
 
+import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.TagKey;
@@ -20,20 +21,44 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.valhelsia.valhelsia_core.common.helper.VoxelShapeHelper;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
+import net.valhelsia.valhelsia_furniture.common.util.TextureKey;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Map;
 
 /**
- * Desk Block <br>
- * Valhelsia Furniture - net.valhelsia.valhelsia_furniture.common.block.DeskBlock
- *
  * @author Valhelsia Team
- * @version 1.18.2 - 0.1.0
  * @since 2022-05-13
  */
 public class DeskBlock extends Block implements SimpleWaterloggedBlock {
+
+    private static final String TEXTURE_PATH = "block/desk/";
+
+    public static final Map<String, List<TextureKey>> VARIANT_TEXTURES = ImmutableMap.<String, List<TextureKey>>builder()
+            .put("single", List.of(
+                    TextureKey.of("top", TEXTURE_PATH),
+                    TextureKey.of("top_middle", TEXTURE_PATH),
+                    TextureKey.of("front", TEXTURE_PATH),
+                    TextureKey.of("side", TEXTURE_PATH)
+            ))
+            .put("center", List.of(
+                    TextureKey.of("top_side", TEXTURE_PATH),
+                    TextureKey.of("top_middle", TEXTURE_PATH),
+                    TextureKey.of("front", TEXTURE_PATH),
+                    TextureKey.of("side", TEXTURE_PATH),
+                    TextureKey.of("middle", TEXTURE_PATH)
+            ))
+            .put("left_or_right", List.of(
+                    TextureKey.of("top", TEXTURE_PATH),
+                    TextureKey.of("top_side", TEXTURE_PATH),
+                    TextureKey.of("top_middle", TEXTURE_PATH),
+                    TextureKey.of("front", TEXTURE_PATH),
+                    TextureKey.of("side", TEXTURE_PATH),
+                    TextureKey.of("middle", TEXTURE_PATH)
+            ))
+            .build();
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty LEFT = ModBlockStateProperties.LEFT;
@@ -58,10 +83,10 @@ public class DeskBlock extends Block implements SimpleWaterloggedBlock {
             Block.box(12.0D, 0.0D, 1.0D, 15.0D, 12.0D, 4.0D)
     );
 
-    private static final Map<Direction, VoxelShape> CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(4.0D, 4.0D, 2.0D, 12.0D, 12.0D, 3.0D));
-    private static final Map<Direction, VoxelShape> FULL_CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(0.0D, 4.0D, 2.0D, 16.0D, 12.0D, 3.0D));
-    private static final Map<Direction, VoxelShape> LEFT_CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(0.0D, 4.0D, 2.0D, 12.0D, 12.0D, 3.0D));
-    private static final Map<Direction, VoxelShape> RIGHT_CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(4.0D, 4.0D, 2.0D, 16.0D, 12.0D, 3.0D));
+    private static final Map<Direction, VoxelShape> CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(4.0D, 4.0D, 1.0D, 12.0D, 12.0D, 4.0D));
+    private static final Map<Direction, VoxelShape> FULL_CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(0.0D, 4.0D, 1.0D, 16.0D, 12.0D, 4.0D));
+    private static final Map<Direction, VoxelShape> LEFT_CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(0.0D, 4.0D, 1.0D, 12.0D, 12.0D, 4.0D));
+    private static final Map<Direction, VoxelShape> RIGHT_CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(4.0D, 4.0D, 1.0D, 16.0D, 12.0D, 4.0D));
 
     private final TagKey<Block> tag;
 

@@ -4,6 +4,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -12,16 +13,14 @@ import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.*;
 import net.valhelsia.valhelsia_furniture.common.block.properties.CurtainPart;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
+import net.valhelsia.valhelsia_furniture.common.util.TextureKey;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
 
+import java.util.List;
 import java.util.function.Function;
 
 /**
- * Mod Block State Provider <br>
- * Valhelsia Structures - net.valhelsia.valhelsia_furniture.data.DataGenerators.models.ModBlockStateProvider
- *
  * @author Valhelsia Team
- * @version 1.18.1-0.1.0
  * @since 2021-01-05
  */
 public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
@@ -45,30 +44,7 @@ public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
                     .texture("chair", modLoc("block/chair/" + ((ChairBlock) block).getBaseName() + "/" + getName(block))));
         });
         forEach(block -> block instanceof StoolBlock, block -> this.stoolBlock((StoolBlock) block));
-        forEach(block -> block instanceof DeskBlock, block -> this.horizontalBlock(block, state -> {
-            boolean left = state.getValue(ModBlockStateProperties.LEFT);
-            boolean right = state.getValue(ModBlockStateProperties.RIGHT);
-
-            String variant = "";
-
-            if (left && right) {
-                variant = "_center";
-            } else if (left) {
-                variant = "_left";
-            } else if (right) {
-                variant = "_right";
-            }
-
-            String name = getName(block);
-            boolean drawer = false;
-
-            if (name.contains("drawer")) {
-                name = name.substring(0, name.length() - 7);
-                drawer = true;
-            }
-
-            return models().withExistingParent(getName(block) + variant, modLoc("block/template_desk" + (drawer ? "_drawer" : "" )+ variant)).texture("desk", modLoc("block/desk/" + name));
-        }));
+        forEach(block -> block instanceof DeskBlock, block -> this.desk((DeskBlock) block));
         ModBlocks.FABRIC_DESK_LAMPS.forEach((color, registryObject) -> take(block -> {
             ModelFile model = models().withExistingParent(getName(block), modLoc("block/template_fabric_desk_lamp")).texture("color", modLoc("block/fabric_desk_lamp/colors/" + color));
             ModelFile modelOn = models().withExistingParent(getName(block) + "_on", modLoc("block/template_fabric_desk_lamp_on")).texture("color", modLoc("block/fabric_desk_lamp/colors/" + color));
@@ -102,6 +78,45 @@ public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
                 .build(),
                 BlockStateProperties.WATERLOGGED
         );
+    }
+
+    private void desk(DeskBlock block) {
+        this.horizontalBlock(block, state -> {
+            boolean left = state.getValue(ModBlockStateProperties.LEFT);
+            boolean right = state.getValue(ModBlockStateProperties.RIGHT);
+
+            String variant = "";
+
+            if (left && right) {
+                variant = "_center";
+            } else if (left) {
+                variant = "_right";
+            } else if (right) {
+                variant = "_left";
+            }
+
+            String name = getName(block);
+            boolean drawer = false;
+
+            if (name.contains("drawer")) {
+                name = name.substring(0, name.length() - 7);
+                drawer = true;
+            }
+
+            name = name.substring(0, name.length() - 5);
+
+            List<TextureKey> keys = variant.equals("_left") || variant.equals("_right") ? DeskBlock.VARIANT_TEXTURES.get("left_or_right") : variant.equals("_center") ? DeskBlock.VARIANT_TEXTURES.get("center") : DeskBlock.VARIANT_TEXTURES.get("single");
+
+            return this.addTextures(models().withExistingParent(getName(block) + variant, modLoc("block/desk/template_desk" + (drawer ? "_drawer" : "" ) + variant)), keys, name);
+        });
+    }
+
+    private BlockModelBuilder addTextures(BlockModelBuilder builder, List<TextureKey> textureKeys, String type) {
+        for (TextureKey key : textureKeys) {
+            builder.texture(key.key(), key.apply(type));
+        }
+
+        return builder;
     }
 
     private void tableBlock(TableBlock block) {

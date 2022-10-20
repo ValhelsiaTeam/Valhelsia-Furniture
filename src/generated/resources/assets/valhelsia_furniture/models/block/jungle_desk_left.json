@@ -1,6 +1,11 @@
 {
-  "parent": "valhelsia_furniture:block/template_desk_left",
+  "parent": "valhelsia_furniture:block/desk/template_desk_left",
   "textures": {
-    "desk": "valhelsia_furniture:block/desk/jungle_desk"
+    "front": "valhelsia_furniture:block/desk/jungle/front",
+    "middle": "valhelsia_furniture:block/desk/jungle/middle",
+    "side": "valhelsia_furniture:block/desk/jungle/side",
+    "top": "valhelsia_furniture:block/desk/jungle/top",
+    "top_middle": "valhelsia_furniture:block/desk/jungle/top_middle",
+    "top_side": "valhelsia_furniture:block/desk/jungle/top_side"
   }
 }
