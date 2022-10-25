@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_item": {
+    "has_cyan_wool": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:warped_planks"
+              "minecraft:cyan_wool"
             ]
           }
         ]
@@ -19,12 +19,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_wool": {
+    "has_warped_planks": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:cyan_wool"
+              "minecraft:warped_planks"
             ]
           }
         ]
@@ -34,8 +34,8 @@
   },
   "requirements": [
     [
-      "has_item",
-      "has_wool",
+      "has_warped_planks",
+      "has_cyan_wool",
       "has_the_recipe"
     ]
   ],

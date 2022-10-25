@@ -1,24 +1,24 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_hay_block": {
+    "has_dark_oak_planks": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:hay_block"
+              "minecraft:dark_oak_planks"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_item": {
+    "has_hay_block": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:dark_oak_planks"
+              "minecraft:hay_block"
             ]
           }
         ]
@@ -34,7 +34,7 @@
   },
   "requirements": [
     [
-      "has_item",
+      "has_dark_oak_planks",
       "has_hay_block",
       "has_the_recipe"
     ]

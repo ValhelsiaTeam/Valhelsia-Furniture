@@ -1,24 +1,24 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_carpet": {
+    "has_acacia_table": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:light_gray_carpet"
+              "valhelsia_furniture:acacia_table"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_table": {
+    "has_light_gray_carpet": {
       "conditions": {
         "items": [
           {
             "items": [
-              "valhelsia_furniture:acacia_table"
+              "minecraft:light_gray_carpet"
             ]
           }
         ]
@@ -34,8 +34,8 @@
   },
   "requirements": [
     [
-      "has_table",
-      "has_carpet",
+      "has_acacia_table",
+      "has_light_gray_carpet",
       "has_the_recipe"
     ]
   ],

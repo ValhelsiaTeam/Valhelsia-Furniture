@@ -1,19 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_carpet": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:yellow_carpet"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_table": {
+    "has_oak_table": {
       "conditions": {
         "items": [
           {
@@ -30,12 +18,24 @@
         "recipe": "valhelsia_furniture:yellow_oak_table"
       },
       "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yellow_carpet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:yellow_carpet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "has_table",
-      "has_carpet",
+      "has_oak_table",
+      "has_yellow_carpet",
       "has_the_recipe"
     ]
   ],

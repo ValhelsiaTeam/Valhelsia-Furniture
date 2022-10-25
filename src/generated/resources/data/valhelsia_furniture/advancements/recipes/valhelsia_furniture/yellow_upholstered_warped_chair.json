@@ -1,7 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_item": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "valhelsia_furniture:yellow_upholstered_warped_chair"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_warped_planks": {
       "conditions": {
         "items": [
           {
@@ -13,13 +19,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "valhelsia_furniture:yellow_upholstered_warped_chair"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_wool": {
+    "has_yellow_wool": {
       "conditions": {
         "items": [
           {
@@ -34,8 +34,8 @@
   },
   "requirements": [
     [
-      "has_item",
-      "has_wool",
+      "has_warped_planks",
+      "has_yellow_wool",
       "has_the_recipe"
     ]
   ],

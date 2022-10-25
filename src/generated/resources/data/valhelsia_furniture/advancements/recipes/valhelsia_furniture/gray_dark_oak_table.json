@@ -1,24 +1,24 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_carpet": {
+    "has_dark_oak_table": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:gray_carpet"
+              "valhelsia_furniture:dark_oak_table"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_table": {
+    "has_gray_carpet": {
       "conditions": {
         "items": [
           {
             "items": [
-              "valhelsia_furniture:dark_oak_table"
+              "minecraft:gray_carpet"
             ]
           }
         ]
@@ -34,8 +34,8 @@
   },
   "requirements": [
     [
-      "has_table",
-      "has_carpet",
+      "has_dark_oak_table",
+      "has_gray_carpet",
       "has_the_recipe"
     ]
   ],

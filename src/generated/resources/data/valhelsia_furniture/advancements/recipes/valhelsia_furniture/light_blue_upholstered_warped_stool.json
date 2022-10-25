@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_item": {
+    "has_light_blue_wool": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:warped_slab"
+              "minecraft:light_blue_wool"
             ]
           }
         ]
@@ -19,12 +19,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_wool": {
+    "has_warped_slab": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:light_blue_wool"
+              "minecraft:warped_slab"
             ]
           }
         ]
@@ -34,8 +34,8 @@
   },
   "requirements": [
     [
-      "has_item",
-      "has_wool",
+      "has_warped_slab",
+      "has_light_blue_wool",
       "has_the_recipe"
     ]
   ],

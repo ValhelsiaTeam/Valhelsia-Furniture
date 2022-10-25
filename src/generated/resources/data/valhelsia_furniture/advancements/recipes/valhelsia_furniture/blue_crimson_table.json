@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_carpet": {
+    "has_blue_carpet": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_table": {
+    "has_crimson_table": {
       "conditions": {
         "items": [
           {
@@ -34,8 +34,8 @@
   },
   "requirements": [
     [
-      "has_table",
-      "has_carpet",
+      "has_crimson_table",
+      "has_blue_carpet",
       "has_the_recipe"
     ]
   ],

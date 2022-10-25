@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_carpet": {
+    "has_red_carpet": {
       "conditions": {
         "items": [
           {
@@ -13,7 +13,13 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_table": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "valhelsia_furniture:red_warped_table"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_warped_table": {
       "conditions": {
         "items": [
           {
@@ -24,18 +30,12 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "valhelsia_furniture:red_warped_table"
-      },
-      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_table",
-      "has_carpet",
+      "has_warped_table",
+      "has_red_carpet",
       "has_the_recipe"
     ]
   ],
