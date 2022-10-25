@@ -27,11 +27,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
- * Fabric Desk Lamp Block <br>
- * Valhelsia Furniture - net.valhelsia.valhelsia_furniture.common.block.FabricDeskLampBlock
- *
  * @author Valhelsia Team
- * @version 1.18.2 - 0.1.0
  * @since 2022-05-15
  */
 public class FabricDeskLampBlock extends Block implements SimpleWaterloggedBlock {
@@ -43,6 +39,7 @@ public class FabricDeskLampBlock extends Block implements SimpleWaterloggedBlock
     );
 
     public static final BooleanProperty SWITCHED_ON = ModBlockStateProperties.SWITCHED_ON;
+    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
@@ -50,7 +47,9 @@ public class FabricDeskLampBlock extends Block implements SimpleWaterloggedBlock
         super(properties);
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(SWITCHED_ON, false)
-                .setValue(WATERLOGGED, false));
+                .setValue(POWERED, false)
+                .setValue(WATERLOGGED, false)
+        );
     }
 
     @Nonnull
@@ -62,9 +61,13 @@ public class FabricDeskLampBlock extends Block implements SimpleWaterloggedBlock
     @Nullable
     @Override
     public BlockState getStateForPlacement(@Nonnull BlockPlaceContext context) {
-        boolean flag = context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER;
+        Level level = context.getLevel();
+        BlockPos pos = context.getClickedPos();
 
-        return this.defaultBlockState().setValue(WATERLOGGED, flag);
+        boolean flag = level.getFluidState(pos).getType() == Fluids.WATER;
+        boolean powered = level.hasNeighborSignal(pos) || level.hasNeighborSignal(pos.above());;
+
+        return this.defaultBlockState().setValue(POWERED, powered).setValue(WATERLOGGED, flag);
     }
 
     @Nonnull
@@ -86,8 +89,17 @@ public class FabricDeskLampBlock extends Block implements SimpleWaterloggedBlock
     }
 
     @Override
+    public void neighborChanged(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos, @Nonnull Block block, @Nonnull BlockPos fromPos, boolean isMoving) {
+        boolean powered = level.hasNeighborSignal(pos);
+
+        if (state.getValue(POWERED) != level.hasNeighborSignal(pos)) {
+            level.setBlockAndUpdate(pos, state.setValue(POWERED, powered).setValue(SWITCHED_ON, powered != state.getValue(SWITCHED_ON)));
+        }
+    }
+
+    @Override
     protected void createBlockStateDefinition(@Nonnull StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(SWITCHED_ON, WATERLOGGED);
+        builder.add(SWITCHED_ON, POWERED, WATERLOGGED);
     }
 
     @Nonnull
