@@ -34,6 +34,7 @@ public class OpenCurtainBlock extends AbstractCurtainBlock<OpenCurtainPart> {
         super(color, properties);
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(PART, OpenCurtainPart.SINGLE)
+                .setValue(POWERED, false)
                 .setValue(FACING, Direction.NORTH)
         );
     }
@@ -118,7 +119,7 @@ public class OpenCurtainBlock extends AbstractCurtainBlock<OpenCurtainPart> {
                 }
             }
 
-            level.setBlockAndUpdate(topPos.below(i), block.defaultBlockState().setValue(ClosedCurtainBlock.PART, newPart).setValue(FACING, state.getValue(FACING)));
+            level.setBlockAndUpdate(topPos.below(i), block.defaultBlockState().setValue(ClosedCurtainBlock.PART, newPart).setValue(FACING, state.getValue(FACING)).setValue(POWERED, state.getValue(POWERED)));
         }
     }
 
@@ -167,6 +168,6 @@ public class OpenCurtainBlock extends AbstractCurtainBlock<OpenCurtainPart> {
 
     @Override
     protected void createBlockStateDefinition(@Nonnull StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(PART, FACING);
+        builder.add(PART, POWERED, FACING);
     }
 }

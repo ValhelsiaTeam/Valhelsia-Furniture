@@ -12,6 +12,8 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -31,6 +33,7 @@ import java.util.Map;
 public abstract class AbstractCurtainBlock<T extends CurtainPart> extends Block {
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
     private static final VoxelShape BRACKET_SHAPE = Block.box(0.0D, 14.0D, 14.0D, 16.0D, 16.0D, 16.0D);
     private static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 15.0D, 16.0D, 16.0D, 16.0D);
@@ -71,6 +74,19 @@ public abstract class AbstractCurtainBlock<T extends CurtainPart> extends Block 
     protected abstract void updateOpen(BlockState state, Level level, BlockPos pos);
 
     protected abstract T getPart(BlockState state);
+
+    @Override
+    public void neighborChanged(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos, @Nonnull Block block, @Nonnull BlockPos fromPos, boolean isMoving) {
+        boolean powered = level.hasNeighborSignal(pos);
+
+        if (state.getValue(POWERED) != level.hasNeighborSignal(pos)) {
+            level.setBlockAndUpdate(pos, state.setValue(POWERED, powered));
+
+            if (powered) {
+                this.updateOpen(state, level, pos);
+            }
+        }
+    }
 
     protected BlockPos getTopBlock(LevelAccessor level, BlockPos currentPos) {
         BlockPos.MutableBlockPos pos = currentPos.mutable();

@@ -52,7 +52,7 @@ public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
 
             this.getVariantBuilder(block).forAllStatesExcept(state -> {
                 return ConfiguredModel.builder().modelFile(state.getValue(ModBlockStateProperties.SWITCHED_ON) ? modelOn : model).build();
-            }, BlockStateProperties.WATERLOGGED);
+            }, BlockStateProperties.WATERLOGGED, BlockStateProperties.POWERED);
         }, registryObject));
         ModBlocks.CURTAINS.forEach((color, pair) -> {
             take(block -> {
@@ -87,7 +87,7 @@ public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
                 .modelFile(modelFunc.apply(state))
                 .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + angleOffset) % 360)
                 .build(),
-                BlockStateProperties.WATERLOGGED
+                BlockStateProperties.WATERLOGGED, BlockStateProperties.POWERED
         );
     }
 

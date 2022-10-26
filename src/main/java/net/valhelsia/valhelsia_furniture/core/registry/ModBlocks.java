@@ -183,12 +183,12 @@ public class ModBlocks implements RegistryClass {
     public static final RegistryObject<DeskDrawerBlock> WARPED_DESK_DRAWER = HELPER.register("warped_desk_drawer", () -> new DeskDrawerBlock(ModTags.Blocks.WARPED_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
 
     // Fabric Desk Lamps
+    @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final Map<DyeColor, RegistryObject<FabricDeskLampBlock>> FABRIC_DESK_LAMPS = registerColorVariants("fabric_desk_lamp", () -> new FabricDeskLampBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion().lightLevel(state -> {
         return state.getValue(ModBlockStateProperties.SWITCHED_ON) ? 14 : 0;
     })));
 
     // Curtains
-    @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final Map<DyeColor, Pair<RegistryObject<ClosedCurtainBlock>, RegistryObject<OpenCurtainBlock>>> CURTAINS = registerCurtains("curtain");
 
     public static List<RegistryObject<TableBlock>> registerTables(String name) {

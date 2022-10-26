@@ -32,6 +32,7 @@ public class ClosedCurtainBlock extends AbstractCurtainBlock<ClosedCurtainPart> 
         super(color, properties);
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(PART, ClosedCurtainPart.SINGLE)
+                .setValue(POWERED, false)
                 .setValue(FACING, Direction.NORTH)
         );
     }
@@ -85,20 +86,22 @@ public class ClosedCurtainBlock extends AbstractCurtainBlock<ClosedCurtainPart> 
     @Override
     public BlockState getStateForPlacement(@Nonnull BlockPlaceContext context) {
         Level level = context.getLevel();
-        BlockPos above = context.getClickedPos().above();
-        BlockPos below = context.getClickedPos().below();
+        BlockPos pos = context.getClickedPos();
+        BlockPos above = pos.above();
+        BlockPos below = pos.below();
         BlockState aboveState = level.getBlockState(above);
         BlockState belowState = level.getBlockState(below);
 
         Direction facing = context.getHorizontalDirection().getOpposite();
+        boolean powered = level.hasNeighborSignal(pos) || level.hasNeighborSignal(pos.above());
 
+        BlockState state = powered ? this.getOpenBlock().defaultBlockState().setValue(POWERED, true) : this.defaultBlockState();
 
-        BlockState state = this.defaultBlockState()
-                .setValue(PART, this.connect(aboveState, belowState, facing))
-                .setValue(FACING, facing);
+        state = state.setValue(PART, this.connect(aboveState, belowState, facing)).setValue(FACING, facing);
 
-
-        this.updateAboveAndBelow(level, state, above, below, facing);
+        if (!powered) {
+            this.updateAboveAndBelow(level, state, above, below, facing);
+        }
 
         return state;
     }
@@ -159,7 +162,7 @@ public class ClosedCurtainBlock extends AbstractCurtainBlock<ClosedCurtainPart> 
                 }
             }
 
-            level.setBlockAndUpdate(topPos.below(i), block.defaultBlockState().setValue(OpenCurtainBlock.PART, newPart).setValue(FACING, state.getValue(FACING)));
+            level.setBlockAndUpdate(topPos.below(i), block.defaultBlockState().setValue(OpenCurtainBlock.PART, newPart).setValue(FACING, state.getValue(FACING)).setValue(POWERED, state.getValue(POWERED)));
         }
     }
 
@@ -199,6 +202,6 @@ public class ClosedCurtainBlock extends AbstractCurtainBlock<ClosedCurtainPart> 
 
     @Override
     protected void createBlockStateDefinition(@Nonnull StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(PART, FACING);
+        builder.add(PART, POWERED, FACING);
     }
 }

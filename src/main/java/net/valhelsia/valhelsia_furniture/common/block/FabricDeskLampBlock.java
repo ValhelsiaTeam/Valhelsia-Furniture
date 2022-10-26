@@ -65,7 +65,7 @@ public class FabricDeskLampBlock extends Block implements SimpleWaterloggedBlock
         BlockPos pos = context.getClickedPos();
 
         boolean flag = level.getFluidState(pos).getType() == Fluids.WATER;
-        boolean powered = level.hasNeighborSignal(pos) || level.hasNeighborSignal(pos.above());;
+        boolean powered = level.hasNeighborSignal(pos) || level.hasNeighborSignal(pos.above());
 
         return this.defaultBlockState().setValue(POWERED, powered).setValue(WATERLOGGED, flag);
     }
