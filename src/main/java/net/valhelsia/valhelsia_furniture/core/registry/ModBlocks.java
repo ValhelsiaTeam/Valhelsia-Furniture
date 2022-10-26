@@ -1,5 +1,6 @@
 package net.valhelsia.valhelsia_furniture.core.registry;
 
+import com.mojang.datafixers.util.Pair;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -182,14 +183,13 @@ public class ModBlocks implements RegistryClass {
     public static final RegistryObject<DeskDrawerBlock> WARPED_DESK_DRAWER = HELPER.register("warped_desk_drawer", () -> new DeskDrawerBlock(ModTags.Blocks.WARPED_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
 
     // Fabric Desk Lamps
-    @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final Map<DyeColor, RegistryObject<FabricDeskLampBlock>> FABRIC_DESK_LAMPS = registerColorVariants("fabric_desk_lamp", () -> new FabricDeskLampBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion().lightLevel(state -> {
         return state.getValue(ModBlockStateProperties.SWITCHED_ON) ? 14 : 0;
     })));
 
     // Curtains
     @RenderType(ValhelsiaRenderType.CUTOUT)
-    public static final Map<DyeColor, RegistryObject<CurtainBlock>> CURTAINS = registerColorVariants("curtain", () -> new CurtainBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
+    public static final Map<DyeColor, Pair<RegistryObject<ClosedCurtainBlock>, RegistryObject<OpenCurtainBlock>>> CURTAINS = registerCurtains("curtain");
 
     public static List<RegistryObject<TableBlock>> registerTables(String name) {
         List<RegistryObject<TableBlock>> list = new ArrayList<>();
@@ -236,6 +236,18 @@ public class ModBlocks implements RegistryClass {
 
         for (DyeColor color : DyeColor.values()) {
             map.put(color, HELPER.register(color.getName() + "_" + name, block));
+        }
+
+        return map;
+    }
+
+    public static Map<DyeColor, Pair<RegistryObject<ClosedCurtainBlock>, RegistryObject<OpenCurtainBlock>>> registerCurtains(String name) {
+        Map<DyeColor, Pair<RegistryObject<ClosedCurtainBlock>, RegistryObject<OpenCurtainBlock>>> map = new HashMap<>();
+
+        for (DyeColor color : DyeColor.values()) {
+            map.put(color, Pair.of(
+                    HELPER.register(color.getName() + "_" + name, () -> new ClosedCurtainBlock(color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion())),
+                    HELPER.registerNoItem("open_" + color.getName() + "_" + name, () -> new OpenCurtainBlock(color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()))));
         }
 
         return map;

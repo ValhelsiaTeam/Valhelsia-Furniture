@@ -1,9 +1,15 @@
 {
   "variants": {
-    "switched_on=false": {
+    "powered=false,switched_on=false": {
       "model": "valhelsia_furniture:block/blue_fabric_desk_lamp"
     },
-    "switched_on=true": {
+    "powered=false,switched_on=true": {
+      "model": "valhelsia_furniture:block/blue_fabric_desk_lamp_on"
+    },
+    "powered=true,switched_on=false": {
+      "model": "valhelsia_furniture:block/blue_fabric_desk_lamp"
+    },
+    "powered=true,switched_on=true": {
       "model": "valhelsia_furniture:block/blue_fabric_desk_lamp_on"
     }
   }

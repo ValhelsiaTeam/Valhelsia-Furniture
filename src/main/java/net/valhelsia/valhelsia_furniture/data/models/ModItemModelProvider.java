@@ -26,8 +26,8 @@ public class ModItemModelProvider extends ValhelsiaItemModelProvider {
             takeBlockItem(this::simpleModel, registryObject);
         });
 
-        ModBlocks.CURTAINS.forEach((color, registryObject) -> {
-            takeBlockItem(item -> this.withParent(item, color.getName() + "_curtain_single"), registryObject);
+        ModBlocks.CURTAINS.forEach((color, pair) -> {
+            takeBlockItem(item -> this.withParent(item, color.getName() + "_curtain_single"), pair.getFirst());
         });
 
         forEachBlockItem(this::withParent);

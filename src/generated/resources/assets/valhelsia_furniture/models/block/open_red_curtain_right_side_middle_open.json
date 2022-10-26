@@ -1,0 +1,8 @@
+{
+  "parent": "valhelsia_furniture:block/curtain/template_curtain_full_mirrored",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "down": "valhelsia_furniture:block/curtain/red/middle_side_open",
+    "top": "valhelsia_furniture:block/curtain/red/middle_side_open"
+  }
+}

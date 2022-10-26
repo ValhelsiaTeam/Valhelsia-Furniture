@@ -1,0 +1,214 @@
+{
+  "variants": {
+    "facing=east,part=left": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_left_open",
+      "y": 90
+    },
+    "facing=east,part=left_side_bottom": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_left_side_bottom_open",
+      "y": 90
+    },
+    "facing=east,part=left_side_middle": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_left_side_middle_open",
+      "y": 90
+    },
+    "facing=east,part=left_side_top": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_left_side_top_open",
+      "y": 90
+    },
+    "facing=east,part=middle": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_middle_open",
+      "y": 90
+    },
+    "facing=east,part=right": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_right_open",
+      "y": 90
+    },
+    "facing=east,part=right_side_bottom": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_right_side_bottom_open",
+      "y": 90
+    },
+    "facing=east,part=right_side_middle": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_right_side_middle_open",
+      "y": 90
+    },
+    "facing=east,part=right_side_top": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_right_side_top_open",
+      "y": 90
+    },
+    "facing=east,part=single": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_single_open",
+      "y": 90
+    },
+    "facing=east,part=single_bottom": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_single_bottom_open",
+      "y": 90
+    },
+    "facing=east,part=single_middle": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_single_middle_open",
+      "y": 90
+    },
+    "facing=east,part=single_top": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_single_top_open",
+      "y": 90
+    },
+    "facing=east,part=top": {
+      "model": "valhelsia_furniture:block/curtain/curtain_bracket",
+      "y": 90
+    },
+    "facing=north,part=left": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_left_open"
+    },
+    "facing=north,part=left_side_bottom": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_left_side_bottom_open"
+    },
+    "facing=north,part=left_side_middle": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_left_side_middle_open"
+    },
+    "facing=north,part=left_side_top": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_left_side_top_open"
+    },
+    "facing=north,part=middle": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_middle_open"
+    },
+    "facing=north,part=right": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_right_open"
+    },
+    "facing=north,part=right_side_bottom": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_right_side_bottom_open"
+    },
+    "facing=north,part=right_side_middle": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_right_side_middle_open"
+    },
+    "facing=north,part=right_side_top": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_right_side_top_open"
+    },
+    "facing=north,part=single": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_single_open"
+    },
+    "facing=north,part=single_bottom": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_single_bottom_open"
+    },
+    "facing=north,part=single_middle": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_single_middle_open"
+    },
+    "facing=north,part=single_top": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_single_top_open"
+    },
+    "facing=north,part=top": {
+      "model": "valhelsia_furniture:block/curtain/curtain_bracket"
+    },
+    "facing=south,part=left": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_left_open",
+      "y": 180
+    },
+    "facing=south,part=left_side_bottom": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_left_side_bottom_open",
+      "y": 180
+    },
+    "facing=south,part=left_side_middle": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_left_side_middle_open",
+      "y": 180
+    },
+    "facing=south,part=left_side_top": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_left_side_top_open",
+      "y": 180
+    },
+    "facing=south,part=middle": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_middle_open",
+      "y": 180
+    },
+    "facing=south,part=right": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_right_open",
+      "y": 180
+    },
+    "facing=south,part=right_side_bottom": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_right_side_bottom_open",
+      "y": 180
+    },
+    "facing=south,part=right_side_middle": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_right_side_middle_open",
+      "y": 180
+    },
+    "facing=south,part=right_side_top": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_right_side_top_open",
+      "y": 180
+    },
+    "facing=south,part=single": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_single_open",
+      "y": 180
+    },
+    "facing=south,part=single_bottom": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_single_bottom_open",
+      "y": 180
+    },
+    "facing=south,part=single_middle": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_single_middle_open",
+      "y": 180
+    },
+    "facing=south,part=single_top": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_single_top_open",
+      "y": 180
+    },
+    "facing=south,part=top": {
+      "model": "valhelsia_furniture:block/curtain/curtain_bracket",
+      "y": 180
+    },
+    "facing=west,part=left": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_left_open",
+      "y": 270
+    },
+    "facing=west,part=left_side_bottom": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_left_side_bottom_open",
+      "y": 270
+    },
+    "facing=west,part=left_side_middle": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_left_side_middle_open",
+      "y": 270
+    },
+    "facing=west,part=left_side_top": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_left_side_top_open",
+      "y": 270
+    },
+    "facing=west,part=middle": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_middle_open",
+      "y": 270
+    },
+    "facing=west,part=right": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_right_open",
+      "y": 270
+    },
+    "facing=west,part=right_side_bottom": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_right_side_bottom_open",
+      "y": 270
+    },
+    "facing=west,part=right_side_middle": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_right_side_middle_open",
+      "y": 270
+    },
+    "facing=west,part=right_side_top": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_right_side_top_open",
+      "y": 270
+    },
+    "facing=west,part=single": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_single_open",
+      "y": 270
+    },
+    "facing=west,part=single_bottom": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_single_bottom_open",
+      "y": 270
+    },
+    "facing=west,part=single_middle": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_single_middle_open",
+      "y": 270
+    },
+    "facing=west,part=single_top": {
+      "model": "valhelsia_furniture:block/open_magenta_curtain_single_top_open",
+      "y": 270
+    },
+    "facing=west,part=top": {
+      "model": "valhelsia_furniture:block/curtain/curtain_bracket",
+      "y": 270
+    }
+  }
+}

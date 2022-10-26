@@ -56,7 +56,7 @@ public class ModRecipeProvider extends ValhelsiaRecipeProvider {
         this.chair(ModBlocks.CRIMSON_CHAIR, ModBlocks.HAY_CRIMSON_CHAIR, Blocks.CRIMSON_PLANKS, ModBlocks.WOOL_CRIMSON_CHAIRS, ModBlocks.WOOL_UPHOLSTERED_CRIMSON_CHAIRS);
         this.chair(ModBlocks.WARPED_CHAIR, ModBlocks.HAY_WARPED_CHAIR, Blocks.WARPED_PLANKS, ModBlocks.WOOL_WARPED_CHAIRS, ModBlocks.WOOL_UPHOLSTERED_WARPED_CHAIRS);
 
-        ModBlocks.CURTAINS.forEach((color, registryObject) -> this.curtain(registryObject, color));
+        ModBlocks.CURTAINS.forEach((color, pair) -> this.curtain(pair.getFirst(), color));
 
         this.stool(ModBlocks.OAK_STOOL, Blocks.OAK_SLAB, ModBlocks.WOOL_UPHOLSTERED_OAK_STOOLS);
         this.stool(ModBlocks.SPRUCE_STOOL, Blocks.SPRUCE_SLAB, ModBlocks.WOOL_UPHOLSTERED_SPRUCE_STOOLS);
@@ -140,7 +140,7 @@ public class ModRecipeProvider extends ValhelsiaRecipeProvider {
         }
     }
 
-    private void curtain(RegistryObject<CurtainBlock> block, DyeColor color) {
+    private void curtain(RegistryObject<ClosedCurtainBlock> block, DyeColor color) {
         Block wool = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(color.getName() + "_wool"));
 
         if (wool != null) {
