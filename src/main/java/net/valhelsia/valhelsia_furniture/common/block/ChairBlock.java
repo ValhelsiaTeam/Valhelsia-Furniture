@@ -134,7 +134,7 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
 
     private void sitDown(Level level, BlockPos pos, Entity entity) {
         if (!this.isEntitySitting(level, pos)) {
-            SeatEntity chair = new SeatEntity(pos, 0.3D, level);
+            SeatEntity chair = new SeatEntity(pos, 0.3D, level, SeatEntity.EjectType.BLOCK_HORIZONTAL_FACING);
 
             level.addFreshEntity(chair);
             entity.startRiding(chair);
