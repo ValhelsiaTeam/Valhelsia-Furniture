@@ -136,7 +136,7 @@ public class ModBlocks implements RegistryClass {
     @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final List<RegistryObject<UpholsteredChairBlock>> WOOL_UPHOLSTERED_WARPED_CHAIRS = registerUpholsteredWoolChairs("warped");
 
-    public static final RegistryObject<StoolBlock> OAK_STOOL = HELPER.register("oak_stool", () -> new StoolBlock("oak", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()));
+    public static final RegistryObject<StoolBlock> OAK_STOOL = HELPER.register("oak_stool", () -> new StoolBlock("oak", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
     public static final RegistryObject<StoolBlock> SPRUCE_STOOL = HELPER.register("spruce_stool", () -> new StoolBlock("spruce", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
     public static final RegistryObject<StoolBlock> BIRCH_STOOL = HELPER.register("birch_stool", () -> new StoolBlock("birch", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
     public static final RegistryObject<StoolBlock> JUNGLE_STOOL = HELPER.register("jungle_stool", () -> new StoolBlock("jungle", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
@@ -246,8 +246,8 @@ public class ModBlocks implements RegistryClass {
 
         for (DyeColor color : DyeColor.values()) {
             map.put(color, Pair.of(
-                    HELPER.register(color.getName() + "_" + name, () -> new ClosedCurtainBlock(color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion())),
-                    HELPER.registerNoItem("open_" + color.getName() + "_" + name, () -> new OpenCurtainBlock(color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()))));
+                    HELPER.register(color.getName() + "_" + name, () -> new ClosedCurtainBlock(color, BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).noOcclusion())),
+                    HELPER.registerNoItem("open_" + color.getName() + "_" + name, () -> new OpenCurtainBlock(color, BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).noOcclusion()))));
         }
 
         return map;
