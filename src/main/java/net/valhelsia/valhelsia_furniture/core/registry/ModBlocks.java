@@ -247,7 +247,7 @@ public class ModBlocks implements RegistryClass {
         for (DyeColor color : DyeColor.values()) {
             map.put(color, Pair.of(
                     HELPER.register(color.getName() + "_" + name, () -> new ClosedCurtainBlock(color, BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).noOcclusion())),
-                    HELPER.registerNoItem("open_" + color.getName() + "_" + name, () -> new OpenCurtainBlock(color, BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).noOcclusion()))));
+                    HELPER.registerNoItem("open_" + color.getName() + "_" + name, () -> new OpenCurtainBlock(color, BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).noOcclusion().lootFrom(ModBlocks.CURTAINS.get(color).getFirst())))));
         }
 
         return map;
