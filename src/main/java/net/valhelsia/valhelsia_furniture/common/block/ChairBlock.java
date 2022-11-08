@@ -46,7 +46,7 @@ import java.util.Objects;
  * @version 1.19 - 0.1.0
  * @since 2022-01-07
  */
-public class ChairBlock extends Block implements SimpleWaterloggedBlock {
+public class ChairBlock extends Block implements SimpleWaterloggedBlock, SeatableBlock {
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
@@ -134,8 +134,7 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
 
     private void sitDown(Level level, BlockPos pos, Entity entity) {
         if (!this.isEntitySitting(level, pos)) {
-            SeatEntity chair = new SeatEntity(pos, 0.3D, level, SeatEntity.EjectType.BLOCK_HORIZONTAL_FACING);
-
+            SeatEntity chair = new SeatEntity(pos, 0.3D, level);
             level.addFreshEntity(chair);
             entity.startRiding(chair);
 
@@ -203,5 +202,10 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock {
     @Override
     public boolean useShapeForLightOcclusion(@Nonnull BlockState state) {
         return true;
+    }
+
+    @Override
+    public SeatEntity.EjectType getEjectType() {
+        return SeatEntity.EjectType.BLOCK_HORIZONTAL_FACING;
     }
 }

@@ -15,10 +15,12 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.NetworkHooks;
+import net.valhelsia.valhelsia_furniture.common.block.SeatableBlock;
 import net.valhelsia.valhelsia_furniture.core.registry.ModEntities;
 
 import javax.annotation.Nonnull;
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.function.BiFunction;
 
 /**
@@ -33,10 +35,13 @@ public class SeatEntity extends Entity {
         super(entityType, level);
     }
 
-    public SeatEntity(BlockPos pos, double yOffset, Level level, EjectType ejectType) {
+    public SeatEntity(BlockPos pos, double yOffset, Level level) {
         super(ModEntities.SEAT.get(), level);
         this.setPos(pos.getX() + 0.5D, pos.getY() + yOffset, pos.getZ() + 0.5D);
-        this.ejectType = ejectType;
+
+        this.getSeatableBlock(level, pos).ifPresent(seatableBlock -> {
+            this.ejectType = seatableBlock.getEjectType();
+        });
     }
 
     @Override
@@ -66,6 +71,11 @@ public class SeatEntity extends Entity {
     @Override
     public Vec3 getDismountLocationForPassenger(@Nonnull LivingEntity livingEntity) {
         BlockPos pos = this.blockPosition();
+
+        if (this.getSeatableBlock(this.level, pos).isEmpty()) {
+            return super.getDismountLocationForPassenger(livingEntity);
+        }
+
         int[][] offsets = DismountHelper.offsetsForDirection(this.ejectType.getPreferredDirection(this.level.getBlockState(pos), livingEntity).getCounterClockWise());
         BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
 
@@ -88,6 +98,10 @@ public class SeatEntity extends Entity {
             }
         }
         return super.getDismountLocationForPassenger(livingEntity);
+    }
+
+    private Optional<SeatableBlock> getSeatableBlock(Level level, BlockPos pos) {
+        return level.getBlockState(pos).getBlock() instanceof SeatableBlock seatableBlock ? Optional.of(seatableBlock) : Optional.empty();
     }
 
     @Override
