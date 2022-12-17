@@ -1,6 +1,6 @@
 package net.valhelsia.valhelsia_furniture.core.registry;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -74,11 +74,11 @@ public class ModTags {
         public static final TagKey<Block> CURTAINS = modTag("curtains");
 
         private static TagKey<Block> forgeTag(String name) {
-            return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation("forge", name));
+            return TagKey.create(Registries.BLOCK, new ResourceLocation("forge", name));
         }
 
         private static TagKey<Block> modTag(String name) {
-            return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(ValhelsiaFurniture.MOD_ID, name));
+            return TagKey.create(Registries.BLOCK, new ResourceLocation(ValhelsiaFurniture.MOD_ID, name));
         }
     }
 
@@ -96,11 +96,11 @@ public class ModTags {
         public static final TagKey<Item> FABRIC_DESK_LAMPS = modTag("fabric_desk_lamps");
 
         private static TagKey<Item> forgeTag(String name) {
-            return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("forge", name));
+            return TagKey.create(Registries.ITEM, new ResourceLocation("forge", name));
         }
 
         private static TagKey<Item> modTag(String name) {
-            return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(ValhelsiaFurniture.MOD_ID, name));
+            return TagKey.create(Registries.ITEM, new ResourceLocation(ValhelsiaFurniture.MOD_ID, name));
         }
     }
 }

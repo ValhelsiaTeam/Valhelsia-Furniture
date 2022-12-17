@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-02T20:29:26.7919108	Tags for minecraft:block
+// 1.19.3	2022-12-17T18:03:55.3396679	Tags for minecraft:block mod id valhelsia_furniture
 70e5c4895a07ff9268238786bcabcaa6cc6dbb8d data/minecraft/tags/blocks/mineable/axe.json
 1babb8ceb0a856d92c70fb7beb970c9e22502d99 data/valhelsia_furniture/tags/blocks/acacia_chairs.json
 b63fc0943fb1b688984b1b9d3fa652aea77df610 data/valhelsia_furniture/tags/blocks/acacia_desks.json
@@ -10,12 +10,12 @@ b5a886fcbe4ef06f91ba7f4a3c340da3a24e8734 data/valhelsia_furniture/tags/blocks/ch
 1ebd0a6203cb43cf73b7299006ece7c7866ca7f4 data/valhelsia_furniture/tags/blocks/crimson_chairs.json
 0c58e3417ef05599bcc7bb07289a9bfcabf7d69f data/valhelsia_furniture/tags/blocks/crimson_desks.json
 998f6ad3c6094f3e1f5556a198082876b3065a69 data/valhelsia_furniture/tags/blocks/crimson_tables.json
-ec870a31db54837bec6853a6d8e16ac977dbd7ef data/valhelsia_furniture/tags/blocks/curtains.json
+5eb0463224ef5c93ecc73ff73f2250e090b1f58c data/valhelsia_furniture/tags/blocks/curtains.json
 945a17ee6d25d4b78af37b13281ce66c432e3b4a data/valhelsia_furniture/tags/blocks/dark_oak_chairs.json
 60ea4e49f4bd92789e25c07847e9195e11fd836e data/valhelsia_furniture/tags/blocks/dark_oak_desks.json
 d151f2eaccafe812454add002b99890959cd1e57 data/valhelsia_furniture/tags/blocks/dark_oak_tables.json
 728a5257f05ccde4c42c39898917cc2ac1be38b3 data/valhelsia_furniture/tags/blocks/desks.json
-5e730a764bea0888e90dc8c0bbad46da7ec718a1 data/valhelsia_furniture/tags/blocks/fabric_desk_lamps.json
+750dd5c83afbe8606a10f43cfaf4e02efc650297 data/valhelsia_furniture/tags/blocks/fabric_desk_lamps.json
 1252386228e2fc91beca30999afa73e4477de5f1 data/valhelsia_furniture/tags/blocks/jungle_chairs.json
 326e9e7e6338d590e34ee08f0a5322764bc0fb6d data/valhelsia_furniture/tags/blocks/jungle_desks.json
 1d9d159b31124084fa15721fc1fe120896eab5d6 data/valhelsia_furniture/tags/blocks/jungle_tables.json

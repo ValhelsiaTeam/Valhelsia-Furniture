@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "group": "valhelsia_furniture:upholstered_spruce",
   "key": {
     "#": {

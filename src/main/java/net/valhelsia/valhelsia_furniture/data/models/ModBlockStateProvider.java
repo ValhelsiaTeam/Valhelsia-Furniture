@@ -1,6 +1,6 @@
 package net.valhelsia.valhelsia_furniture.data.models;
 
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -12,8 +12,8 @@ import net.valhelsia.valhelsia_core.core.data.ValhelsiaBlockStateProvider;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.*;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ClosedCurtainPart;
-import net.valhelsia.valhelsia_furniture.common.block.properties.OpenCurtainPart;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
+import net.valhelsia.valhelsia_furniture.common.block.properties.OpenCurtainPart;
 import net.valhelsia.valhelsia_furniture.common.util.TextureKey;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
 
@@ -26,8 +26,8 @@ import java.util.function.Function;
  */
 public class ModBlockStateProvider extends ValhelsiaBlockStateProvider {
 
-    public ModBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
-        super(gen, ValhelsiaFurniture.REGISTRY_MANAGER, exFileHelper);
+    public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
+        super(output, ValhelsiaFurniture.REGISTRY_MANAGER, exFileHelper);
     }
 
     @Override

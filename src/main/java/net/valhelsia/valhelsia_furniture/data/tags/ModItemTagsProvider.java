@@ -1,28 +1,31 @@
 package net.valhelsia.valhelsia_furniture.data.tags;
 
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.core.registry.ModTags;
+
+import javax.annotation.Nonnull;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * Mod Item Tags Provider <br>
  * Valhelsia Furniture - net.valhelsia.valhelsia_furniture.data.tags.ModItemTagsProvider
  *
  * @author Valhelsia Team
- * @version 1.18.2 - 0.1.0
  * @since 2022-05-15
  */
 public class ModItemTagsProvider extends ItemTagsProvider {
 
-    public ModItemTagsProvider(DataGenerator generator, BlockTagsProvider blockTagsProvider, ExistingFileHelper existingFileHelper) {
-        super(generator, blockTagsProvider, ValhelsiaFurniture.MOD_ID, existingFileHelper);
+    public ModItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, BlockTagsProvider blockTagsProvider, ExistingFileHelper existingFileHelper) {
+        super(output, lookupProvider, blockTagsProvider, ValhelsiaFurniture.MOD_ID, existingFileHelper);
     }
 
     @Override
-    protected void addTags() {
+    protected void addTags(@Nonnull HolderLookup.Provider provider) {
         this.copy(ModTags.Blocks.OAK_DESKS, ModTags.Items.OAK_DESKS);
         this.copy(ModTags.Blocks.SPRUCE_DESKS, ModTags.Items.SPRUCE_DESKS);
         this.copy(ModTags.Blocks.BIRCH_DESKS, ModTags.Items.BIRCH_DESKS);
