@@ -1,4 +1,4 @@
-package net.valhelsia.valhelsia_furniture;
+package net.valhelsia.valhelsia_furniture.core;
 
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.DistExecutor;
@@ -23,5 +23,10 @@ public class ValhelsiaFurniture extends ValhelsiaMod {
         super(ValhelsiaFurniture.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus(), ValhelsiaFurniture.REGISTRY_MANAGER);
 
         DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> ClientSetup::new);
+    }
+
+    @Override
+    public EventHandler buildEventHandler() {
+        return new ModEventHandler();
     }
 }

@@ -11,7 +11,7 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.valhelsia.valhelsia_core.core.data.DataProviderInfo;
-import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
+import net.valhelsia.valhelsia_furniture.core.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.data.loot.ModBlockLootTables;
 import net.valhelsia.valhelsia_furniture.data.models.ModBlockStateProvider;
 import net.valhelsia.valhelsia_furniture.data.models.ModItemModelProvider;

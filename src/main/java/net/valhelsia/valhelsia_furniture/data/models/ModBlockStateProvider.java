@@ -9,7 +9,7 @@ import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.valhelsia.valhelsia_core.core.data.ValhelsiaBlockStateProvider;
-import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
+import net.valhelsia.valhelsia_furniture.core.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.*;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ClosedCurtainPart;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;

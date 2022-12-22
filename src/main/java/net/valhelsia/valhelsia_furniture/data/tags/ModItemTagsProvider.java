@@ -5,7 +5,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
+import net.valhelsia.valhelsia_furniture.core.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.core.registry.ModTags;
 
 import javax.annotation.Nonnull;

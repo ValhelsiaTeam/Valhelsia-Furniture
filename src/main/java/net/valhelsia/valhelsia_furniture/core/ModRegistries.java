@@ -1,4 +1,4 @@
-package net.valhelsia.valhelsia_furniture;
+package net.valhelsia.valhelsia_furniture.core;
 
 import net.minecraft.core.registries.Registries;
 import net.valhelsia.valhelsia_core.core.registry.RegistryCollector;

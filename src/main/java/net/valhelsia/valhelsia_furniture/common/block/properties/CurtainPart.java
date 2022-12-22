@@ -1,7 +1,7 @@
 package net.valhelsia.valhelsia_furniture.common.block.properties;
 
 import net.minecraft.resources.ResourceLocation;
-import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
+import net.valhelsia.valhelsia_furniture.core.ValhelsiaFurniture;
 
 /**
  * @author Valhelsia Team

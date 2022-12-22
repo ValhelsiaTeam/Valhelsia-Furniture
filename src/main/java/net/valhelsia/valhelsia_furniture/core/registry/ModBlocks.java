@@ -11,7 +11,7 @@ import net.valhelsia.valhelsia_core.core.registry.RegistryClass;
 import net.valhelsia.valhelsia_core.core.registry.helper.block.BlockRegistryHelper;
 import net.valhelsia.valhelsia_core.core.registry.helper.block.BlockRegistryObject;
 import net.valhelsia.valhelsia_core.core.registry.helper.block.RenderType;
-import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
+import net.valhelsia.valhelsia_furniture.core.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.*;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
 

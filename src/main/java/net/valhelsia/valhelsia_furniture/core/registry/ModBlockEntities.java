@@ -5,7 +5,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.valhelsia.valhelsia_core.core.registry.RegistryClass;
 import net.valhelsia.valhelsia_core.core.registry.helper.MappedRegistryHelper;
-import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
+import net.valhelsia.valhelsia_furniture.core.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.entity.DeskDrawerBlockEntity;
 
 /**

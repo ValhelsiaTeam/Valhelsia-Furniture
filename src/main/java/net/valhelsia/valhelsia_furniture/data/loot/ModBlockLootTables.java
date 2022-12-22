@@ -3,7 +3,7 @@ package net.valhelsia.valhelsia_furniture.data.loot;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.Item;
 import net.valhelsia.valhelsia_core.core.data.ValhelsiaBlockLootTables;
-import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
+import net.valhelsia.valhelsia_furniture.core.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.OpenCurtainBlock;
 
 import java.util.Set;

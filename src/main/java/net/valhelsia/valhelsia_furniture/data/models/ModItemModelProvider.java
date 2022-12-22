@@ -3,7 +3,7 @@ package net.valhelsia.valhelsia_furniture.data.models;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.valhelsia.valhelsia_core.core.data.ValhelsiaItemModelProvider;
-import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
+import net.valhelsia.valhelsia_furniture.core.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
 
 /**
