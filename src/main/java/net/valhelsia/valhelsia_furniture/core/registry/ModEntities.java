@@ -1,12 +1,11 @@
 package net.valhelsia.valhelsia_furniture.core.registry;
 
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.valhelsia.valhelsia_core.core.registry.RegistryClass;
-import net.valhelsia.valhelsia_core.core.registry.helper.RegistryHelper;
+import net.valhelsia.valhelsia_core.core.registry.helper.EntityRegistryHelper;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.entity.SeatEntity;
 
@@ -19,11 +18,7 @@ import net.valhelsia.valhelsia_furniture.common.entity.SeatEntity;
  */
 public class ModEntities implements RegistryClass {
 
-    public static final RegistryHelper<EntityType<?>> HELPER = ValhelsiaFurniture.REGISTRY_MANAGER.getHelper(ForgeRegistries.Keys.ENTITY_TYPES);
+    public static final EntityRegistryHelper HELPER = ValhelsiaFurniture.REGISTRY_MANAGER.getMappedHelper(ForgeRegistries.Keys.ENTITY_TYPES);
 
-    public static final RegistryObject<EntityType<SeatEntity>> SEAT = register("seat", EntityType.Builder.<SeatEntity>of(SeatEntity::new, MobCategory.MISC).sized(0.0F, 0.0F));
-
-    public static <T extends Entity> RegistryObject<EntityType<T>> register(String name, EntityType.Builder<T> builder) {
-        return HELPER.register(name, () -> builder.build(name));
-    }
+    public static final RegistryObject<EntityType<SeatEntity>> SEAT = HELPER.register("seat", EntityType.Builder.<SeatEntity>of(SeatEntity::new, MobCategory.MISC).sized(0.0F, 0.0F));
 }

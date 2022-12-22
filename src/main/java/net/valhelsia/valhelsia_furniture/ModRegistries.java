@@ -2,7 +2,7 @@ package net.valhelsia.valhelsia_furniture;
 
 import net.minecraft.core.registries.Registries;
 import net.valhelsia.valhelsia_core.core.registry.RegistryCollector;
-import net.valhelsia.valhelsia_core.core.registry.helper.block.BlockRegistryHelper;
+import net.valhelsia.valhelsia_core.core.registry.helper.EntityRegistryHelper;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlockEntities;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
 import net.valhelsia.valhelsia_furniture.core.registry.ModEntities;
@@ -19,9 +19,9 @@ public class ModRegistries extends RegistryCollector {
 
     @Override
     protected void collect() {
-        this.add(Registries.BLOCK, BlockRegistryHelper::new, ModBlocks::new);
-        this.add(Registries.ITEM);
-        this.add(Registries.ENTITY_TYPE, ModEntities::new);
-        this.add(Registries.BLOCK_ENTITY_TYPE, ModBlockEntities::new);
+        this.addBlockHelper(ModBlocks::new);
+        this.addItemHelper();
+        this.addMappedHelper(Registries.ENTITY_TYPE, EntityRegistryHelper::new, ModEntities::new);
+        this.addMappedHelper(Registries.BLOCK_ENTITY_TYPE, ModBlockEntities::new);
     }
 }

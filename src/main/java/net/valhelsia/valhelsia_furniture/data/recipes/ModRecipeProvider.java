@@ -9,7 +9,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 import net.valhelsia.valhelsia_core.core.data.DataProviderInfo;
 import net.valhelsia.valhelsia_core.data.recipes.ValhelsiaRecipeProvider;
 import net.valhelsia.valhelsia_furniture.common.block.*;
@@ -17,6 +16,7 @@ import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Supplier;
 
 /**
  * @author Valhelsia Team
@@ -71,7 +71,7 @@ public class ModRecipeProvider extends ValhelsiaRecipeProvider {
         ModBlocks.FABRIC_DESK_LAMPS.forEach((color, registryObject) -> this.fabricDeskLamp(registryObject, color));
     }
 
-    private void table(RegistryObject<TableBlock> table, ItemLike material, List<RegistryObject<TableBlock>> coloredTables) {
+    private void table(Supplier<TableBlock> table, ItemLike material, List<? extends Supplier<TableBlock>> coloredTables) {
         this.table(table, material);
 
         coloredTables.forEach(registryObject -> {
@@ -79,11 +79,11 @@ public class ModRecipeProvider extends ValhelsiaRecipeProvider {
         });
     }
 
-    private void table(RegistryObject<TableBlock> block, ItemLike material) {
+    private void table(Supplier<TableBlock> block, ItemLike material) {
         this.shaped(RecipeCategory.DECORATIONS, block.get(), builder -> builder.group("valhelsia_furniture:table").pattern("###").pattern("X X").pattern("X X").define('#', material).define('X', Tags.Items.RODS_WOODEN).unlockedBy(this, material));
     }
 
-    private void coloredTable(RegistryObject<TableBlock> block, RegistryObject<TableBlock> table) {
+    private void coloredTable(Supplier<TableBlock> block, Supplier<TableBlock> table) {
         Block carpet = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(Objects.requireNonNull(block.get().getColor()).getName() + "_carpet"));
 
         if (carpet != null) {
@@ -91,20 +91,20 @@ public class ModRecipeProvider extends ValhelsiaRecipeProvider {
         }
     }
 
-    private void desk(RegistryObject<DeskBlock> desk, RegistryObject<DeskDrawerBlock> deskDrawer, ItemLike material, ItemLike materialSlab) {
+    private void desk(Supplier<DeskBlock> desk, Supplier<DeskDrawerBlock> deskDrawer, ItemLike material, ItemLike materialSlab) {
         this.desk(desk, material);
         this.deskDrawer(deskDrawer, material, materialSlab);
     }
 
-    private void desk(RegistryObject<DeskBlock> block, ItemLike material) {
+    private void desk(Supplier<DeskBlock> block, ItemLike material) {
         this.shaped(RecipeCategory.DECORATIONS, block.get(), builder -> builder.group("valhelsia_furniture:desk").pattern("###").pattern("# #").pattern("X X").define('#', material).define('X', Tags.Items.RODS_WOODEN).unlockedBy(this, material));
     }
 
-    private void deskDrawer(RegistryObject<DeskDrawerBlock> block, ItemLike material, ItemLike materialSlab) {
+    private void deskDrawer(Supplier<DeskDrawerBlock> block, ItemLike material, ItemLike materialSlab) {
         this.shaped(RecipeCategory.DECORATIONS, block.get(), builder -> builder.group("valhelsia_furniture:desk_drawer").pattern("###").pattern("#S#").pattern("X X").define('#', material).define('X', Tags.Items.RODS_WOODEN).define('S', materialSlab).unlockedBy(this, material).unlockedBy(this, materialSlab));
     }
 
-    private void chair(RegistryObject<ChairBlock> chair, RegistryObject<ChairBlock> hayChair, ItemLike material, List<RegistryObject<ChairBlock>> coloredChairs, List<RegistryObject<UpholsteredChairBlock>> upholsteredChairs) {
+    private void chair(Supplier<ChairBlock> chair, Supplier<ChairBlock> hayChair, ItemLike material, List<? extends Supplier<ChairBlock>> coloredChairs, List<? extends Supplier<UpholsteredChairBlock>> upholsteredChairs) {
         this.chair(chair, material);
         this.hayChair(hayChair, material);
 
@@ -117,11 +117,11 @@ public class ModRecipeProvider extends ValhelsiaRecipeProvider {
         });
     }
 
-    private void chair(RegistryObject<ChairBlock> block, ItemLike material) {
+    private void chair(Supplier<ChairBlock> block, ItemLike material) {
         this.shaped(RecipeCategory.DECORATIONS, block.get(), 2, builder -> builder.group("valhelsia_furniture:chair").pattern("X  ").pattern("###").pattern("X X").define('#', material).define('X', Tags.Items.RODS_WOODEN).unlockedBy(this, material));
     }
 
-    private void coloredChair(RegistryObject<ChairBlock> block, ItemLike material) {
+    private void coloredChair(Supplier<ChairBlock> block, ItemLike material) {
         Block wool = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(Objects.requireNonNull(block.get().getColor()).getName() + "_wool"));
 
         if (wool != null) {
@@ -129,11 +129,11 @@ public class ModRecipeProvider extends ValhelsiaRecipeProvider {
         }
     }
 
-    private void hayChair(RegistryObject<ChairBlock> block, ItemLike material) {
+    private void hayChair(Supplier<ChairBlock> block, ItemLike material) {
         this.shaped(RecipeCategory.DECORATIONS, block.get(), 2, builder -> builder.group("valhelsia_furniture:hayChair").pattern("X  ").pattern("#HH").pattern("X X").define('#', material).define('X', Tags.Items.RODS_WOODEN).define('H', Blocks.HAY_BLOCK).unlockedBy(this, material).unlockedBy(this, Blocks.HAY_BLOCK));
     }
 
-    private void upholsteredChair(RegistryObject<UpholsteredChairBlock> block, ItemLike material) {
+    private void upholsteredChair(Supplier<UpholsteredChairBlock> block, ItemLike material) {
         Block wool = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(Objects.requireNonNull(block.get().getColor()).getName() + "_wool"));
 
         if (wool != null) {
@@ -141,7 +141,7 @@ public class ModRecipeProvider extends ValhelsiaRecipeProvider {
         }
     }
 
-    private void curtain(RegistryObject<ClosedCurtainBlock> block, DyeColor color) {
+    private void curtain(Supplier<ClosedCurtainBlock> block, DyeColor color) {
         Block wool = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(color.getName() + "_wool"));
 
         if (wool != null) {
@@ -149,7 +149,7 @@ public class ModRecipeProvider extends ValhelsiaRecipeProvider {
         }
     }
 
-    private void stool(RegistryObject<StoolBlock> stool, ItemLike material, List<RegistryObject<StoolBlock>> upholsteredStools) {
+    private void stool(Supplier<StoolBlock> stool, ItemLike material, List<? extends Supplier<StoolBlock>> upholsteredStools) {
         this.stool(stool, material);
 
         upholsteredStools.forEach(registryObject -> {
@@ -158,11 +158,11 @@ public class ModRecipeProvider extends ValhelsiaRecipeProvider {
     }
 
 
-    private void stool(RegistryObject<StoolBlock> block, ItemLike material) {
+    private void stool(Supplier<StoolBlock> block, ItemLike material) {
         this.shaped(RecipeCategory.DECORATIONS, block.get(), 2, builder -> builder.group("valhelsia_furniture:stool").pattern("###").pattern("X X").define('#', material).define('X', Tags.Items.RODS_WOODEN).unlockedBy(this, material));
     }
 
-    private void upholsteredStool(RegistryObject<StoolBlock> block, ItemLike material) {
+    private void upholsteredStool(Supplier<StoolBlock> block, ItemLike material) {
         Block wool = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(Objects.requireNonNull(block.get().getColor()).getName() + "_wool"));
 
         if (wool != null) {
@@ -170,7 +170,7 @@ public class ModRecipeProvider extends ValhelsiaRecipeProvider {
         }
     }
 
-    private void fabricDeskLamp(RegistryObject<FabricDeskLampBlock> block, DyeColor color) {
+    private void fabricDeskLamp(Supplier<FabricDeskLampBlock> block, DyeColor color) {
         Block wool = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(color.getName() + "_wool"));
 
         if (wool != null) {

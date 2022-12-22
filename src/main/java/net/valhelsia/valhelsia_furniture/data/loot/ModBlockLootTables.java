@@ -21,7 +21,7 @@ public class ModBlockLootTables extends ValhelsiaBlockLootTables {
     @Override
     protected void generate() {
         this.getRemainingBlocks().removeIf(blockRegistryObject -> {
-            return blockRegistryObject.get() instanceof OpenCurtainBlock;
+            return blockRegistryObject instanceof OpenCurtainBlock;
         });
 
         forEach(this::registerDropSelfLootTable);
