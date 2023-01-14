@@ -11,6 +11,7 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.valhelsia.valhelsia_core.core.data.DataProviderInfo;
+import net.valhelsia.valhelsia_core.data.recipes.ValhelsiaRecipeProvider;
 import net.valhelsia.valhelsia_furniture.core.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.data.loot.ModBlockLootTables;
 import net.valhelsia.valhelsia_furniture.data.models.ModBlockStateProvider;
@@ -36,7 +37,7 @@ public class DataGenerators {
         PackOutput output = generator.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
-        DataProviderInfo info = new DataProviderInfo(output, existingFileHelper, ValhelsiaFurniture.REGISTRY_MANAGER);
+        DataProviderInfo info = DataProviderInfo.of(event, ValhelsiaFurniture.REGISTRY_MANAGER);
 
         generator.addProvider(event.includeClient(), new ModBlockStateProvider(output, existingFileHelper));
         generator.addProvider(event.includeClient(), new ModItemModelProvider(output, existingFileHelper));
@@ -45,7 +46,7 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), blockTagsProvider);
         generator.addProvider(event.includeServer(), new ModItemTagsProvider(output, lookupProvider, blockTagsProvider, existingFileHelper));
 
-        generator.addProvider(event.includeServer(), new ModRecipeProvider(info));
+        generator.addProvider(event.includeServer(), new ValhelsiaRecipeProvider(info, ModRecipeProvider::new));
 
         generator.addProvider(event.includeServer(), new LootTableProvider(output, Set.of(), List.of(new LootTableProvider.SubProviderEntry(() -> new ModBlockLootTables(Set.of(), FeatureFlags.DEFAULT_FLAGS), LootContextParamSets.BLOCK))));
     }

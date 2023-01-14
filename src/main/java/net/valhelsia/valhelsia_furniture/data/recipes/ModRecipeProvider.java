@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.valhelsia.valhelsia_core.core.data.DataProviderInfo;
+import net.valhelsia.valhelsia_core.data.recipes.RecipeSubProvider;
 import net.valhelsia.valhelsia_core.data.recipes.ValhelsiaRecipeProvider;
 import net.valhelsia.valhelsia_furniture.common.block.*;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
@@ -22,10 +22,10 @@ import java.util.function.Supplier;
  * @author Valhelsia Team
  * @since 2022-09-23
  */
-public class ModRecipeProvider extends ValhelsiaRecipeProvider {
+public class ModRecipeProvider extends RecipeSubProvider {
 
-    public ModRecipeProvider(DataProviderInfo info) {
-        super(info);
+    public ModRecipeProvider(ValhelsiaRecipeProvider provider) {
+        super(provider);
     }
 
     @Override
