@@ -1,5 +1,5 @@
 {
-	"credit": "Model created by Zorak Design - Contact me on discord for work: CesarZorak#0808",
+	"credit": "Made by CesarZorak with Blockbench, @copyright Valhelsia Inc 2023",
 	"ambientocclusion": false,
 	"textures": {
 		"particle": "#front"
@@ -104,20 +104,6 @@
 			}
 		},
 		{
-			"name": "leg0_layer",
-			"from": [0.75, -0.25, 0.75],
-			"to": [4.25, 2.25, 4.25],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
-			"faces": {
-				"north": {"uv": [12, 12, 15, 14], "texture": "#front"},
-				"east": {"uv": [12, 12, 15, 14], "texture": "#side"},
-				"south": {"uv": [1, 12, 4, 14], "texture": "#side"},
-				"west": {"uv": [1, 12, 4, 14], "texture": "#side"},
-				"up": {"uv": [5, 13, 8, 16], "texture": "#front"},
-				"down": {"uv": [8, 16, 11, 13], "texture": "#front", "cullface": "down"}
-			}
-		},
-		{
 			"name": "leg1",
 			"from": [1, 0, 12],
 			"to": [4, 4, 15],
@@ -127,20 +113,6 @@
 				"east": {"uv": [1, 12, 4, 16], "texture": "#side"},
 				"south": {"uv": [1, 12, 4, 16], "texture": "#side"},
 				"west": {"uv": [12, 12, 15, 16], "texture": "#side"},
-				"down": {"uv": [8, 13, 11, 16], "texture": "#front", "cullface": "down"}
-			}
-		},
-		{
-			"name": "leg1_layer",
-			"from": [0.75, -0.25, 11.75],
-			"to": [4.25, 2.25, 15.25],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
-			"faces": {
-				"north": {"uv": [12, 12, 15, 14], "texture": "#side"},
-				"east": {"uv": [1, 12, 4, 14], "texture": "#side"},
-				"south": {"uv": [1, 12, 4, 14], "texture": "#side"},
-				"west": {"uv": [12, 12, 15, 14], "texture": "#side"},
-				"up": {"uv": [5, 16, 8, 13], "texture": "#front"},
 				"down": {"uv": [8, 13, 11, 16], "texture": "#front", "cullface": "down"}
 			}
 		},
@@ -158,20 +130,6 @@
 			}
 		},
 		{
-			"name": "leg2_layer",
-			"from": [11.75, -0.25, 0.75],
-			"to": [15.25, 2.25, 4.25],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
-			"faces": {
-				"north": {"uv": [1, 12, 4, 14], "texture": "#front"},
-				"east": {"uv": [12, 12, 15, 14], "texture": "#side"},
-				"south": {"uv": [12, 12, 15, 14], "texture": "#side"},
-				"west": {"uv": [1, 12, 4, 14], "texture": "#side"},
-				"up": {"uv": [8, 13, 5, 16], "texture": "#front"},
-				"down": {"uv": [11, 16, 8, 13], "texture": "#front", "cullface": "down"}
-			}
-		},
-		{
 			"name": "leg3",
 			"from": [12, 0, 12],
 			"to": [15, 4, 15],
@@ -182,20 +140,6 @@
 				"south": {"uv": [12, 12, 15, 16], "texture": "#side"},
 				"west": {"uv": [12, 12, 15, 16], "texture": "#side"},
 				"down": {"uv": [8, 13, 11, 16], "texture": "#front", "cullface": "down"}
-			}
-		},
-		{
-			"name": "leg3_layer",
-			"from": [11.75, -0.25, 11.75],
-			"to": [15.25, 2.25, 15.25],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
-			"faces": {
-				"north": {"uv": [1, 12, 4, 14], "texture": "#side"},
-				"east": {"uv": [1, 12, 4, 14], "texture": "#side"},
-				"south": {"uv": [12, 12, 15, 14], "texture": "#side"},
-				"west": {"uv": [12, 12, 15, 14], "texture": "#side"},
-				"up": {"uv": [8, 16, 5, 13], "texture": "#front"},
-				"down": {"uv": [11, 13, 8, 16], "texture": "#front", "cullface": "down"}
 			}
 		}
 	]
