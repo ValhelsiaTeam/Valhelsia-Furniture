@@ -3,8 +3,6 @@ package net.valhelsia.valhelsia_furniture.common.entity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -15,7 +13,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.network.NetworkHooks;
 import net.valhelsia.valhelsia_furniture.common.block.SeatableBlock;
 import net.valhelsia.valhelsia_furniture.core.registry.ModEntities;
 
@@ -123,12 +120,6 @@ public class SeatEntity extends Entity {
     @Override
     public double getPassengersRidingOffset() {
         return 0.0D;
-    }
-
-    @Nonnull
-    @Override
-    public Packet<ClientGamePacketListener> getAddEntityPacket() {
-        return NetworkHooks.getEntitySpawningPacket(this);
     }
 
     public enum EjectType {

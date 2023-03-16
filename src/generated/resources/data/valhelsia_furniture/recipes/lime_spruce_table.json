@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "valhelsia_furniture:lime_spruce_table"
-  }
+  },
+  "show_notification": true
 }

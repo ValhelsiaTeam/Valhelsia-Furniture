@@ -44,7 +44,7 @@ public class DataGenerators {
 
         ModBlockTagsProvider blockTagsProvider = new ModBlockTagsProvider(output, lookupProvider, existingFileHelper);
         generator.addProvider(event.includeServer(), blockTagsProvider);
-        generator.addProvider(event.includeServer(), new ModItemTagsProvider(output, lookupProvider, blockTagsProvider, existingFileHelper));
+        generator.addProvider(event.includeServer(), new ModItemTagsProvider(output, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
 
         generator.addProvider(event.includeServer(), new ValhelsiaRecipeProvider(info, ModRecipeProvider::new));
 

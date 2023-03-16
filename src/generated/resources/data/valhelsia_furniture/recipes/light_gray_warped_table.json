@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "valhelsia_furniture:light_gray_warped_table"
-  }
+  },
+  "show_notification": true
 }

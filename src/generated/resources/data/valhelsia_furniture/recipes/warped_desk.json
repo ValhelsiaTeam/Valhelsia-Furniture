@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "valhelsia_furniture:warped_desk"
-  }
+  },
+  "show_notification": true
 }

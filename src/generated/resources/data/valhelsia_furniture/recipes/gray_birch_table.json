@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "valhelsia_furniture:gray_birch_table"
-  }
+  },
+  "show_notification": true
 }

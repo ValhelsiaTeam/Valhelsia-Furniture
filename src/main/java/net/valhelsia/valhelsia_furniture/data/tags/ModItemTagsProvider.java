@@ -3,7 +3,8 @@ package net.valhelsia.valhelsia_furniture.data.tags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraftforge.common.data.BlockTagsProvider;
+import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.valhelsia.valhelsia_furniture.core.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.core.registry.ModTags;
@@ -20,7 +21,7 @@ import java.util.concurrent.CompletableFuture;
  */
 public class ModItemTagsProvider extends ItemTagsProvider {
 
-    public ModItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, BlockTagsProvider blockTagsProvider, ExistingFileHelper existingFileHelper) {
+    public ModItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagsProvider.TagLookup<Block>> blockTagsProvider, ExistingFileHelper existingFileHelper) {
         super(output, lookupProvider, blockTagsProvider, ValhelsiaFurniture.MOD_ID, existingFileHelper);
     }
 

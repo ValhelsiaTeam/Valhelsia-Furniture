@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "valhelsia_furniture:magenta_birch_table"
-  }
+  },
+  "show_notification": true
 }

@@ -20,5 +20,6 @@
   "result": {
     "count": 2,
     "item": "valhelsia_furniture:magenta_upholstered_warped_stool"
-  }
+  },
+  "show_notification": true
 }

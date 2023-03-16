@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "valhelsia_furniture:oak_desk"
-  }
+  },
+  "show_notification": true
 }

@@ -20,5 +20,6 @@
   ],
   "result": {
     "item": "valhelsia_furniture:red_fabric_desk_lamp"
-  }
+  },
+  "show_notification": true
 }

@@ -20,5 +20,6 @@
   ],
   "result": {
     "item": "valhelsia_furniture:oak_desk_drawer"
-  }
+  },
+  "show_notification": true
 }

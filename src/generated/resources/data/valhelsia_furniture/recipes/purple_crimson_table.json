@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "valhelsia_furniture:purple_crimson_table"
-  }
+  },
+  "show_notification": true
 }

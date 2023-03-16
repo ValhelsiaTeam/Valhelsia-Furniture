@@ -19,7 +19,7 @@ public class CreativeModeTabEvents {
         event.registerCreativeModeTab(new ResourceLocation(ValhelsiaFurniture.MOD_ID, "main"), builder -> builder
                 .icon(() -> new ItemStack(ModBlocks.HAY_OAK_CHAIR.get()))
                 .title(Component.translatable("itemGroup.valhelsia_furniture"))
-                .displayItems((featureFlags, output, hasOp) -> {
+                .displayItems((parameters, output) -> {
                     ValhelsiaFurniture.REGISTRY_MANAGER.getItemHelper().getRegistryObjects().forEach(registryObject -> {
                         output.accept(registryObject.get());
                     });
