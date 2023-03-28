@@ -36,6 +36,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         this.tag(ModTags.Blocks.JUNGLE_TABLES).add(ModBlocks.JUNGLE_TABLE.get()).add(ModBlocks.JUNGLE_TABLES.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.ACACIA_TABLES).add(ModBlocks.ACACIA_TABLE.get()).add(ModBlocks.ACACIA_TABLES.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.DARK_OAK_TABLES).add(ModBlocks.DARK_OAK_TABLE.get()).add(ModBlocks.DARK_OAK_TABLES.stream().map(Supplier::get).toArray(Block[]::new));
+        this.tag(ModTags.Blocks.MANGROVE_TABLES).add(ModBlocks.MANGROVE_TABLE.get()).add(ModBlocks.MANGROVE_TABLES.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.CRIMSON_TABLES).add(ModBlocks.CRIMSON_TABLE.get()).add(ModBlocks.CRIMSON_TABLES.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.WARPED_TABLES).add(ModBlocks.WARPED_TABLE.get()).add(ModBlocks.WARPED_TABLES.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.TABLES).addTags(ModTags.Blocks.OAK_TABLES, ModTags.Blocks.SPRUCE_TABLES, ModTags.Blocks.BIRCH_TABLES, ModTags.Blocks.JUNGLE_TABLES, ModTags.Blocks.ACACIA_TABLES, ModTags.Blocks.DARK_OAK_TABLES, ModTags.Blocks.CRIMSON_TABLES, ModTags.Blocks.WARPED_TABLES);
