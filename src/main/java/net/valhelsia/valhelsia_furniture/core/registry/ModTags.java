@@ -25,6 +25,7 @@ public class ModTags {
         public static final TagKey<Block> JUNGLE_TABLES = modTag("jungle_tables");
         public static final TagKey<Block> ACACIA_TABLES = modTag("acacia_tables");
         public static final TagKey<Block> DARK_OAK_TABLES = modTag("dark_oak_tables");
+        public static final TagKey<Block> MANGROVE_TABLES = modTag("mangrove_tables");
         public static final TagKey<Block> CRIMSON_TABLES = modTag("crimson_tables");
         public static final TagKey<Block> WARPED_TABLES = modTag("warped_tables");
         public static final TagKey<Block> TABLES = modTag("tables");

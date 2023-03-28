@@ -47,6 +47,8 @@ public class ModBlocks implements RegistryClass {
     @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final BlockRegistryObject<TableBlock> DARK_OAK_TABLE = HELPER.create("dark_oak_table", () -> new TableBlock("dark_oak_table", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     @RenderType(ValhelsiaRenderType.CUTOUT)
+    public static final BlockRegistryObject<TableBlock> MANGROVE_TABLE = HELPER.create("mangrove_table", () -> new TableBlock("mangrove_table", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final BlockRegistryObject<TableBlock> CRIMSON_TABLE = HELPER.create("crimson_table", () -> new TableBlock("crimson_table", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final BlockRegistryObject<TableBlock> WARPED_TABLE = HELPER.create("warped_table", () -> new TableBlock("warped_table", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
@@ -63,6 +65,8 @@ public class ModBlocks implements RegistryClass {
     public static final List<BlockRegistryObject<TableBlock>> ACACIA_TABLES = registerTables("acacia_table");
     @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final List<BlockRegistryObject<TableBlock>> DARK_OAK_TABLES = registerTables("dark_oak_table");
+    @RenderType(ValhelsiaRenderType.CUTOUT)
+    public static final List<BlockRegistryObject<TableBlock>> MANGROVE_TABLES = registerTables("mangrove_table");
     @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final List<BlockRegistryObject<TableBlock>> CRIMSON_TABLES = registerTables("crimson_table");
     @RenderType(ValhelsiaRenderType.CUTOUT)

@@ -36,6 +36,7 @@ public class ModRecipeProvider extends RecipeSubProvider {
         this.table(ModBlocks.JUNGLE_TABLE, Blocks.JUNGLE_PLANKS, ModBlocks.JUNGLE_TABLES);
         this.table(ModBlocks.ACACIA_TABLE, Blocks.ACACIA_PLANKS, ModBlocks.ACACIA_TABLES);
         this.table(ModBlocks.DARK_OAK_TABLE, Blocks.DARK_OAK_PLANKS, ModBlocks.DARK_OAK_TABLES);
+        this.table(ModBlocks.MANGROVE_TABLE, Blocks.MANGROVE_PLANKS, ModBlocks.MANGROVE_TABLES);
         this.table(ModBlocks.CRIMSON_TABLE, Blocks.CRIMSON_PLANKS, ModBlocks.CRIMSON_TABLES);
         this.table(ModBlocks.WARPED_TABLE, Blocks.WARPED_PLANKS, ModBlocks.WARPED_TABLES);
 
