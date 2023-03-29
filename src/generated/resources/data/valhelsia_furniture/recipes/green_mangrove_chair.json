@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:colored_mangrove",
+  "key": {
+    "#": {
+      "item": "minecraft:mangrove_planks"
+    },
+    "W": {
+      "item": "minecraft:green_wool"
+    },
+    "X": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "X  ",
+    "#WW",
+    "X X"
+  ],
+  "result": {
+    "count": 2,
+    "item": "valhelsia_furniture:green_mangrove_chair"
+  },
+  "show_notification": true
+}

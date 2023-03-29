@@ -85,6 +85,8 @@ public class ModBlocks implements RegistryClass {
     @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final BlockRegistryObject<ChairBlock> DARK_OAK_CHAIR = HELPER.create("dark_oak_chair", () -> new ChairBlock("dark_oak", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     @RenderType(ValhelsiaRenderType.CUTOUT)
+    public static final BlockRegistryObject<ChairBlock> MANGROVE_CHAIR = HELPER.create("mangrove_chair", () -> new ChairBlock("mangrove", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final BlockRegistryObject<ChairBlock> CRIMSON_CHAIR = HELPER.create("crimson_chair", () -> new ChairBlock("crimson", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final BlockRegistryObject<ChairBlock> WARPED_CHAIR = HELPER.create("warped_chair", () -> new ChairBlock("warped", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
@@ -101,6 +103,8 @@ public class ModBlocks implements RegistryClass {
     public static final BlockRegistryObject<ChairBlock> HAY_ACACIA_CHAIR = HELPER.create("hay_acacia_chair", () -> new ChairBlock("acacia", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final BlockRegistryObject<ChairBlock> HAY_DARK_OAK_CHAIR = HELPER.create("hay_dark_oak_chair", () -> new ChairBlock("dark_oak", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    @RenderType(ValhelsiaRenderType.CUTOUT)
+    public static final BlockRegistryObject<ChairBlock> HAY_MANGROVE_CHAIR = HELPER.create("hay_mangrove_chair", () -> new ChairBlock("mangrove", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final BlockRegistryObject<ChairBlock> HAY_CRIMSON_CHAIR = HELPER.create("hay_crimson_chair", () -> new ChairBlock("crimson", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     @RenderType(ValhelsiaRenderType.CUTOUT)
@@ -119,6 +123,8 @@ public class ModBlocks implements RegistryClass {
     @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final List<BlockRegistryObject<ChairBlock>> WOOL_DARK_OAK_CHAIRS = registerWoolChairs("dark_oak_chair");
     @RenderType(ValhelsiaRenderType.CUTOUT)
+    public static final List<BlockRegistryObject<ChairBlock>> WOOL_MANGROVE_CHAIRS = registerWoolChairs("mangrove_chair");
+    @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final List<BlockRegistryObject<ChairBlock>> WOOL_CRIMSON_CHAIRS = registerWoolChairs("crimson_chair");
     @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final List<BlockRegistryObject<ChairBlock>> WOOL_WARPED_CHAIRS = registerWoolChairs("warped_chair");
@@ -136,6 +142,8 @@ public class ModBlocks implements RegistryClass {
     @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final List<BlockRegistryObject<UpholsteredChairBlock>> WOOL_UPHOLSTERED_DARK_OAK_CHAIRS = registerUpholsteredWoolChairs("dark_oak");
     @RenderType(ValhelsiaRenderType.CUTOUT)
+    public static final List<BlockRegistryObject<UpholsteredChairBlock>> WOOL_UPHOLSTERED_MANGROVE_CHAIRS = registerUpholsteredWoolChairs("mangrove");
+    @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final List<BlockRegistryObject<UpholsteredChairBlock>> WOOL_UPHOLSTERED_CRIMSON_CHAIRS = registerUpholsteredWoolChairs("crimson");
     @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final List<BlockRegistryObject<UpholsteredChairBlock>> WOOL_UPHOLSTERED_WARPED_CHAIRS = registerUpholsteredWoolChairs("warped");
@@ -146,6 +154,7 @@ public class ModBlocks implements RegistryClass {
     public static final BlockRegistryObject<StoolBlock> JUNGLE_STOOL = HELPER.create("jungle_stool", () -> new StoolBlock("jungle", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     public static final BlockRegistryObject<StoolBlock> ACACIA_STOOL = HELPER.create("acacia_stool", () -> new StoolBlock("acacia", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     public static final BlockRegistryObject<StoolBlock> DARK_OAK_STOOL = HELPER.create("dark_oak_stool", () -> new StoolBlock("dark_oak", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryObject<StoolBlock> MANGROVE_STOOL = HELPER.create("mangrove_stool", () -> new StoolBlock("mangrove", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     public static final BlockRegistryObject<StoolBlock> CRIMSON_STOOL = HELPER.create("crimson_stool", () -> new StoolBlock("crimson", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     public static final BlockRegistryObject<StoolBlock> WARPED_STOOL = HELPER.create("warped_stool", () -> new StoolBlock("warped", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
 
@@ -162,6 +171,8 @@ public class ModBlocks implements RegistryClass {
     @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final List<BlockRegistryObject<StoolBlock>> WOOL_UPHOLSTERED_DARK_OAK_STOOLS = registerUpholsteredStools("dark_oak");
     @RenderType(ValhelsiaRenderType.CUTOUT)
+    public static final List<BlockRegistryObject<StoolBlock>> WOOL_UPHOLSTERED_MANGROVE_STOOLS = registerUpholsteredStools("mangrove");
+    @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final List<BlockRegistryObject<StoolBlock>> WOOL_UPHOLSTERED_CRIMSON_STOOLS = registerUpholsteredStools("crimson");
     @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final List<BlockRegistryObject<StoolBlock>> WOOL_UPHOLSTERED_WARPED_STOOLS = registerUpholsteredStools("warped");
@@ -173,6 +184,7 @@ public class ModBlocks implements RegistryClass {
     public static final BlockRegistryObject<DeskBlock> JUNGLE_DESK = HELPER.create("jungle_desk", () -> new DeskBlock(ModTags.Blocks.JUNGLE_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     public static final BlockRegistryObject<DeskBlock> ACACIA_DESK = HELPER.create("acacia_desk", () -> new DeskBlock(ModTags.Blocks.ACACIA_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     public static final BlockRegistryObject<DeskBlock> DARK_OAK_DESK = HELPER.create("dark_oak_desk", () -> new DeskBlock(ModTags.Blocks.DARK_OAK_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryObject<DeskBlock> MANGROVE_DESK = HELPER.create("mangrove_desk", () -> new DeskBlock(ModTags.Blocks.MANGROVE_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     public static final BlockRegistryObject<DeskBlock> CRIMSON_DESK = HELPER.create("crimson_desk", () -> new DeskBlock(ModTags.Blocks.CRIMSON_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     public static final BlockRegistryObject<DeskBlock> WARPED_DESK = HELPER.create("warped_desk", () -> new DeskBlock(ModTags.Blocks.WARPED_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
 
@@ -183,6 +195,7 @@ public class ModBlocks implements RegistryClass {
     public static final BlockRegistryObject<DeskDrawerBlock> JUNGLE_DESK_DRAWER = HELPER.create("jungle_desk_drawer", () -> new DeskDrawerBlock(ModTags.Blocks.JUNGLE_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     public static final BlockRegistryObject<DeskDrawerBlock> ACACIA_DESK_DRAWER = HELPER.create("acacia_desk_drawer", () -> new DeskDrawerBlock(ModTags.Blocks.ACACIA_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     public static final BlockRegistryObject<DeskDrawerBlock> DARK_OAK_DESK_DRAWER = HELPER.create("dark_oak_desk_drawer", () -> new DeskDrawerBlock(ModTags.Blocks.DARK_OAK_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryObject<DeskDrawerBlock> MANGROVE_DESK_DRAWER = HELPER.create("mangrove_desk_drawer", () -> new DeskDrawerBlock(ModTags.Blocks.MANGROVE_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     public static final BlockRegistryObject<DeskDrawerBlock> CRIMSON_DESK_DRAWER = HELPER.create("crimson_desk_drawer", () -> new DeskDrawerBlock(ModTags.Blocks.CRIMSON_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     public static final BlockRegistryObject<DeskDrawerBlock> WARPED_DESK_DRAWER = HELPER.create("warped_desk_drawer", () -> new DeskDrawerBlock(ModTags.Blocks.WARPED_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
 

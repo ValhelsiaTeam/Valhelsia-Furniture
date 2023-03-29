@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "valhelsia_furniture:brown_upholstered_mangrove_stool"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

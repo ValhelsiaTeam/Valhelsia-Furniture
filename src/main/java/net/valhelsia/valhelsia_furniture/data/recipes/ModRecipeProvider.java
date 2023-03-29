@@ -46,6 +46,7 @@ public class ModRecipeProvider extends RecipeSubProvider {
         this.desk(ModBlocks.JUNGLE_DESK, ModBlocks.JUNGLE_DESK_DRAWER, Blocks.JUNGLE_PLANKS, Blocks.JUNGLE_SLAB);
         this.desk(ModBlocks.ACACIA_DESK, ModBlocks.ACACIA_DESK_DRAWER, Blocks.ACACIA_PLANKS, Blocks.ACACIA_SLAB);
         this.desk(ModBlocks.DARK_OAK_DESK, ModBlocks.DARK_OAK_DESK_DRAWER, Blocks.DARK_OAK_PLANKS, Blocks.DARK_OAK_SLAB);
+        this.desk(ModBlocks.MANGROVE_DESK, ModBlocks.MANGROVE_DESK_DRAWER, Blocks.MANGROVE_PLANKS, Blocks.MANGROVE_SLAB);
         this.desk(ModBlocks.CRIMSON_DESK, ModBlocks.CRIMSON_DESK_DRAWER, Blocks.CRIMSON_PLANKS, Blocks.CRIMSON_SLAB);
         this.desk(ModBlocks.WARPED_DESK, ModBlocks.WARPED_DESK_DRAWER, Blocks.WARPED_PLANKS, Blocks.WARPED_SLAB);
 
@@ -55,6 +56,8 @@ public class ModRecipeProvider extends RecipeSubProvider {
         this.chair(ModBlocks.JUNGLE_CHAIR, ModBlocks.HAY_JUNGLE_CHAIR, Blocks.JUNGLE_PLANKS, ModBlocks.WOOL_JUNGLE_CHAIRS, ModBlocks.WOOL_UPHOLSTERED_JUNGLE_CHAIRS);
         this.chair(ModBlocks.ACACIA_CHAIR, ModBlocks.HAY_ACACIA_CHAIR, Blocks.ACACIA_PLANKS, ModBlocks.WOOL_ACACIA_CHAIRS, ModBlocks.WOOL_UPHOLSTERED_ACACIA_CHAIRS);
         this.chair(ModBlocks.DARK_OAK_CHAIR, ModBlocks.HAY_DARK_OAK_CHAIR, Blocks.DARK_OAK_PLANKS, ModBlocks.WOOL_DARK_OAK_CHAIRS, ModBlocks.WOOL_UPHOLSTERED_DARK_OAK_CHAIRS);
+        this.chair(ModBlocks.MANGROVE_CHAIR, ModBlocks.HAY_MANGROVE_CHAIR, Blocks.MANGROVE_PLANKS, ModBlocks.WOOL_MANGROVE_CHAIRS, ModBlocks.WOOL_UPHOLSTERED_MANGROVE_CHAIRS);
+
         this.chair(ModBlocks.CRIMSON_CHAIR, ModBlocks.HAY_CRIMSON_CHAIR, Blocks.CRIMSON_PLANKS, ModBlocks.WOOL_CRIMSON_CHAIRS, ModBlocks.WOOL_UPHOLSTERED_CRIMSON_CHAIRS);
         this.chair(ModBlocks.WARPED_CHAIR, ModBlocks.HAY_WARPED_CHAIR, Blocks.WARPED_PLANKS, ModBlocks.WOOL_WARPED_CHAIRS, ModBlocks.WOOL_UPHOLSTERED_WARPED_CHAIRS);
 
@@ -66,6 +69,7 @@ public class ModRecipeProvider extends RecipeSubProvider {
         this.stool(ModBlocks.JUNGLE_STOOL, Blocks.JUNGLE_SLAB, ModBlocks.WOOL_UPHOLSTERED_JUNGLE_STOOLS);
         this.stool(ModBlocks.ACACIA_STOOL, Blocks.ACACIA_SLAB, ModBlocks.WOOL_UPHOLSTERED_ACACIA_STOOLS);
         this.stool(ModBlocks.DARK_OAK_STOOL, Blocks.DARK_OAK_SLAB, ModBlocks.WOOL_UPHOLSTERED_DARK_OAK_STOOLS);
+        this.stool(ModBlocks.MANGROVE_STOOL, Blocks.MANGROVE_SLAB, ModBlocks.WOOL_UPHOLSTERED_MANGROVE_STOOLS);
         this.stool(ModBlocks.CRIMSON_STOOL, Blocks.CRIMSON_SLAB, ModBlocks.WOOL_UPHOLSTERED_CRIMSON_STOOLS);
         this.stool(ModBlocks.WARPED_STOOL, Blocks.WARPED_SLAB, ModBlocks.WOOL_UPHOLSTERED_WARPED_STOOLS);
 
