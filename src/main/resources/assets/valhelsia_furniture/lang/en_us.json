@@ -17,6 +17,7 @@
     "block.valhelsia_furniture.jungle_chair": "Jungle Chair",
     "block.valhelsia_furniture.acacia_chair": "Acacia Chair",
     "block.valhelsia_furniture.dark_oak_chair": "Dark Oak Chair",
+    "block.valhelsia_furniture.mangrove_chair": "Mangrove Chair",
     "block.valhelsia_furniture.crimson_chair": "Crimson Chair",
     "block.valhelsia_furniture.warped_chair": "Warped Chair",
 
@@ -26,6 +27,7 @@
     "block.valhelsia_furniture.upholstered_jungle_chair": "Upholstered Jungle Chair",
     "block.valhelsia_furniture.upholstered_acacia_chair": "Upholstered Acacia Chair",
     "block.valhelsia_furniture.upholstered_dark_oak_chair": "Upholstered Dark Oak Chair",
+    "block.valhelsia_furniture.upholstered_mangrove_chair": "Upholstered Mangrove Chair",
     "block.valhelsia_furniture.upholstered_crimson_chair": "Upholstered Crimson Chair",
     "block.valhelsia_furniture.upholstered_warped_chair": "Upholstered Warped Chair",
 
@@ -35,6 +37,7 @@
     "block.valhelsia_furniture.jungle_stool": "Jungle Stool",
     "block.valhelsia_furniture.acacia_stool": "Acacia Stool",
     "block.valhelsia_furniture.dark_oak_stool": "Dark Oak Stool",
+    "block.valhelsia_furniture.mangrove_stool": "Mangrove Stool",
     "block.valhelsia_furniture.crimson_stool": "Crimson Stool",
     "block.valhelsia_furniture.warped_stool": "Warped Stool",
 
@@ -44,6 +47,7 @@
     "block.valhelsia_furniture.jungle_desk": "Jungle Desk",
     "block.valhelsia_furniture.acacia_desk": "Acacia Desk",
     "block.valhelsia_furniture.dark_oak_desk": "Dark Oak Desk",
+    "block.valhelsia_furniture.mangrove_desk": "Mangrove Desk",
     "block.valhelsia_furniture.crimson_desk": "Crimson Desk",
     "block.valhelsia_furniture.warped_desk": "Warped Desk",
 
@@ -53,6 +57,7 @@
     "block.valhelsia_furniture.jungle_desk_drawer": "Jungle Desk Drawer",
     "block.valhelsia_furniture.acacia_desk_drawer": "Acacia Desk Drawer",
     "block.valhelsia_furniture.dark_oak_desk_drawer": "Dark Oak Desk Drawer",
+    "block.valhelsia_furniture.mangrove_desk_drawer": "Mangrove Desk Drawer",
     "block.valhelsia_furniture.crimson_desk_drawer": "Crimson Desk Drawer",
     "block.valhelsia_furniture.warped_desk_drawer": "Warped Desk Drawer",
 
