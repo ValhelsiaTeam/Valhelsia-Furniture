@@ -1,18 +1,15 @@
 package net.valhelsia.valhelsia_furniture.data.tags;
 
-import net.minecraft.core.HolderLookup;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.valhelsia.valhelsia_furniture.core.ValhelsiaFurniture;
+import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
 import net.valhelsia.valhelsia_furniture.core.registry.ModTags;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 
 /**
@@ -24,12 +21,12 @@ import java.util.function.Supplier;
  */
 public class ModBlockTagsProvider extends BlockTagsProvider {
 
-    public ModBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(output, lookupProvider, ValhelsiaFurniture.MOD_ID, existingFileHelper);
+    public ModBlockTagsProvider(DataGenerator generator, @Nullable ExistingFileHelper existingFileHelper) {
+        super(generator, ValhelsiaFurniture.MOD_ID, existingFileHelper);
     }
 
     @Override
-    protected void addTags(@Nonnull HolderLookup.Provider provider) {
+    protected void addTags() {
         this.tag(ModTags.Blocks.OAK_TABLES).add(ModBlocks.OAK_TABLE.get()).add(ModBlocks.OAK_TABLES.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.SPRUCE_TABLES).add(ModBlocks.SPRUCE_TABLE.get()).add(ModBlocks.SPRUCE_TABLES.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.BIRCH_TABLES).add(ModBlocks.BIRCH_TABLE.get()).add(ModBlocks.BIRCH_TABLES.stream().map(Supplier::get).toArray(Block[]::new));

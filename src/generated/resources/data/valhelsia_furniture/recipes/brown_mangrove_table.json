@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "group": "valhelsia_furniture:colored_mangrove_table",
   "key": {
     "#": {
@@ -16,6 +15,5 @@
   ],
   "result": {
     "item": "valhelsia_furniture:brown_mangrove_table"
-  },
-  "show_notification": true
+  }
 }
