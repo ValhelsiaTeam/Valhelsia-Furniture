@@ -16,7 +16,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
-version = '1.19.2-1.0.2'
+version = '1.19.2-1.1.0'
 group = 'net.valhelsia.valhelsia_furniture' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'valhelsia_furniture-forge'
 

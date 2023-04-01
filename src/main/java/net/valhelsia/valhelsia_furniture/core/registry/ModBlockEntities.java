@@ -16,5 +16,5 @@ public class ModBlockEntities implements RegistryClass {
 
     public static final RegistryHelper<BlockEntityType<?>> HELPER = ValhelsiaFurniture.REGISTRY_MANAGER.getHelper(ForgeRegistries.Keys.BLOCK_ENTITY_TYPES);
 
-    public static final RegistryObject<BlockEntityType<DeskDrawerBlockEntity>> DESK_DRAWER = HELPER.register("desk_drawer", () -> BlockEntityType.Builder.of(DeskDrawerBlockEntity::new, ModBlocks.OAK_DESK_DRAWER.get(), ModBlocks.BIRCH_DESK_DRAWER.get(), ModBlocks.SPRUCE_DESK_DRAWER.get(), ModBlocks.JUNGLE_DESK_DRAWER.get(), ModBlocks.ACACIA_DESK_DRAWER.get(), ModBlocks.DARK_OAK_DESK_DRAWER.get(), ModBlocks.CRIMSON_DESK_DRAWER.get(), ModBlocks.WARPED_DESK_DRAWER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<DeskDrawerBlockEntity>> DESK_DRAWER = HELPER.register("desk_drawer", () -> BlockEntityType.Builder.of(DeskDrawerBlockEntity::new, ModBlocks.OAK_DESK_DRAWER.get(), ModBlocks.BIRCH_DESK_DRAWER.get(), ModBlocks.SPRUCE_DESK_DRAWER.get(), ModBlocks.JUNGLE_DESK_DRAWER.get(), ModBlocks.ACACIA_DESK_DRAWER.get(), ModBlocks.DARK_OAK_DESK_DRAWER.get(), ModBlocks.MANGROVE_DESK_DRAWER.get(), ModBlocks.CRIMSON_DESK_DRAWER.get(), ModBlocks.WARPED_DESK_DRAWER.get()).build(null));
 }

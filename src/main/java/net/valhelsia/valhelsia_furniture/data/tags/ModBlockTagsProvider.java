@@ -44,6 +44,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         this.tag(ModTags.Blocks.JUNGLE_CHAIRS).add(ModBlocks.JUNGLE_CHAIR.get(), ModBlocks.HAY_JUNGLE_CHAIR.get()).add(ModBlocks.WOOL_JUNGLE_CHAIRS.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.ACACIA_CHAIRS).add(ModBlocks.ACACIA_CHAIR.get(), ModBlocks.HAY_ACACIA_CHAIR.get()).add(ModBlocks.WOOL_ACACIA_CHAIRS.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.DARK_OAK_CHAIRS).add(ModBlocks.DARK_OAK_CHAIR.get(), ModBlocks.HAY_DARK_OAK_CHAIR.get()).add(ModBlocks.WOOL_DARK_OAK_CHAIRS.stream().map(Supplier::get).toArray(Block[]::new));
+        this.tag(ModTags.Blocks.MANGROVE_CHAIRS).add(ModBlocks.MANGROVE_CHAIR.get(), ModBlocks.HAY_MANGROVE_CHAIR.get()).add(ModBlocks.WOOL_MANGROVE_CHAIRS.stream().map(Supplier::get).toArray(Block[]::new));
+
         this.tag(ModTags.Blocks.CRIMSON_CHAIRS).add(ModBlocks.CRIMSON_CHAIR.get(), ModBlocks.HAY_CRIMSON_CHAIR.get()).add(ModBlocks.WOOL_CRIMSON_CHAIRS.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.WARPED_CHAIRS).add(ModBlocks.WARPED_CHAIR.get(), ModBlocks.HAY_WARPED_CHAIR.get()).add(ModBlocks.WOOL_WARPED_CHAIRS.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.CHAIRS).addTags(ModTags.Blocks.OAK_CHAIRS, ModTags.Blocks.SPRUCE_CHAIRS, ModTags.Blocks.BIRCH_CHAIRS, ModTags.Blocks.JUNGLE_CHAIRS, ModTags.Blocks.ACACIA_CHAIRS, ModTags.Blocks.DARK_OAK_CHAIRS, ModTags.Blocks.CRIMSON_CHAIRS, ModTags.Blocks.WARPED_CHAIRS);
@@ -54,11 +56,12 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         this.tag(ModTags.Blocks.UPHOLSTERED_JUNGLE_CHAIRS).add(ModBlocks.WOOL_UPHOLSTERED_JUNGLE_CHAIRS.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.UPHOLSTERED_ACACIA_CHAIRS).add(ModBlocks.WOOL_UPHOLSTERED_ACACIA_CHAIRS.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.UPHOLSTERED_DARK_OAK_CHAIRS).add(ModBlocks.WOOL_UPHOLSTERED_DARK_OAK_CHAIRS.stream().map(Supplier::get).toArray(Block[]::new));
+        this.tag(ModTags.Blocks.UPHOLSTERED_MANGROVE_CHAIRS).add(ModBlocks.WOOL_UPHOLSTERED_MANGROVE_CHAIRS.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.UPHOLSTERED_CRIMSON_CHAIRS).add(ModBlocks.WOOL_UPHOLSTERED_CRIMSON_CHAIRS.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.UPHOLSTERED_WARPED_CHAIRS).add(ModBlocks.WOOL_UPHOLSTERED_WARPED_CHAIRS.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.UPHOLSTERED_CHAIRS).addTags(ModTags.Blocks.UPHOLSTERED_OAK_CHAIRS, ModTags.Blocks.UPHOLSTERED_SPRUCE_CHAIRS, ModTags.Blocks.UPHOLSTERED_BIRCH_CHAIRS, ModTags.Blocks.UPHOLSTERED_JUNGLE_CHAIRS, ModTags.Blocks.UPHOLSTERED_ACACIA_CHAIRS, ModTags.Blocks.UPHOLSTERED_DARK_OAK_CHAIRS, ModTags.Blocks.UPHOLSTERED_CRIMSON_CHAIRS, ModTags.Blocks.UPHOLSTERED_WARPED_CHAIRS);
 
-        this.tag(ModTags.Blocks.STOOLS).add(ModBlocks.OAK_STOOL.get(), ModBlocks.SPRUCE_STOOL.get(), ModBlocks.BIRCH_STOOL.get(), ModBlocks.JUNGLE_STOOL.get(), ModBlocks.ACACIA_STOOL.get(), ModBlocks.DARK_OAK_STOOL.get(), ModBlocks.CRIMSON_STOOL.get(), ModBlocks.WARPED_STOOL.get());
+        this.tag(ModTags.Blocks.STOOLS).add(ModBlocks.OAK_STOOL.get(), ModBlocks.SPRUCE_STOOL.get(), ModBlocks.BIRCH_STOOL.get(), ModBlocks.JUNGLE_STOOL.get(), ModBlocks.ACACIA_STOOL.get(), ModBlocks.DARK_OAK_STOOL.get(), ModBlocks.MANGROVE_STOOL.get(), ModBlocks.CRIMSON_STOOL.get(), ModBlocks.WARPED_STOOL.get());
 
         this.tag(ModTags.Blocks.UPHOLSTERED_OAK_STOOLS).add(ModBlocks.WOOL_UPHOLSTERED_OAK_STOOLS.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.UPHOLSTERED_SPRUCE_STOOLS).add(ModBlocks.WOOL_UPHOLSTERED_SPRUCE_STOOLS.stream().map(Supplier::get).toArray(Block[]::new));
@@ -66,6 +69,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         this.tag(ModTags.Blocks.UPHOLSTERED_JUNGLE_STOOLS).add(ModBlocks.WOOL_UPHOLSTERED_JUNGLE_STOOLS.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.UPHOLSTERED_ACACIA_STOOLS).add(ModBlocks.WOOL_UPHOLSTERED_ACACIA_STOOLS.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.UPHOLSTERED_DARK_OAK_STOOLS).add(ModBlocks.WOOL_UPHOLSTERED_DARK_OAK_STOOLS.stream().map(Supplier::get).toArray(Block[]::new));
+        this.tag(ModTags.Blocks.UPHOLSTERED_MANGROVE_STOOLS).add(ModBlocks.WOOL_UPHOLSTERED_MANGROVE_STOOLS.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.UPHOLSTERED_CRIMSON_STOOLS).add(ModBlocks.WOOL_UPHOLSTERED_CRIMSON_STOOLS.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.UPHOLSTERED_WARPED_STOOLS).add(ModBlocks.WOOL_UPHOLSTERED_WARPED_STOOLS.stream().map(Supplier::get).toArray(Block[]::new));
         this.tag(ModTags.Blocks.UPHOLSTERED_STOOLS).addTags(ModTags.Blocks.UPHOLSTERED_OAK_STOOLS, ModTags.Blocks.UPHOLSTERED_SPRUCE_STOOLS, ModTags.Blocks.UPHOLSTERED_BIRCH_STOOLS, ModTags.Blocks.UPHOLSTERED_JUNGLE_STOOLS, ModTags.Blocks.UPHOLSTERED_ACACIA_STOOLS, ModTags.Blocks.UPHOLSTERED_DARK_OAK_STOOLS, ModTags.Blocks.UPHOLSTERED_CRIMSON_STOOLS, ModTags.Blocks.UPHOLSTERED_WARPED_STOOLS);
@@ -76,6 +80,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         this.tag(ModTags.Blocks.JUNGLE_DESKS).add(ModBlocks.JUNGLE_DESK.get(), ModBlocks.JUNGLE_DESK_DRAWER.get());
         this.tag(ModTags.Blocks.ACACIA_DESKS).add(ModBlocks.ACACIA_DESK.get(), ModBlocks.ACACIA_DESK_DRAWER.get());
         this.tag(ModTags.Blocks.DARK_OAK_DESKS).add(ModBlocks.DARK_OAK_DESK.get(), ModBlocks.DARK_OAK_DESK_DRAWER.get());
+        this.tag(ModTags.Blocks.MANGROVE_DESKS).add(ModBlocks.MANGROVE_DESK.get(), ModBlocks.MANGROVE_DESK_DRAWER.get());
         this.tag(ModTags.Blocks.CRIMSON_DESKS).add(ModBlocks.CRIMSON_DESK.get(), ModBlocks.CRIMSON_DESK_DRAWER.get());
         this.tag(ModTags.Blocks.WARPED_DESKS).add(ModBlocks.WARPED_DESK.get(), ModBlocks.WARPED_DESK_DRAWER.get());
         this.tag(ModTags.Blocks.DESKS).addTag(ModTags.Blocks.OAK_DESKS).addTag(ModTags.Blocks.SPRUCE_DESKS).addTag(ModTags.Blocks.BIRCH_DESKS).addTag(ModTags.Blocks.JUNGLE_DESKS).addTag(ModTags.Blocks.ACACIA_DESKS).addTag(ModTags.Blocks.DARK_OAK_DESKS).addTag(ModTags.Blocks.CRIMSON_DESKS).addTag(ModTags.Blocks.WARPED_DESKS);
