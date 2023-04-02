@@ -95,6 +95,7 @@ public class ModTags {
         public static final TagKey<Item> JUNGLE_DESKS = modTag("jungle_desks");
         public static final TagKey<Item> ACACIA_DESKS = modTag("acacia_desks");
         public static final TagKey<Item> DARK_OAK_DESKS = modTag("dark_oak_desks");
+        public static final TagKey<Item> MANGROVE_DESKS = modTag("mangrove_desks");
         public static final TagKey<Item> CRIMSON_DESKS = modTag("crimson_desks");
         public static final TagKey<Item> WARPED_DESKS = modTag("warped_desks");
         public static final TagKey<Item> DESKS = modTag("desks");
