@@ -33,6 +33,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         this.copy(ModTags.Blocks.JUNGLE_DESKS, ModTags.Items.JUNGLE_DESKS);
         this.copy(ModTags.Blocks.ACACIA_DESKS, ModTags.Items.ACACIA_DESKS );
         this.copy(ModTags.Blocks.DARK_OAK_DESKS, ModTags.Items.DARK_OAK_DESKS);
+        this.copy(ModTags.Blocks.MANGROVE_DESKS, ModTags.Items.MANGROVE_DESKS);
         this.copy(ModTags.Blocks.CRIMSON_DESKS, ModTags.Items.CRIMSON_DESKS);
         this.copy(ModTags.Blocks.WARPED_DESKS, ModTags.Items.WARPED_DESKS);
         this.copy(ModTags.Blocks.DESKS, ModTags.Items.DESKS);
