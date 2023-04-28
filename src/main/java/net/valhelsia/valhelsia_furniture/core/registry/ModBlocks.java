@@ -72,6 +72,7 @@ public class ModBlocks implements RegistryClass {
     @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final List<RegistryObject<TableBlock>> WARPED_TABLES = registerTables("warped_table");
 
+    @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final RegistryObject<ChairBlock> OAK_CHAIR = HELPER.register("oak_chair", () -> new ChairBlock("oak", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
     @RenderType(ValhelsiaRenderType.CUTOUT)
     public static final RegistryObject<ChairBlock> SPRUCE_CHAIR = HELPER.register("spruce_chair", () -> new ChairBlock("spruce", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
