@@ -1,0 +1,35 @@
+{
+	"credit": "Model created by Zorak Design - Contact me on discord for work: CesarZorak#0808",
+	"parent": "minecraft:block/block",
+	"ambientocclusion": false,
+	"textures": {
+		"particle": "#top"
+	},
+	"elements": [
+		{
+			"name": "0",
+			"from": [0, 8, 15],
+			"to": [16, 16, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 8], "texture": "#top"},
+				"east": {"uv": [0, 0, 1, 8], "texture": "#top", "cullface": "east"},
+				"south": {"uv": [16, 0, 0, 8], "texture": "#top", "cullface": "south"},
+				"west": {"uv": [15, 0, 16, 8], "texture": "#top", "cullface": "west"}
+			}
+		},
+		{
+			"name": "1",
+			"from": [0, 0, 15],
+			"to": [16, 8, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 8, 16, 16], "texture": "#down"},
+				"east": {"uv": [0, 8, 1, 16], "texture": "#down", "cullface": "east"},
+				"south": {"uv": [16, 8, 0, 16], "texture": "#down", "cullface": "south"},
+				"west": {"uv": [15, 8, 16, 16], "texture": "#down", "cullface": "west"},
+				"down": {"uv": [16, 15, 0, 16], "texture": "#down", "cullface": "down"}
+			}
+		}
+	]
+}

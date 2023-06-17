@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "valhelsia_furniture",
+  "version": "${version}",
+
+  "name": "Valhelsia Furniture",
+  "description": "",
+  "authors": [],
+  "contact": {},
+
+  "license": "All Rights Reserved",
+  "icon": "icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.valhelsia.valhelsia_furniture.fabric.ValhelsiaFurnitureFabric"
+    ]
+  },
+  "mixins": [
+    "valhelsia_furniture.mixins.json",
+    "valhelsia_furniture-common.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "minecraft": ">=1.20"
+  }
+}
