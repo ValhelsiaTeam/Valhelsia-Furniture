@@ -3,8 +3,10 @@ package net.valhelsia.valhelsia_furniture.common.block;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
@@ -159,22 +161,21 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock, Furnitu
         return state;
     }
 
-    //TODO
-//    @Override
-//    public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
-//        for (Direction direction : Direction.values()) {
-//            if (direction.getAxis() == Direction.Axis.Y) {
-//                continue;
-//            }
-//
-//            if (state.getValue(PROPERTY_BY_DIRECTION.get(direction))) {
-//                this.trySplit(direction, pos, level);
-//                break;
-//            }
-//        }
-//
-//        return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
-//    }
+    @Override
+    public void playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        for (Direction direction : Direction.values()) {
+            if (direction.getAxis() == Direction.Axis.Y) {
+                continue;
+            }
+
+            if (state.getValue(PROPERTY_BY_DIRECTION.get(direction))) {
+                this.trySplit(direction, pos, level);
+                break;
+            }
+        }
+
+        super.playerWillDestroy(level, pos, state, player);
+    }
 
     private void tryConnect(Direction direction, BlockPos pos, LevelAccessor level) {
         List<BlockPos> list = new ArrayList<>();
