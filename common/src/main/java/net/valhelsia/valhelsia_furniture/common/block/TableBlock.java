@@ -1,13 +1,8 @@
 package net.valhelsia.valhelsia_furniture.common.block;
 
-import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
@@ -75,16 +70,9 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock, Furnitu
             Block.box(12.0D, 0.0D, 1.0D, 15.0D, 12.0D, 4.0D)
     );
 
-    private final String baseName;
-    @Nullable
-    private final DyeColor color;
     private final WoodType woodType;
 
-    public TableBlock(String baseName, WoodType woodType, Properties properties) {
-        this(baseName, null, woodType, properties);
-    }
-
-    public TableBlock(String baseName, @Nullable DyeColor color, WoodType woodType, Properties properties) {
+    public TableBlock(WoodType woodType, Properties properties) {
         super(properties);
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(NORTH, false)
@@ -94,8 +82,6 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock, Furnitu
                 .setValue(ROTATED, false)
                 .setValue(WATERLOGGED, false)
         );
-        this.baseName = baseName;
-        this.color = color;
         this.woodType = woodType;
     }
 
@@ -346,7 +332,7 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock, Furnitu
     }
 
     public boolean isValidTable(BlockState state) {
-        return state.getBlock() instanceof TableBlock table && table.getBaseName().equals(this.getBaseName());
+        return state.getBlock() instanceof TableBlock table && table.getWoodType() == this.getWoodType();
     }
 
     public boolean isSameRotation(BlockState state1, BlockState state2) {
@@ -356,30 +342,8 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock, Furnitu
         return state1.getValue(ROTATED) == state2.getValue(ROTATED);
     }
 
-    @NotNull
-    @Override
-    public String getDescriptionId() {
-        return "block.valhelsia_furniture." + this.baseName;
-    }
-
-    public String getBaseName() {
-        return this.baseName;
-    }
-
-    @Nullable
-    public DyeColor getColor() {
-        return this.color;
-    }
-
     public WoodType getWoodType() {
         return this.woodType;
-    }
-
-    @Override
-    public void appendHoverText(@NotNull ItemStack stack, @Nullable BlockGetter level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
-        if (this.color != null) {
-            tooltip.add(Component.translatable("tooltip.valhelsia_furniture." + this.color + "_tablecloth").withStyle(ChatFormatting.GRAY));
-        }
     }
 
     @NotNull
