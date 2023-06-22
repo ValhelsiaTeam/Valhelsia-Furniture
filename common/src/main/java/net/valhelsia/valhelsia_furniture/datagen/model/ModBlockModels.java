@@ -72,6 +72,26 @@ public class ModBlockModels {
         this.createChair(ModBlocks.MANGROVE_CHAIR.get());
         this.createChair(ModBlocks.CRIMSON_CHAIR.get());
         this.createChair(ModBlocks.WARPED_CHAIR.get());
+
+        this.createChair(ModBlocks.HAY_OAK_CHAIR.get());
+        this.createChair(ModBlocks.HAY_SPRUCE_CHAIR.get());
+        this.createChair(ModBlocks.HAY_BIRCH_CHAIR.get());
+        this.createChair(ModBlocks.HAY_JUNGLE_CHAIR.get());
+        this.createChair(ModBlocks.HAY_ACACIA_CHAIR.get());
+        this.createChair(ModBlocks.HAY_DARK_OAK_CHAIR.get());
+        this.createChair(ModBlocks.HAY_MANGROVE_CHAIR.get());
+        this.createChair(ModBlocks.HAY_CRIMSON_CHAIR.get());
+        this.createChair(ModBlocks.HAY_WARPED_CHAIR.get());
+
+        this.apply(ModBlocks.WOOL_OAK_CHAIRS, this::createChair);
+        this.apply(ModBlocks.WOOL_SPRUCE_CHAIRS, this::createChair);
+        this.apply(ModBlocks.WOOL_BIRCH_CHAIRS, this::createChair);
+        this.apply(ModBlocks.WOOL_JUNGLE_CHAIRS, this::createChair);
+        this.apply(ModBlocks.WOOL_ACACIA_CHAIRS, this::createChair);
+        this.apply(ModBlocks.WOOL_DARK_OAK_CHAIRS, this::createChair);
+        this.apply(ModBlocks.WOOL_MANGROVE_CHAIRS, this::createChair);
+        this.apply(ModBlocks.WOOL_CRIMSON_CHAIRS, this::createChair);
+        this.apply(ModBlocks.WOOL_WARPED_CHAIRS, this::createChair);
     }
 
     private void apply(BlockEntrySet<?, ?> set, Consumer<Block> consumer) {
