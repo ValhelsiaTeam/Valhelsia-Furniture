@@ -2,6 +2,7 @@ package net.valhelsia.valhelsia_furniture.core.registry;
 
 import net.minecraft.core.registries.Registries;
 import net.valhelsia.valhelsia_core.api.registry.RegistryCollector;
+import net.valhelsia.valhelsia_core.api.registry.helper.EntityRegistryHelper;
 
 /**
  * @author Valhelsia Team
@@ -18,5 +19,6 @@ public class ModRegistryCollector extends RegistryCollector {
         this.addBlockHelper(ModBlocks::new);
         this.addItemHelper();
         this.addMappedHelper(Registries.CREATIVE_MODE_TAB, ModCreativeModeTabs::new);
+        this.addMappedHelper(Registries.ENTITY_TYPE, EntityRegistryHelper::new, ModEntities::new);
     }
 }

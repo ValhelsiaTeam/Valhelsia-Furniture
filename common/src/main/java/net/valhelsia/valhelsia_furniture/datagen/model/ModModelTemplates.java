@@ -29,6 +29,7 @@ public class ModModelTemplates {
     public static final ModelTemplate TABLE_ES = create("template_table_es", ModTextureSlots.TABLE, ModTextureSlots.CONNECTED_TABLE);
     public static final ModelTemplate TABLE_ESW = create("template_table_esw", ModTextureSlots.TABLE, ModTextureSlots.CONNECTED_TABLE);
     public static final ModelTemplate TABLE_EW = create("template_table_ew", ModTextureSlots.TABLE, ModTextureSlots.CONNECTED_TABLE);
+    public static final ModelTemplate CHAIR = create("template_chair", ModTextureSlots.CHAIR);
 
     public static ModelTemplate create(String name, TextureSlot... textureSlots) {
         return new ModelTemplate(Optional.of(new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/" + name)), Optional.empty(), textureSlots);

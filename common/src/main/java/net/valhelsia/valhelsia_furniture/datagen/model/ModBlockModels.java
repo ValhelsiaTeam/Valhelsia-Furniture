@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.valhelsia.valhelsia_core.api.registry.helper.block.BlockEntrySet;
 import net.valhelsia.valhelsia_core.api.registry.helper.block.BlockRegistryEntry;
+import net.valhelsia.valhelsia_furniture.common.block.ChairBlock;
 import net.valhelsia.valhelsia_furniture.common.block.FurnitureBlock;
 import net.valhelsia.valhelsia_furniture.common.block.TableBlock;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
@@ -34,6 +35,7 @@ public class ModBlockModels {
         this.generators = generators;
         this.blockStateOutput = generators.blockStateOutput;
         this.modelOutput = generators.modelOutput;
+
     }
 
     public static void create(BlockModelGenerators generators) {
@@ -60,10 +62,20 @@ public class ModBlockModels {
         this.apply(ModBlocks.COLORED_MANGROVE_TABLES, this::createTable);
         this.apply(ModBlocks.COLORED_CRIMSON_TABLES, this::createTable);
         this.apply(ModBlocks.COLORED_WARPED_TABLES, this::createTable);
+
+        this.createChair(ModBlocks.OAK_CHAIR.get());
+        this.createChair(ModBlocks.SPRUCE_CHAIR.get());
+        this.createChair(ModBlocks.BIRCH_CHAIR.get());
+        this.createChair(ModBlocks.JUNGLE_CHAIR.get());
+        this.createChair(ModBlocks.ACACIA_CHAIR.get());
+        this.createChair(ModBlocks.DARK_OAK_CHAIR.get());
+        this.createChair(ModBlocks.MANGROVE_CHAIR.get());
+        this.createChair(ModBlocks.CRIMSON_CHAIR.get());
+        this.createChair(ModBlocks.WARPED_CHAIR.get());
     }
 
-    private void apply(BlockEntrySet<?> set, Consumer<Block> consumer) {
-        for (BlockRegistryEntry entry : set.values()) {
+    private void apply(BlockEntrySet<?, ?> set, Consumer<Block> consumer) {
+        for (BlockRegistryEntry<?> entry : set.values()) {
             consumer.accept(entry.get());
         }
     }
@@ -137,6 +149,17 @@ public class ModBlockModels {
         ModModelTemplates.TABLE_ES.createWithSuffix(block, "_es", mapping, this.modelOutput);
         ModModelTemplates.TABLE_ESW.createWithSuffix(block, "_esw", mapping, this.modelOutput);
         ModModelTemplates.TABLE_EW.createWithSuffix(block, "_ew", mapping, this.modelOutput);
+    }
+
+    private void createChair(Block block) {
+        if (!(block instanceof ChairBlock chairBlock)) {
+            return;
+        }
+
+        TextureMapping textureMapping = new TextureMapping().put(ModTextureSlots.CHAIR, ModTextureMapping.getBlockTexture(block, "chair/" + chairBlock.getWoodType().name()));
+        ResourceLocation model = ModModelTemplates.CHAIR.create(block, textureMapping, this.modelOutput);
+
+        this.blockStateOutput.accept(createSimpleBlock(block, model).with(BlockModelGenerators.createHorizontalFacingDispatch()));
     }
 
     private static MultiVariantGenerator createSimpleBlock(Block block, ResourceLocation resourceLocation) {
