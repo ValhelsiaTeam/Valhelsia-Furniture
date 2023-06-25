@@ -30,6 +30,11 @@ public class ModModelTemplates {
     public static final ModelTemplate TABLE_ESW = create("template_table_esw", ModTextureSlots.TABLE, ModTextureSlots.CONNECTED_TABLE);
     public static final ModelTemplate TABLE_EW = create("template_table_ew", ModTextureSlots.TABLE, ModTextureSlots.CONNECTED_TABLE);
     public static final ModelTemplate CHAIR = create("template_chair", ModTextureSlots.CHAIR);
+    public static final ModelTemplate UPHOLSTERED_CHAIR = create("template_upholstered_chair", ModTextureSlots.WOOL, ModTextureSlots.WOOD);
+    public static final ModelTemplate STOOL = create("template_stool", ModTextureSlots.STOOL);
+    public static final ModelTemplate STOOL_ROTATED = create("template_stool_rotated", ModTextureSlots.STOOL);
+    public static final ModelTemplate UPHOLSTERED_STOOL = create("template_upholstered_stool", ModTextureSlots.WOOD, ModTextureSlots.WOOL);
+    public static final ModelTemplate UPHOLSTERED_STOOL_ROTATED = create("template_upholstered_stool_rotated", ModTextureSlots.WOOD, ModTextureSlots.WOOL);
 
     public static ModelTemplate create(String name, TextureSlot... textureSlots) {
         return new ModelTemplate(Optional.of(new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/" + name)), Optional.empty(), textureSlots);

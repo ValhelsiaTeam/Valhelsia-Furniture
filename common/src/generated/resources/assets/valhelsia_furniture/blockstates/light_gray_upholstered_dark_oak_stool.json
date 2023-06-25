@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "rotated=false": {
+      "model": "valhelsia_furniture:block/light_gray_upholstered_dark_oak_stool"
+    },
+    "rotated=true": {
+      "model": "valhelsia_furniture:block/light_gray_upholstered_dark_oak_stool_rotated"
+    }
+  }
+}

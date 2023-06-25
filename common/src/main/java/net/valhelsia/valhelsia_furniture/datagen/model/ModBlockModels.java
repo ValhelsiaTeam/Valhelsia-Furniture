@@ -11,9 +11,8 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.valhelsia.valhelsia_core.api.registry.helper.block.BlockEntrySet;
 import net.valhelsia.valhelsia_core.api.registry.helper.block.BlockRegistryEntry;
-import net.valhelsia.valhelsia_furniture.common.block.ChairBlock;
-import net.valhelsia.valhelsia_furniture.common.block.FurnitureBlock;
-import net.valhelsia.valhelsia_furniture.common.block.TableBlock;
+import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
+import net.valhelsia.valhelsia_furniture.common.block.*;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
 
@@ -92,10 +91,40 @@ public class ModBlockModels {
         this.apply(ModBlocks.WOOL_MANGROVE_CHAIRS, this::createChair);
         this.apply(ModBlocks.WOOL_CRIMSON_CHAIRS, this::createChair);
         this.apply(ModBlocks.WOOL_WARPED_CHAIRS, this::createChair);
+
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_OAK_CHAIRS, this::createUpholsteredChair);
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_SPRUCE_CHAIRS, this::createUpholsteredChair);
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_BIRCH_CHAIRS, this::createUpholsteredChair);
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_JUNGLE_CHAIRS, this::createUpholsteredChair);
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_ACACIA_CHAIRS, this::createUpholsteredChair);
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_DARK_OAK_CHAIRS, this::createUpholsteredChair);
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_MANGROVE_CHAIRS, this::createUpholsteredChair);
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_CRIMSON_CHAIRS, this::createUpholsteredChair);
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_WARPED_CHAIRS, this::createUpholsteredChair);
+
+        this.createStool(ModBlocks.OAK_STOOL.get());
+        this.createStool(ModBlocks.SPRUCE_STOOL.get());
+        this.createStool(ModBlocks.BIRCH_STOOL.get());
+        this.createStool(ModBlocks.JUNGLE_STOOL.get());
+        this.createStool(ModBlocks.ACACIA_STOOL.get());
+        this.createStool(ModBlocks.DARK_OAK_STOOL.get());
+        this.createStool(ModBlocks.MANGROVE_STOOL.get());
+        this.createStool(ModBlocks.CRIMSON_STOOL.get());
+        this.createStool(ModBlocks.WARPED_STOOL.get());
+
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_OAK_STOOLS, this::createUpholsteredStool);
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_SPRUCE_STOOLS, this::createUpholsteredStool);
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_BIRCH_STOOLS, this::createUpholsteredStool);
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_JUNGLE_STOOLS, this::createUpholsteredStool);
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_ACACIA_STOOLS, this::createUpholsteredStool);
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_DARK_OAK_STOOLS, this::createUpholsteredStool);
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_MANGROVE_STOOLS, this::createUpholsteredStool);
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_CRIMSON_STOOLS, this::createUpholsteredStool);
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_WARPED_STOOLS, this::createUpholsteredStool);
     }
 
-    private void apply(BlockEntrySet<?, ?> set, Consumer<Block> consumer) {
-        for (BlockRegistryEntry<?> entry : set.values()) {
+    private <T extends Block> void apply(BlockEntrySet<T, ?> set, Consumer<T> consumer) {
+        for (BlockRegistryEntry<T> entry : set.values()) {
             consumer.accept(entry.get());
         }
     }
@@ -182,6 +211,34 @@ public class ModBlockModels {
         this.blockStateOutput.accept(createSimpleBlock(block, model).with(BlockModelGenerators.createHorizontalFacingDispatch()));
     }
 
+    private void createUpholsteredChair(UpholsteredChairBlock block) {
+        TextureMapping textureMapping = new TextureMapping()
+                .put(ModTextureSlots.WOOL, new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/upholstered_chair/colors/" + block.getColor()))
+                .put(ModTextureSlots.WOOD, new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/upholstered_chair/base/" + block.getWoodType().name()));
+        ResourceLocation model = ModModelTemplates.UPHOLSTERED_CHAIR.create(block, textureMapping, this.modelOutput);
+
+        this.blockStateOutput.accept(createSimpleBlock(block, model).with(BlockModelGenerators.createHorizontalFacingDispatch()));
+    }
+
+    private void createStool(Block block) {
+        TextureMapping textureMapping = new TextureMapping().put(ModTextureSlots.STOOL, ModTextureMapping.getBlockTexture(block, "stool"));
+        ResourceLocation model = ModModelTemplates.STOOL.create(block, textureMapping, this.modelOutput);
+        ResourceLocation rotatedModel = ModModelTemplates.STOOL_ROTATED.createWithSuffix(block, "_rotated", textureMapping, this.modelOutput);
+
+        this.blockStateOutput.accept(createSimpleBlock(block, model).with(createRotatedDispatch(rotatedModel)));
+    }
+
+    private void createUpholsteredStool(StoolBlock block) {
+        TextureMapping textureMapping = new TextureMapping()
+                .put(ModTextureSlots.WOOD, new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/upholstered_stool/base/" + block.getWoodType().name()))
+                .put(ModTextureSlots.WOOL, new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/upholstered_stool/colors/" + block.getColor()));
+
+        ResourceLocation model = ModModelTemplates.UPHOLSTERED_STOOL.create(block, textureMapping, this.modelOutput);
+        ResourceLocation rotatedModel = ModModelTemplates.UPHOLSTERED_STOOL_ROTATED.createWithSuffix(block, "_rotated", textureMapping, this.modelOutput);
+
+        this.blockStateOutput.accept(createSimpleBlock(block, model).with(createRotatedDispatch(rotatedModel)));
+    }
+
     private static MultiVariantGenerator createSimpleBlock(Block block, ResourceLocation resourceLocation) {
         return MultiVariantGenerator.multiVariant(block, Variant.variant().with(VariantProperties.MODEL, resourceLocation));
     }
@@ -190,7 +247,7 @@ public class ModBlockModels {
         return PropertyDispatch.property(booleanProperty).select(true, Variant.variant().with(VariantProperties.MODEL, resourceLocation)).select(false, Variant.variant().with(VariantProperties.MODEL, resourceLocation2));
     }
 
-    private static PropertyDispatch createRotatedDispatch() {
-        return PropertyDispatch.property(ModBlockStateProperties.ROTATED).select(false, Variant.variant()).select(true, Variant.variant().with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90));
+    private static PropertyDispatch createRotatedDispatch(ResourceLocation model) {
+        return PropertyDispatch.property(ModBlockStateProperties.ROTATED).select(false, Variant.variant()).select(true, Variant.variant().with(VariantProperties.MODEL, model));
     }
 }

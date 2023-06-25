@@ -11,9 +11,7 @@ import net.valhelsia.valhelsia_core.api.registry.helper.block.BlockEntrySet;
 import net.valhelsia.valhelsia_core.api.registry.helper.block.BlockRegistryEntry;
 import net.valhelsia.valhelsia_core.api.registry.helper.block.BlockRegistryHelper;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
-import net.valhelsia.valhelsia_furniture.common.block.ChairBlock;
-import net.valhelsia.valhelsia_furniture.common.block.TableBlock;
-import net.valhelsia.valhelsia_furniture.common.block.TableclothTableBlock;
+import net.valhelsia.valhelsia_furniture.common.block.*;
 
 /**
  * @author Valhelsia Team
@@ -72,5 +70,35 @@ public class ModBlocks implements RegistryClass {
     public static final BlockEntrySet<ChairBlock, DyeColor> WOOL_MANGROVE_CHAIRS = HELPER.registerColorEntrySet("mangrove_chair", color -> new ChairBlock(WoodType.MANGROVE, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
     public static final BlockEntrySet<ChairBlock, DyeColor> WOOL_CRIMSON_CHAIRS = HELPER.registerColorEntrySet("crimson_chair", color -> new ChairBlock(WoodType.CRIMSON, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
     public static final BlockEntrySet<ChairBlock, DyeColor> WOOL_WARPED_CHAIRS = HELPER.registerColorEntrySet("warped_chair", color -> new ChairBlock(WoodType.WARPED, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
+
+    public static final BlockEntrySet<UpholsteredChairBlock, DyeColor> WOOL_UPHOLSTERED_OAK_CHAIRS = HELPER.registerColorEntrySet("upholstered_oak_chair", color -> new UpholsteredChairBlock(WoodType.OAK, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
+    public static final BlockEntrySet<UpholsteredChairBlock, DyeColor> WOOL_UPHOLSTERED_SPRUCE_CHAIRS = HELPER.registerColorEntrySet("upholstered_spruce_chair", color -> new UpholsteredChairBlock(WoodType.SPRUCE, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
+    public static final BlockEntrySet<UpholsteredChairBlock, DyeColor> WOOL_UPHOLSTERED_BIRCH_CHAIRS = HELPER.registerColorEntrySet("upholstered_birch_chair", color -> new UpholsteredChairBlock(WoodType.BIRCH, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
+    public static final BlockEntrySet<UpholsteredChairBlock, DyeColor> WOOL_UPHOLSTERED_JUNGLE_CHAIRS = HELPER.registerColorEntrySet("upholstered_jungle_chair", color -> new UpholsteredChairBlock(WoodType.JUNGLE, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
+    public static final BlockEntrySet<UpholsteredChairBlock, DyeColor> WOOL_UPHOLSTERED_ACACIA_CHAIRS = HELPER.registerColorEntrySet("upholstered_acacia_chair", color -> new UpholsteredChairBlock(WoodType.ACACIA, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
+    public static final BlockEntrySet<UpholsteredChairBlock, DyeColor> WOOL_UPHOLSTERED_DARK_OAK_CHAIRS = HELPER.registerColorEntrySet("upholstered_dark_oak_chair", color -> new UpholsteredChairBlock(WoodType.DARK_OAK, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
+    public static final BlockEntrySet<UpholsteredChairBlock, DyeColor> WOOL_UPHOLSTERED_MANGROVE_CHAIRS = HELPER.registerColorEntrySet("upholstered_mangrove_chair", color -> new UpholsteredChairBlock(WoodType.MANGROVE, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
+    public static final BlockEntrySet<UpholsteredChairBlock, DyeColor> WOOL_UPHOLSTERED_CRIMSON_CHAIRS = HELPER.registerColorEntrySet("upholstered_crimson_chair", color -> new UpholsteredChairBlock(WoodType.CRIMSON, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
+    public static final BlockEntrySet<UpholsteredChairBlock, DyeColor> WOOL_UPHOLSTERED_WARPED_CHAIRS = HELPER.registerColorEntrySet("upholstered_warped_chair", color -> new UpholsteredChairBlock(WoodType.WARPED, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
+
+    public static final BlockRegistryEntry<Block> OAK_STOOL = HELPER.register("oak_stool", () -> new StoolBlock(WoodType.OAK, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> SPRUCE_STOOL = HELPER.register("spruce_stool", () -> new StoolBlock(WoodType.SPRUCE, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> BIRCH_STOOL = HELPER.register("birch_stool", () -> new StoolBlock(WoodType.BIRCH, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> JUNGLE_STOOL = HELPER.register("jungle_stool", () -> new StoolBlock(WoodType.JUNGLE, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> ACACIA_STOOL = HELPER.register("acacia_stool", () -> new StoolBlock(WoodType.ACACIA, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> DARK_OAK_STOOL = HELPER.register("dark_oak_stool", () -> new StoolBlock(WoodType.DARK_OAK, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> MANGROVE_STOOL = HELPER.register("mangrove_stool", () -> new StoolBlock(WoodType.MANGROVE, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> CRIMSON_STOOL = HELPER.register("crimson_stool", () -> new StoolBlock(WoodType.CRIMSON, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> WARPED_STOOL = HELPER.register("warped_stool", () -> new StoolBlock(WoodType.WARPED, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+
+    public static final BlockEntrySet<StoolBlock, DyeColor> WOOL_UPHOLSTERED_OAK_STOOLS = HELPER.registerColorEntrySet("upholstered_oak_stool", color -> new StoolBlock(WoodType.OAK, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
+    public static final BlockEntrySet<StoolBlock, DyeColor> WOOL_UPHOLSTERED_SPRUCE_STOOLS = HELPER.registerColorEntrySet("upholstered_spruce_stool", color -> new StoolBlock(WoodType.SPRUCE, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
+    public static final BlockEntrySet<StoolBlock, DyeColor> WOOL_UPHOLSTERED_BIRCH_STOOLS = HELPER.registerColorEntrySet("upholstered_birch_stool", color -> new StoolBlock(WoodType.BIRCH, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
+    public static final BlockEntrySet<StoolBlock, DyeColor> WOOL_UPHOLSTERED_JUNGLE_STOOLS = HELPER.registerColorEntrySet("upholstered_jungle_stool", color -> new StoolBlock(WoodType.JUNGLE, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
+    public static final BlockEntrySet<StoolBlock, DyeColor> WOOL_UPHOLSTERED_ACACIA_STOOLS = HELPER.registerColorEntrySet("upholstered_acacia_stool", color -> new StoolBlock(WoodType.ACACIA, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
+    public static final BlockEntrySet<StoolBlock, DyeColor> WOOL_UPHOLSTERED_DARK_OAK_STOOLS = HELPER.registerColorEntrySet("upholstered_dark_oak_stool", color -> new StoolBlock(WoodType.DARK_OAK, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
+    public static final BlockEntrySet<StoolBlock, DyeColor> WOOL_UPHOLSTERED_MANGROVE_STOOLS = HELPER.registerColorEntrySet("upholstered_mangrove_stool", color -> new StoolBlock(WoodType.MANGROVE, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
+    public static final BlockEntrySet<StoolBlock, DyeColor> WOOL_UPHOLSTERED_CRIMSON_STOOLS = HELPER.registerColorEntrySet("upholstered_crimson_stool", color -> new StoolBlock(WoodType.CRIMSON, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
+    public static final BlockEntrySet<StoolBlock, DyeColor> WOOL_UPHOLSTERED_WARPED_STOOLS = HELPER.registerColorEntrySet("upholstered_warped_stool", color -> new StoolBlock(WoodType.WARPED, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
 
 }
