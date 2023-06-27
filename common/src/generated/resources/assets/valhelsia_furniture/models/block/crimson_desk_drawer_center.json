@@ -1,0 +1,10 @@
+{
+  "parent": "valhelsia_furniture:block/desk/template_desk_drawer_center",
+  "textures": {
+    "front": "valhelsia_furniture:block/desk/crimson/front",
+    "middle": "valhelsia_furniture:block/desk/crimson/middle",
+    "side": "valhelsia_furniture:block/desk/crimson/side",
+    "top_middle": "valhelsia_furniture:block/desk/crimson/top_middle",
+    "top_side": "valhelsia_furniture:block/desk/crimson/top_side"
+  }
+}

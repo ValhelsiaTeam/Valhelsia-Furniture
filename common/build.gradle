@@ -10,6 +10,10 @@ architectury {
     common("forge", "fabric")
 }
 
+loom {
+    accessWidenerPath = file("src/main/resources/valhelsia_furniture.accesswidener")
+}
+
 publishing {
     publications {
         mavenCommon(MavenPublication) {

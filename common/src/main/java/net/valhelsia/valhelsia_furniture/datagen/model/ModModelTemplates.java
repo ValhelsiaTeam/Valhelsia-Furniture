@@ -35,6 +35,14 @@ public class ModModelTemplates {
     public static final ModelTemplate STOOL_ROTATED = create("template_stool_rotated", ModTextureSlots.STOOL);
     public static final ModelTemplate UPHOLSTERED_STOOL = create("template_upholstered_stool", ModTextureSlots.WOOD, ModTextureSlots.WOOL);
     public static final ModelTemplate UPHOLSTERED_STOOL_ROTATED = create("template_upholstered_stool_rotated", ModTextureSlots.WOOD, ModTextureSlots.WOOL);
+    public static final ModelTemplate DESK = create("desk/template_desk", ModTextureSlots.FRONT, ModTextureSlots.SIDE, ModTextureSlots.TOP, ModTextureSlots.TOP_MIDDLE);
+    public static final ModelTemplate DESK_CENTER = create("desk/template_desk_center", ModTextureSlots.FRONT, ModTextureSlots.MIDDLE, ModTextureSlots.SIDE, ModTextureSlots.TOP_MIDDLE, ModTextureSlots.TOP_SIDE);
+    public static final ModelTemplate DESK_LEFT = create("desk/template_desk_left", ModTextureSlots.FRONT, ModTextureSlots.MIDDLE, ModTextureSlots.SIDE, ModTextureSlots.TOP, ModTextureSlots.TOP_MIDDLE, ModTextureSlots.TOP_SIDE);
+    public static final ModelTemplate DESK_RIGHT = create("desk/template_desk_right", ModTextureSlots.FRONT, ModTextureSlots.MIDDLE, ModTextureSlots.SIDE, ModTextureSlots.TOP, ModTextureSlots.TOP_MIDDLE, ModTextureSlots.TOP_SIDE);
+    public static final ModelTemplate DESK_DRAWER = create("desk/template_desk_drawer", ModTextureSlots.FRONT, ModTextureSlots.SIDE, ModTextureSlots.TOP, ModTextureSlots.TOP_MIDDLE);
+    public static final ModelTemplate DESK_DRAWER_CENTER = create("desk/template_desk_drawer_center", ModTextureSlots.FRONT, ModTextureSlots.MIDDLE, ModTextureSlots.SIDE, ModTextureSlots.TOP_MIDDLE, ModTextureSlots.TOP_SIDE);
+    public static final ModelTemplate DESK_DRAWER_LEFT = create("desk/template_desk_drawer_left", ModTextureSlots.FRONT, ModTextureSlots.MIDDLE, ModTextureSlots.SIDE, ModTextureSlots.TOP, ModTextureSlots.TOP_MIDDLE, ModTextureSlots.TOP_SIDE);
+    public static final ModelTemplate DESK_DRAWER_RIGHT = create("desk/template_desk_drawer_right", ModTextureSlots.FRONT, ModTextureSlots.MIDDLE, ModTextureSlots.SIDE, ModTextureSlots.TOP, ModTextureSlots.TOP_MIDDLE, ModTextureSlots.TOP_SIDE);
 
     public static ModelTemplate create(String name, TextureSlot... textureSlots) {
         return new ModelTemplate(Optional.of(new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/" + name)), Optional.empty(), textureSlots);

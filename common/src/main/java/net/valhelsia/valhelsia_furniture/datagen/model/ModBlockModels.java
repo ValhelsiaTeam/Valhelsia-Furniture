@@ -4,7 +4,9 @@ import com.google.gson.JsonElement;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.blockstates.*;
 import net.minecraft.data.models.model.ModelLocationUtils;
+import net.minecraft.data.models.model.ModelTemplate;
 import net.minecraft.data.models.model.TextureMapping;
+import net.minecraft.data.models.model.TextureSlot;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -16,6 +18,7 @@ import net.valhelsia.valhelsia_furniture.common.block.*;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
 
+import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -121,6 +124,26 @@ public class ModBlockModels {
         this.apply(ModBlocks.WOOL_UPHOLSTERED_MANGROVE_STOOLS, this::createUpholsteredStool);
         this.apply(ModBlocks.WOOL_UPHOLSTERED_CRIMSON_STOOLS, this::createUpholsteredStool);
         this.apply(ModBlocks.WOOL_UPHOLSTERED_WARPED_STOOLS, this::createUpholsteredStool);
+
+        this.createDesk(ModBlocks.OAK_DESK.get());
+        this.createDesk(ModBlocks.SPRUCE_DESK.get());
+        this.createDesk(ModBlocks.BIRCH_DESK.get());
+        this.createDesk(ModBlocks.JUNGLE_DESK.get());
+        this.createDesk(ModBlocks.ACACIA_DESK.get());
+        this.createDesk(ModBlocks.DARK_OAK_DESK.get());
+        this.createDesk(ModBlocks.MANGROVE_DESK.get());
+        this.createDesk(ModBlocks.CRIMSON_DESK.get());
+        this.createDesk(ModBlocks.WARPED_DESK.get());
+
+        this.createDesk(ModBlocks.OAK_DESK_DRAWER.get());
+        this.createDesk(ModBlocks.SPRUCE_DESK_DRAWER.get());
+        this.createDesk(ModBlocks.BIRCH_DESK_DRAWER.get());
+        this.createDesk(ModBlocks.JUNGLE_DESK_DRAWER.get());
+        this.createDesk(ModBlocks.ACACIA_DESK_DRAWER.get());
+        this.createDesk(ModBlocks.DARK_OAK_DESK_DRAWER.get());
+        this.createDesk(ModBlocks.MANGROVE_DESK_DRAWER.get());
+        this.createDesk(ModBlocks.CRIMSON_DESK_DRAWER.get());
+        this.createDesk(ModBlocks.WARPED_DESK_DRAWER.get());
     }
 
     private <T extends Block> void apply(BlockEntrySet<T, ?> set, Consumer<T> consumer) {
@@ -237,6 +260,50 @@ public class ModBlockModels {
         ResourceLocation rotatedModel = ModModelTemplates.UPHOLSTERED_STOOL_ROTATED.createWithSuffix(block, "_rotated", textureMapping, this.modelOutput);
 
         this.blockStateOutput.accept(createSimpleBlock(block, model).with(createRotatedDispatch(rotatedModel)));
+    }
+
+    private void createDesk(Block block) {
+        if (!(block instanceof DeskBlock deskBlock)) {
+            return;
+        }
+
+        PropertyDispatch dispatch = PropertyDispatch.properties(ModBlockStateProperties.LEFT, ModBlockStateProperties.RIGHT).generate((left, right) -> {
+            String variant = "";
+
+            if (left && right) {
+                variant = "_center";
+            } else if (left) {
+                variant = "_right";
+            } else if (right) {
+                variant = "_left";
+            }
+
+            List<TextureSlot> textureSlots = variant.equals("_left") || variant.equals("_right") ? DeskBlock.VARIANT_TEXTURES.get("left_or_right") : variant.equals("_center") ? DeskBlock.VARIANT_TEXTURES.get("center") : DeskBlock.VARIANT_TEXTURES.get("single");
+
+            TextureMapping textureMapping = new TextureMapping();
+
+            for (TextureSlot slot : textureSlots) {
+                textureMapping.put(slot, new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/desk/" + deskBlock.getWoodType().name() + "/" + slot.getId()));
+            }
+
+            ResourceLocation model = this.getDeskModel(left, right, block instanceof DeskDrawerBlock).createWithSuffix(block, variant, textureMapping, this.modelOutput);
+
+            return Variant.variant().with(VariantProperties.MODEL, model);
+        });
+
+        this.blockStateOutput.accept(MultiVariantGenerator.multiVariant(block).with(BlockModelGenerators.createHorizontalFacingDispatch()).with(dispatch));
+    }
+
+    private ModelTemplate getDeskModel(boolean left, boolean right, boolean drawer) {
+        if (left && right) {
+            return drawer ? ModModelTemplates.DESK_DRAWER_CENTER : ModModelTemplates.DESK_CENTER;
+        } else if (left) {
+            return drawer ? ModModelTemplates.DESK_DRAWER_LEFT : ModModelTemplates.DESK_LEFT;
+        } else if (right) {
+            return drawer ? ModModelTemplates.DESK_DRAWER_RIGHT : ModModelTemplates.DESK_RIGHT;
+        } else {
+            return drawer ? ModModelTemplates.DESK_DRAWER : ModModelTemplates.DESK;
+        }
     }
 
     private static MultiVariantGenerator createSimpleBlock(Block block, ResourceLocation resourceLocation) {

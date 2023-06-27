@@ -101,4 +101,26 @@ public class ModBlocks implements RegistryClass {
     public static final BlockEntrySet<StoolBlock, DyeColor> WOOL_UPHOLSTERED_CRIMSON_STOOLS = HELPER.registerColorEntrySet("upholstered_crimson_stool", color -> new StoolBlock(WoodType.CRIMSON, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
     public static final BlockEntrySet<StoolBlock, DyeColor> WOOL_UPHOLSTERED_WARPED_STOOLS = HELPER.registerColorEntrySet("upholstered_warped_stool", color -> new StoolBlock(WoodType.WARPED, color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), entry -> entry.withItem().renderType(RenderType::cutout));
 
+    // Desks
+    public static final BlockRegistryEntry<Block> OAK_DESK = HELPER.register("oak_desk", () -> new DeskBlock(WoodType.OAK, ModTags.Blocks.OAK_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> SPRUCE_DESK = HELPER.register("spruce_desk", () -> new DeskBlock(WoodType.SPRUCE, ModTags.Blocks.SPRUCE_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> BIRCH_DESK = HELPER.register("birch_desk", () -> new DeskBlock(WoodType.BIRCH, ModTags.Blocks.BIRCH_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> JUNGLE_DESK = HELPER.register("jungle_desk", () -> new DeskBlock(WoodType.JUNGLE, ModTags.Blocks.JUNGLE_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> ACACIA_DESK = HELPER.register("acacia_desk", () -> new DeskBlock(WoodType.ACACIA, ModTags.Blocks.ACACIA_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> DARK_OAK_DESK = HELPER.register("dark_oak_desk", () -> new DeskBlock(WoodType.DARK_OAK, ModTags.Blocks.DARK_OAK_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> MANGROVE_DESK = HELPER.register("mangrove_desk", () -> new DeskBlock(WoodType.MANGROVE, ModTags.Blocks.MANGROVE_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> CRIMSON_DESK = HELPER.register("crimson_desk", () -> new DeskBlock(WoodType.CRIMSON, ModTags.Blocks.CRIMSON_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> WARPED_DESK = HELPER.register("warped_desk", () -> new DeskBlock(WoodType.WARPED, ModTags.Blocks.WARPED_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+
+    // Desk Drawers
+    public static final BlockRegistryEntry<Block> OAK_DESK_DRAWER = HELPER.register("oak_desk_drawer", () -> new DeskDrawerBlock(WoodType.OAK, ModTags.Blocks.OAK_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> SPRUCE_DESK_DRAWER = HELPER.register("spruce_desk_drawer", () -> new DeskDrawerBlock(WoodType.SPRUCE, ModTags.Blocks.SPRUCE_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> BIRCH_DESK_DRAWER = HELPER.register("birch_desk_drawer", () -> new DeskDrawerBlock(WoodType.BIRCH, ModTags.Blocks.BIRCH_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> JUNGLE_DESK_DRAWER = HELPER.register("jungle_desk_drawer", () -> new DeskDrawerBlock(WoodType.JUNGLE, ModTags.Blocks.JUNGLE_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> ACACIA_DESK_DRAWER = HELPER.register("acacia_desk_drawer", () -> new DeskDrawerBlock(WoodType.ACACIA, ModTags.Blocks.ACACIA_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> DARK_OAK_DESK_DRAWER = HELPER.register("dark_oak_desk_drawer", () -> new DeskDrawerBlock(WoodType.DARK_OAK, ModTags.Blocks.DARK_OAK_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> MANGROVE_DESK_DRAWER = HELPER.register("mangrove_desk_drawer", () -> new DeskDrawerBlock(WoodType.MANGROVE, ModTags.Blocks.MANGROVE_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> CRIMSON_DESK_DRAWER = HELPER.register("crimson_desk_drawer", () -> new DeskDrawerBlock(WoodType.CRIMSON, ModTags.Blocks.CRIMSON_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+    public static final BlockRegistryEntry<Block> WARPED_DESK_DRAWER = HELPER.register("warped_desk_drawer", () -> new DeskDrawerBlock(WoodType.WARPED, ModTags.Blocks.WARPED_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
+
 }

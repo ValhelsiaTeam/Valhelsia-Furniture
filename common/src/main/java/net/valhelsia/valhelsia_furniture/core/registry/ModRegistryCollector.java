@@ -20,5 +20,6 @@ public class ModRegistryCollector extends RegistryCollector {
         this.addItemHelper();
         this.addMappedHelper(Registries.CREATIVE_MODE_TAB, ModCreativeModeTabs::new);
         this.addMappedHelper(Registries.ENTITY_TYPE, EntityRegistryHelper::new, ModEntities::new);
+        this.addMappedHelper(Registries.BLOCK_ENTITY_TYPE, ModBlockEntities::new);
     }
 }
