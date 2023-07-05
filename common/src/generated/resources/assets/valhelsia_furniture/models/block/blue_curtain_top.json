@@ -1,0 +1,7 @@
+{
+  "parent": "valhelsia_furniture:block/curtain/template_curtain",
+  "textures": {
+    "down": "valhelsia_furniture:block/curtain/blue/middle",
+    "top": "valhelsia_furniture:block/curtain/blue/curtain"
+  }
+}

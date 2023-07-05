@@ -1,6 +1,7 @@
 package net.valhelsia.valhelsia_furniture.datagen.model;
 
 import com.google.gson.JsonElement;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.blockstates.*;
 import net.minecraft.data.models.model.ModelLocationUtils;
@@ -11,10 +12,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.valhelsia.valhelsia_core.api.registry.helper.block.BlockEntrySet;
 import net.valhelsia.valhelsia_core.api.registry.helper.block.BlockRegistryEntry;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.*;
+import net.valhelsia.valhelsia_furniture.common.block.properties.CurtainPart;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
 
@@ -144,6 +147,9 @@ public class ModBlockModels {
         this.createDesk(ModBlocks.MANGROVE_DESK_DRAWER.get());
         this.createDesk(ModBlocks.CRIMSON_DESK_DRAWER.get());
         this.createDesk(ModBlocks.WARPED_DESK_DRAWER.get());
+
+        this.apply(ModBlocks.CLOSED_CURTAINS, block -> this.createCurtain(block, ModBlockStateProperties.CLOSED_CURTAIN_PART));
+        this.apply(ModBlocks.OPEN_CURTAINS, block -> this.createCurtain(block, ModBlockStateProperties.OPEN_CURTAIN_PART));
     }
 
     private <T extends Block> void apply(BlockEntrySet<T, ?> set, Consumer<T> consumer) {
@@ -304,6 +310,30 @@ public class ModBlockModels {
         } else {
             return drawer ? ModModelTemplates.DESK_DRAWER : ModModelTemplates.DESK;
         }
+    }
+
+    private void createCurtain(AbstractCurtainBlock<?> block, EnumProperty<? extends CurtainPart> property) {
+        for (CurtainPart part : property.getPossibleValues()) {
+            if (part.getModelTemplate() == null) {
+                continue;
+            }
+
+            String folder = "curtain/" + block.getColor().getName();
+            TextureMapping textureMapping = new TextureMapping().put(TextureSlot.TOP, ModTextureMapping.getBlockTexture(folder, part.getTopTexture())).put(TextureSlot.DOWN, ModTextureMapping.getBlockTexture(folder, part.getBottomTexture()));
+            part.getModelTemplate().createWithSuffix(block, part.getModelName(), textureMapping, this.modelOutput);
+        }
+
+        PropertyDispatch dispatch = PropertyDispatch.property(property).generate(part -> {
+            ResourceLocation model = BuiltInRegistries.BLOCK.getKey(block).withPath(s -> "block/" + s + part.getModelName());
+
+            if (part.getModelTemplate() == null) {
+                model = new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/curtain/curtain_bracket");
+            }
+
+            return Variant.variant().with(VariantProperties.MODEL, model);
+        });
+
+        this.blockStateOutput.accept(MultiVariantGenerator.multiVariant(block).with(BlockModelGenerators.createHorizontalFacingDispatch()).with(dispatch));
     }
 
     private static MultiVariantGenerator createSimpleBlock(Block block, ResourceLocation resourceLocation) {

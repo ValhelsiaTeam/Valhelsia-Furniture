@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,part=bottom": {
+      "model": "valhelsia_furniture:block/blue_curtain_bottom",
+      "y": 90
+    },
+    "facing=east,part=middle": {
+      "model": "valhelsia_furniture:block/blue_curtain_middle",
+      "y": 90
+    },
+    "facing=east,part=single": {
+      "model": "valhelsia_furniture:block/blue_curtain_single",
+      "y": 90
+    },
+    "facing=east,part=top": {
+      "model": "valhelsia_furniture:block/blue_curtain_top",
+      "y": 90
+    },
+    "facing=north,part=bottom": {
+      "model": "valhelsia_furniture:block/blue_curtain_bottom"
+    },
+    "facing=north,part=middle": {
+      "model": "valhelsia_furniture:block/blue_curtain_middle"
+    },
+    "facing=north,part=single": {
+      "model": "valhelsia_furniture:block/blue_curtain_single"
+    },
+    "facing=north,part=top": {
+      "model": "valhelsia_furniture:block/blue_curtain_top"
+    },
+    "facing=south,part=bottom": {
+      "model": "valhelsia_furniture:block/blue_curtain_bottom",
+      "y": 180
+    },
+    "facing=south,part=middle": {
+      "model": "valhelsia_furniture:block/blue_curtain_middle",
+      "y": 180
+    },
+    "facing=south,part=single": {
+      "model": "valhelsia_furniture:block/blue_curtain_single",
+      "y": 180
+    },
+    "facing=south,part=top": {
+      "model": "valhelsia_furniture:block/blue_curtain_top",
+      "y": 180
+    },
+    "facing=west,part=bottom": {
+      "model": "valhelsia_furniture:block/blue_curtain_bottom",
+      "y": 270
+    },
+    "facing=west,part=middle": {
+      "model": "valhelsia_furniture:block/blue_curtain_middle",
+      "y": 270
+    },
+    "facing=west,part=single": {
+      "model": "valhelsia_furniture:block/blue_curtain_single",
+      "y": 270
+    },
+    "facing=west,part=top": {
+      "model": "valhelsia_furniture:block/blue_curtain_top",
+      "y": 270
+    }
+  }
+}

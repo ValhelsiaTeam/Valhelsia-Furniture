@@ -1,6 +1,5 @@
 package net.valhelsia.valhelsia_furniture.core.registry;
 
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -22,10 +21,7 @@ public class ModCreativeModeTabs implements RegistryClass {
             .icon(() -> new ItemStack(ModBlocks.HAY_OAK_CHAIR.get()))
             .title(Component.translatable("itemGroup.valhelsia_furniture"))
             .displayItems((itemDisplayParameters, output) -> {
-                ModBlocks.HELPER.getRegistryEntries().forEach(entry -> {
-                    System.out.println(BuiltInRegistries.BLOCK.getKey(entry.get()));
-                    System.out.println(entry.get());
-
+                ValhelsiaFurniture.REGISTRY_MANAGER.getItemHelper().getRegistryEntries().forEach(entry -> {
                     output.accept(entry.get());
                 });
             })

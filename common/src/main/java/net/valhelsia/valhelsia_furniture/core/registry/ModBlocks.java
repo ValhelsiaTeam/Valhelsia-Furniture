@@ -12,6 +12,7 @@ import net.valhelsia.valhelsia_core.api.registry.helper.block.BlockRegistryEntry
 import net.valhelsia.valhelsia_core.api.registry.helper.block.BlockRegistryHelper;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.*;
+import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
 
 /**
  * @author Valhelsia Team
@@ -123,4 +124,13 @@ public class ModBlocks implements RegistryClass {
     public static final BlockRegistryEntry<Block> CRIMSON_DESK_DRAWER = HELPER.register("crimson_desk_drawer", () -> new DeskDrawerBlock(WoodType.CRIMSON, ModTags.Blocks.CRIMSON_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
     public static final BlockRegistryEntry<Block> WARPED_DESK_DRAWER = HELPER.register("warped_desk_drawer", () -> new DeskDrawerBlock(WoodType.WARPED, ModTags.Blocks.WARPED_DESKS, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS))).withItem();
 
+    // Fabric Desk Lamps
+    public static final BlockEntrySet<FabricDeskLampBlock, DyeColor> FABRIC_DESK_LAMPS = HELPER.registerColorEntrySet("fabric_desk_lamp", color -> new FabricDeskLampBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion().lightLevel(state -> {
+        return state.getValue(ModBlockStateProperties.SWITCHED_ON) ? 14 : 0;
+    })), entry -> entry.withItem().renderType(RenderType::cutout));
+
+    // Curtains
+    public static final BlockEntrySet<ClosedCurtainBlock, DyeColor> CLOSED_CURTAINS = HELPER.registerColorEntrySet("curtain", color -> new ClosedCurtainBlock(color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()), entry -> entry.withItem().renderType(RenderType::cutout));
+
+    public static final BlockEntrySet<OpenCurtainBlock, DyeColor> OPEN_CURTAINS = HELPER.registerColorEntrySet(s -> "open_" + s +"_curtain", color -> new OpenCurtainBlock(color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()), entry -> entry.renderType(RenderType::cutout));
 }

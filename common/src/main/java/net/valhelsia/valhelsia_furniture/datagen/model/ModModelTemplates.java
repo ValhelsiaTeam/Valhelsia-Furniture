@@ -43,6 +43,14 @@ public class ModModelTemplates {
     public static final ModelTemplate DESK_DRAWER_CENTER = create("desk/template_desk_drawer_center", ModTextureSlots.FRONT, ModTextureSlots.MIDDLE, ModTextureSlots.SIDE, ModTextureSlots.TOP_MIDDLE, ModTextureSlots.TOP_SIDE);
     public static final ModelTemplate DESK_DRAWER_LEFT = create("desk/template_desk_drawer_left", ModTextureSlots.FRONT, ModTextureSlots.MIDDLE, ModTextureSlots.SIDE, ModTextureSlots.TOP, ModTextureSlots.TOP_MIDDLE, ModTextureSlots.TOP_SIDE);
     public static final ModelTemplate DESK_DRAWER_RIGHT = create("desk/template_desk_drawer_right", ModTextureSlots.FRONT, ModTextureSlots.MIDDLE, ModTextureSlots.SIDE, ModTextureSlots.TOP, ModTextureSlots.TOP_MIDDLE, ModTextureSlots.TOP_SIDE);
+    public static final ModelTemplate CURTAIN = create("curtain/template_curtain", TextureSlot.TOP, TextureSlot.DOWN);
+    public static final ModelTemplate CURTAIN_BOTTOM = create("curtain/template_curtain_bottom", TextureSlot.TOP, TextureSlot.DOWN);
+    public static final ModelTemplate CURTAIN_FULL = create("curtain/template_curtain_full", TextureSlot.TOP, TextureSlot.DOWN);
+    public static final ModelTemplate CURTAIN_FULL_BOTTOM = create("curtain/template_curtain_full_bottom", TextureSlot.TOP, TextureSlot.DOWN);
+    public static final ModelTemplate CURTAIN_FULL_MIRRORED = create("curtain/template_curtain_full_mirrored", TextureSlot.TOP, TextureSlot.DOWN);
+    public static final ModelTemplate CURTAIN_FULL_MIRRORED_BOTTOM = create("curtain/template_curtain_full_mirrored_bottom", TextureSlot.TOP, TextureSlot.DOWN);
+    public static final ModelTemplate CURTAIN_MIRRORED = create("curtain/template_curtain_mirrored", TextureSlot.TOP, TextureSlot.DOWN);
+    public static final ModelTemplate CURTAIN_MIRRORED_BOTTOM = create("curtain/template_curtain_mirrored_bottom", TextureSlot.TOP, TextureSlot.DOWN);
 
     public static ModelTemplate create(String name, TextureSlot... textureSlots) {
         return new ModelTemplate(Optional.of(new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/" + name)), Optional.empty(), textureSlots);
