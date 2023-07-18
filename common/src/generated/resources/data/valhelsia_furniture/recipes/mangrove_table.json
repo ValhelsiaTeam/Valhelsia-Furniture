@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:table",
+  "key": {
+    "#": {
+      "item": "minecraft:mangrove_planks"
+    },
+    "X": {
+      "fabric_value": {
+        "item": "minecraft:stick"
+      },
+      "forge_value": {
+        "tag": "forge:rods/wooden"
+      }
+    }
+  },
+  "pattern": [
+    "###",
+    "X X",
+    "X X"
+  ],
+  "result": {
+    "item": "valhelsia_furniture:mangrove_table"
+  },
+  "show_notification": true
+}

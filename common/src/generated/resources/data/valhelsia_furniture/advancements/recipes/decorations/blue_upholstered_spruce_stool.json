@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blue_wool": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:blue_wool"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_spruce_slab": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:spruce_slab"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "valhelsia_furniture:blue_upholstered_spruce_stool"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_spruce_slab",
+      "has_blue_wool",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "valhelsia_furniture:blue_upholstered_spruce_stool"
+    ]
+  },
+  "sends_telemetry_event": false
+}

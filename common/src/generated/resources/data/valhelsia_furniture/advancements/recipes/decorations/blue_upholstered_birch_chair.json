@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_birch_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:birch_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_blue_wool": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:blue_wool"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "valhelsia_furniture:blue_upholstered_birch_chair"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_birch_planks",
+      "has_blue_wool",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "valhelsia_furniture:blue_upholstered_birch_chair"
+    ]
+  },
+  "sends_telemetry_event": false
+}

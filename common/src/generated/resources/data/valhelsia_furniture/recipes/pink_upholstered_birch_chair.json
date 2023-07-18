@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:upholstered_birch_chair",
+  "key": {
+    "#": {
+      "item": "minecraft:birch_planks"
+    },
+    "W": {
+      "item": "minecraft:pink_wool"
+    },
+    "X": {
+      "fabric_value": {
+        "item": "minecraft:stick"
+      },
+      "forge_value": {
+        "tag": "forge:rods/wooden"
+      }
+    }
+  },
+  "pattern": [
+    "W  ",
+    "#WW",
+    "X X"
+  ],
+  "result": {
+    "count": 2,
+    "item": "valhelsia_furniture:pink_upholstered_birch_chair"
+  },
+  "show_notification": true
+}

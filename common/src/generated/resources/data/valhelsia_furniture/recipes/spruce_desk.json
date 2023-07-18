@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:desk",
+  "key": {
+    "#": {
+      "item": "minecraft:spruce_planks"
+    },
+    "X": {
+      "fabric_value": {
+        "item": "minecraft:stick"
+      },
+      "forge_value": {
+        "tag": "forge:rods/wooden"
+      }
+    }
+  },
+  "pattern": [
+    "###",
+    "# #",
+    "X X"
+  ],
+  "result": {
+    "item": "valhelsia_furniture:spruce_desk"
+  },
+  "show_notification": true
+}

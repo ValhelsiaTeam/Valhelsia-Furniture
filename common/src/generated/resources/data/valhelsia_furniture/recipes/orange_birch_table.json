@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:colored_birch_table",
+  "key": {
+    "#": {
+      "item": "minecraft:orange_carpet"
+    },
+    "X": {
+      "item": "valhelsia_furniture:birch_table"
+    }
+  },
+  "pattern": [
+    "#",
+    "X"
+  ],
+  "result": {
+    "item": "valhelsia_furniture:orange_birch_table"
+  },
+  "show_notification": true
+}

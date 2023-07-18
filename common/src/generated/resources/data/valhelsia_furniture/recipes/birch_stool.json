@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:stool",
+  "key": {
+    "#": {
+      "item": "minecraft:birch_slab"
+    },
+    "X": {
+      "fabric_value": {
+        "item": "minecraft:stick"
+      },
+      "forge_value": {
+        "tag": "forge:rods/wooden"
+      }
+    }
+  },
+  "pattern": [
+    "###",
+    "X X"
+  ],
+  "result": {
+    "count": 2,
+    "item": "valhelsia_furniture:birch_stool"
+  },
+  "show_notification": true
+}

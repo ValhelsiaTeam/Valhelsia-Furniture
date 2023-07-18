@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:colored_dark_oak_chair",
+  "key": {
+    "#": {
+      "item": "minecraft:dark_oak_planks"
+    },
+    "W": {
+      "item": "minecraft:black_wool"
+    },
+    "X": {
+      "fabric_value": {
+        "item": "minecraft:stick"
+      },
+      "forge_value": {
+        "tag": "forge:rods/wooden"
+      }
+    }
+  },
+  "pattern": [
+    "X  ",
+    "#WW",
+    "X X"
+  ],
+  "result": {
+    "count": 2,
+    "item": "valhelsia_furniture:black_dark_oak_chair"
+  },
+  "show_notification": true
+}

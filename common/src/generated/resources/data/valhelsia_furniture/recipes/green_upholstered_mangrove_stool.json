@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:upholstered_mangrove_stool",
+  "key": {
+    "#": {
+      "item": "minecraft:mangrove_slab"
+    },
+    "W": {
+      "item": "minecraft:green_wool"
+    },
+    "X": {
+      "fabric_value": {
+        "item": "minecraft:stick"
+      },
+      "forge_value": {
+        "tag": "forge:rods/wooden"
+      }
+    }
+  },
+  "pattern": [
+    "#W#",
+    "X X"
+  ],
+  "result": {
+    "count": 2,
+    "item": "valhelsia_furniture:green_upholstered_mangrove_stool"
+  },
+  "show_notification": true
+}

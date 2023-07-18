@@ -20,5 +20,6 @@ public class ModTextureSlots {
     public static final TextureSlot TOP = TextureSlot.create("top");
     public static final TextureSlot TOP_MIDDLE = TextureSlot.create("top_middle");
     public static final TextureSlot MIDDLE = TextureSlot.create("middle");
+    public static final TextureSlot COLOR = TextureSlot.create("color");
 
 }

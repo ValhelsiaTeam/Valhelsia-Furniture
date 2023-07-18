@@ -1,3 +1,6 @@
 {
-  "parent": "valhelsia_furniture:block/magenta_fabric_desk_lamp"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "valhelsia_furniture:item/magenta_fabric_desk_lamp"
+  }
 }

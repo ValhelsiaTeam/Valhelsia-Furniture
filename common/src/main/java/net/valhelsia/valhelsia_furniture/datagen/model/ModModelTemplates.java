@@ -51,6 +51,8 @@ public class ModModelTemplates {
     public static final ModelTemplate CURTAIN_FULL_MIRRORED_BOTTOM = create("curtain/template_curtain_full_mirrored_bottom", TextureSlot.TOP, TextureSlot.DOWN);
     public static final ModelTemplate CURTAIN_MIRRORED = create("curtain/template_curtain_mirrored", TextureSlot.TOP, TextureSlot.DOWN);
     public static final ModelTemplate CURTAIN_MIRRORED_BOTTOM = create("curtain/template_curtain_mirrored_bottom", TextureSlot.TOP, TextureSlot.DOWN);
+    public static final ModelTemplate FABRIC_DESK_LAMP = create("template_fabric_desk_lamp", ModTextureSlots.COLOR);
+    public static final ModelTemplate FABRIC_DESK_LAMP_ON = create("template_fabric_desk_lamp_on", ModTextureSlots.COLOR);
 
     public static ModelTemplate create(String name, TextureSlot... textureSlots) {
         return new ModelTemplate(Optional.of(new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/" + name)), Optional.empty(), textureSlots);

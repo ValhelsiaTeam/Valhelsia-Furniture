@@ -4,14 +4,13 @@ import com.google.gson.JsonElement;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.blockstates.*;
-import net.minecraft.data.models.model.ModelLocationUtils;
-import net.minecraft.data.models.model.ModelTemplate;
-import net.minecraft.data.models.model.TextureMapping;
-import net.minecraft.data.models.model.TextureSlot;
+import net.minecraft.data.models.model.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.StringRepresentable;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.valhelsia.valhelsia_core.api.registry.helper.block.BlockEntrySet;
 import net.valhelsia.valhelsia_core.api.registry.helper.block.BlockRegistryEntry;
@@ -22,6 +21,7 @@ import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStatePr
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
 
 import java.util.List;
+import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -36,15 +36,22 @@ public class ModBlockModels {
     private final Consumer<BlockStateGenerator> blockStateOutput;
     private final BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput;
 
-    private ModBlockModels(BlockModelGenerators generators) {
+    private final Consumer<Item> skippedAutoItemModels;
+
+    private ModBlockModels(BlockModelGenerators generators, Consumer<Item> skippedAutoItemModels) {
         this.generators = generators;
         this.blockStateOutput = generators.blockStateOutput;
         this.modelOutput = generators.modelOutput;
+        this.skippedAutoItemModels = skippedAutoItemModels;
 
     }
 
-    public static void create(BlockModelGenerators generators) {
-        new ModBlockModels(generators).createModels();
+    public static void create(BlockModelGenerators generators, Consumer<Item> skippedAutoItemModels) {
+        new ModBlockModels(generators, skippedAutoItemModels).createModels();
+    }
+
+    private void skipAutoItemBlock(Block block) {
+        this.skippedAutoItemModels.accept(block.asItem());
     }
 
     public void createModels() {
@@ -148,6 +155,8 @@ public class ModBlockModels {
         this.createDesk(ModBlocks.CRIMSON_DESK_DRAWER.get());
         this.createDesk(ModBlocks.WARPED_DESK_DRAWER.get());
 
+        this.apply(ModBlocks.FABRIC_DESK_LAMPS, this::createDeskLamp);
+
         this.apply(ModBlocks.CLOSED_CURTAINS, block -> this.createCurtain(block, ModBlockStateProperties.CLOSED_CURTAIN_PART));
         this.apply(ModBlocks.OPEN_CURTAINS, block -> this.createCurtain(block, ModBlockStateProperties.OPEN_CURTAIN_PART));
     }
@@ -155,6 +164,12 @@ public class ModBlockModels {
     private <T extends Block> void apply(BlockEntrySet<T, ?> set, Consumer<T> consumer) {
         for (BlockRegistryEntry<T> entry : set.values()) {
             consumer.accept(entry.get());
+        }
+    }
+
+    private <T extends Block, K extends Enum<K> & StringRepresentable> void apply(BlockEntrySet<T, K> set, BiConsumer<T, K> consumer) {
+        for (Map.Entry<K, BlockRegistryEntry<T>> entry : set.entrySet()) {
+            consumer.accept(entry.getValue().get(), entry.getKey());
         }
     }
 
@@ -312,6 +327,16 @@ public class ModBlockModels {
         }
     }
 
+    private void createDeskLamp(FabricDeskLampBlock block, DyeColor color) {
+        TextureMapping textureMapping = new TextureMapping().put(ModTextureSlots.COLOR, new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/fabric_desk_lamp/colors/" + color.getName()));
+
+        ResourceLocation model = ModModelTemplates.FABRIC_DESK_LAMP.create(block, textureMapping, this.modelOutput);
+        ResourceLocation modelOn = ModModelTemplates.FABRIC_DESK_LAMP_ON.createWithSuffix(block, "_rotated", textureMapping, this.modelOutput);
+
+        this.createSimpleFlatItemModel(block.asItem());
+        this.blockStateOutput.accept(MultiVariantGenerator.multiVariant(block).with(BlockModelGenerators.createBooleanModelDispatch(ModBlockStateProperties.SWITCHED_ON, modelOn, model)));
+    }
+
     private void createCurtain(AbstractCurtainBlock<?> block, EnumProperty<? extends CurtainPart> property) {
         for (CurtainPart part : property.getPossibleValues()) {
             if (part.getModelTemplate() == null) {
@@ -333,18 +358,28 @@ public class ModBlockModels {
             return Variant.variant().with(VariantProperties.MODEL, model);
         });
 
+        if (block instanceof ClosedCurtainBlock) {
+            this.delegateItemModel(block, ModelLocationUtils.getModelLocation(block, "_single"));
+        }
         this.blockStateOutput.accept(MultiVariantGenerator.multiVariant(block).with(BlockModelGenerators.createHorizontalFacingDispatch()).with(dispatch));
     }
 
+    //TODO: move into core
     private static MultiVariantGenerator createSimpleBlock(Block block, ResourceLocation resourceLocation) {
         return MultiVariantGenerator.multiVariant(block, Variant.variant().with(VariantProperties.MODEL, resourceLocation));
     }
 
-    private static PropertyDispatch createBooleanModelDispatch(BooleanProperty booleanProperty, ResourceLocation resourceLocation, ResourceLocation resourceLocation2) {
-        return PropertyDispatch.property(booleanProperty).select(true, Variant.variant().with(VariantProperties.MODEL, resourceLocation)).select(false, Variant.variant().with(VariantProperties.MODEL, resourceLocation2));
-    }
-
     private static PropertyDispatch createRotatedDispatch(ResourceLocation model) {
         return PropertyDispatch.property(ModBlockStateProperties.ROTATED).select(false, Variant.variant()).select(true, Variant.variant().with(VariantProperties.MODEL, model));
+    }
+
+    //TODO: move into core
+    void createSimpleFlatItemModel(Item item) {
+        ModelTemplates.FLAT_ITEM.create(ModelLocationUtils.getModelLocation(item), TextureMapping.layer0(item), this.modelOutput);
+    }
+
+    //TODO: move into core
+    void delegateItemModel(Block block, ResourceLocation resourceLocation) {
+        this.modelOutput.accept(ModelLocationUtils.getModelLocation(block.asItem()), new DelegatedModel(resourceLocation));
     }
 }

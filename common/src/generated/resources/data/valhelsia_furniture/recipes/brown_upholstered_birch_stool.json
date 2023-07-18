@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:upholstered_birch_stool",
+  "key": {
+    "#": {
+      "item": "minecraft:birch_slab"
+    },
+    "W": {
+      "item": "minecraft:brown_wool"
+    },
+    "X": {
+      "fabric_value": {
+        "item": "minecraft:stick"
+      },
+      "forge_value": {
+        "tag": "forge:rods/wooden"
+      }
+    }
+  },
+  "pattern": [
+    "#W#",
+    "X X"
+  ],
+  "result": {
+    "count": 2,
+    "item": "valhelsia_furniture:brown_upholstered_birch_stool"
+  },
+  "show_notification": true
+}

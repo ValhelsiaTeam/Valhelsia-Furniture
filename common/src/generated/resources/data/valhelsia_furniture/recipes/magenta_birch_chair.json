@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:colored_birch_chair",
+  "key": {
+    "#": {
+      "item": "minecraft:birch_planks"
+    },
+    "W": {
+      "item": "minecraft:magenta_wool"
+    },
+    "X": {
+      "fabric_value": {
+        "item": "minecraft:stick"
+      },
+      "forge_value": {
+        "tag": "forge:rods/wooden"
+      }
+    }
+  },
+  "pattern": [
+    "X  ",
+    "#WW",
+    "X X"
+  ],
+  "result": {
+    "count": 2,
+    "item": "valhelsia_furniture:magenta_birch_chair"
+  },
+  "show_notification": true
+}

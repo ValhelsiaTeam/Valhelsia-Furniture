@@ -6,7 +6,6 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -20,10 +19,10 @@ import java.util.function.Supplier;
  */
 public class TableclothTableBlock extends TableBlock {
 
-    private final Supplier<Block> baseTable;
+    private final Supplier<TableBlock> baseTable;
     private final DyeColor color;
 
-    public TableclothTableBlock(Supplier<Block> baseTable, DyeColor color, WoodType woodType, Properties properties) {
+    public TableclothTableBlock(Supplier<TableBlock> baseTable, DyeColor color, WoodType woodType, Properties properties) {
         super(woodType, properties);
         this.baseTable = baseTable;
         this.color = color;
@@ -37,5 +36,9 @@ public class TableclothTableBlock extends TableBlock {
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable BlockGetter level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
         tooltip.add(Component.translatable("tooltip.valhelsia_furniture." + this.color + "_tablecloth").withStyle(ChatFormatting.GRAY));
+    }
+
+    public DyeColor getColor() {
+        return this.color;
     }
 }
