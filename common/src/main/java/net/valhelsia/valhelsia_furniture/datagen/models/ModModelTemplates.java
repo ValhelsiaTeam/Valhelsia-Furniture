@@ -1,4 +1,4 @@
-package net.valhelsia.valhelsia_furniture.datagen.model;
+package net.valhelsia.valhelsia_furniture.datagen.models;
 
 import net.minecraft.data.models.model.ModelTemplate;
 import net.minecraft.data.models.model.TextureSlot;

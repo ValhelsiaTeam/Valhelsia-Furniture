@@ -1,4 +1,4 @@
-package net.valhelsia.valhelsia_furniture.datagen.model;
+package net.valhelsia.valhelsia_furniture.datagen.models;
 
 import com.google.gson.JsonElement;
 import net.minecraft.data.models.ItemModelGenerators;

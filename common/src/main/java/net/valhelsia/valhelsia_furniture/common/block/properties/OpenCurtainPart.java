@@ -2,7 +2,7 @@ package net.valhelsia.valhelsia_furniture.common.block.properties;
 
 import net.minecraft.data.models.model.ModelTemplate;
 import net.minecraft.util.StringRepresentable;
-import net.valhelsia.valhelsia_furniture.datagen.model.ModModelTemplates;
+import net.valhelsia.valhelsia_furniture.datagen.models.ModModelTemplates;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

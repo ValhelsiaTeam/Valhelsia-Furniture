@@ -35,6 +35,8 @@ dependencies {
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
 
     modImplementation(files("libs/valhelsia_core-${valhelsia_core_version}-dev.jar"))
+
+    modRuntimeOnly("curse.maven:jei-238222:4644452")
 }
 
 processResources {

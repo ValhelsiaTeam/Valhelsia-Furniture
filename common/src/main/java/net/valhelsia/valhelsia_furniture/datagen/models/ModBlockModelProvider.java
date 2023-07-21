@@ -1,4 +1,4 @@
-package net.valhelsia.valhelsia_furniture.datagen.model;
+package net.valhelsia.valhelsia_furniture.datagen.models;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.models.BlockModelGenerators;
