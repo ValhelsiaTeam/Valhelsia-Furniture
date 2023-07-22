@@ -129,7 +129,7 @@ public class ModBlocks implements RegistryClass {
     })), entry -> entry.withItem().renderType(ValhelsiaRenderType.CUTOUT));
 
     // Curtains
-    public static final BlockEntrySet<ClosedCurtainBlock, DyeColor> CLOSED_CURTAINS = HELPER.registerColorEntrySet("curtain", color -> new ClosedCurtainBlock(color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion()), entry -> entry.withItem().renderType(ValhelsiaRenderType.CUTOUT));
+    public static final BlockEntrySet<ClosedCurtainBlock, DyeColor> CLOSED_CURTAINS = HELPER.registerColorEntrySet("curtain", color -> new ClosedCurtainBlock(color, BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).noOcclusion()), entry -> entry.withItem().renderType(ValhelsiaRenderType.CUTOUT));
 
-    public static final BlockEntrySet<OpenCurtainBlock, DyeColor> OPEN_CURTAINS = HELPER.registerColorEntrySet(s -> "open_" + s +"_curtain", color -> new OpenCurtainBlock(color, BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).noOcclusion().dropsLike(CLOSED_CURTAINS.get(color).get())), entry -> entry.renderType(ValhelsiaRenderType.CUTOUT));
+    public static final BlockEntrySet<OpenCurtainBlock, DyeColor> OPEN_CURTAINS = HELPER.registerColorEntrySet(s -> "open_" + s +"_curtain", color -> new OpenCurtainBlock(color, BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).noOcclusion().dropsLike(CLOSED_CURTAINS.get(color).get())), entry -> entry.renderType(ValhelsiaRenderType.CUTOUT));
 }
