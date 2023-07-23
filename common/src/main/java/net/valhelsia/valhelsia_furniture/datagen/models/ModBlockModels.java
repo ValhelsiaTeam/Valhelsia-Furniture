@@ -60,6 +60,7 @@ public class ModBlockModels {
         this.createTable(ModBlocks.BIRCH_TABLE.get());
         this.createTable(ModBlocks.JUNGLE_TABLE.get());
         this.createTable(ModBlocks.ACACIA_TABLE.get());
+        this.createTable(ModBlocks.CHERRY_TABLE.get());
         this.createTable(ModBlocks.DARK_OAK_TABLE.get());
         this.createTable(ModBlocks.MANGROVE_TABLE.get());
         this.createTable(ModBlocks.CRIMSON_TABLE.get());
@@ -70,6 +71,7 @@ public class ModBlockModels {
         this.apply(ModBlocks.COLORED_BIRCH_TABLES, this::createTable);
         this.apply(ModBlocks.COLORED_JUNGLE_TABLES, this::createTable);
         this.apply(ModBlocks.COLORED_ACACIA_TABLES, this::createTable);
+        this.apply(ModBlocks.COLORED_CHERRY_TABLES, this::createTable);
         this.apply(ModBlocks.COLORED_DARK_OAK_TABLES, this::createTable);
         this.apply(ModBlocks.COLORED_MANGROVE_TABLES, this::createTable);
         this.apply(ModBlocks.COLORED_CRIMSON_TABLES, this::createTable);
@@ -80,6 +82,7 @@ public class ModBlockModels {
         this.createChair(ModBlocks.BIRCH_CHAIR.get());
         this.createChair(ModBlocks.JUNGLE_CHAIR.get());
         this.createChair(ModBlocks.ACACIA_CHAIR.get());
+        this.createChair(ModBlocks.CHERRY_CHAIR.get());
         this.createChair(ModBlocks.DARK_OAK_CHAIR.get());
         this.createChair(ModBlocks.MANGROVE_CHAIR.get());
         this.createChair(ModBlocks.CRIMSON_CHAIR.get());
@@ -90,6 +93,7 @@ public class ModBlockModels {
         this.createChair(ModBlocks.HAY_BIRCH_CHAIR.get());
         this.createChair(ModBlocks.HAY_JUNGLE_CHAIR.get());
         this.createChair(ModBlocks.HAY_ACACIA_CHAIR.get());
+        this.createChair(ModBlocks.HAY_CHERRY_CHAIR.get());
         this.createChair(ModBlocks.HAY_DARK_OAK_CHAIR.get());
         this.createChair(ModBlocks.HAY_MANGROVE_CHAIR.get());
         this.createChair(ModBlocks.HAY_CRIMSON_CHAIR.get());
@@ -100,6 +104,7 @@ public class ModBlockModels {
         this.apply(ModBlocks.WOOL_BIRCH_CHAIRS, this::createChair);
         this.apply(ModBlocks.WOOL_JUNGLE_CHAIRS, this::createChair);
         this.apply(ModBlocks.WOOL_ACACIA_CHAIRS, this::createChair);
+        this.apply(ModBlocks.WOOL_CHERRY_CHAIRS, this::createChair);
         this.apply(ModBlocks.WOOL_DARK_OAK_CHAIRS, this::createChair);
         this.apply(ModBlocks.WOOL_MANGROVE_CHAIRS, this::createChair);
         this.apply(ModBlocks.WOOL_CRIMSON_CHAIRS, this::createChair);
@@ -110,6 +115,7 @@ public class ModBlockModels {
         this.apply(ModBlocks.WOOL_UPHOLSTERED_BIRCH_CHAIRS, this::createUpholsteredChair);
         this.apply(ModBlocks.WOOL_UPHOLSTERED_JUNGLE_CHAIRS, this::createUpholsteredChair);
         this.apply(ModBlocks.WOOL_UPHOLSTERED_ACACIA_CHAIRS, this::createUpholsteredChair);
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_CHERRY_CHAIRS, this::createUpholsteredChair);
         this.apply(ModBlocks.WOOL_UPHOLSTERED_DARK_OAK_CHAIRS, this::createUpholsteredChair);
         this.apply(ModBlocks.WOOL_UPHOLSTERED_MANGROVE_CHAIRS, this::createUpholsteredChair);
         this.apply(ModBlocks.WOOL_UPHOLSTERED_CRIMSON_CHAIRS, this::createUpholsteredChair);
@@ -120,6 +126,7 @@ public class ModBlockModels {
         this.createStool(ModBlocks.BIRCH_STOOL.get());
         this.createStool(ModBlocks.JUNGLE_STOOL.get());
         this.createStool(ModBlocks.ACACIA_STOOL.get());
+        this.createStool(ModBlocks.CHERRY_STOOL.get());
         this.createStool(ModBlocks.DARK_OAK_STOOL.get());
         this.createStool(ModBlocks.MANGROVE_STOOL.get());
         this.createStool(ModBlocks.CRIMSON_STOOL.get());
@@ -130,6 +137,7 @@ public class ModBlockModels {
         this.apply(ModBlocks.WOOL_UPHOLSTERED_BIRCH_STOOLS, this::createUpholsteredStool);
         this.apply(ModBlocks.WOOL_UPHOLSTERED_JUNGLE_STOOLS, this::createUpholsteredStool);
         this.apply(ModBlocks.WOOL_UPHOLSTERED_ACACIA_STOOLS, this::createUpholsteredStool);
+        this.apply(ModBlocks.WOOL_UPHOLSTERED_CHERRY_STOOLS, this::createUpholsteredStool);
         this.apply(ModBlocks.WOOL_UPHOLSTERED_DARK_OAK_STOOLS, this::createUpholsteredStool);
         this.apply(ModBlocks.WOOL_UPHOLSTERED_MANGROVE_STOOLS, this::createUpholsteredStool);
         this.apply(ModBlocks.WOOL_UPHOLSTERED_CRIMSON_STOOLS, this::createUpholsteredStool);
@@ -140,6 +148,7 @@ public class ModBlockModels {
         this.createDesk(ModBlocks.BIRCH_DESK.get());
         this.createDesk(ModBlocks.JUNGLE_DESK.get());
         this.createDesk(ModBlocks.ACACIA_DESK.get());
+        this.createDesk(ModBlocks.CHERRY_DESK.get());
         this.createDesk(ModBlocks.DARK_OAK_DESK.get());
         this.createDesk(ModBlocks.MANGROVE_DESK.get());
         this.createDesk(ModBlocks.CRIMSON_DESK.get());
@@ -150,6 +159,7 @@ public class ModBlockModels {
         this.createDesk(ModBlocks.BIRCH_DESK_DRAWER.get());
         this.createDesk(ModBlocks.JUNGLE_DESK_DRAWER.get());
         this.createDesk(ModBlocks.ACACIA_DESK_DRAWER.get());
+        this.createDesk(ModBlocks.CHERRY_DESK_DRAWER.get());
         this.createDesk(ModBlocks.DARK_OAK_DESK_DRAWER.get());
         this.createDesk(ModBlocks.MANGROVE_DESK_DRAWER.get());
         this.createDesk(ModBlocks.CRIMSON_DESK_DRAWER.get());

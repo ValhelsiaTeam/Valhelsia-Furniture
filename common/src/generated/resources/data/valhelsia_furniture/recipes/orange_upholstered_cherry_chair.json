@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:upholstered_cherry_chair",
+  "key": {
+    "#": {
+      "item": "minecraft:cherry_planks"
+    },
+    "W": {
+      "item": "minecraft:orange_wool"
+    },
+    "X": {
+      "fabric_value": {
+        "item": "minecraft:stick"
+      },
+      "forge_value": {
+        "tag": "forge:rods/wooden"
+      }
+    }
+  },
+  "pattern": [
+    "W  ",
+    "#WW",
+    "X X"
+  ],
+  "result": {
+    "count": 2,
+    "item": "valhelsia_furniture:orange_upholstered_cherry_chair"
+  },
+  "show_notification": true
+}

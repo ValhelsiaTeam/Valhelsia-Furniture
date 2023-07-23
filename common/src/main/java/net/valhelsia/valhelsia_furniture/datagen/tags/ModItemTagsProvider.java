@@ -25,6 +25,7 @@ public class ModItemTagsProvider extends ValhelsiaItemTagsProvider {
         this.copy(ModTags.Blocks.BIRCH_DESKS, ModTags.Items.BIRCH_DESKS);
         this.copy(ModTags.Blocks.JUNGLE_DESKS, ModTags.Items.JUNGLE_DESKS);
         this.copy(ModTags.Blocks.ACACIA_DESKS, ModTags.Items.ACACIA_DESKS );
+        this.copy(ModTags.Blocks.CHERRY_DESKS, ModTags.Items.CHERRY_DESKS );
         this.copy(ModTags.Blocks.DARK_OAK_DESKS, ModTags.Items.DARK_OAK_DESKS);
         this.copy(ModTags.Blocks.MANGROVE_DESKS, ModTags.Items.MANGROVE_DESKS);
         this.copy(ModTags.Blocks.CRIMSON_DESKS, ModTags.Items.CRIMSON_DESKS);

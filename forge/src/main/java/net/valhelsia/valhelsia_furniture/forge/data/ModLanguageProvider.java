@@ -3,7 +3,6 @@ package net.valhelsia.valhelsia_furniture.forge.data;
 import net.minecraft.Util;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
@@ -49,6 +48,7 @@ public class ModLanguageProvider extends LanguageProvider {
         this.add(ModBlocks.BIRCH_TABLE.get(), "Birch Table");
         this.add(ModBlocks.JUNGLE_TABLE.get(), "Jungle Table");
         this.add(ModBlocks.ACACIA_TABLE.get(), "Acacia Table");
+        this.add(ModBlocks.CHERRY_TABLE.get(), "Cherry Table");
         this.add(ModBlocks.DARK_OAK_TABLE.get(), "Dark Oak Table");
         this.add(ModBlocks.MANGROVE_TABLE.get(), "Mangrove Table");
         this.add(ModBlocks.CRIMSON_TABLE.get(), "Crimson Table");

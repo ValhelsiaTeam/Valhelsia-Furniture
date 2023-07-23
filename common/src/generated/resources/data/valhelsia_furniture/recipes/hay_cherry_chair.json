@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:hayChair",
+  "key": {
+    "#": {
+      "item": "minecraft:cherry_planks"
+    },
+    "H": {
+      "item": "minecraft:hay_block"
+    },
+    "X": {
+      "fabric_value": {
+        "item": "minecraft:stick"
+      },
+      "forge_value": {
+        "tag": "forge:rods/wooden"
+      }
+    }
+  },
+  "pattern": [
+    "X  ",
+    "#HH",
+    "X X"
+  ],
+  "result": {
+    "count": 2,
+    "item": "valhelsia_furniture:hay_cherry_chair"
+  },
+  "show_notification": true
+}

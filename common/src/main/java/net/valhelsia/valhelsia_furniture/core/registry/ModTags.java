@@ -20,6 +20,7 @@ public class ModTags {
         public static final TagKey<Block> BIRCH_TABLES = modTag("birch_tables");
         public static final TagKey<Block> JUNGLE_TABLES = modTag("jungle_tables");
         public static final TagKey<Block> ACACIA_TABLES = modTag("acacia_tables");
+        public static final TagKey<Block> CHERRY_TABLES = modTag("cherry_tables");
         public static final TagKey<Block> DARK_OAK_TABLES = modTag("dark_oak_tables");
         public static final TagKey<Block> MANGROVE_TABLES = modTag("mangrove_tables");
         public static final TagKey<Block> CRIMSON_TABLES = modTag("crimson_tables");
@@ -31,6 +32,7 @@ public class ModTags {
         public static final TagKey<Block> BIRCH_CHAIRS = modTag("birch_chairs");
         public static final TagKey<Block> JUNGLE_CHAIRS = modTag("jungle_chairs");
         public static final TagKey<Block> ACACIA_CHAIRS = modTag("acacia_chairs");
+        public static final TagKey<Block> CHERRY_CHAIRS = modTag("cherry_chairs");
         public static final TagKey<Block> DARK_OAK_CHAIRS = modTag("dark_oak_chairs");
         public static final TagKey<Block> MANGROVE_CHAIRS = modTag("mangrove_chairs");
         public static final TagKey<Block> CRIMSON_CHAIRS = modTag("crimson_chairs");
@@ -55,6 +57,7 @@ public class ModTags {
         public static final TagKey<Block> UPHOLSTERED_BIRCH_STOOLS = modTag("upholstered_birch_stools");
         public static final TagKey<Block> UPHOLSTERED_JUNGLE_STOOLS= modTag("upholstered_jungle_stools");
         public static final TagKey<Block> UPHOLSTERED_ACACIA_STOOLS = modTag("upholstered_acacia_stools");
+        public static final TagKey<Block> UPHOLSTERED_CHERRY_STOOLS = modTag("upholstered_cherry_stools");
         public static final TagKey<Block> UPHOLSTERED_DARK_OAK_STOOLS = modTag("upholstered_dark_oak_stools");
         public static final TagKey<Block> UPHOLSTERED_MANGROVE_STOOLS = modTag("upholstered_mangrove_stools");
         public static final TagKey<Block> UPHOLSTERED_CRIMSON_STOOLS = modTag("upholstered_crimson_stools");
@@ -66,6 +69,7 @@ public class ModTags {
         public static final TagKey<Block> BIRCH_DESKS = modTag("birch_desks");
         public static final TagKey<Block> JUNGLE_DESKS = modTag("jungle_desks");
         public static final TagKey<Block> ACACIA_DESKS = modTag("acacia_desks");
+        public static final TagKey<Block> CHERRY_DESKS = modTag("cherry_desks");
         public static final TagKey<Block> DARK_OAK_DESKS = modTag("dark_oak_desks");
         public static final TagKey<Block> MANGROVE_DESKS = modTag("mangrove_desks");
         public static final TagKey<Block> CRIMSON_DESKS = modTag("crimson_desks");
@@ -90,6 +94,7 @@ public class ModTags {
         public static final TagKey<Item> BIRCH_DESKS = modTag("birch_desks");
         public static final TagKey<Item> JUNGLE_DESKS = modTag("jungle_desks");
         public static final TagKey<Item> ACACIA_DESKS = modTag("acacia_desks");
+        public static final TagKey<Item> CHERRY_DESKS = modTag("cherry_desks");
         public static final TagKey<Item> DARK_OAK_DESKS = modTag("dark_oak_desks");
         public static final TagKey<Item> MANGROVE_DESKS = modTag("mangrove_desks");
         public static final TagKey<Item> CRIMSON_DESKS = modTag("crimson_desks");

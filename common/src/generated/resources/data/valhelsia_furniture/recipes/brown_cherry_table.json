@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:colored_cherry_table",
+  "key": {
+    "#": {
+      "item": "minecraft:brown_carpet"
+    },
+    "X": {
+      "item": "valhelsia_furniture:cherry_table"
+    }
+  },
+  "pattern": [
+    "#",
+    "X"
+  ],
+  "result": {
+    "item": "valhelsia_furniture:brown_cherry_table"
+  },
+  "show_notification": true
+}
