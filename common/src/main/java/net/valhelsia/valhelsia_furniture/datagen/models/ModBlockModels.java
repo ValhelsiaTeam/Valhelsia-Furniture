@@ -329,9 +329,9 @@ public class ModBlockModels {
         if (left && right) {
             return drawer ? ModModelTemplates.DESK_DRAWER_CENTER : ModModelTemplates.DESK_CENTER;
         } else if (left) {
-            return drawer ? ModModelTemplates.DESK_DRAWER_LEFT : ModModelTemplates.DESK_LEFT;
-        } else if (right) {
             return drawer ? ModModelTemplates.DESK_DRAWER_RIGHT : ModModelTemplates.DESK_RIGHT;
+        } else if (right) {
+            return drawer ? ModModelTemplates.DESK_DRAWER_LEFT : ModModelTemplates.DESK_LEFT;
         } else {
             return drawer ? ModModelTemplates.DESK_DRAWER : ModModelTemplates.DESK;
         }
