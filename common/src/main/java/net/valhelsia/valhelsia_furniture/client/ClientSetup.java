@@ -11,6 +11,6 @@ import net.valhelsia.valhelsia_furniture.core.registry.ModEntities;
 public class ClientSetup {
 
     public ClientSetup(ClientSetupHelper helper) {
-        helper.registerEntityRenderer(ModEntities.SEAT.get(), SeatRenderer::new);
+        helper.registerEntityRenderer(ModEntities.SEAT, SeatRenderer::new);
     }
 }
