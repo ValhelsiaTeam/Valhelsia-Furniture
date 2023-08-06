@@ -1,4 +1,4 @@
-// 1.20.1	2023-07-23T10:37:55.1404071	Tags for minecraft:block mod id vanilla
+// 1.20.1	2023-08-06T20:43:53.3051397	Tags for minecraft:block mod id vanilla
 70e5c4895a07ff9268238786bcabcaa6cc6dbb8d data/minecraft/tags/blocks/mineable/axe.json
 5ec6ee02540da5f0bd3bd1f06a97f896758b2d6d data/valhelsia_furniture/tags/blocks/acacia_chairs.json
 b63fc0943fb1b688984b1b9d3fa652aea77df610 data/valhelsia_furniture/tags/blocks/acacia_desks.json
@@ -6,7 +6,7 @@ b63fc0943fb1b688984b1b9d3fa652aea77df610 data/valhelsia_furniture/tags/blocks/ac
 6028b40069bbbbc7abb04b7046658afd5258ecf7 data/valhelsia_furniture/tags/blocks/birch_chairs.json
 3096360a2de88e2bb026cc52ac89fcfde03017cf data/valhelsia_furniture/tags/blocks/birch_desks.json
 8dfd538d3419fc99710beca068965b772d197412 data/valhelsia_furniture/tags/blocks/birch_tables.json
-3e44f20c8abb1827394b21f4c4f4ef36cb98fcf3 data/valhelsia_furniture/tags/blocks/chairs.json
+291e60f2ffab2625b66a343f706b457487137791 data/valhelsia_furniture/tags/blocks/chairs.json
 ac1e4b622ff49f42aac150736401ca6546a8c5dc data/valhelsia_furniture/tags/blocks/cherry_chairs.json
 689fbab2a7d4e6cff444f3f8ff2befce7c3f60f9 data/valhelsia_furniture/tags/blocks/cherry_desks.json
 6d3294fc0343c34d1a8e85be8e0abfe67d95bf24 data/valhelsia_furniture/tags/blocks/cherry_tables.json
@@ -32,7 +32,7 @@ a67e41fc9659e7d9bc998e2f62260f54344092e9 data/valhelsia_furniture/tags/blocks/ma
 8a49abd566c0b777e61b6aed98c6546dd9b1b4bd data/valhelsia_furniture/tags/blocks/spruce_desks.json
 653a425729a287f1b53dacff09afd90737ae8dd5 data/valhelsia_furniture/tags/blocks/spruce_tables.json
 5a187b4a586c16927dba1f62e86f59da06d5d6bf data/valhelsia_furniture/tags/blocks/stools.json
-077b459e15103e5ef628a3416b9a9022b81cc739 data/valhelsia_furniture/tags/blocks/tables.json
+9ed4589b6b715453fcc70e7271b73bba2b5249a7 data/valhelsia_furniture/tags/blocks/tables.json
 6342bad8a408217a1fb1b90d0e094ed2c6cb0ab1 data/valhelsia_furniture/tags/blocks/upholstered_acacia_chairs.json
 f24a62322e52f3b91c137746f8b70bb3c2d580a6 data/valhelsia_furniture/tags/blocks/upholstered_acacia_stools.json
 12618c4586b38fefa8cf12cfc436fbf1ac8e6546 data/valhelsia_furniture/tags/blocks/upholstered_birch_chairs.json

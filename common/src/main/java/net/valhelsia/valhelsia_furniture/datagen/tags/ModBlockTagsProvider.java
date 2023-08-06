@@ -31,7 +31,7 @@ public class ModBlockTagsProvider extends ValhelsiaBlockTagsProvider {
         this.blockTag(ModTags.Blocks.MANGROVE_TABLES).addEntrySet(ModBlocks.COLORED_MANGROVE_TABLES).add(ModBlocks.MANGROVE_TABLE);
         this.blockTag(ModTags.Blocks.CRIMSON_TABLES).addEntrySet(ModBlocks.COLORED_CRIMSON_TABLES).add(ModBlocks.CRIMSON_TABLE);
         this.blockTag(ModTags.Blocks.WARPED_TABLES).addEntrySet(ModBlocks.COLORED_WARPED_TABLES).add(ModBlocks.WARPED_TABLE);
-        this.blockTag(ModTags.Blocks.TABLES).addTags(ModTags.Blocks.OAK_TABLES, ModTags.Blocks.SPRUCE_TABLES, ModTags.Blocks.BIRCH_TABLES, ModTags.Blocks.JUNGLE_TABLES, ModTags.Blocks.ACACIA_TABLES, ModTags.Blocks.DARK_OAK_TABLES, ModTags.Blocks.MANGROVE_TABLES, ModTags.Blocks.CRIMSON_TABLES, ModTags.Blocks.WARPED_TABLES);
+        this.blockTag(ModTags.Blocks.TABLES).addTags(ModTags.Blocks.OAK_TABLES, ModTags.Blocks.SPRUCE_TABLES, ModTags.Blocks.BIRCH_TABLES, ModTags.Blocks.JUNGLE_TABLES, ModTags.Blocks.ACACIA_TABLES, ModTags.Blocks.CHERRY_TABLES, ModTags.Blocks.DARK_OAK_TABLES, ModTags.Blocks.MANGROVE_TABLES, ModTags.Blocks.CRIMSON_TABLES, ModTags.Blocks.WARPED_TABLES);
 
         this.blockTag(ModTags.Blocks.OAK_CHAIRS).addEntrySet(ModBlocks.WOOL_OAK_CHAIRS).add(ModBlocks.OAK_CHAIR, ModBlocks.HAY_OAK_CHAIR);
         this.blockTag(ModTags.Blocks.SPRUCE_CHAIRS).addEntrySet(ModBlocks.WOOL_SPRUCE_CHAIRS).add(ModBlocks.SPRUCE_CHAIR, ModBlocks.HAY_SPRUCE_CHAIR);
@@ -44,7 +44,7 @@ public class ModBlockTagsProvider extends ValhelsiaBlockTagsProvider {
         this.blockTag(ModTags.Blocks.MANGROVE_CHAIRS).addEntrySet(ModBlocks.WOOL_MANGROVE_CHAIRS).add(ModBlocks.MANGROVE_CHAIR, ModBlocks.HAY_MANGROVE_CHAIR);
         this.blockTag(ModTags.Blocks.CRIMSON_CHAIRS).addEntrySet(ModBlocks.WOOL_CRIMSON_CHAIRS).add(ModBlocks.CRIMSON_CHAIR, ModBlocks.HAY_CRIMSON_CHAIR);
         this.blockTag(ModTags.Blocks.WARPED_CHAIRS).addEntrySet(ModBlocks.WOOL_WARPED_CHAIRS).add(ModBlocks.WARPED_CHAIR, ModBlocks.HAY_WARPED_CHAIR);
-        this.blockTag(ModTags.Blocks.CHAIRS).addTags(ModTags.Blocks.OAK_CHAIRS, ModTags.Blocks.SPRUCE_CHAIRS, ModTags.Blocks.BIRCH_CHAIRS, ModTags.Blocks.JUNGLE_CHAIRS, ModTags.Blocks.ACACIA_CHAIRS, ModTags.Blocks.DARK_OAK_CHAIRS, ModTags.Blocks.MANGROVE_CHAIRS, ModTags.Blocks.CRIMSON_CHAIRS, ModTags.Blocks.WARPED_CHAIRS);
+        this.blockTag(ModTags.Blocks.CHAIRS).addTags(ModTags.Blocks.OAK_CHAIRS, ModTags.Blocks.SPRUCE_CHAIRS, ModTags.Blocks.BIRCH_CHAIRS, ModTags.Blocks.JUNGLE_CHAIRS, ModTags.Blocks.ACACIA_CHAIRS, ModTags.Blocks.CHERRY_CHAIRS, ModTags.Blocks.DARK_OAK_CHAIRS, ModTags.Blocks.MANGROVE_CHAIRS, ModTags.Blocks.CRIMSON_CHAIRS, ModTags.Blocks.WARPED_CHAIRS);
 
         this.blockTag(ModTags.Blocks.UPHOLSTERED_OAK_CHAIRS).addEntrySet(ModBlocks.WOOL_UPHOLSTERED_OAK_CHAIRS);
         this.blockTag(ModTags.Blocks.UPHOLSTERED_SPRUCE_CHAIRS).addEntrySet(ModBlocks.WOOL_UPHOLSTERED_SPRUCE_CHAIRS);
