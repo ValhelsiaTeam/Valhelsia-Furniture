@@ -22,7 +22,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.valhelsia.valhelsia_core.api.helper.VoxelShapeHelper;
+import net.valhelsia.valhelsia_core.api.common.helper.VoxelShapeHelper;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
 import net.valhelsia.valhelsia_furniture.datagen.models.ModTextureSlots;
 import org.jetbrains.annotations.NotNull;

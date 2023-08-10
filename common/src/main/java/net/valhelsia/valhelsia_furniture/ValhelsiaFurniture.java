@@ -1,7 +1,7 @@
 package net.valhelsia.valhelsia_furniture;
 
-import net.valhelsia.valhelsia_core.ModDefinition;
-import net.valhelsia.valhelsia_core.api.registry.RegistryManager;
+import net.valhelsia.valhelsia_core.api.common.registry.RegistryManager;
+import net.valhelsia.valhelsia_core.core.ModDefinition;
 import net.valhelsia.valhelsia_furniture.client.ClientSetup;
 import net.valhelsia.valhelsia_furniture.core.registry.ModRegistryCollector;
 
@@ -13,7 +13,7 @@ public class ValhelsiaFurniture {
 	public static void init() {
 		ModDefinition.of(ValhelsiaFurniture.MOD_ID)
 				.withRegistryManager(ValhelsiaFurniture.REGISTRY_MANAGER)
-				.clientSetup(ClientSetup::new)
+				.clientSetup(() -> ClientSetup::new)
 				.create();
 	}
 }

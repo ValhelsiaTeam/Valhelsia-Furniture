@@ -20,7 +20,7 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.valhelsia.valhelsia_core.api.helper.VoxelShapeHelper;
+import net.valhelsia.valhelsia_core.api.common.helper.VoxelShapeHelper;
 import net.valhelsia.valhelsia_furniture.common.block.properties.CurtainPart;
 import net.valhelsia.valhelsia_furniture.common.block.properties.OpenCurtainPart;
 import org.jetbrains.annotations.NotNull;

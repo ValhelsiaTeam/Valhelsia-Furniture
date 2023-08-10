@@ -1,8 +1,8 @@
 package net.valhelsia.valhelsia_furniture.core.registry;
 
 import net.minecraft.core.registries.Registries;
-import net.valhelsia.valhelsia_core.api.registry.RegistryCollector;
-import net.valhelsia.valhelsia_core.api.registry.helper.EntityRegistryHelper;
+import net.valhelsia.valhelsia_core.api.common.registry.RegistryCollector;
+import net.valhelsia.valhelsia_core.api.common.registry.helper.EntityRegistryHelper;
 
 /**
  * @author Valhelsia Team

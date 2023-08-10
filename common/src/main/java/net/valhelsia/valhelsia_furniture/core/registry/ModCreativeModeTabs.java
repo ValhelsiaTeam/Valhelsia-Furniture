@@ -5,9 +5,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.valhelsia.valhelsia_core.api.common.item.tab.CreativeTabFactory;
-import net.valhelsia.valhelsia_core.api.registry.RegistryClass;
-import net.valhelsia.valhelsia_core.api.registry.RegistryEntry;
-import net.valhelsia.valhelsia_core.api.registry.helper.DefaultRegistryHelper;
+import net.valhelsia.valhelsia_core.api.common.registry.RegistryClass;
+import net.valhelsia.valhelsia_core.api.common.registry.RegistryEntry;
+import net.valhelsia.valhelsia_core.api.common.registry.helper.DefaultRegistryHelper;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 
 /**

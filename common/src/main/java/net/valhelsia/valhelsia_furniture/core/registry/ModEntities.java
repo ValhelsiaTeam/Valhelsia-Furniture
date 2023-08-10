@@ -3,9 +3,9 @@ package net.valhelsia.valhelsia_furniture.core.registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.valhelsia.valhelsia_core.api.registry.RegistryClass;
-import net.valhelsia.valhelsia_core.api.registry.RegistryEntry;
-import net.valhelsia.valhelsia_core.api.registry.helper.EntityRegistryHelper;
+import net.valhelsia.valhelsia_core.api.common.registry.RegistryClass;
+import net.valhelsia.valhelsia_core.api.common.registry.RegistryEntry;
+import net.valhelsia.valhelsia_core.api.common.registry.helper.EntityRegistryHelper;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.entity.SeatEntity;
 

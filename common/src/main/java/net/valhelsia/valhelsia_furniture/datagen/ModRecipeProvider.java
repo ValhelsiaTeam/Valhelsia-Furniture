@@ -8,9 +8,9 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.valhelsia.valhelsia_core.api.common.registry.helper.block.BlockEntrySet;
 import net.valhelsia.valhelsia_core.api.datagen.recipes.RecipeSubProvider;
 import net.valhelsia.valhelsia_core.api.datagen.recipes.ValhelsiaRecipeProvider;
-import net.valhelsia.valhelsia_core.api.registry.helper.block.BlockEntrySet;
 import net.valhelsia.valhelsia_furniture.common.block.*;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
 
