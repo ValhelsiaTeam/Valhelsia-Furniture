@@ -8,6 +8,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.valhelsia.valhelsia_core.api.datagen.DataProviderContext;
 import net.valhelsia.valhelsia_core.api.datagen.recipes.ValhelsiaRecipeProvider;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.datagen.ModBlockLootTables;
@@ -31,9 +32,11 @@ public class ValhelsiaFurnitureForge {
 
         @SubscribeEvent
         public static void gatherData(GatherDataEvent event) {
+            DataProviderContext context = new DataProviderContext(event.getGenerator().getPackOutput(), event.getLookupProvider(), ValhelsiaFurniture.REGISTRY_MANAGER);
+
             event.getGenerator().addProvider(true, new ModLanguageProvider(event.getGenerator().getPackOutput(), "en_us"));
             event.getGenerator().addProvider(true, new ModBlockModelProvider(event.getGenerator().getPackOutput()));
-            event.getGenerator().addProvider(true, new ValhelsiaRecipeProvider(event.getGenerator().getPackOutput(), ValhelsiaFurniture.REGISTRY_MANAGER, ModRecipeProvider::new));
+            event.getGenerator().addProvider(true, new ValhelsiaRecipeProvider(context, ModRecipeProvider::new));
 
             TagsProvider<Block> blockTagsProvider = new ModBlockTagsProvider(event.getGenerator().getPackOutput(), event.getLookupProvider());
 

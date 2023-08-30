@@ -45,7 +45,7 @@ configurations {
 dependencies {
     forge "net.minecraftforge:forge:${rootProject.forge_version}"
 
-    modApi(files("libs/valhelsia_core-${valhelsia_core_version}.jar"))
+    modImplementation("net.valhelsia:valhelsia_core-forge-${minecraft_version}:${valhelsia_core_version}")
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }

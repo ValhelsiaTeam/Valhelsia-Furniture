@@ -42,6 +42,9 @@ allprojects {
             url = "https://www.cursemaven.com"
             allowInsecureProtocol = true
         }
+        flatDir {
+            dirs 'libs'
+        }
     }
 
     tasks.withType(JavaCompile) {

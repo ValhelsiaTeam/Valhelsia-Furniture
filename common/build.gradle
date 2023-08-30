@@ -3,7 +3,8 @@ dependencies {
     // Do NOT use other classes from fabric loader
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
 
-    modImplementation(files("libs/valhelsia_core-${valhelsia_core_version}-dev.jar"))
+    modImplementation("net.valhelsia:valhelsia_core-common-${minecraft_version}:${valhelsia_core_version}")
+
 }
 
 architectury {
