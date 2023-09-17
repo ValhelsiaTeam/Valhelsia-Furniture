@@ -51,6 +51,10 @@ dependencies {
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 
     modRuntimeOnly("curse.maven:jei-238222:4644453")
+    modRuntimeOnly("curse.maven:kubejs-238086:4748655")
+    modRuntimeOnly("curse.maven:rhino-416294:4735056")
+    modRuntimeOnly("curse.maven:architectury-api-419699:4663010")
+
 }
 
 processResources {
