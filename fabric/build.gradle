@@ -36,7 +36,7 @@ dependencies {
 
     modImplementation("net.valhelsia:valhelsia_core-fabric-${minecraft_version}:${valhelsia_core_version}")
 
-    modRuntimeOnly("curse.maven:jei-238222:4644452")
+    modRuntimeOnly("curse.maven:jei-238222:4767570")
 }
 
 processResources {

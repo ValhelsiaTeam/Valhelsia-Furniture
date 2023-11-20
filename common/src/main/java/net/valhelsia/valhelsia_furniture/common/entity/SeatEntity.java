@@ -117,11 +117,6 @@ public class SeatEntity extends Entity {
         tag.putString("EjectType", this.ejectType.name);
     }
 
-    @Override
-    public double getPassengersRidingOffset() {
-        return 0.0D;
-    }
-
     public enum EjectType {
         NORTH("north", (state, livingEntity) -> Direction.NORTH),
         BLOCK_HORIZONTAL_FACING("block_horizontal_facing", (state, livingEntity) -> state.getValue(BlockStateProperties.HORIZONTAL_FACING)),
