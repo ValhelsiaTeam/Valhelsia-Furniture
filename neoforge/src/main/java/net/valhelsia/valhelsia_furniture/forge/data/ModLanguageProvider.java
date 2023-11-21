@@ -3,7 +3,7 @@ package net.valhelsia.valhelsia_furniture.forge.data;
 import net.minecraft.Util;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.DyeColor;
-import net.minecraftforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
 
