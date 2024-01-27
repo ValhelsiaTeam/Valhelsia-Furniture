@@ -6,6 +6,7 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockState;
@@ -65,8 +66,9 @@ public class OpenCurtainBlock extends AbstractCurtainBlock<OpenCurtainPart> {
     public RenderShape getRenderShape(@NotNull BlockState state) {
         return state.getValue(PART) == OpenCurtainPart.MIDDLE ? RenderShape.INVISIBLE : RenderShape.MODEL;
     }
+
     @Override
-    public ItemStack getCloneItemStack(BlockGetter level, BlockPos pos, BlockState state) {
+    public @NotNull ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
         return new ItemStack(this.getClosedBlock());
     }
 

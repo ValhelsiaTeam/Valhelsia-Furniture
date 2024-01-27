@@ -1,4 +1,4 @@
-package net.valhelsia.valhelsia_furniture.datagen;
+package net.valhelsia.valhelsia_furniture.forge.data;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.valhelsia.valhelsia_core.api.common.registry.RegistryEntry;
-import net.valhelsia.valhelsia_core.api.datagen.ValhelsiaBlockLootTables;
+import net.valhelsia.valhelsia_core.datagen.ValhelsiaBlockLootTables;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.OpenCurtainBlock;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;

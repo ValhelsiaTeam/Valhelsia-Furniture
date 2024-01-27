@@ -1,4 +1,4 @@
-package net.valhelsia.valhelsia_furniture.datagen.models;
+package net.valhelsia.valhelsia_furniture.forge.data.models;
 
 import com.google.gson.JsonElement;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -19,6 +19,8 @@ import net.valhelsia.valhelsia_furniture.common.block.*;
 import net.valhelsia.valhelsia_furniture.common.block.properties.CurtainPart;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
+import net.valhelsia.valhelsia_furniture.datagen.models.ModModelTemplates;
+import net.valhelsia.valhelsia_furniture.datagen.models.ModTextureSlots;
 
 import java.util.List;
 import java.util.Map;

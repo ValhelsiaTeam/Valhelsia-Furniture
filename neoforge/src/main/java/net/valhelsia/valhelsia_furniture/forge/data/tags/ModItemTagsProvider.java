@@ -1,9 +1,9 @@
-package net.valhelsia.valhelsia_furniture.datagen.tags;
+package net.valhelsia.valhelsia_furniture.forge.data.tags;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
-import net.valhelsia.valhelsia_core.api.datagen.tags.ValhelsiaItemTagsProvider;
+import net.valhelsia.valhelsia_core.datagen.tags.ValhelsiaItemTagsProvider;
 import net.valhelsia.valhelsia_furniture.core.registry.ModTags;
 
 import java.util.concurrent.CompletableFuture;

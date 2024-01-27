@@ -1,4 +1,4 @@
-package net.valhelsia.valhelsia_furniture.datagen.models;
+package net.valhelsia.valhelsia_furniture.forge.data.models;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;

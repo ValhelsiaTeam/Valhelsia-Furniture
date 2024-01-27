@@ -162,7 +162,7 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock, Furnitu
     }
 
     @Override
-    public void playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+    public @NotNull BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
         for (Direction direction : Direction.values()) {
             if (direction.getAxis() == Direction.Axis.Y) {
                 continue;
@@ -174,7 +174,7 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock, Furnitu
             }
         }
 
-        super.playerWillDestroy(level, pos, state, player);
+        return super.playerWillDestroy(level, pos, state, player);
     }
 
     private void tryConnect(Direction direction, BlockPos pos, LevelAccessor level) {

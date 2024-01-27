@@ -1,4 +1,4 @@
-package net.valhelsia.valhelsia_furniture.datagen;
+package net.valhelsia.valhelsia_furniture.forge.data;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -9,8 +9,8 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.valhelsia.valhelsia_core.api.common.registry.helper.block.BlockEntrySet;
-import net.valhelsia.valhelsia_core.api.datagen.recipes.RecipeSubProvider;
-import net.valhelsia.valhelsia_core.api.datagen.recipes.ValhelsiaRecipeProvider;
+import net.valhelsia.valhelsia_core.datagen.recipes.RecipeSubProvider;
+import net.valhelsia.valhelsia_core.datagen.recipes.ValhelsiaRecipeProvider;
 import net.valhelsia.valhelsia_furniture.common.block.*;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
 

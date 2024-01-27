@@ -8,15 +8,15 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
-import net.valhelsia.valhelsia_core.api.datagen.DataProviderContext;
-import net.valhelsia.valhelsia_core.api.datagen.recipes.ValhelsiaRecipeProvider;
+import net.valhelsia.valhelsia_core.datagen.DataProviderContext;
+import net.valhelsia.valhelsia_core.datagen.recipes.ValhelsiaRecipeProvider;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
-import net.valhelsia.valhelsia_furniture.datagen.ModBlockLootTables;
-import net.valhelsia.valhelsia_furniture.datagen.ModRecipeProvider;
-import net.valhelsia.valhelsia_furniture.datagen.models.ModBlockModelProvider;
-import net.valhelsia.valhelsia_furniture.datagen.tags.ModBlockTagsProvider;
-import net.valhelsia.valhelsia_furniture.datagen.tags.ModItemTagsProvider;
+import net.valhelsia.valhelsia_furniture.forge.data.ModBlockLootTables;
 import net.valhelsia.valhelsia_furniture.forge.data.ModLanguageProvider;
+import net.valhelsia.valhelsia_furniture.forge.data.ModRecipeProvider;
+import net.valhelsia.valhelsia_furniture.forge.data.models.ModBlockModelProvider;
+import net.valhelsia.valhelsia_furniture.forge.data.tags.ModBlockTagsProvider;
+import net.valhelsia.valhelsia_furniture.forge.data.tags.ModItemTagsProvider;
 
 import java.util.List;
 import java.util.Set;
@@ -36,7 +36,7 @@ public class ValhelsiaFurnitureForge {
 
             event.getGenerator().addProvider(true, new ModLanguageProvider(event.getGenerator().getPackOutput(), "en_us"));
             event.getGenerator().addProvider(true, new ModBlockModelProvider(event.getGenerator().getPackOutput()));
-            event.getGenerator().addProvider(true, new ValhelsiaRecipeProvider(context, ModRecipeProvider::new));
+            event.getGenerator().addProvider(true, new ValhelsiaRecipeProvider(context, event.getLookupProvider(), ModRecipeProvider::new));
 
             TagsProvider<Block> blockTagsProvider = new ModBlockTagsProvider(event.getGenerator().getPackOutput(), event.getLookupProvider());
 

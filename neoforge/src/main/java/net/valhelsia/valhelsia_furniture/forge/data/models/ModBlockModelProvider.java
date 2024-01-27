@@ -1,4 +1,4 @@
-package net.valhelsia.valhelsia_furniture.datagen.models;
+package net.valhelsia.valhelsia_furniture.forge.data.models;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.models.BlockModelGenerators;
@@ -6,7 +6,7 @@ import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.valhelsia.valhelsia_core.api.common.registry.RegistryEntry;
-import net.valhelsia.valhelsia_core.api.datagen.ValhelsiaModelProvider;
+import net.valhelsia.valhelsia_core.datagen.ValhelsiaModelProvider;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
 
 import java.util.Collection;
