@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_acacia_planks",
-      "has_brown_wool",
-      "has_the_recipe"
+      "has_brown_wool"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:brown_upholstered_acacia_chair"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

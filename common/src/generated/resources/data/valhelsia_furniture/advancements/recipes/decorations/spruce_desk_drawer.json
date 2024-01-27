@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_spruce_planks",
-      "has_spruce_slab",
-      "has_the_recipe"
+      "has_spruce_slab"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:spruce_desk_drawer"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

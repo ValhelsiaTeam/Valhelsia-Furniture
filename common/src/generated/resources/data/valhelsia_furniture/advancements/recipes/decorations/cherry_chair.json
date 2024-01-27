@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_cherry_planks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_cherry_planks"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:cherry_chair"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

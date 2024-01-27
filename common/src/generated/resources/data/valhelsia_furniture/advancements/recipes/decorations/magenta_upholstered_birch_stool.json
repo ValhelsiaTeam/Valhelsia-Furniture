@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_birch_slab",
-      "has_magenta_wool",
-      "has_the_recipe"
+      "has_magenta_wool"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:magenta_upholstered_birch_stool"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

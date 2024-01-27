@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_jungle_table",
-      "has_light_gray_carpet",
-      "has_the_recipe"
+      "has_light_gray_carpet"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:light_gray_jungle_table"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

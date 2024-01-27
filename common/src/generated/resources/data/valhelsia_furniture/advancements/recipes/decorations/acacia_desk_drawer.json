@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_acacia_planks",
-      "has_acacia_slab",
-      "has_the_recipe"
+      "has_acacia_slab"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:acacia_desk_drawer"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

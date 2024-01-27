@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_spruce_planks",
-      "has_green_wool",
-      "has_the_recipe"
+      "has_green_wool"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:green_spruce_chair"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

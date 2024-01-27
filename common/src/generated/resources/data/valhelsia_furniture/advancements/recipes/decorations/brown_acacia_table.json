@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_acacia_table",
-      "has_brown_carpet",
-      "has_the_recipe"
+      "has_brown_carpet"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:brown_acacia_table"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

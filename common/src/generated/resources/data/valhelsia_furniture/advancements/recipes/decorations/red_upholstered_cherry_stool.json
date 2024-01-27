@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_cherry_slab",
-      "has_red_wool",
-      "has_the_recipe"
+      "has_red_wool"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:red_upholstered_cherry_stool"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

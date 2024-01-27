@@ -110,7 +110,11 @@ public class ModLanguageProvider extends LanguageProvider {
         this.add(ModBlocks.WARPED_DESK_DRAWER.get(), "Warped Desk Drawer");
 
         ModBlocks.FABRIC_DESK_LAMPS.forEach((color, entry) -> {
-            this.add(entry.get(), "");
+            this.add(entry.get(), String.format("%s Fabric Desk Lamp", COLOR_TO_STRING.get(color)));
+        });
+
+        ModBlocks.CLOSED_CURTAINS.forEach((color, entry) -> {
+            this.add(entry.get(), String.format("%s Curtain", COLOR_TO_STRING.get(color)));
         });
 
         for (DyeColor color : DyeColor.values()) {

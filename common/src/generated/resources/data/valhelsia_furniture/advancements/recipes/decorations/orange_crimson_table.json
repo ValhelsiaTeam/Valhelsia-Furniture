@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_crimson_table",
-      "has_orange_carpet",
-      "has_the_recipe"
+      "has_orange_carpet"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:orange_crimson_table"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

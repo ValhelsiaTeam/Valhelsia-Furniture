@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_birch_slab",
-      "has_blue_wool",
-      "has_the_recipe"
+      "has_blue_wool"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:blue_upholstered_birch_stool"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

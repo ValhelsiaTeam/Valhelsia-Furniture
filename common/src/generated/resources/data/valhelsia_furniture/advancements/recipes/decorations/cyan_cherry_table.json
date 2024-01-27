@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_cherry_table",
-      "has_cyan_carpet",
-      "has_the_recipe"
+      "has_cyan_carpet"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:cyan_cherry_table"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

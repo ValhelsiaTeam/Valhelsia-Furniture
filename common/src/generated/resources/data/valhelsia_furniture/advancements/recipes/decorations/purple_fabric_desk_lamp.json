@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_purple_wool",
-      "has_glowstone_dust",
-      "has_the_recipe"
+      "has_glowstone_dust"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:purple_fabric_desk_lamp"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

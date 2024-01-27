@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_birch_planks",
-      "has_birch_slab",
-      "has_the_recipe"
+      "has_birch_slab"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:birch_desk_drawer"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

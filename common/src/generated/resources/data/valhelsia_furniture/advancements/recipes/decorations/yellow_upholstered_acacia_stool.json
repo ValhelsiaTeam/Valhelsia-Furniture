@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_acacia_slab",
-      "has_yellow_wool",
-      "has_the_recipe"
+      "has_yellow_wool"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:yellow_upholstered_acacia_stool"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

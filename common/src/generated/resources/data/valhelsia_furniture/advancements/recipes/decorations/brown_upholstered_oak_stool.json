@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_oak_slab",
-      "has_brown_wool",
-      "has_the_recipe"
+      "has_brown_wool"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:brown_upholstered_oak_stool"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

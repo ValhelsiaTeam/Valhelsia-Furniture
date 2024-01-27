@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_spruce_planks",
-      "has_blue_wool",
-      "has_the_recipe"
+      "has_blue_wool"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:blue_upholstered_spruce_chair"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

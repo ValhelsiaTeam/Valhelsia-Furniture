@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_oak_planks",
-      "has_orange_wool",
-      "has_the_recipe"
+      "has_orange_wool"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:orange_upholstered_oak_chair"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

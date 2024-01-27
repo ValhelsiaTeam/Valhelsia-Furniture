@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_cherry_table",
-      "has_green_carpet",
-      "has_the_recipe"
+      "has_green_carpet"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:green_cherry_table"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

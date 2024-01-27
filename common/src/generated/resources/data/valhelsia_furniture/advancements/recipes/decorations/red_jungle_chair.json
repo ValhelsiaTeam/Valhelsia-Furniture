@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_jungle_planks",
-      "has_red_wool",
-      "has_the_recipe"
+      "has_red_wool"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:red_jungle_chair"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

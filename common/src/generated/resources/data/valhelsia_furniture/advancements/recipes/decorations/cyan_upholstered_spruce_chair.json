@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_spruce_planks",
-      "has_cyan_wool",
-      "has_the_recipe"
+      "has_cyan_wool"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:cyan_upholstered_spruce_chair"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

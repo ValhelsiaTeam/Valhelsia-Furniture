@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_birch_table",
-      "has_red_carpet",
-      "has_the_recipe"
+      "has_red_carpet"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:red_birch_table"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

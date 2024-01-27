@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_warped_slab",
-      "has_green_wool",
-      "has_the_recipe"
+      "has_green_wool"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:green_upholstered_warped_stool"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

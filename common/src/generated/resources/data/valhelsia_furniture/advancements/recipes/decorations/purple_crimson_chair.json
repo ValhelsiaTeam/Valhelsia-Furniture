@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_crimson_planks",
-      "has_purple_wool",
-      "has_the_recipe"
+      "has_purple_wool"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:purple_crimson_chair"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

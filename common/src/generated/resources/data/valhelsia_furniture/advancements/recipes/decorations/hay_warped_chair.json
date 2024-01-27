@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_warped_planks",
-      "has_hay_block",
-      "has_the_recipe"
+      "has_hay_block"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:hay_warped_chair"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

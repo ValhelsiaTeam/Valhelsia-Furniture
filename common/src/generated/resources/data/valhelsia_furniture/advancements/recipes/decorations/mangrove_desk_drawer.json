@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_mangrove_planks",
-      "has_mangrove_slab",
-      "has_the_recipe"
+      "has_mangrove_slab"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:mangrove_desk_drawer"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

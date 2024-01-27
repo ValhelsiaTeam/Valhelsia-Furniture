@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_warped_slab",
-      "has_pink_wool",
-      "has_the_recipe"
+      "has_pink_wool"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:pink_upholstered_warped_stool"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

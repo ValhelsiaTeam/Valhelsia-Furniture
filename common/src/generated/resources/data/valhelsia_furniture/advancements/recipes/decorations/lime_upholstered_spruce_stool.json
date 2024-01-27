@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_spruce_slab",
-      "has_lime_wool",
-      "has_the_recipe"
+      "has_lime_wool"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:lime_upholstered_spruce_stool"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

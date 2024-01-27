@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_warped_table",
-      "has_black_carpet",
-      "has_the_recipe"
+      "has_black_carpet"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:black_warped_table"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

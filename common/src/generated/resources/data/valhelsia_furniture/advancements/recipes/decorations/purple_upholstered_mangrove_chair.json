@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_mangrove_planks",
-      "has_purple_wool",
-      "has_the_recipe"
+      "has_purple_wool"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:purple_upholstered_mangrove_chair"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

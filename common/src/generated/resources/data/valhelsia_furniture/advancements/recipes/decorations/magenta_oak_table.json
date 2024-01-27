@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_oak_table",
-      "has_magenta_carpet",
-      "has_the_recipe"
+      "has_magenta_carpet"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:magenta_oak_table"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

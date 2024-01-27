@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_cherry_planks",
-      "has_cherry_slab",
-      "has_the_recipe"
+      "has_cherry_slab"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:cherry_desk_drawer"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

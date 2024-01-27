@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_dark_oak_table",
-      "has_brown_carpet",
-      "has_the_recipe"
+      "has_brown_carpet"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:brown_dark_oak_table"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_oak_planks",
-      "has_oak_slab",
-      "has_the_recipe"
+      "has_oak_slab"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:oak_desk_drawer"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

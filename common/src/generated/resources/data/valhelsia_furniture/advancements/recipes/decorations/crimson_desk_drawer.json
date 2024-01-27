@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_crimson_planks",
-      "has_crimson_slab",
-      "has_the_recipe"
+      "has_crimson_slab"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:crimson_desk_drawer"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

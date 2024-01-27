@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_birch_planks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_birch_planks"
     ]
   ],
   "rewards": {
     "recipes": [
       "valhelsia_furniture:birch_chair"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
