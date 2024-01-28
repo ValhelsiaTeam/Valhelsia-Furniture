@@ -113,7 +113,7 @@ public class StoolBlock extends Block implements SimpleWaterloggedBlock, Seatabl
     @Override
     public InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
         if (!level.isClientSide() && !player.isShiftKeyDown()) {
-            this.sitDown(level, pos, player);
+            this.sitOnBlock(level, pos, player);
         }
 
         return InteractionResult.sidedSuccess(level.isClientSide());
@@ -121,35 +121,18 @@ public class StoolBlock extends Block implements SimpleWaterloggedBlock, Seatabl
 
     @Override
     public void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity) {
-        if (!(entity instanceof Player)) {
-            this.sitDown(level, pos, entity);
-        }
-    }
-
-    private void sitDown(Level level, BlockPos pos, Entity entity) {
-        if (!this.isEntitySitting(level, pos)) {
-            SeatEntity chair = new SeatEntity(pos, 0.3D, level);
-
-            level.addFreshEntity(chair);
-            entity.startRiding(chair);
-
-            level.updateNeighbourForOutputSignal(pos, level.getBlockState(pos).getBlock());
-        }
+        this.trySitEntityOnBlock(level, pos, entity);
     }
 
     @Override
     public void neighborChanged(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Block block, @NotNull BlockPos fromPos, boolean isMoving) {
        if (level.hasNeighborSignal(pos) || level.hasNeighborSignal(pos.above())) {
-           if (this.isEntitySitting(level, pos)) {
+           if (this.isSeatOccupied(level, pos)) {
                level.getEntitiesOfClass(SeatEntity.class, new AABB(pos)).get(0).discard();
 
                level.updateNeighbourForOutputSignal(pos, level.getBlockState(pos).getBlock());
            }
         }
-    }
-
-    private boolean isEntitySitting(Level level, BlockPos pos) {
-        return !level.getEntitiesOfClass(SeatEntity.class, new AABB(pos)).isEmpty();
     }
 
     @Override
@@ -159,7 +142,7 @@ public class StoolBlock extends Block implements SimpleWaterloggedBlock, Seatabl
 
     @Override
     public int getAnalogOutputSignal(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos) {
-        return this.isEntitySitting(level, pos) ? 15 : 0;
+        return this.isSeatOccupied(level, pos) ? 15 : 0;
     }
 
     @Nullable

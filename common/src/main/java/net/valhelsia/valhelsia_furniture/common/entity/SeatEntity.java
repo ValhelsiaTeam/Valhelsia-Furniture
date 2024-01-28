@@ -31,15 +31,14 @@ public class SeatEntity extends Entity {
 
     public SeatEntity(EntityType<?> entityType, Level level) {
         super(entityType, level);
+
     }
 
-    public SeatEntity(BlockPos pos, double yOffset, Level level) {
+    public SeatEntity(BlockPos pos, double ridingOffset, Level level, EjectType ejectType) {
         super(ModEntities.SEAT.get(), level);
-        this.setPos(pos.getX() + 0.5D, pos.getY() + yOffset, pos.getZ() + 0.5D);
+        this.ejectType = ejectType;
 
-        this.getSeatableBlock(level, pos).ifPresent(seatableBlock -> {
-            this.ejectType = seatableBlock.getEjectType();
-        });
+        this.setPos(pos.getX() + 0.5D, pos.getY() + ridingOffset, pos.getZ() + 0.5D);
     }
 
     @Override
