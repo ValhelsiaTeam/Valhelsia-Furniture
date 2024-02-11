@@ -18,7 +18,7 @@ public interface SeatableBlock {
     SeatEntity.EjectType getEjectType();
 
     default double getRidingOffset() {
-        return 0.6D;
+        return 0.35D;
     }
 
     default boolean isSeatOccupied(EntityGetter entityGetter, BlockPos pos) {
