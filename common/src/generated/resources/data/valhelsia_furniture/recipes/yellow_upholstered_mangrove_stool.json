@@ -11,6 +11,7 @@
     },
     "X": {
       "type": "valhelsia_core:platform_dependent",
+      "fabric:type": "valhelsia_core:platform_dependent",
       "fabric_value": {
         "item": "minecraft:stick"
       },
