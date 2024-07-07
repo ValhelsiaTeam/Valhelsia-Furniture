@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:upholstered_acacia_stool",
+  "key": {
+    "#": {
+      "item": "minecraft:acacia_slab"
+    },
+    "W": {
+      "item": "minecraft:magenta_wool"
+    },
+    "X": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "#W#",
+    "X X"
+  ],
+  "result": {
+    "count": 2,
+    "id": "valhelsia_furniture:magenta_upholstered_acacia_stool"
+  }
+}
