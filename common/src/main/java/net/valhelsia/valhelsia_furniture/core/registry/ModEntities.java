@@ -17,5 +17,5 @@ public class ModEntities implements RegistryClass {
 
     public static final EntityRegistryHelper HELPER = ValhelsiaFurniture.REGISTRY_MANAGER.getHelper(Registries.ENTITY_TYPE);
 
-    public static final RegistryEntry<EntityType<SeatEntity>> SEAT = HELPER.register("seat", EntityType.Builder.<SeatEntity>of(SeatEntity::new, MobCategory.MISC).sized(0.0F, 0.0F));
+    public static final RegistryEntry<EntityType<?>, EntityType<SeatEntity>> SEAT = HELPER.register("seat", EntityType.Builder.<SeatEntity>of(SeatEntity::new, MobCategory.MISC).sized(0.0F, 0.0F));
 }

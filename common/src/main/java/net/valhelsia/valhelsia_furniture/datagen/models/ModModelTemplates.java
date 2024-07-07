@@ -55,6 +55,6 @@ public class ModModelTemplates {
     public static final ModelTemplate FABRIC_DESK_LAMP_ON = create("template_fabric_desk_lamp_on", ModTextureSlots.COLOR);
 
     public static ModelTemplate create(String name, TextureSlot... textureSlots) {
-        return new ModelTemplate(Optional.of(new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/" + name)), Optional.empty(), textureSlots);
+        return new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, "block/" + name)), Optional.empty(), textureSlots);
     }
 }

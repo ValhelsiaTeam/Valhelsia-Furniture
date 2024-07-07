@@ -6,6 +6,7 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.valhelsia.valhelsia_core.datagen.DataProviderContext;
@@ -23,11 +24,12 @@ import java.util.Set;
 
 @Mod(ValhelsiaFurniture.MOD_ID)
 public class ValhelsiaFurnitureForge {
+
     public ValhelsiaFurnitureForge() {
         ValhelsiaFurniture.init();
     }
 
-    @Mod.EventBusSubscriber(modid = ValhelsiaFurniture.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+    @EventBusSubscriber(modid = ValhelsiaFurniture.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
     public static class TestEvents {
 
         @SubscribeEvent
@@ -36,14 +38,14 @@ public class ValhelsiaFurnitureForge {
 
             event.getGenerator().addProvider(true, new ModLanguageProvider(event.getGenerator().getPackOutput(), "en_us"));
             event.getGenerator().addProvider(true, new ModBlockModelProvider(event.getGenerator().getPackOutput()));
-            event.getGenerator().addProvider(true, new ValhelsiaRecipeProvider(context, event.getLookupProvider(), ModRecipeProvider::new));
+            event.getGenerator().addProvider(true, new ValhelsiaRecipeProvider(context, ModRecipeProvider::new));
 
             TagsProvider<Block> blockTagsProvider = new ModBlockTagsProvider(event.getGenerator().getPackOutput(), event.getLookupProvider());
 
             event.getGenerator().addProvider(true, blockTagsProvider);
             event.getGenerator().addProvider(true, new ModItemTagsProvider(event.getGenerator().getPackOutput(), event.getLookupProvider(), blockTagsProvider.contentsGetter()));
 
-            event.getGenerator().addProvider(true, new LootTableProvider(event.getGenerator().getPackOutput(), Set.of(), List.of(new LootTableProvider.SubProviderEntry(() -> new ModBlockLootTables(Set.of(), FeatureFlags.DEFAULT_FLAGS), LootContextParamSets.BLOCK))));
+            event.getGenerator().addProvider(true, new LootTableProvider(event.getGenerator().getPackOutput(), Set.of(), List.of(new LootTableProvider.SubProviderEntry(provider -> new ModBlockLootTables(Set.of(), FeatureFlags.DEFAULT_FLAGS, provider), LootContextParamSets.BLOCK)), event.getLookupProvider()));
         }
     }
 }

@@ -78,12 +78,8 @@ public class ModTags {
         public static final TagKey<Block> FABRIC_DESK_LAMPS = modTag("fabric_desk_lamps");
         public static final TagKey<Block> CURTAINS = modTag("curtains");
 
-        private static TagKey<Block> forgeTag(String name) {
-            return TagKey.create(Registries.BLOCK, new ResourceLocation("forge", name));
-        }
-
         private static TagKey<Block> modTag(String name) {
-            return TagKey.create(Registries.BLOCK, new ResourceLocation(ValhelsiaFurniture.MOD_ID, name));
+            return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, name));
         }
     }
 
@@ -102,12 +98,8 @@ public class ModTags {
         public static final TagKey<Item> DESKS = modTag("desks");
         public static final TagKey<Item> FABRIC_DESK_LAMPS = modTag("fabric_desk_lamps");
 
-        private static TagKey<Item> forgeTag(String name) {
-            return TagKey.create(Registries.ITEM, new ResourceLocation("forge", name));
-        }
-
         private static TagKey<Item> modTag(String name) {
-            return TagKey.create(Registries.ITEM, new ResourceLocation(ValhelsiaFurniture.MOD_ID, name));
+            return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, name));
         }
     }
 }

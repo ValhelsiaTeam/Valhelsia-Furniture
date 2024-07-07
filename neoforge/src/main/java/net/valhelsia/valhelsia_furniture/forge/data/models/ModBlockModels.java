@@ -269,8 +269,8 @@ public class ModBlockModels {
 
     private void createUpholsteredChair(UpholsteredChairBlock block) {
         TextureMapping textureMapping = new TextureMapping()
-                .put(ModTextureSlots.WOOL, new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/upholstered_chair/colors/" + block.getColor()))
-                .put(ModTextureSlots.WOOD, new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/upholstered_chair/base/" + block.getWoodType().name()));
+                .put(ModTextureSlots.WOOL, ResourceLocation.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, "block/upholstered_chair/colors/" + block.getColor()))
+                .put(ModTextureSlots.WOOD, ResourceLocation.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, "block/upholstered_chair/base/" + block.getWoodType().name()));
         ResourceLocation model = ModModelTemplates.UPHOLSTERED_CHAIR.create(block, textureMapping, this.modelOutput);
 
         this.blockStateOutput.accept(createSimpleBlock(block, model).with(BlockModelGenerators.createHorizontalFacingDispatch()));
@@ -286,8 +286,8 @@ public class ModBlockModels {
 
     private void createUpholsteredStool(StoolBlock block) {
         TextureMapping textureMapping = new TextureMapping()
-                .put(ModTextureSlots.WOOD, new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/upholstered_stool/base/" + block.getWoodType().name()))
-                .put(ModTextureSlots.WOOL, new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/upholstered_stool/colors/" + block.getColor()));
+                .put(ModTextureSlots.WOOD, ResourceLocation.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, "block/upholstered_stool/base/" + block.getWoodType().name()))
+                .put(ModTextureSlots.WOOL, ResourceLocation.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, "block/upholstered_stool/colors/" + block.getColor()));
 
         ResourceLocation model = ModModelTemplates.UPHOLSTERED_STOOL.create(block, textureMapping, this.modelOutput);
         ResourceLocation rotatedModel = ModModelTemplates.UPHOLSTERED_STOOL_ROTATED.createWithSuffix(block, "_rotated", textureMapping, this.modelOutput);
@@ -316,7 +316,7 @@ public class ModBlockModels {
             TextureMapping textureMapping = new TextureMapping();
 
             for (TextureSlot slot : textureSlots) {
-                textureMapping.put(slot, new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/desk/" + deskBlock.getWoodType().name() + "/" + slot.getId()));
+                textureMapping.put(slot, ResourceLocation.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, "block/desk/" + deskBlock.getWoodType().name() + "/" + slot.getId()));
             }
 
             ResourceLocation model = this.getDeskModel(left, right, block instanceof DeskDrawerBlock).createWithSuffix(block, variant, textureMapping, this.modelOutput);
@@ -340,7 +340,7 @@ public class ModBlockModels {
     }
 
     private void createDeskLamp(FabricDeskLampBlock block, DyeColor color) {
-        TextureMapping textureMapping = new TextureMapping().put(ModTextureSlots.COLOR, new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/fabric_desk_lamp/colors/" + color.getName()));
+        TextureMapping textureMapping = new TextureMapping().put(ModTextureSlots.COLOR, ResourceLocation.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, "block/fabric_desk_lamp/colors/" + color.getName()));
 
         ResourceLocation model = ModModelTemplates.FABRIC_DESK_LAMP.create(block, textureMapping, this.modelOutput);
         ResourceLocation modelOn = ModModelTemplates.FABRIC_DESK_LAMP_ON.createWithSuffix(block, "_rotated", textureMapping, this.modelOutput);
@@ -364,7 +364,7 @@ public class ModBlockModels {
             ResourceLocation model = BuiltInRegistries.BLOCK.getKey(block).withPath(s -> "block/" + s + part.getModelName());
 
             if (part.getModelTemplate() == null) {
-                model = new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/curtain/curtain_bracket");
+                model = ResourceLocation.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, "block/curtain/curtain_bracket");
             }
 
             return Variant.variant().with(VariantProperties.MODEL, model);

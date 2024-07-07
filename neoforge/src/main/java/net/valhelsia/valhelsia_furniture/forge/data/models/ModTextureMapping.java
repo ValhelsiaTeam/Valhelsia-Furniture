@@ -22,6 +22,6 @@ public class ModTextureMapping {
     }
 
     public static ResourceLocation getBlockTexture(String folder, String texture) {
-        return new ResourceLocation(ValhelsiaFurniture.MOD_ID, "block/" + folder + "/" + texture);
+        return ResourceLocation.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, "block/" + folder + "/" + texture);
     }
 }

@@ -2,7 +2,6 @@ package net.valhelsia.valhelsia_furniture.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -71,7 +70,7 @@ public class FabricDeskLampBlock extends Block implements SimpleWaterloggedBlock
 
     @NotNull
     @Override
-    public InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
+    public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         level.setBlockAndUpdate(pos, state.setValue(SWITCHED_ON, !state.getValue(SWITCHED_ON)));
 
         return InteractionResult.sidedSuccess(level.isClientSide());
