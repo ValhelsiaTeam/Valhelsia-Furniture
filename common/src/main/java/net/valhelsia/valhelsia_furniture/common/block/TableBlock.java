@@ -3,11 +3,10 @@ package net.valhelsia.valhelsia_furniture.common.block;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -129,11 +128,10 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock, Furnitu
         return true;
     }
 
-    @NotNull
     @Override
-    public BlockState updateShape(@NotNull BlockState state, @NotNull Direction direction, @NotNull BlockState neighborState, @NotNull LevelAccessor level, @NotNull BlockPos currentPos, @NotNull BlockPos neighborPos) {
+    protected @NotNull BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess tickAccess, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource randomSource) {
         if (state.getValue(WATERLOGGED)) {
-            level.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+            tickAccess.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
         }
 
         if (direction.getAxis() == Direction.Axis.Y) {
@@ -155,7 +153,7 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock, Furnitu
         }
 
         if (this.isValidTable(neighborState) && !state.getValue(property)) {
-            this.tryConnect(direction, currentPos, level);
+            this.tryConnect(direction, pos, level);
         }
 
         return state;
@@ -177,7 +175,7 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock, Furnitu
         return super.playerWillDestroy(level, pos, state, player);
     }
 
-    private void tryConnect(Direction direction, BlockPos pos, LevelAccessor level) {
+    private void tryConnect(Direction direction, BlockPos pos, LevelReader level) {
         List<BlockPos> list = new ArrayList<>();
         int i = 0;
 
@@ -289,7 +287,8 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock, Furnitu
         }
 
         list.forEach(tablePos -> {
-            level.setBlock(tablePos, level.getBlockState(tablePos).setValue(PROPERTY_BY_DIRECTION.get(direction.getOpposite()), true), 3);
+            //TODO
+//            level.setBlock(tablePos, level.getBlockState(tablePos).setValue(PROPERTY_BY_DIRECTION.get(direction.getOpposite()), true), 3);
         });
     }
 

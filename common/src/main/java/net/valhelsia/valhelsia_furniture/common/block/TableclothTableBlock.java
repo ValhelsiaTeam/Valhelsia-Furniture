@@ -7,7 +7,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.block.state.properties.WoodType;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -25,11 +24,6 @@ public class TableclothTableBlock extends TableBlock {
         super(woodType, properties);
         this.baseTable = baseTable;
         this.color = color;
-    }
-
-    @Override
-    public @NotNull String getDescriptionId() {
-        return this.baseTable.get().getDescriptionId();
     }
 
     @Override

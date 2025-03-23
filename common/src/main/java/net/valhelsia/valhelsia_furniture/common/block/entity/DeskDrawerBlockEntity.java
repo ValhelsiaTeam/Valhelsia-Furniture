@@ -128,7 +128,7 @@ public class DeskDrawerBlockEntity extends RandomizableContainerBlockEntity {
     }
 
     private void playSound(BlockState state, SoundEvent soundEvent) {
-        Vec3i vec3i = state.getValue(DeskDrawerBlock.FACING).getNormal();
+        Vec3i vec3i = state.getValue(DeskDrawerBlock.FACING).getUnitVec3i();
         double d0 = this.worldPosition.getX() + 0.5D + vec3i.getX() / 2.0D;
         double d1 = this.worldPosition.getY() + 0.5D + vec3i.getY() / 2.0D;
         double d2 = this.worldPosition.getZ() + 0.5D + vec3i.getZ() / 2.0D;

@@ -2,6 +2,7 @@ package net.valhelsia.valhelsia_furniture.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.Container;
@@ -78,17 +79,13 @@ public class DeskDrawerBlock extends DeskBlock implements EntityBlock {
     @NotNull
     @Override
     public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
-        if (level.isClientSide()) {
-            return InteractionResult.SUCCESS;
-        }
-
-        if (level.getBlockEntity(pos) instanceof DeskDrawerBlockEntity blockEntity) {
+        if (level instanceof ServerLevel serverLevel && level.getBlockEntity(pos) instanceof DeskDrawerBlockEntity blockEntity) {
             player.openMenu(blockEntity);
             player.awardStat(Stats.OPEN_BARREL);
-            PiglinAi.angerNearbyPiglins(player, true);
+            PiglinAi.angerNearbyPiglins(serverLevel, player, true);
         }
 
-        return InteractionResult.CONSUME;
+        return InteractionResult.SUCCESS;
     }
 
     @Override

@@ -1,7 +1,7 @@
 package net.valhelsia.valhelsia_furniture.client;
 
+import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.valhelsia.valhelsia_core.api.client.ClientSetupHelper;
-import net.valhelsia.valhelsia_furniture.client.renderer.SeatRenderer;
 import net.valhelsia.valhelsia_furniture.core.registry.ModEntities;
 
 /**
@@ -11,6 +11,6 @@ import net.valhelsia.valhelsia_furniture.core.registry.ModEntities;
 public class ClientSetup {
 
     public ClientSetup(ClientSetupHelper helper) {
-        helper.registerEntityRenderer(ModEntities.SEAT, SeatRenderer::new);
+        helper.registerEntityRenderer(ModEntities.SEAT, NoopRenderer::new);
     }
 }

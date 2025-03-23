@@ -39,7 +39,7 @@ public class ValhelsiaFurnitureForge {
 
             event.getGenerator().addProvider(true, new ModLanguageProvider(event.getGenerator().getPackOutput(), "en_us"));
             event.getGenerator().addProvider(true, new ValhelsiaModelProvider(context, ModBlockModels::new, null));
-            event.getGenerator().addProvider(true, new ValhelsiaRecipeProvider(context, ModRecipeProvider::new));
+//            event.getGenerator().addProvider(true, new ValhelsiaRecipeProvider(context, ModRecipeProvider::new));
 
             TagsProvider<Block> blockTagsProvider = new ModBlockTagsProvider(context);
 

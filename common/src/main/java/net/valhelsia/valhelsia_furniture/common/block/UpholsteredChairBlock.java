@@ -34,27 +34,17 @@ public class UpholsteredChairBlock extends ChairBlock {
             Block.box(2.0D, 6.0D, 3.0D, 14.0D, 9.0D, 15.0D)
     ));
 
-    private final String descriptionId;
-
     public UpholsteredChairBlock(WoodType woodType, Properties properties) {
-        super(woodType, properties);
-        this.descriptionId = "block.valhelsia_furniture.upholstered_" + this.getWoodType().name() + "_chair";
+        super(woodType, properties.overrideDescription("block.valhelsia_furniture.upholstered_" + woodType.name() + "_chair"));
     }
 
     public UpholsteredChairBlock(WoodType woodType, @Nullable DyeColor color, Properties properties) {
         super(woodType, color, properties);
-        this.descriptionId = "block.valhelsia_furniture.upholstered_" + this.getWoodType().name() + "_chair";
     }
 
     @NotNull
     @Override
     public VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return SHAPES.get(state.getValue(FACING));
-    }
-
-    @NotNull
-    @Override
-    public String getDescriptionId() {
-        return this.descriptionId;
     }
 }

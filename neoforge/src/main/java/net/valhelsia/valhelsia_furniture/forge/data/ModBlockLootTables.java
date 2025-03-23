@@ -44,13 +44,18 @@ public class ModBlockLootTables extends ValhelsiaBlockLootTables {
         this.generate();
         HashSet<ResourceKey<LootTable>> set = new HashSet<>();
         for (RegistryEntry<Block, ? extends Block> entry : ModBlocks.HELPER.getRegistryEntries()) {
-            ResourceKey<LootTable> resourceKey;
-            if (!entry.get().isEnabled(this.enabledFeatures) || (resourceKey = entry.get().getLootTable()) == BuiltInLootTables.EMPTY || !set.add(resourceKey)) continue;
-            LootTable.Builder builder = this.map.remove(resourceKey);
-            if (builder == null) {
-                throw new IllegalStateException(String.format(Locale.ROOT, "Missing loottable '%s' for '%s'", resourceKey, BuiltInRegistries.BLOCK.getKey(entry.get())));
+            if (entry.get().isEnabled(this.enabledFeatures)) {
+                entry.get().getLootTable().ifPresent(lootTable -> {
+                    if (set.add(lootTable)) {
+                        LootTable.Builder builder = (LootTable.Builder)this.map.remove(lootTable);
+                        if (builder == null) {
+                            throw new IllegalStateException(String.format(Locale.ROOT, "Missing loottable '%s' for '%s'", lootTable.location(), BuiltInRegistries.BLOCK.getKey(entry.get())));
+                        }
+
+                        biConsumer.accept(lootTable, builder);
+                    }
+                });
             }
-            biConsumer.accept(resourceKey, builder);
         }
         if (!this.map.isEmpty()) {
             throw new IllegalStateException("Created block loot tables for non-blocks: " + this.map.keySet());

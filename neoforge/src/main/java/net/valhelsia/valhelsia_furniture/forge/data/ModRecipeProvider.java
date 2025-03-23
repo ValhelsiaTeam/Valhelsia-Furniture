@@ -25,8 +25,8 @@ import java.util.function.Supplier;
  */
 public class ModRecipeProvider extends RecipeSubProvider {
 
-    public ModRecipeProvider(ValhelsiaRecipeProvider provider) {
-        super(provider);
+    public ModRecipeProvider(ValhelsiaRecipeProvider provider, HolderLookup.Provider lookupProvider) {
+        super(provider, lookupProvider);
     }
 
     @Override
@@ -94,7 +94,7 @@ public class ModRecipeProvider extends RecipeSubProvider {
     }
 
     private void coloredTable(Supplier<TableclothTableBlock> block, Supplier<TableBlock> table) {
-        Block carpet = BuiltInRegistries.BLOCK.get(ResourceLocation.withDefaultNamespace(Objects.requireNonNull(block.get().getColor()).getName() + "_carpet"));
+        Block carpet = BuiltInRegistries.BLOCK.getValue(ResourceLocation.withDefaultNamespace(Objects.requireNonNull(block.get().getColor()).getName() + "_carpet"));
 
         this.shaped(RecipeCategory.DECORATIONS, block.get(), builder -> builder.group("valhelsia_furniture:colored_" + block.get().getWoodType().name() + "_table").pattern("#").pattern("X").define('#', carpet).define('X', table.get()).unlockedBy(this, table.get()).unlockedBy(this, carpet));
     }
@@ -130,7 +130,7 @@ public class ModRecipeProvider extends RecipeSubProvider {
     }
 
     private void coloredChair(Supplier<ChairBlock> block, ItemLike material) {
-        Block wool = BuiltInRegistries.BLOCK.get(ResourceLocation.withDefaultNamespace(Objects.requireNonNull(block.get().getColor()).getName() + "_wool"));
+        Block wool = BuiltInRegistries.BLOCK.getValue(ResourceLocation.withDefaultNamespace(Objects.requireNonNull(block.get().getColor()).getName() + "_wool"));
 
         this.shaped(RecipeCategory.DECORATIONS, block.get(), 2, builder -> builder.group("valhelsia_furniture:colored_" + block.get().getWoodType().name() + "_chair").pattern("X  ").pattern("#WW").pattern("X X").define('#', material).define('X', Tags.Items.RODS_WOODEN).define('W', wool).unlockedBy(this, material).unlockedBy(this, wool));
     }
@@ -140,13 +140,13 @@ public class ModRecipeProvider extends RecipeSubProvider {
     }
 
     private void upholsteredChair(Supplier<UpholsteredChairBlock> block, ItemLike material) {
-        Block wool = BuiltInRegistries.BLOCK.get(ResourceLocation.withDefaultNamespace(Objects.requireNonNull(block.get().getColor()).getName() + "_wool"));
+        Block wool = BuiltInRegistries.BLOCK.getValue(ResourceLocation.withDefaultNamespace(Objects.requireNonNull(block.get().getColor()).getName() + "_wool"));
 
         this.shaped(RecipeCategory.DECORATIONS, block.get(), 2, builder -> builder.group("valhelsia_furniture:upholstered_" + block.get().getWoodType().name() + "_chair").pattern("W  ").pattern("#WW").pattern("X X").define('#', material).define('X', Tags.Items.RODS_WOODEN).define('W', wool).unlockedBy(this, material).unlockedBy(this, wool));
     }
 
     private void curtain(Supplier<ClosedCurtainBlock> block, DyeColor color) {
-        Block wool = BuiltInRegistries.BLOCK.get(ResourceLocation.withDefaultNamespace(color.getName() + "_wool"));
+        Block wool = BuiltInRegistries.BLOCK.getValue(ResourceLocation.withDefaultNamespace(color.getName() + "_wool"));
 
         this.shaped(RecipeCategory.DECORATIONS, block.get(), 2, builder -> builder.group("valhelsia_furniture:curtain").pattern("XX").pattern("##").pattern("##").define('#', wool).define('X', Tags.Items.RODS_WOODEN).unlockedBy("has_item", has(wool)));
     }
@@ -165,13 +165,13 @@ public class ModRecipeProvider extends RecipeSubProvider {
     }
 
     private void upholsteredStool(Supplier<StoolBlock> block, ItemLike material) {
-        Block wool = BuiltInRegistries.BLOCK.get(ResourceLocation.withDefaultNamespace(Objects.requireNonNull(block.get().getColor()).getName() + "_wool"));
+        Block wool = BuiltInRegistries.BLOCK.getValue(ResourceLocation.withDefaultNamespace(Objects.requireNonNull(block.get().getColor()).getName() + "_wool"));
 
         this.shaped(RecipeCategory.DECORATIONS, block.get(), 2, builder -> builder.group("valhelsia_furniture:upholstered_" + block.get().getWoodType().name() + "_stool").pattern("#W#").pattern("X X").define('#', material).define('X', Tags.Items.RODS_WOODEN).define('W', wool).unlockedBy(this, material).unlockedBy(this, wool));
     }
 
     private void fabricDeskLamp(Supplier<FabricDeskLampBlock> block, DyeColor color) {
-        Block wool = BuiltInRegistries.BLOCK.get(ResourceLocation.withDefaultNamespace(color.getName() + "_wool"));
+        Block wool = BuiltInRegistries.BLOCK.getValue(ResourceLocation.withDefaultNamespace(color.getName() + "_wool"));
 
         this.shaped(RecipeCategory.DECORATIONS, block.get(), builder -> builder.group("valhelsia_furniture:fabric_desk_lamp").pattern("#").pattern("G").pattern("X").define('#', wool).define('X', Tags.Items.RODS_WOODEN).define('G', Items.GLOWSTONE_DUST).unlockedBy(this, wool).unlockedBy(this, Items.GLOWSTONE_DUST));
     }
