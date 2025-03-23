@@ -1,6 +1,7 @@
 package net.valhelsia.valhelsia_furniture.common.block;
 
 import net.minecraft.ChatFormatting;
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -30,6 +31,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
 import net.valhelsia.valhelsia_furniture.common.entity.SeatEntity;
 import org.jetbrains.annotations.NotNull;
@@ -69,7 +71,7 @@ public class StoolBlock extends Block implements SimpleWaterloggedBlock, Seatabl
     }
 
     public StoolBlock(WoodType woodType, @Nullable DyeColor color, Properties properties) {
-        super(properties);
+        super(properties.overrideDescription(Util.makeDescriptionId("block", ValhelsiaFurniture.location(woodType.name() + "_stool"))));
         this.registerDefaultState(this.getStateDefinition().any().setValue(ROTATED, false).setValue(WATERLOGGED, false));
         this.woodType = woodType;
         this.color = color;

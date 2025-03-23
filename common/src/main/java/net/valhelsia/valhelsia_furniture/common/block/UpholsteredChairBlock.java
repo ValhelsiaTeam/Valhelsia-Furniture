@@ -1,5 +1,6 @@
 package net.valhelsia.valhelsia_furniture.common.block;
 
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.DyeColor;
@@ -11,6 +12,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.valhelsia.valhelsia_core.api.common.helper.VoxelShapeHelper;
+import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -34,12 +36,8 @@ public class UpholsteredChairBlock extends ChairBlock {
             Block.box(2.0D, 6.0D, 3.0D, 14.0D, 9.0D, 15.0D)
     ));
 
-    public UpholsteredChairBlock(WoodType woodType, Properties properties) {
-        super(woodType, properties.overrideDescription("block.valhelsia_furniture.upholstered_" + woodType.name() + "_chair"));
-    }
-
     public UpholsteredChairBlock(WoodType woodType, @Nullable DyeColor color, Properties properties) {
-        super(woodType, color, properties);
+        super(woodType, color, properties, Util.makeDescriptionId("block", ValhelsiaFurniture.location("upholstered_" + woodType.name() + "_chair")));
     }
 
     @NotNull

@@ -17,12 +17,10 @@ import java.util.function.Supplier;
  */
 public class TableclothTableBlock extends TableBlock {
 
-    private final Supplier<TableBlock> baseTable;
     private final DyeColor color;
 
     public TableclothTableBlock(Supplier<TableBlock> baseTable, DyeColor color, WoodType woodType, Properties properties) {
-        super(woodType, properties);
-        this.baseTable = baseTable;
+        super(woodType, properties.overrideDescription(baseTable.get().getDescriptionId()));
         this.color = color;
     }
 
