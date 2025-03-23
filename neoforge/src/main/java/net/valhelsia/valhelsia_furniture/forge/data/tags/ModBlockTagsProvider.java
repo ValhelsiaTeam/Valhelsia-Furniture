@@ -1,13 +1,11 @@
 package net.valhelsia.valhelsia_furniture.forge.data.tags;
 
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.valhelsia.valhelsia_core.datagen.DataProviderContext;
 import net.valhelsia.valhelsia_core.datagen.tags.ValhelsiaBlockTagsProvider;
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
 import net.valhelsia.valhelsia_furniture.core.registry.ModTags;
-
-import java.util.concurrent.CompletableFuture;
 
 /**
  * @author Valhelsia Team - stal111
@@ -15,8 +13,8 @@ import java.util.concurrent.CompletableFuture;
  */
 public class ModBlockTagsProvider extends ValhelsiaBlockTagsProvider {
 
-    public ModBlockTagsProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> completableFuture) {
-        super(packOutput, completableFuture);
+    public ModBlockTagsProvider(DataProviderContext context) {
+        super(context);
     }
 
     @Override

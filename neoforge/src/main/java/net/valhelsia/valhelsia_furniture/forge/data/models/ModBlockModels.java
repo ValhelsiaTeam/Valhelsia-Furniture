@@ -1,6 +1,5 @@
 package net.valhelsia.valhelsia_furniture.forge.data.models;
 
-import com.google.gson.JsonElement;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.blockstates.*;
@@ -14,6 +13,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.valhelsia.valhelsia_core.api.common.registry.helper.block.BlockEntrySet;
 import net.valhelsia.valhelsia_core.api.common.registry.helper.block.BlockRegistryEntry;
+import net.valhelsia.valhelsia_core.datagen.model.BlockModelGenerator;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.*;
 import net.valhelsia.valhelsia_furniture.common.block.properties.CurtainPart;
@@ -26,37 +26,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 /**
  * @author Valhelsia Team - stal111
  * @since 2023-06-15
  */
-public class ModBlockModels {
+public class ModBlockModels extends BlockModelGenerator {
 
-    private final BlockModelGenerators generators;
-    private final Consumer<BlockStateGenerator> blockStateOutput;
-    private final BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput;
-
-    private final Consumer<Item> skippedAutoItemModels;
-
-    private ModBlockModels(BlockModelGenerators generators, Consumer<Item> skippedAutoItemModels) {
-        this.generators = generators;
-        this.blockStateOutput = generators.blockStateOutput;
-        this.modelOutput = generators.modelOutput;
-        this.skippedAutoItemModels = skippedAutoItemModels;
-
+    public ModBlockModels(BlockModelGenerators defaultGenerators) {
+        super(defaultGenerators);
     }
 
-    public static void create(BlockModelGenerators generators, Consumer<Item> skippedAutoItemModels) {
-        new ModBlockModels(generators, skippedAutoItemModels).createModels();
-    }
-
-    private void skipAutoItemBlock(Block block) {
-        this.skippedAutoItemModels.accept(block.asItem());
-    }
-
-    public void createModels() {
+    @Override
+    protected void generate() {
         this.createTable(ModBlocks.OAK_TABLE.get());
         this.createTable(ModBlocks.SPRUCE_TABLE.get());
         this.createTable(ModBlocks.BIRCH_TABLE.get());

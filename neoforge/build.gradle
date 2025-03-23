@@ -45,7 +45,7 @@ dependencies {
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive = false }
 
-    modRuntimeOnly("curse.maven:jei-238222:5509528")
+    modRuntimeOnly("curse.maven:jei-238222:5846880")
 //    modRuntimeOnly("curse.maven:kubejs-238086:4748655")
 //    modRuntimeOnly("curse.maven:rhino-416294:4735056")
 //    modRuntimeOnly("curse.maven:architectury-api-419699:4663010")
