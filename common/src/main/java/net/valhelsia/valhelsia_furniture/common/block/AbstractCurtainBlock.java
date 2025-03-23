@@ -63,11 +63,9 @@ public abstract class AbstractCurtainBlock<T extends CurtainPart> extends Block 
 
     @Override
     protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (level.isClientSide()) {
-            return InteractionResult.CONSUME;
+        if (!level.isClientSide()) {
+            this.updateOpen(state, level, pos);
         }
-
-        this.updateOpen(state, level, pos);
 
         return InteractionResult.SUCCESS;
     }
