@@ -18,14 +18,14 @@ public class ModCreativeModeTabs implements RegistryClass {
 
     public static final DefaultRegistryHelper<CreativeModeTab> HELPER = ValhelsiaFurniture.REGISTRY_MANAGER.getHelper(Registries.CREATIVE_MODE_TAB);
 
-    public static final RegistryEntry<CreativeModeTab, CreativeModeTab> MAIN = HELPER.register("main", CreativeTabFactory.create(builder -> {
-                builder.icon(() -> new ItemStack(ModBlocks.HAY_OAK_CHAIR.get()))
-                        .title(Component.translatable("itemGroup.valhelsia_furniture"))
-                        .displayItems((itemDisplayParameters, output) -> {
-                            ValhelsiaFurniture.REGISTRY_MANAGER.getItemHelper().getRegistryEntries().forEach(entry -> {
-                                output.accept(entry.get());
-                            });
-                        });
-            })
-    );
+//    public static final RegistryEntry<CreativeModeTab, CreativeModeTab> MAIN = HELPER.register("main", CreativeTabFactory.create(builder -> {
+//                builder.icon(() -> new ItemStack(ModBlocks.HAY_OAK_CHAIR.get()))
+//                        .title(Component.translatable("itemGroup.valhelsia_furniture"))
+//                        .displayItems((itemDisplayParameters, output) -> {
+//                            ValhelsiaFurniture.REGISTRY_MANAGER.getItemHelper().getRegistryEntries().forEach(entry -> {
+//                                output.accept(entry.get());
+//                            });
+//                        });
+//            })
+//    );
 }
