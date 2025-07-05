@@ -2,8 +2,21 @@ plugins {
     id 'net.neoforged.moddev' version '2.0.80'
 }
 
+sourceSets {
+    main {
+        resources {
+            srcDir 'src/generated/resources'
+        }
+    }
+}
+
 neoForge {
     neoFormVersion = "1.21.3-20241023.131943"
+
+    parchment {
+        mappingsVersion = parchment_mappings_version
+        minecraftVersion = parchment_minecraft_version
+    }
 }
 
 repositories {
