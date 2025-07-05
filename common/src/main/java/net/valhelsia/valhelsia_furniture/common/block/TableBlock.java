@@ -3,11 +3,17 @@ package net.valhelsia.valhelsia_furniture.common.block;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -33,8 +39,6 @@ import java.util.Map;
  * @since 2022-01-02
  */
 public class TableBlock extends Block implements SimpleWaterloggedBlock, FurnitureBlock {
-
-    private static final int MAX_LENGTH = 5;
 
     public static final BooleanProperty NORTH = BlockStateProperties.NORTH;
     public static final BooleanProperty EAST = BlockStateProperties.EAST;
@@ -117,10 +121,63 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock, Furnitu
     @Nullable
     @Override
     public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
-        boolean flag = context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER;
+        Level level = context.getLevel();
+        BlockPos pos = context.getClickedPos();
+        boolean waterlogged = level.getFluidState(pos).getType() == Fluids.WATER;
         boolean rotated = context.getHorizontalDirection().getAxis() == Direction.Axis.X;
 
-        return this.defaultBlockState().setValue(ROTATED, rotated).setValue(WATERLOGGED, flag);
+        BlockState state = this.defaultBlockState()
+                .setValue(ROTATED, rotated)
+                .setValue(WATERLOGGED, waterlogged);
+
+        level.scheduleTick(pos, this, 1);
+
+        return state;
+    }
+
+    private int getTableLength(Level level, BlockPos pos, Direction direction) {
+        System.out.println("length in direction: " + direction + " is " + this.getTableLengthInDirection(level, pos, direction));
+        System.out.println("length in opposite direction: " + direction.getOpposite() + " is " + this.getTableLengthInDirection(level, pos, direction.getOpposite()));
+        return this.getTableLengthInDirection(level, pos, direction) + this.getTableLengthInDirection(level, pos, direction.getOpposite());
+    }
+
+    private int getTableLengthInDirection(Level level, BlockPos pos, Direction direction) {
+        int i = 1;
+        while (true) {
+            BlockState state = level.getBlockState(pos.relative(direction, i));
+
+            if (state.getBlock() instanceof TableBlock && state.getValue(PROPERTY_BY_DIRECTION.get(direction.getOpposite()))) {
+                i++;
+            } else {
+                break;
+            }
+        }
+
+        return i;
+    }
+
+    @Override
+    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        List<Direction> directions = Direction.Plane.HORIZONTAL.stream()
+                .filter(direction -> !state.getValue(PROPERTY_BY_DIRECTION.get(direction)))
+                .toList();
+
+        for (Direction direction : directions) {
+            BlockPos offsetPos = pos.relative(direction);
+            BlockState offsetState = level.getBlockState(offsetPos);
+
+            if (offsetState.getBlock() instanceof TableBlock) {
+                int tableLengthCurrent = this.getTableLength(level, pos, direction.getClockWise());
+                int tableLengthNeighbor = this.getTableLength(level, offsetPos, direction.getClockWise());
+
+                if (tableLengthCurrent == tableLengthNeighbor) {
+                    level.setBlockAndUpdate(pos, state.setValue(PROPERTY_BY_DIRECTION.get(direction), true));
+
+                    level.scheduleTick(pos, this, 1);
+                    break;
+                }
+            }
+        }
     }
 
     @Override
@@ -141,205 +198,18 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock, Furnitu
         BooleanProperty property = PROPERTY_BY_DIRECTION.get(direction);
         BooleanProperty oppositeProperty = PROPERTY_BY_DIRECTION.get(direction.getOpposite());
 
-        if (neighborState.getBlock() instanceof TableBlock) {
-            if (neighborState.getValue(oppositeProperty) && !state.getValue(property)) {
-                return state.setValue(property, true);
-            } else if (!neighborState.getValue(oppositeProperty) && state.getValue(property)) {
+        boolean isAlreadyConnected = state.getValue(property);
+        boolean isNeighborTable = neighborState.getBlock() instanceof TableBlock;
+        boolean isNeighborConnected = isNeighborTable && neighborState.getValue(oppositeProperty);
 
-                return state.setValue(property, false);
-            }
-        } else if (state.getValue(property)) {
-            return state.setValue(property, false);
+        state = state.setValue(property, isNeighborConnected);
+
+        if (isAlreadyConnected && isNeighborConnected) {
+            state = state
+                    .setValue(PROPERTY_BY_DIRECTION.get(direction.getClockWise()), neighborState.getValue(PROPERTY_BY_DIRECTION.get(direction.getClockWise())))
+                    .setValue(PROPERTY_BY_DIRECTION.get(direction.getCounterClockWise()), neighborState.getValue(PROPERTY_BY_DIRECTION.get(direction.getCounterClockWise())));
         }
-
-        if (this.isValidTable(neighborState) && !state.getValue(property)) {
-            this.tryConnect(direction, pos, level);
-        }
-
         return state;
-    }
-
-    @Override
-    public @NotNull BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
-        for (Direction direction : Direction.values()) {
-            if (direction.getAxis() == Direction.Axis.Y) {
-                continue;
-            }
-
-            if (state.getValue(PROPERTY_BY_DIRECTION.get(direction))) {
-                this.trySplit(direction, pos, level);
-                break;
-            }
-        }
-
-        return super.playerWillDestroy(level, pos, state, player);
-    }
-
-    private void tryConnect(Direction direction, BlockPos pos, LevelReader level) {
-        List<BlockPos> list = new ArrayList<>();
-        int i = 0;
-
-        int tableLength = 1;
-
-        // Get table length
-        while (tableLength < MAX_LENGTH) {
-            BlockState state = level.getBlockState(pos.relative(direction.getOpposite(), tableLength));
-
-            if (state.getBlock() instanceof TableBlock && state.getValue(PROPERTY_BY_DIRECTION.get(direction))) {
-                tableLength++;
-            } else {
-                break;
-            }
-        }
-
-        int otherTableLength = 1;
-
-        // Get other table length
-        for (int j = 2; j < MAX_LENGTH; j++) {
-            BlockState state = level.getBlockState(pos.relative(direction, j));
-
-            if (state.getBlock() instanceof TableBlock && state.getValue(PROPERTY_BY_DIRECTION.get(direction.getOpposite()))) {
-                otherTableLength++;
-            } else {
-                break;
-            }
-        }
-
-        if (tableLength + otherTableLength > 5) {
-            return;
-        }
-
-        boolean flag = false;
-
-        BlockPos offsetPos = pos.relative(direction);
-
-        if (this.isSameRotation(level.getBlockState(pos), level.getBlockState(offsetPos))) {
-            list.add(offsetPos);
-        } else {
-            return;
-        }
-
-        if (level.getBlockState(offsetPos).getBlock() instanceof TableBlock) {
-            flag = level.getBlockState(offsetPos).getValue(PROPERTY_BY_DIRECTION.get(direction.getClockWise()));
-        }
-
-        for (int j = 1; j < MAX_LENGTH; j++) {
-            BlockPos.MutableBlockPos mutable = pos.mutable().move(direction.getClockWise(), j);
-            BlockState state = level.getBlockState(mutable);
-            BlockState offsetState = level.getBlockState(mutable.move(direction));
-
-            if (!this.isValidTable(state) || (this.isValidTable(state) && !state.getValue(PROPERTY_BY_DIRECTION.get(direction.getCounterClockWise())) || !this.isSameRotation(level.getBlockState(pos), state))) {
-                if (this.isValidTable(offsetState) && flag) {
-                    return;
-                }
-
-                break;
-            }
-
-            if (!this.isValidTable(offsetState) || (this.isValidTable(offsetState) && !offsetState.getValue(PROPERTY_BY_DIRECTION.get(direction.getCounterClockWise())) || !this.isSameRotation(level.getBlockState(pos), offsetState))) {
-                return;
-            }
-
-            if (this.isValidTable(offsetState)) {
-                flag = offsetState.getValue(PROPERTY_BY_DIRECTION.get(direction.getClockWise()));
-            } else {
-                flag = false;
-            }
-
-            list.add(mutable);
-            i++;
-        }
-
-        if (level.getBlockState(offsetPos).getBlock() instanceof TableBlock) {
-            flag = level.getBlockState(offsetPos).getValue(PROPERTY_BY_DIRECTION.get(direction.getCounterClockWise()));
-        } else {
-            flag = false;
-        }
-
-        for (int j = 1; j < MAX_LENGTH; j++) {
-            BlockPos.MutableBlockPos mutable = pos.mutable().move(direction.getCounterClockWise(), j);
-            BlockState state = level.getBlockState(mutable);
-            BlockState offsetState = level.getBlockState(mutable.move(direction));
-
-            if (!this.isValidTable(state) || (this.isValidTable(state) && !state.getValue(PROPERTY_BY_DIRECTION.get(direction.getClockWise()))) || !this.isSameRotation(level.getBlockState(pos), state)) {
-                if (this.isValidTable(offsetState) && flag) {
-                    return;
-                }
-                break;
-            }
-
-            if (!this.isValidTable(offsetState) || this.isValidTable(offsetState) && !offsetState.getValue(PROPERTY_BY_DIRECTION.get(direction.getClockWise())) || !this.isSameRotation(level.getBlockState(pos), offsetState)) {
-                return;
-            }
-
-            if (this.isValidTable(offsetState)) {
-                flag = offsetState.getValue(PROPERTY_BY_DIRECTION.get(direction.getCounterClockWise()));
-            } else {
-                flag = false;
-            }
-
-            list.add(mutable);
-            i++;
-        }
-
-        if (i >= MAX_LENGTH) {
-            return;
-        }
-
-        list.forEach(tablePos -> {
-            //TODO
-//            level.setBlock(tablePos, level.getBlockState(tablePos).setValue(PROPERTY_BY_DIRECTION.get(direction.getOpposite()), true), 3);
-        });
-    }
-
-    private void trySplit(Direction direction, BlockPos pos, LevelAccessor level) {
-        List<BlockPos> list = new ArrayList<>();
-
-        for (int j = 1; j < MAX_LENGTH; j++) {
-            BlockPos.MutableBlockPos mutable = pos.mutable().move(direction.getClockWise(), j);
-            BlockState offsetState = level.getBlockState(mutable);
-
-            if (this.isValidTable(offsetState) && offsetState.getValue(PROPERTY_BY_DIRECTION.get(direction.getCounterClockWise()))) {
-                if (offsetState.getValue(PROPERTY_BY_DIRECTION.get(direction))) {
-                    list.add(mutable.immutable());
-                }
-            } else {
-                break;
-            }
-        }
-
-        for (int j = 1; j < MAX_LENGTH; j++) {
-            BlockPos.MutableBlockPos mutable = pos.mutable().move(direction.getCounterClockWise(), j);
-            BlockState offsetState = level.getBlockState(mutable);
-
-            if (this.isValidTable(offsetState) && offsetState.getValue(PROPERTY_BY_DIRECTION.get(direction.getClockWise()))) {
-                if (offsetState.getValue(PROPERTY_BY_DIRECTION.get(direction))) {
-                    list.add(mutable.immutable());
-                }
-            } else {
-                break;
-            }
-        }
-
-        list.forEach(tablePos -> {
-            BlockState state = level.getBlockState(tablePos);
-            boolean rotated = state.getValue(ROTATED);
-
-            level.setBlock(tablePos, Blocks.AIR.defaultBlockState(), 3);
-
-            level.setBlock(tablePos, state.getBlock().defaultBlockState().setValue(ROTATED, rotated), 3);
-        });
-    }
-
-    public boolean isValidTable(BlockState state) {
-        return state.getBlock() instanceof TableBlock table && table.getWoodType() == this.getWoodType();
-    }
-
-    public boolean isSameRotation(BlockState state1, BlockState state2) {
-        if (!this.isValidTable(state1) || !this.isValidTable(state2)) {
-            return false;
-        }
-        return state1.getValue(ROTATED) == state2.getValue(ROTATED);
     }
 
     public WoodType getWoodType() {

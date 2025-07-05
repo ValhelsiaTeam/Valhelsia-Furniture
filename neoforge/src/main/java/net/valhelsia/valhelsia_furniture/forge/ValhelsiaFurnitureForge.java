@@ -10,12 +10,9 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.valhelsia.valhelsia_core.datagen.DataProviderContext;
-import net.valhelsia.valhelsia_core.datagen.model.ValhelsiaModelProvider;
-import net.valhelsia.valhelsia_core.datagen.recipes.ValhelsiaRecipeProvider;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.forge.data.ModBlockLootTables;
 import net.valhelsia.valhelsia_furniture.forge.data.ModLanguageProvider;
-import net.valhelsia.valhelsia_furniture.forge.data.ModRecipeProvider;
 import net.valhelsia.valhelsia_furniture.forge.data.tags.ModBlockTagsProvider;
 import net.valhelsia.valhelsia_furniture.forge.data.tags.ModItemTagsProvider;
 
