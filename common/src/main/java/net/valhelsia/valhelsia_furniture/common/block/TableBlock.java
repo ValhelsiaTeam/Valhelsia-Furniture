@@ -105,14 +105,14 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock, Furnitu
             }
         }
 
-        if (connectedDirections.size() >= 3 || (connectedDirections.size() == 2 && connectedDirections.get(0) == connectedDirections.get(1).getOpposite())) {
+        if (connectedDirections.size() >= 3 || (connectedDirections.size() == 2 && connectedDirections.getFirst() == connectedDirections.get(1).getOpposite())) {
             return TOP_SHAPE;
         } else if (connectedDirections.size() == 1) {
-            return TWO_LEGS_SHAPES.get(connectedDirections.get(0));
+            return TWO_LEGS_SHAPES.get(connectedDirections.getFirst());
         } else if (connectedDirections.size() == 2) {
-            boolean flag = connectedDirections.get(0).getClockWise() == connectedDirections.get(1);
+            boolean flag = connectedDirections.getFirst().getClockWise() == connectedDirections.get(1);
 
-            return flag ? ONE_LEG_SHAPES.get(connectedDirections.get(0)) : ONE_LEG_SHAPES.get(connectedDirections.get(1));
+            return flag ? ONE_LEG_SHAPES.get(connectedDirections.getFirst()) : ONE_LEG_SHAPES.get(connectedDirections.get(1));
         }
 
         return SHAPE;
@@ -136,8 +136,6 @@ public class TableBlock extends Block implements SimpleWaterloggedBlock, Furnitu
     }
 
     private int getTableLength(Level level, BlockPos pos, Direction direction) {
-        System.out.println("length in direction: " + direction + " is " + this.getTableLengthInDirection(level, pos, direction));
-        System.out.println("length in opposite direction: " + direction.getOpposite() + " is " + this.getTableLengthInDirection(level, pos, direction.getOpposite()));
         return this.getTableLengthInDirection(level, pos, direction) + this.getTableLengthInDirection(level, pos, direction.getOpposite());
     }
 
