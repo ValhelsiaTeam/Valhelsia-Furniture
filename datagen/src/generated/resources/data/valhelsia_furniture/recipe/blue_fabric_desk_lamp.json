@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:fabric_desk_lamp",
+  "key": {
+    "#": "minecraft:blue_wool",
+    "G": "minecraft:glowstone_dust",
+    "X": "#c:rods/wooden"
+  },
+  "pattern": [
+    "#",
+    "G",
+    "X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "valhelsia_furniture:blue_fabric_desk_lamp"
+  }
+}

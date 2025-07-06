@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:colored_spruce_table",
+  "key": {
+    "#": "minecraft:purple_carpet",
+    "X": "valhelsia_furniture:spruce_table"
+  },
+  "pattern": [
+    "#",
+    "X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "valhelsia_furniture:purple_spruce_table"
+  }
+}

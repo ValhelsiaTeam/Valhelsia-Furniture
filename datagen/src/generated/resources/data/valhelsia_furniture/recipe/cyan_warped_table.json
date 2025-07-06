@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:colored_warped_table",
+  "key": {
+    "#": "minecraft:cyan_carpet",
+    "X": "valhelsia_furniture:warped_table"
+  },
+  "pattern": [
+    "#",
+    "X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "valhelsia_furniture:cyan_warped_table"
+  }
+}

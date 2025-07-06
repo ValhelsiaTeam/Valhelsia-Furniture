@@ -8,10 +8,13 @@ import net.valhelsia.dataforge.DataCollector
 import net.valhelsia.dataforge.DataProviderContext
 import net.valhelsia.dataforge.DataTarget
 import net.valhelsia.dataforge.model.DataForgeModelProvider
+import net.valhelsia.dataforge.recipe.DataForgeRecipeProvider
+import net.valhelsia.dataforge.recipe.DataForgeRecipeRunner
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture
 import net.valhelsia.valhelsia_structures.datagen.lang.ModLanguageProvider
 import net.valhelsia.valhelsia_structures.datagen.loot.ModBlockLoot
 import net.valhelsia.valhelsia_structures.datagen.model.ModBlockModels
+import net.valhelsia.valhelsia_structures.datagen.recipe.ModRecipeProvider
 import net.valhelsia.valhelsia_structures.datagen.tags.ModBlockTagsProvider
 import net.valhelsia.valhelsia_structures.datagen.tags.ModItemTagsProvider
 
@@ -28,6 +31,10 @@ class ProviderCollector : DataCollector() {
         with(DataTarget.SERVER) {
             addProvider(this, ModBlockTagsProvider(context))
             addProvider(this, ModItemTagsProvider(context))
+            addProvider(
+                this,
+                DataForgeRecipeRunner(context, { provider, output -> ModRecipeProvider(provider, output) })
+            )
             addProvider(
                 this, LootTableProvider(
                     context.packOutput, setOf<ResourceKey<LootTable>>(), listOf(

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:table",
+  "key": {
+    "#": "minecraft:dark_oak_planks",
+    "X": "#c:rods/wooden"
+  },
+  "pattern": [
+    "###",
+    "X X",
+    "X X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "valhelsia_furniture:dark_oak_table"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:colored_crimson_table",
+  "key": {
+    "#": "minecraft:red_carpet",
+    "X": "valhelsia_furniture:crimson_table"
+  },
+  "pattern": [
+    "#",
+    "X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "valhelsia_furniture:red_crimson_table"
+  }
+}

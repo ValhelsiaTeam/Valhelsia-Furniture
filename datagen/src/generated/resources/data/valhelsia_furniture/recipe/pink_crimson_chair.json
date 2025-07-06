@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:colored_crimson_chair",
+  "key": {
+    "#": "minecraft:crimson_planks",
+    "W": "minecraft:pink_wool",
+    "X": "#c:rods/wooden"
+  },
+  "pattern": [
+    "X  ",
+    "#WW",
+    "X X"
+  ],
+  "result": {
+    "count": 2,
+    "id": "valhelsia_furniture:pink_crimson_chair"
+  }
+}

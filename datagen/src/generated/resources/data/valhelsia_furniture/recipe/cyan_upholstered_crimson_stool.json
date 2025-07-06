@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:upholstered_crimson_stool",
+  "key": {
+    "#": "minecraft:crimson_slab",
+    "W": "minecraft:cyan_wool",
+    "X": "#c:rods/wooden"
+  },
+  "pattern": [
+    "#W#",
+    "X X"
+  ],
+  "result": {
+    "count": 2,
+    "id": "valhelsia_furniture:cyan_upholstered_crimson_stool"
+  }
+}

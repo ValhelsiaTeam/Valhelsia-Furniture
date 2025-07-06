@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:colored_oak_table",
+  "key": {
+    "#": "minecraft:gray_carpet",
+    "X": "valhelsia_furniture:oak_table"
+  },
+  "pattern": [
+    "#",
+    "X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "valhelsia_furniture:gray_oak_table"
+  }
+}

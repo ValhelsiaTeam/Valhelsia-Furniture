@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:stool",
+  "key": {
+    "#": "minecraft:cherry_slab",
+    "X": "#c:rods/wooden"
+  },
+  "pattern": [
+    "###",
+    "X X"
+  ],
+  "result": {
+    "count": 2,
+    "id": "valhelsia_furniture:cherry_stool"
+  }
+}

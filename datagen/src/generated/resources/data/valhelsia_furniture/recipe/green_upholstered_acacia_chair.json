@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "valhelsia_furniture:upholstered_acacia_chair",
+  "key": {
+    "#": "minecraft:acacia_planks",
+    "W": "minecraft:green_wool",
+    "X": "#c:rods/wooden"
+  },
+  "pattern": [
+    "W  ",
+    "#WW",
+    "X X"
+  ],
+  "result": {
+    "count": 2,
+    "id": "valhelsia_furniture:green_upholstered_acacia_chair"
+  }
+}
