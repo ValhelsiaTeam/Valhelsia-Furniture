@@ -1,4 +1,4 @@
-package net.valhelsia.valhelsia_structures.datagen.loot
+package net.valhelsia.valhelsia_furniture.datagen.loot
 
 import net.minecraft.core.HolderLookup
 import net.minecraft.data.loot.BlockLootSubProvider

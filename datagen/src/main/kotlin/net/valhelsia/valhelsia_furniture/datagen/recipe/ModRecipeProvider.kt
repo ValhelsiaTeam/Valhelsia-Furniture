@@ -1,4 +1,4 @@
-package net.valhelsia.valhelsia_structures.datagen.recipe
+package net.valhelsia.valhelsia_furniture.datagen.recipe
 
 import net.minecraft.core.HolderLookup
 import net.minecraft.core.registries.BuiltInRegistries

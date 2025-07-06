@@ -1,4 +1,4 @@
-package net.valhelsia.valhelsia_structures.datagen.lang
+package net.valhelsia.valhelsia_furniture.datagen.lang
 
 import net.minecraft.Util
 import net.minecraft.data.PackOutput

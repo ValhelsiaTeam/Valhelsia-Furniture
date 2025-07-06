@@ -1,4 +1,4 @@
-package net.valhelsia.valhelsia_structures.datagen.tags
+package net.valhelsia.valhelsia_furniture.datagen.tags
 
 import net.minecraft.core.HolderLookup
 import net.minecraft.tags.BlockTags

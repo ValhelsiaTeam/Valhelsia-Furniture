@@ -1,4 +1,4 @@
-package net.valhelsia.valhelsia_structures.datagen.model
+package net.valhelsia.valhelsia_furniture.datagen.model
 
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.data.models.BlockModelGenerators

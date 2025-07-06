@@ -1,4 +1,4 @@
-package net.valhelsia.valhelsia_structures.datagen
+package net.valhelsia.valhelsia_furniture.datagen
 
 import net.neoforged.bus.api.IEventBus
 import net.neoforged.fml.common.Mod

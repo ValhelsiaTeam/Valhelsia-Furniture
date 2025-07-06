@@ -1,4 +1,4 @@
-package net.valhelsia.valhelsia_structures.datagen
+package net.valhelsia.valhelsia_furniture.datagen
 
 import net.minecraft.data.loot.LootTableProvider
 import net.minecraft.resources.ResourceKey
@@ -8,15 +8,14 @@ import net.valhelsia.dataforge.DataCollector
 import net.valhelsia.dataforge.DataProviderContext
 import net.valhelsia.dataforge.DataTarget
 import net.valhelsia.dataforge.model.DataForgeModelProvider
-import net.valhelsia.dataforge.recipe.DataForgeRecipeProvider
 import net.valhelsia.dataforge.recipe.DataForgeRecipeRunner
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture
-import net.valhelsia.valhelsia_structures.datagen.lang.ModLanguageProvider
-import net.valhelsia.valhelsia_structures.datagen.loot.ModBlockLoot
-import net.valhelsia.valhelsia_structures.datagen.model.ModBlockModels
-import net.valhelsia.valhelsia_structures.datagen.recipe.ModRecipeProvider
-import net.valhelsia.valhelsia_structures.datagen.tags.ModBlockTagsProvider
-import net.valhelsia.valhelsia_structures.datagen.tags.ModItemTagsProvider
+import net.valhelsia.valhelsia_furniture.datagen.lang.ModLanguageProvider
+import net.valhelsia.valhelsia_furniture.datagen.loot.ModBlockLoot
+import net.valhelsia.valhelsia_furniture.datagen.model.ModBlockModels
+import net.valhelsia.valhelsia_furniture.datagen.recipe.ModRecipeProvider
+import net.valhelsia.valhelsia_furniture.datagen.tags.ModBlockTagsProvider
+import net.valhelsia.valhelsia_furniture.datagen.tags.ModItemTagsProvider
 
 class ProviderCollector : DataCollector() {
 
