@@ -10,7 +10,6 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.valhelsia.valhelsia_core.datagen.DataProviderContext;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.forge.data.ModBlockLootTables;
-import net.valhelsia.valhelsia_furniture.forge.data.ModLanguageProvider;
 
 import java.util.List;
 import java.util.Set;
@@ -29,7 +28,6 @@ public class ValhelsiaFurnitureForge {
         public static void gatherData(GatherDataEvent event) {
             DataProviderContext context = new DataProviderContext(event.getGenerator().getPackOutput(), event.getLookupProvider(), ValhelsiaFurniture.REGISTRY_MANAGER, event.getExistingFileHelper());
 
-            event.getGenerator().addProvider(true, new ModLanguageProvider(event.getGenerator().getPackOutput(), "en_us"));
 //            event.getGenerator().addProvider(true, new ValhelsiaModelProvider(context, ModBlockModels::new, null));
 //            event.getGenerator().addProvider(true, new ValhelsiaRecipeProvider(context, ModRecipeProvider::new));
 
