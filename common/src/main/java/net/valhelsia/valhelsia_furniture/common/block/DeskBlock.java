@@ -36,8 +36,6 @@ import java.util.Map;
  */
 public class DeskBlock extends Block implements SimpleWaterloggedBlock {
 
-    private static final String TEXTURE_PATH = "block/desk/";
-
     public static final Map<String, List<TextureSlot>> VARIANT_TEXTURES = ImmutableMap.<String, List<TextureSlot>>builder()
             .put("single", ImmutableList.of(
                     ModTextureSlots.TOP,

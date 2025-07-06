@@ -1,0 +1,116 @@
+{
+  "variants": {
+    "east=false,north=false,rotated=false,south=false,west=false": {
+      "model": "valhelsia_furniture:block/red_mangrove_table"
+    },
+    "east=false,north=false,rotated=false,south=false,west=true": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_w"
+    },
+    "east=false,north=false,rotated=false,south=true,west=false": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_s"
+    },
+    "east=false,north=false,rotated=false,south=true,west=true": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_sw"
+    },
+    "east=false,north=false,rotated=true,south=false,west=false": {
+      "model": "valhelsia_furniture:block/red_mangrove_table",
+      "y": 90
+    },
+    "east=false,north=false,rotated=true,south=false,west=true": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_n",
+      "y": 270
+    },
+    "east=false,north=false,rotated=true,south=true,west=false": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_w",
+      "y": 270
+    },
+    "east=false,north=false,rotated=true,south=true,west=true": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_nw",
+      "y": 270
+    },
+    "east=false,north=true,rotated=false,south=false,west=false": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_n"
+    },
+    "east=false,north=true,rotated=false,south=false,west=true": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_nw"
+    },
+    "east=false,north=true,rotated=false,south=true,west=false": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_ns"
+    },
+    "east=false,north=true,rotated=false,south=true,west=true": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_nsw"
+    },
+    "east=false,north=true,rotated=true,south=false,west=false": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_e",
+      "y": 270
+    },
+    "east=false,north=true,rotated=true,south=false,west=true": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_ne",
+      "y": 270
+    },
+    "east=false,north=true,rotated=true,south=true,west=false": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_ew",
+      "y": 270
+    },
+    "east=false,north=true,rotated=true,south=true,west=true": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_new",
+      "y": 270
+    },
+    "east=true,north=false,rotated=false,south=false,west=false": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_e"
+    },
+    "east=true,north=false,rotated=false,south=false,west=true": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_ew"
+    },
+    "east=true,north=false,rotated=false,south=true,west=false": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_es"
+    },
+    "east=true,north=false,rotated=false,south=true,west=true": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_esw"
+    },
+    "east=true,north=false,rotated=true,south=false,west=false": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_s",
+      "y": 270
+    },
+    "east=true,north=false,rotated=true,south=false,west=true": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_ns",
+      "y": 270
+    },
+    "east=true,north=false,rotated=true,south=true,west=false": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_sw",
+      "y": 270
+    },
+    "east=true,north=false,rotated=true,south=true,west=true": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_nsw",
+      "y": 270
+    },
+    "east=true,north=true,rotated=false,south=false,west=false": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_ne"
+    },
+    "east=true,north=true,rotated=false,south=false,west=true": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_new"
+    },
+    "east=true,north=true,rotated=false,south=true,west=false": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_nes"
+    },
+    "east=true,north=true,rotated=false,south=true,west=true": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_nesw"
+    },
+    "east=true,north=true,rotated=true,south=false,west=false": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_es",
+      "y": 270
+    },
+    "east=true,north=true,rotated=true,south=false,west=true": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_nes",
+      "y": 270
+    },
+    "east=true,north=true,rotated=true,south=true,west=false": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_esw",
+      "y": 270
+    },
+    "east=true,north=true,rotated=true,south=true,west=true": {
+      "model": "valhelsia_furniture:block/red_mangrove_table_nesw",
+      "y": 270
+    }
+  }
+}

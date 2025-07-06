@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "valhelsia_furniture:block/light_gray_upholstered_acacia_chair",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "valhelsia_furniture:block/light_gray_upholstered_acacia_chair"
+    },
+    "facing=south": {
+      "model": "valhelsia_furniture:block/light_gray_upholstered_acacia_chair",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "valhelsia_furniture:block/light_gray_upholstered_acacia_chair",
+      "y": 270
+    }
+  }
+}

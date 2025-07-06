@@ -1,0 +1,11 @@
+{
+  "parent": "valhelsia_furniture:block/desk/template_desk_left",
+  "textures": {
+    "front": "valhelsia_furniture:block/desk/warped/front",
+    "middle": "valhelsia_furniture:block/desk/warped/middle",
+    "side": "valhelsia_furniture:block/desk/warped/side",
+    "top": "valhelsia_furniture:block/desk/warped/top",
+    "top_middle": "valhelsia_furniture:block/desk/warped/top_middle",
+    "top_side": "valhelsia_furniture:block/desk/warped/top_side"
+  }
+}

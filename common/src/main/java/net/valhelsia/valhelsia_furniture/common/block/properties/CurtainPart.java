@@ -1,13 +1,14 @@
 package net.valhelsia.valhelsia_furniture.common.block.properties;
 
 import net.minecraft.data.models.model.ModelTemplate;
+import net.minecraft.util.StringRepresentable;
 import org.jetbrains.annotations.Nullable;
 
 /**
  * @author Valhelsia Team
  * @since 2022-10-25
  */
-public interface CurtainPart {
+public interface CurtainPart extends StringRepresentable {
 
     String getName();
 

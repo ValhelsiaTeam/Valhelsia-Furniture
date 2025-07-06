@@ -1,0 +1,7 @@
+{
+  "parent": "valhelsia_furniture:block/template_table_nw",
+  "textures": {
+    "connected_table": "valhelsia_furniture:block/table/warped/orange_warped_table_connected",
+    "table": "valhelsia_furniture:block/table/warped/orange_warped_table"
+  }
+}

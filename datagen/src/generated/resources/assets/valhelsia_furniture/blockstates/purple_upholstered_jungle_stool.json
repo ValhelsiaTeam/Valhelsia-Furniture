@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "rotated=false": {
+      "model": "valhelsia_furniture:block/purple_upholstered_jungle_stool"
+    },
+    "rotated=true": {
+      "model": "valhelsia_furniture:block/purple_upholstered_jungle_stool_rotated"
+    }
+  }
+}

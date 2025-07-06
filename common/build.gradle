@@ -5,7 +5,7 @@ plugins {
 sourceSets {
     main {
         resources {
-            srcDir 'src/generated/resources'
+            srcDir '../datagen/src/generated/resources'
         }
     }
 }

@@ -27,9 +27,7 @@ public class ValhelsiaFurnitureForge {
         @SubscribeEvent
         public static void gatherData(GatherDataEvent event) {
             DataProviderContext context = new DataProviderContext(event.getGenerator().getPackOutput(), event.getLookupProvider(), ValhelsiaFurniture.REGISTRY_MANAGER, event.getExistingFileHelper());
-
-//            event.getGenerator().addProvider(true, new ValhelsiaModelProvider(context, ModBlockModels::new, null));
-//            event.getGenerator().addProvider(true, new ValhelsiaRecipeProvider(context, ModRecipeProvider::new));
+            //            event.getGenerator().addProvider(true, new ValhelsiaRecipeProvider(context, ModRecipeProvider::new));
 
             event.getGenerator().addProvider(true, new LootTableProvider(event.getGenerator().getPackOutput(), Set.of(), List.of(new LootTableProvider.SubProviderEntry(provider -> new ModBlockLootTables(Set.of(), FeatureFlags.DEFAULT_FLAGS, provider), LootContextParamSets.BLOCK)), event.getLookupProvider()));
         }

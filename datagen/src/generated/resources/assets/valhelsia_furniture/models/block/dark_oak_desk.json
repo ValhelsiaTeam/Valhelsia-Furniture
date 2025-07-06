@@ -1,0 +1,9 @@
+{
+  "parent": "valhelsia_furniture:block/desk/template_desk",
+  "textures": {
+    "front": "valhelsia_furniture:block/desk/dark_oak/front",
+    "side": "valhelsia_furniture:block/desk/dark_oak/side",
+    "top": "valhelsia_furniture:block/desk/dark_oak/top",
+    "top_middle": "valhelsia_furniture:block/desk/dark_oak/top_middle"
+  }
+}

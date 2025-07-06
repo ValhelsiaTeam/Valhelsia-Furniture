@@ -1,7 +1,6 @@
 package net.valhelsia.valhelsia_furniture.common.block.properties;
 
 import net.minecraft.data.models.model.ModelTemplate;
-import net.minecraft.util.StringRepresentable;
 import net.valhelsia.valhelsia_furniture.datagen.models.ModModelTemplates;
 import org.jetbrains.annotations.NotNull;
 
@@ -9,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
  * @author Valhelsia Team
  * @since 2022-10-25
  */
-public enum ClosedCurtainPart implements StringRepresentable, CurtainPart {
+public enum ClosedCurtainPart implements CurtainPart {
     SINGLE("single", ModModelTemplates.CURTAIN_BOTTOM, "curtain", "curtain"),
     TOP("top", ModModelTemplates.CURTAIN, "curtain", "middle"),
     MIDDLE("middle", ModModelTemplates.CURTAIN_FULL, "middle", "middle"),
