@@ -13,6 +13,8 @@ import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.block.*;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
 
+import java.util.Optional;
+
 /**
  * @author Valhelsia Team
  * @since 2023-06-11

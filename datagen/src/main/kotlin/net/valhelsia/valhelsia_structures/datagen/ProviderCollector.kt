@@ -1,11 +1,16 @@
 package net.valhelsia.valhelsia_structures.datagen
 
+import net.minecraft.data.loot.LootTableProvider
+import net.minecraft.resources.ResourceKey
+import net.minecraft.world.level.storage.loot.LootTable
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets
 import net.valhelsia.dataforge.DataCollector
 import net.valhelsia.dataforge.DataProviderContext
 import net.valhelsia.dataforge.DataTarget
 import net.valhelsia.dataforge.model.DataForgeModelProvider
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture
 import net.valhelsia.valhelsia_structures.datagen.lang.ModLanguageProvider
+import net.valhelsia.valhelsia_structures.datagen.loot.ModBlockLoot
 import net.valhelsia.valhelsia_structures.datagen.model.ModBlockModels
 import net.valhelsia.valhelsia_structures.datagen.tags.ModBlockTagsProvider
 import net.valhelsia.valhelsia_structures.datagen.tags.ModItemTagsProvider
@@ -23,6 +28,14 @@ class ProviderCollector : DataCollector() {
         with(DataTarget.SERVER) {
             addProvider(this, ModBlockTagsProvider(context))
             addProvider(this, ModItemTagsProvider(context))
+            addProvider(
+                this, LootTableProvider(
+                    context.packOutput, setOf<ResourceKey<LootTable>>(), listOf(
+                        LootTableProvider.SubProviderEntry({ ModBlockLoot(it, blocks) }, LootContextParamSets.BLOCK)
+                    ),
+                    context.lookupProvider
+                )
+            )
         }
     }
 
