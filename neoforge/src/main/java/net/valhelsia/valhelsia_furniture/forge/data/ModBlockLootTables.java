@@ -1,12 +1,10 @@
 package net.valhelsia.valhelsia_furniture.forge.data;
 
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.valhelsia.valhelsia_core.api.common.registry.RegistryEntry;
 import net.valhelsia.valhelsia_core.datagen.ValhelsiaBlockLootTables;
@@ -16,7 +14,6 @@ import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
-import java.util.Locale;
 import java.util.Set;
 import java.util.function.BiConsumer;
 
@@ -47,12 +44,10 @@ public class ModBlockLootTables extends ValhelsiaBlockLootTables {
             if (entry.get().isEnabled(this.enabledFeatures)) {
                 entry.get().getLootTable().ifPresent(lootTable -> {
                     if (set.add(lootTable)) {
-                        LootTable.Builder builder = (LootTable.Builder)this.map.remove(lootTable);
-                        if (builder == null) {
-                            throw new IllegalStateException(String.format(Locale.ROOT, "Missing loottable '%s' for '%s'", lootTable.location(), BuiltInRegistries.BLOCK.getKey(entry.get())));
+                        LootTable.Builder builder = this.map.remove(lootTable);
+                        if (builder != null) {
+                            biConsumer.accept(lootTable, builder);
                         }
-
-                        biConsumer.accept(lootTable, builder);
                     }
                 });
             }

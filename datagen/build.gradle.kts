@@ -1,6 +1,5 @@
-
 plugins {
-    kotlin("jvm") version "2.1.10"
+    kotlin("jvm") version "2.1.20"
     id("java-library")
     id("eclipse")
     id("idea")
@@ -16,7 +15,7 @@ val minecraft_version: String by project
 val dataforge_version: String by project
 
 val mainProject: Project = project(":neoforge")
-//evaluationDependsOn(mainProject.path)
+evaluationDependsOn(mainProject.path)
 
 repositories {
     flatDir {
@@ -49,16 +48,15 @@ neoForge {
 
     mods.create(mod_id) {
         sourceSet(sourceSets.main.get())
-//        sourceSet(mainProject.sourceSets.main.get())
+        sourceSet(mainProject.sourceSets.main.get())
     }
 
     runs {
-
         create("data") {
             data()
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            programArguments.addAll("--mod", mod_id, "--all", "--output", mainProject.file("src/generated/resources/").absolutePath, "--existing", mainProject.file("src/main/resources/").absolutePath)
+            programArguments.addAll("--mod", mod_id, "--all", "--output", file("src/generated/resources/").absolutePath, "--existing", file("src/main/resources/").absolutePath)
         }
 
         // applies to all the run configs above
@@ -76,7 +74,7 @@ dependencies {
     compileOnly(mainProject)
 
     implementation("net.valhelsia:valhelsia_core-neoforge-${minecraft_version}:${valhelsia_core_version}")
-    implementation("thedarkcolour:kotlinforforge-neoforge:5.7.0")
+    implementation("thedarkcolour:kotlinforforge-neoforge:5.9.0")
 
     implementation(interfaceInjectionData("net.valhelsia:dataforge:${dataforge_version}")!!)
 }
