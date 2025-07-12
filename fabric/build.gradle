@@ -1,89 +1,93 @@
-//plugins {
-//    id "com.github.johnrengelman.shadow" version "8.1.1"
-//}
-//
-//architectury {
-//    platformSetupLoomIde()
-//    fabric()
-//}
-//
-//loom {
-//    accessWidenerPath = project(":common").loom.accessWidenerPath
-//}
-//
-//def generatedResources = project(":common").file("src/generated/resources")
-//
-//sourceSets {
-//    main {
-//        resources.srcDir generatedResources
-//    }
-//}
-//
-//configurations {
-//    common
-//    shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
-//    compileClasspath.extendsFrom common
-//    runtimeClasspath.extendsFrom common
-//    developmentFabric.extendsFrom common
-//}
-//
-//dependencies {
-//    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
-//    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
-//
-//    common(project(path: ":common", configuration: "namedElements")) { transitive false }
-//    shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
-//
-//    modImplementation("net.valhelsia:valhelsia_core-fabric-${minecraft_version}:${valhelsia_core_version}")
-//
-////    modRuntimeOnly("curse.maven:jei-238222:5846878")
-//}
-//
-//processResources {
-//    inputs.property "version", project.version
-//
-//    filesMatching("fabric.mod.json") {
-//        expand "version": project.version
-//    }
-//}
-//
-//shadowJar {
-//    configurations = [project.configurations.shadowCommon]
-//    archiveClassifier.set("dev-shadow")
-//}
-//
-//remapJar {
-//    inputFile.set shadowJar.archiveFile
-//    dependsOn shadowJar
-//    archiveClassifier.set(null)
-//}
-//
-//jar {
-//    archiveClassifier.set("dev")
-//}
-//
-//sourcesJar {
-//    def commonSources = project(":common").sourcesJar
-//    dependsOn commonSources
-//    from commonSources.archiveFile.map { zipTree(it) }
-//}
-//
-//components.java {
-//    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
-//        skip()
-//    }
-//}
-//
-//publishing {
-//    publications {
-//        mavenFabric(MavenPublication) {
-//            artifactId = rootProject.archives_base_name + "-" + project.name
-//            from components.java
-//        }
-//    }
-//
-//    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-//    repositories {
-//        // Add repositories to publish to here.
-//    }
-//}
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'fabric-loom' version '1.9-SNAPSHOT'
+}
+
+version = mod_version
+
+Project common = project(":common")
+evaluationDependsOn(common.path)
+
+repositories {
+    maven {
+        url = "https://www.cursemaven.com"
+    }
+    flatDir {
+        dirs 'libs'
+    }
+    mavenCentral()
+}
+
+base {
+    archivesName = mod_id + '-fabric'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir common.sourceSets.main.java.srcDirs
+        }
+        resources {
+            srcDir common.sourceSets.main.resources.srcDirs
+        }
+    }
+}
+
+loom {
+    mixin {
+        add sourceSets.main, "${mod_id}.refmap.json"
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+dependencies {
+    compileOnly(common)
+
+    modImplementation "net.valhelsia:valhelsia_core-fabric-${minecraft_version}:${valhelsia_core_version}"
+
+    // To change the versions see the gradle.properties file
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    modImplementation "net.fabricmc:fabric-loader:${project.fabric_loader_version}"
+    mappings loom.officialMojangMappings()
+    // Fabric API. This is technically optional, but you probably want it anyway.
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+}
+
+compileJava {
+    source project(':common').sourceSets.main.allSource
+}
+
+processResources {
+    var replaceProperties = [version : mod_version]
+    inputs.properties replaceProperties
+
+    filesMatching("fabric.mod.json") {
+        expand replaceProperties
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 21
+}
+
+java {
+    // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+    // if it is present.
+    // If you remove this line, sources will not be generated.
+    withSourcesJar()
+
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${project.base.archivesName.get()}"}
+    }
+}

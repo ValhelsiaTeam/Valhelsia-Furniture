@@ -18,8 +18,7 @@
     ]
   },
   "mixins": [
-    "valhelsia_furniture.mixins.json",
-    "valhelsia_furniture-common.mixins.json"
+    "valhelsia_furniture.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.14.21",
