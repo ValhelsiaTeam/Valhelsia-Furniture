@@ -1,6 +1,6 @@
 package net.valhelsia.valhelsia_furniture.common.block.properties;
 
-import net.minecraft.data.models.model.ModelTemplate;
+import net.minecraft.client.data.models.model.ModelTemplate;
 import net.valhelsia.valhelsia_furniture.datagen.models.ModModelTemplates;
 import org.jetbrains.annotations.NotNull;
 

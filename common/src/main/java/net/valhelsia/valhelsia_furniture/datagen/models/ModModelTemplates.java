@@ -1,7 +1,7 @@
 package net.valhelsia.valhelsia_furniture.datagen.models;
 
-import net.minecraft.data.models.model.ModelTemplate;
-import net.minecraft.data.models.model.TextureSlot;
+import net.minecraft.client.data.models.model.ModelTemplate;
+import net.minecraft.client.data.models.model.TextureSlot;
 import net.minecraft.resources.ResourceLocation;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 

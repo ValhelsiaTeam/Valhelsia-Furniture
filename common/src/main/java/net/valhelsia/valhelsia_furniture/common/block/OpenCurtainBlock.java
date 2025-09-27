@@ -68,7 +68,7 @@ public class OpenCurtainBlock extends AbstractCurtainBlock<OpenCurtainPart> {
     }
 
     @Override
-    public @NotNull ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
+    protected @NotNull ItemStack getCloneItemStack(@NotNull LevelReader level, @NotNull BlockPos pos, @NotNull BlockState state, boolean includeData) {
         return new ItemStack(this.getClosedBlock());
     }
 
