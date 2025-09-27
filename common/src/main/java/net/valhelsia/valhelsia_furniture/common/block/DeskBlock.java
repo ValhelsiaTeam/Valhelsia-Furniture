@@ -1,14 +1,14 @@
 package net.valhelsia.valhelsia_furniture.common.block;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import net.minecraft.client.data.models.model.TextureSlot;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -23,11 +23,9 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.valhelsia.valhelsia_core.api.common.helper.VoxelShapeHelper;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
-import net.valhelsia.valhelsia_furniture.datagen.models.ModTextureSlots;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,30 +33,6 @@ import java.util.Map;
  * @since 2022-05-13
  */
 public class DeskBlock extends Block implements SimpleWaterloggedBlock {
-
-    public static final Map<String, List<TextureSlot>> VARIANT_TEXTURES = ImmutableMap.<String, List<TextureSlot>>builder()
-            .put("single", ImmutableList.of(
-                    ModTextureSlots.TOP,
-                    ModTextureSlots.TOP_MIDDLE,
-                    ModTextureSlots.FRONT,
-                    ModTextureSlots.SIDE
-            ))
-            .put("center", ImmutableList.of(
-                    ModTextureSlots.TOP_SIDE,
-                    ModTextureSlots.TOP_MIDDLE,
-                    ModTextureSlots.FRONT,
-                    ModTextureSlots.SIDE,
-                    ModTextureSlots.MIDDLE
-            ))
-            .put("left_or_right", ImmutableList.of(
-                    ModTextureSlots.TOP,
-                    ModTextureSlots.TOP_SIDE,
-                    ModTextureSlots.TOP_MIDDLE,
-                    ModTextureSlots.FRONT,
-                    ModTextureSlots.SIDE,
-                    ModTextureSlots.MIDDLE
-            ))
-            .build();
 
     public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty LEFT = ModBlockStateProperties.LEFT;

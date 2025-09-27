@@ -1,8 +1,6 @@
 package net.valhelsia.valhelsia_furniture.common.block.properties;
 
-import net.minecraft.client.data.models.model.ModelTemplate;
 import net.minecraft.util.StringRepresentable;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * @author Valhelsia Team
@@ -13,14 +11,16 @@ public interface CurtainPart extends StringRepresentable {
     String getName();
 
     boolean isSingle();
+
     boolean isBottomOrSingle();
+
     boolean isTopOrSingle();
+
     boolean isSingleRow();
 
     String getTopTexture();
-    String getBottomTexture();
 
-    @Nullable ModelTemplate getModelTemplate();
+    String getBottomTexture();
 
     default String getModelName() {
         return "_".concat(this.getName());

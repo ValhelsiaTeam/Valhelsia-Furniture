@@ -8,7 +8,7 @@ import net.valhelsia.valhelsia_core.api.common.registry.helper.block.BlockEntryS
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks
 import net.valhelsia.valhelsia_furniture.core.registry.ModTags
 
-class ModBlockTagsProvider(context: DataProviderContext) : DataForgeBlockTagsProvider(context) {
+class ModBlockTagsProvider(context: DataProviderContext.Server) : DataForgeBlockTagsProvider(context) {
     override fun addTags(provider: HolderLookup.Provider) {
         tag(ModTags.Blocks.OAK_TABLES).add(ModBlocks.OAK_TABLE.get()).add(*ModBlocks.COLORED_OAK_TABLES.get())
         tag(ModTags.Blocks.SPRUCE_TABLES).add(ModBlocks.OAK_TABLE.get()).add(*ModBlocks.COLORED_SPRUCE_TABLES.get())

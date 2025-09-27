@@ -1,7 +1,5 @@
 package net.valhelsia.valhelsia_furniture.common.block.properties;
 
-import net.minecraft.client.data.models.model.ModelTemplate;
-import net.valhelsia.valhelsia_furniture.datagen.models.ModModelTemplates;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -9,20 +7,18 @@ import org.jetbrains.annotations.NotNull;
  * @since 2022-10-25
  */
 public enum ClosedCurtainPart implements CurtainPart {
-    SINGLE("single", ModModelTemplates.CURTAIN_BOTTOM, "curtain", "curtain"),
-    TOP("top", ModModelTemplates.CURTAIN, "curtain", "middle"),
-    MIDDLE("middle", ModModelTemplates.CURTAIN_FULL, "middle", "middle"),
-    BOTTOM("bottom", ModModelTemplates.CURTAIN_FULL_BOTTOM, "middle", "curtain");
+    SINGLE("single", "curtain", "curtain"),
+    TOP("top", "curtain", "middle"),
+    MIDDLE("middle", "middle", "middle"),
+    BOTTOM("bottom", "middle", "curtain");
 
     private final String name;
-    private final ModelTemplate modelTemplate;
 
     private final String topTexture;
     private final String bottomTexture;
 
-    ClosedCurtainPart(String name, ModelTemplate modelTemplate, String topTexture, String bottomTexture) {
+    ClosedCurtainPart(String name, String topTexture, String bottomTexture) {
         this.name = name;
-        this.modelTemplate = modelTemplate;
         this.topTexture = topTexture;
         this.bottomTexture = bottomTexture;
     }
@@ -78,10 +74,5 @@ public enum ClosedCurtainPart implements CurtainPart {
     @Override
     public String getBottomTexture() {
         return this.bottomTexture;
-    }
-
-    @Override
-    public ModelTemplate getModelTemplate() {
-        return this.modelTemplate;
     }
 }

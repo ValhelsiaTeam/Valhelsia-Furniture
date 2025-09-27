@@ -1,12 +1,14 @@
 package net.valhelsia.valhelsia_furniture.datagen.model
 
+import com.google.common.collect.ImmutableList
+import com.google.common.collect.ImmutableMap
+import net.minecraft.client.data.models.BlockModelGenerators
+import net.minecraft.client.data.models.blockstates.MultiVariantGenerator
+import net.minecraft.client.data.models.blockstates.PropertyDispatch
+import net.minecraft.client.data.models.blockstates.Variant
+import net.minecraft.client.data.models.blockstates.VariantProperties
+import net.minecraft.client.data.models.model.*
 import net.minecraft.core.registries.BuiltInRegistries
-import net.minecraft.data.models.BlockModelGenerators
-import net.minecraft.data.models.blockstates.MultiVariantGenerator
-import net.minecraft.data.models.blockstates.PropertyDispatch
-import net.minecraft.data.models.blockstates.Variant
-import net.minecraft.data.models.blockstates.VariantProperties
-import net.minecraft.data.models.model.*
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.util.StringRepresentable
 import net.minecraft.world.item.DyeColor
@@ -19,14 +21,15 @@ import net.valhelsia.dataforge.model.createModel
 import net.valhelsia.valhelsia_core.api.common.registry.helper.block.BlockEntrySet
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture
 import net.valhelsia.valhelsia_furniture.common.block.*
+import net.valhelsia.valhelsia_furniture.common.block.properties.ClosedCurtainPart
 import net.valhelsia.valhelsia_furniture.common.block.properties.CurtainPart
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties
+import net.valhelsia.valhelsia_furniture.common.block.properties.OpenCurtainPart
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks
 import net.valhelsia.valhelsia_furniture.datagen.models.ModModelTemplates
 import net.valhelsia.valhelsia_furniture.datagen.models.ModTextureSlots
-import kotlin.Enum
 
-class ModBlockModels(defaultGenerators: BlockModelGenerators) : BlockModelGenerator(defaultGenerators) {
+class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGenerator(defaultGenerators) {
     override fun generate() {
         createTable(ModBlocks.OAK_TABLE.get())
         createTable(ModBlocks.SPRUCE_TABLE.get())
@@ -149,7 +152,10 @@ class ModBlockModels(defaultGenerators: BlockModelGenerators) : BlockModelGenera
         }
     }
 
-    private fun <T : Block, K> apply(set: BlockEntrySet<T, K>, consumer: (T, K) -> Unit) where K : Enum<K>, K : StringRepresentable {
+    private fun <T : Block, K> apply(
+        set: BlockEntrySet<T, K>,
+        consumer: (T, K) -> Unit
+    ) where K : Enum<K>, K : StringRepresentable {
         for (entry in set.entries) {
             consumer(entry.value.get(), entry.key)
         }
@@ -329,9 +335,9 @@ class ModBlockModels(defaultGenerators: BlockModelGenerators) : BlockModelGenera
                     }
 
                     val textureSlots: List<TextureSlot> = when (variant) {
-                        "_left", "_right" -> DeskBlock.VARIANT_TEXTURES["left_or_right"]
-                        "_center" -> DeskBlock.VARIANT_TEXTURES["center"]
-                        else -> DeskBlock.VARIANT_TEXTURES["single"]
+                        "_left", "_right" -> deskVariantTextures["left_or_right"]
+                        "_center" -> deskVariantTextures["center"]
+                        else -> deskVariantTextures["single"]
                     } ?: listOf()
 
                     val textureMapping = TextureMapping()
@@ -387,7 +393,6 @@ class ModBlockModels(defaultGenerators: BlockModelGenerators) : BlockModelGenera
             modelOutput
         )
 
-        createSimpleFlatItemModel(block.asItem())
         blockStateOutput.accept(
             MultiVariantGenerator.multiVariant(block).with(
                 BlockModelGenerators.createBooleanModelDispatch(
@@ -403,8 +408,11 @@ class ModBlockModels(defaultGenerators: BlockModelGenerators) : BlockModelGenera
         block: AbstractCurtainBlock<*>,
         property: EnumProperty<E>
     ) where E : Enum<E>, E : CurtainPart {
+        val properties = if (property == ModBlockStateProperties.OPEN_CURTAIN_PART)
+            modelTemplateForOpenCurtainPart else modelTemplateForClosedCurtainPart
+
         for (part in property.getPossibleValues()) {
-            if (part.modelTemplate == null) {
+            if (properties[part] == null) {
                 continue
             }
 
@@ -413,13 +421,13 @@ class ModBlockModels(defaultGenerators: BlockModelGenerators) : BlockModelGenera
                 TextureSlot.TOP,
                 ModTextureMapping.getBlockTexture(folder, part.topTexture)
             ).put(TextureSlot.DOWN, ModTextureMapping.getBlockTexture(folder, part.bottomTexture))
-            part.modelTemplate?.createWithSuffix(block, part.modelName, textureMapping, modelOutput)
+            properties[part]?.createWithSuffix(block, part.modelName, textureMapping, modelOutput)
         }
 
         val dispatch: PropertyDispatch = PropertyDispatch.property(property).generate { part ->
             var model: ResourceLocation =
                 BuiltInRegistries.BLOCK.getKey(block).withPath { s -> "block/" + s + part.modelName }
-            if (part.modelTemplate == null) {
+            if (properties[part] == null) {
                 model = ResourceLocation.fromNamespaceAndPath(
                     ValhelsiaFurniture.MOD_ID,
                     "block/curtain/curtain_bracket"
@@ -429,16 +437,12 @@ class ModBlockModels(defaultGenerators: BlockModelGenerators) : BlockModelGenera
         }
 
         if (block is ClosedCurtainBlock) {
-            delegateItemModel(block, ModelLocationUtils.getModelLocation(block, "_single"))
+            defaultGenerators.registerSimpleItemModel(block, ModelLocationUtils.getModelLocation(block, "_single"))
         }
         blockStateOutput.accept(
             MultiVariantGenerator.multiVariant(block).with(BlockModelGenerators.createHorizontalFacingDispatch())
                 .with(dispatch)
         )
-    }
-
-    private fun delegateItemModel(block: Block, resourceLocation: ResourceLocation) {
-        modelOutput.accept(ModelLocationUtils.getModelLocation(block.asItem()), DelegatedModel(resourceLocation))
     }
 
     companion object {
@@ -453,9 +457,52 @@ class ModBlockModels(defaultGenerators: BlockModelGenerators) : BlockModelGenera
             .select(false, Variant.variant())
             .select(true, Variant.variant().with(VariantProperties.MODEL, model))
 
-        private fun createSimpleFlatItemModel(item: ItemLike) = ModelTemplates.FLAT_ITEM.createModel(
-            ModelLocationUtils.getModelLocation(item.asItem()),
-            TextureMapping.layer0(item.asItem())
+        val modelTemplateForOpenCurtainPart = mapOf<OpenCurtainPart, ModelTemplate?>(
+            OpenCurtainPart.SINGLE to ModModelTemplates.CURTAIN_BOTTOM,
+            OpenCurtainPart.SINGLE_TOP to ModModelTemplates.CURTAIN,
+            OpenCurtainPart.SINGLE_BOTTOM to ModModelTemplates.CURTAIN_FULL_BOTTOM,
+            OpenCurtainPart.SINGLE_MIDDLE to ModModelTemplates.CURTAIN_FULL_BOTTOM,
+            OpenCurtainPart.TOP to null,
+            OpenCurtainPart.MIDDLE to ModModelTemplates.CURTAIN_FULL,
+            OpenCurtainPart.LEFT to ModModelTemplates.CURTAIN_BOTTOM,
+            OpenCurtainPart.RIGHT to ModModelTemplates.CURTAIN_MIRRORED_BOTTOM,
+            OpenCurtainPart.LEFT_SIDE_TOP to ModModelTemplates.CURTAIN,
+            OpenCurtainPart.LEFT_SIDE_MIDDLE to ModModelTemplates.CURTAIN_FULL,
+            OpenCurtainPart.LEFT_SIDE_BOTTOM to ModModelTemplates.CURTAIN_FULL_BOTTOM,
+            OpenCurtainPart.RIGHT_SIDE_TOP to ModModelTemplates.CURTAIN_MIRRORED,
+            OpenCurtainPart.RIGHT_SIDE_MIDDLE to ModModelTemplates.CURTAIN_FULL_MIRRORED,
+            OpenCurtainPart.RIGHT_SIDE_BOTTOM to ModModelTemplates.CURTAIN_FULL_MIRRORED_BOTTOM,
+        )
+
+        val modelTemplateForClosedCurtainPart = mapOf<ClosedCurtainPart, ModelTemplate>(
+            ClosedCurtainPart.SINGLE to ModModelTemplates.CURTAIN_BOTTOM,
+            ClosedCurtainPart.TOP to ModModelTemplates.CURTAIN,
+            ClosedCurtainPart.MIDDLE to ModModelTemplates.CURTAIN_FULL,
+            ClosedCurtainPart.BOTTOM to ModModelTemplates.CURTAIN_FULL_BOTTOM
+        )
+
+        val deskVariantTextures = mapOf(
+            "single" to listOf(
+                ModTextureSlots.TOP,
+                ModTextureSlots.TOP_MIDDLE,
+                ModTextureSlots.FRONT,
+                ModTextureSlots.SIDE
+            ),
+            "center" to listOf(
+                ModTextureSlots.TOP_SIDE,
+                ModTextureSlots.TOP_MIDDLE,
+                ModTextureSlots.FRONT,
+                ModTextureSlots.SIDE,
+                ModTextureSlots.MIDDLE
+            ),
+            "left_or_right" to listOf(
+                ModTextureSlots.TOP,
+                ModTextureSlots.TOP_SIDE,
+                ModTextureSlots.TOP_MIDDLE,
+                ModTextureSlots.FRONT,
+                ModTextureSlots.SIDE,
+                ModTextureSlots.MIDDLE
+            )
         )
     }
 }

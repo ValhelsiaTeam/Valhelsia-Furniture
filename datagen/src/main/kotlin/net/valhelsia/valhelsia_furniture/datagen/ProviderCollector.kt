@@ -6,7 +6,6 @@ import net.minecraft.world.level.storage.loot.LootTable
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets
 import net.valhelsia.dataforge.DataCollector
 import net.valhelsia.dataforge.DataProviderContext
-import net.valhelsia.dataforge.DataTarget
 import net.valhelsia.dataforge.model.DataForgeModelProvider
 import net.valhelsia.dataforge.recipe.DataForgeRecipeRunner
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture
@@ -19,30 +18,28 @@ import net.valhelsia.valhelsia_furniture.datagen.tags.ModItemTagsProvider
 
 class ProviderCollector : DataCollector() {
 
-    override fun collectProviders(context: DataProviderContext) {
+    override fun collectClientProviders(context: DataProviderContext.Client) {
+        print("Generating assets for %s".format(ValhelsiaFurniture.MOD_ID))
+        addClientProvider(ModLanguageProvider(context.packOutput, "en_us"))
+        addClientProvider(DataForgeModelProvider(context, { ModBlockModels(it) }, null))
+    }
+
+    override fun collectServerProviders(context: DataProviderContext.Server) {
         val blocks = ValhelsiaFurniture.REGISTRY_MANAGER.blockHelper.registryEntries.map { { it.value() } }
 
-        with(DataTarget.CLIENT) {
-            addProvider(this, ModLanguageProvider(context.packOutput, "en_us"))
-            addProvider(this, DataForgeModelProvider(context, blocks, { ModBlockModels(it) }, null))
-        }
-
-        with(DataTarget.SERVER) {
-            addProvider(this, ModBlockTagsProvider(context))
-            addProvider(this, ModItemTagsProvider(context))
-            addProvider(
-                this,
-                DataForgeRecipeRunner(context, { provider, output -> ModRecipeProvider(provider, output) })
+        addServerProvider(ModBlockTagsProvider(context))
+        addServerProvider(ModItemTagsProvider(context))
+        addServerProvider(DataForgeRecipeRunner(context, { provider, output ->
+            ModRecipeProvider(provider, output)
+        }))
+        addServerProvider(
+            LootTableProvider(
+                context.packOutput, setOf<ResourceKey<LootTable>>(), listOf(
+                    LootTableProvider.SubProviderEntry({ ModBlockLoot(it, blocks) }, LootContextParamSets.BLOCK)
+                ),
+                context.lookupProvider
             )
-            addProvider(
-                this, LootTableProvider(
-                    context.packOutput, setOf<ResourceKey<LootTable>>(), listOf(
-                        LootTableProvider.SubProviderEntry({ ModBlockLoot(it, blocks) }, LootContextParamSets.BLOCK)
-                    ),
-                    context.lookupProvider
-                )
-            )
-        }
+        )
     }
 
     override fun collectRegistryProviders() {
