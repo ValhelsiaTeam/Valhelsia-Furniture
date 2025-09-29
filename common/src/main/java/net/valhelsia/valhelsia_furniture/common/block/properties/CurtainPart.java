@@ -25,23 +25,4 @@ public interface CurtainPart extends StringRepresentable {
     default String getModelName() {
         return "_".concat(this.getName());
     }
-
-    //TODO REMOVE
-    enum ModelType {
-        CURTAIN("template_curtain"),
-        CURTAIN_MIRRORED("template_curtain_mirrored"),
-        CURTAIN_FULL("template_curtain_full"),
-        CURTAIN_FULL_MIRRORED("template_curtain_full_mirrored"),
-        CURTAIN_BRACKET("curtain_bracket");
-
-        private final String name;
-
-        ModelType(String name) {
-            this.name = name;
-        }
-
-        public String getName() {
-            return this.name;
-        }
-    }
 }
