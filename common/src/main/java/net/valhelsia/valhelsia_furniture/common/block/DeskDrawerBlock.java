@@ -5,7 +5,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.monster.piglin.PiglinAi;
@@ -28,6 +27,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
+import java.util.function.Function;
 
 /**
  * @author Valhelsia Team
@@ -39,7 +39,7 @@ public class DeskDrawerBlock extends DeskBlock implements EntityBlock {
     private static final Map<Direction, VoxelShape> LEFT_CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(0.0D, 4.0D, 1.0D, 1.0D, 12.0D, 4.0D));
     private static final Map<Direction, VoxelShape> RIGHT_CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(15.0D, 4.0D, 1.0D, 16.0D, 12.0D, 4.0D));
 
-    private final Map<BlockState, VoxelShape> shapesCache;
+    private final Function<BlockState, VoxelShape> shapesCache;
 
     public DeskDrawerBlock(WoodType woodType, TagKey<Block> tag, BlockBehaviour.Properties properties) {
         super(woodType, tag, properties);
@@ -73,7 +73,7 @@ public class DeskDrawerBlock extends DeskBlock implements EntityBlock {
     @NotNull
     @Override
     public VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
-        return this.shapesCache.get(state);
+        return this.shapesCache.apply(state);
     }
 
     @NotNull
@@ -89,14 +89,7 @@ public class DeskDrawerBlock extends DeskBlock implements EntityBlock {
     }
 
     @Override
-    public void onRemove(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState newState, boolean isMoving) {
-        if (!state.is(newState.getBlock())) {
-            if (level.getBlockEntity(pos) instanceof Container container) {
-                Containers.dropContents(level, pos, container);
-                level.updateNeighbourForOutputSignal(pos, this);
-            }
-
-            super.onRemove(state, level, pos, newState, isMoving);
-        }
+    protected void affectNeighborsAfterRemoval(BlockState state, ServerLevel level, BlockPos pos, boolean movedByPiston) {
+        Containers.updateNeighboursAfterDestroy(state, level, pos);
     }
 }

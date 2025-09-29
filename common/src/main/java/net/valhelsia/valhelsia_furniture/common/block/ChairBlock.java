@@ -9,6 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
@@ -125,7 +126,7 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock, Seatabl
     }
 
     @Override
-    public void entityInside(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Entity entity) {
+    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier) {
         this.trySitEntityOnBlock(level, pos, entity);
     }
 
@@ -140,14 +141,15 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock, Seatabl
         }
     }
 
-    @Override
-    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
-        if (this.color != null) {
-            list.add(Component.translatable("tooltip.valhelsia_furniture." + this.color + "_wool_seat").withStyle(ChatFormatting.GRAY));
-        } else if (!Objects.requireNonNull(BuiltInRegistries.BLOCK.getKey(this)).getPath().equals(this.woodType.name() + "_chair")) {
-            list.add(Component.translatable("tooltip.valhelsia_furniture.hay_seat").withStyle(ChatFormatting.GRAY));
-        }
-    }
+    //TODO
+//    @Override
+//    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
+//        if (this.color != null) {
+//            list.add(Component.translatable("tooltip.valhelsia_furniture." + this.color + "_wool_seat").withStyle(ChatFormatting.GRAY));
+//        } else if (!Objects.requireNonNull(BuiltInRegistries.BLOCK.getKey(this)).getPath().equals(this.woodType.name() + "_chair")) {
+//            list.add(Component.translatable("tooltip.valhelsia_furniture.hay_seat").withStyle(ChatFormatting.GRAY));
+//        }
+//    }
 
     @Override
     public boolean hasAnalogOutputSignal(@NotNull BlockState state) {

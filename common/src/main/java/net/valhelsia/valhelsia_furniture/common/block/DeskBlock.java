@@ -27,6 +27,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
+import java.util.function.Function;
 
 /**
  * @author Valhelsia Team
@@ -40,7 +41,7 @@ public class DeskBlock extends Block implements SimpleWaterloggedBlock {
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    private final Map<BlockState, VoxelShape> shapesCache;
+    private final Function<BlockState, VoxelShape> shapesCache;
 
     private static final VoxelShape TOP_SHAPE = Block.box(0.0D, 12.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 
@@ -96,7 +97,7 @@ public class DeskBlock extends Block implements SimpleWaterloggedBlock {
     @NotNull
     @Override
     public VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
-        return this.shapesCache.get(state);
+        return this.shapesCache.apply(state);
     }
 
     @Nullable

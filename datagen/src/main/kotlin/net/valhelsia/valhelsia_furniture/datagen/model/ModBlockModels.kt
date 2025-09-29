@@ -1,23 +1,24 @@
 package net.valhelsia.valhelsia_furniture.datagen.model
 
-import com.google.common.collect.ImmutableList
-import com.google.common.collect.ImmutableMap
 import net.minecraft.client.data.models.BlockModelGenerators
+import net.minecraft.client.data.models.MultiVariant
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator
 import net.minecraft.client.data.models.blockstates.PropertyDispatch
-import net.minecraft.client.data.models.blockstates.Variant
-import net.minecraft.client.data.models.blockstates.VariantProperties
-import net.minecraft.client.data.models.model.*
+import net.minecraft.client.data.models.model.ModelLocationUtils
+import net.minecraft.client.data.models.model.ModelTemplate
+import net.minecraft.client.data.models.model.TextureMapping
+import net.minecraft.client.data.models.model.TextureSlot
+import net.minecraft.client.renderer.block.model.VariantMutator
+import net.minecraft.core.Direction
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.util.StringRepresentable
 import net.minecraft.world.item.DyeColor
-import net.minecraft.world.level.ItemLike
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.state.properties.BlockStateProperties
+import net.minecraft.world.level.block.state.properties.BooleanProperty
 import net.minecraft.world.level.block.state.properties.EnumProperty
 import net.valhelsia.dataforge.model.BlockModelGenerator
-import net.valhelsia.dataforge.model.createModel
 import net.valhelsia.valhelsia_core.api.common.registry.helper.block.BlockEntrySet
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture
 import net.valhelsia.valhelsia_furniture.common.block.*
@@ -171,7 +172,7 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
 
         createTableModels(block, textureMapping)
 
-        val dispatch: PropertyDispatch = PropertyDispatch.properties(
+        val dispatch = PropertyDispatch.initial(
             BlockStateProperties.NORTH,
             BlockStateProperties.EAST,
             BlockStateProperties.SOUTH,
@@ -206,19 +207,17 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
                 else -> suffix
             }
 
-            val variant: Variant = Variant.variant()
-                .with(VariantProperties.MODEL, ModelLocationUtils.getModelLocation(block, suffix))
+            var variant = BlockModelGenerators.plainVariant(ModelLocationUtils.getModelLocation(block, suffix))
 
             if (rotated) {
-                variant.with(
-                    VariantProperties.Y_ROT,
-                    if (!connected) VariantProperties.Rotation.R90 else VariantProperties.Rotation.R270
-                )
+                variant =
+                    if (connected) variant.with(BlockModelGenerators.Y_ROT_270)
+                    else variant.with(BlockModelGenerators.Y_ROT_90)
             }
             variant
         }
 
-        blockStateOutput.accept(MultiVariantGenerator.multiVariant(block).with(dispatch))
+        blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(dispatch))
     }
 
     private fun createTableModels(block: Block, mapping: TextureMapping) {
@@ -245,14 +244,11 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
             ModTextureSlots.CHAIR,
             ModTextureMapping.getBlockTexture(block, "chair/" + block.woodType.name())
         )
-        val model: ResourceLocation = ModModelTemplates.CHAIR.create(block, textureMapping, modelOutput)
-
-        blockStateOutput.accept(
-            createSimpleBlock(
-                block,
-                model
-            ).with(BlockModelGenerators.createHorizontalFacingDispatch())
+        val model = BlockModelGenerators.plainVariant(
+            ModModelTemplates.CHAIR.create(block, textureMapping, modelOutput)
         )
+
+        blockStateOutput.accept(MultiVariantGenerator.dispatch(block, model).with(ROTATION_HORIZONTAL_FACING))
     }
 
     private fun createUpholsteredChair(block: UpholsteredChairBlock) {
@@ -271,25 +267,28 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
                     "block/upholstered_chair/base/" + block.woodType.name()
                 )
             )
-        val model: ResourceLocation =
+        val model = BlockModelGenerators.plainVariant(
             ModModelTemplates.UPHOLSTERED_CHAIR.create(block, textureMapping, modelOutput)
-
-        blockStateOutput.accept(
-            createSimpleBlock(
-                block,
-                model
-            ).with(BlockModelGenerators.createHorizontalFacingDispatch())
         )
+
+        blockStateOutput.accept(MultiVariantGenerator.dispatch(block, model).with(ROTATION_HORIZONTAL_FACING))
     }
 
     private fun createStool(block: Block) {
-        val textureMapping: TextureMapping =
+        val textureMapping =
             TextureMapping().put(ModTextureSlots.STOOL, ModTextureMapping.getBlockTexture(block, "stool"))
-        val model: ResourceLocation = ModModelTemplates.STOOL.create(block, textureMapping, modelOutput)
-        val rotatedModel: ResourceLocation =
+        val model = BlockModelGenerators.plainVariant(
+            ModModelTemplates.STOOL.create(block, textureMapping, modelOutput)
+        )
+        val rotatedModel = BlockModelGenerators.plainVariant(
             ModModelTemplates.STOOL_ROTATED.createWithSuffix(block, "_rotated", textureMapping, modelOutput)
+        )
 
-        blockStateOutput.accept(createSimpleBlock(block, model).with(createRotatedDispatch(rotatedModel)))
+        blockStateOutput.accept(
+            MultiVariantGenerator.dispatch(block).with(
+                createBooleanModelDispatch(ModBlockStateProperties.ROTATED, rotatedModel, model)
+            )
+        )
     }
 
     private fun createUpholsteredStool(block: StoolBlock) {
@@ -309,21 +308,23 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
                 )
             )
 
-        val model: ResourceLocation =
+        val model = BlockModelGenerators.plainVariant(
             ModModelTemplates.UPHOLSTERED_STOOL.create(block, textureMapping, modelOutput)
-        val rotatedModel: ResourceLocation = ModModelTemplates.UPHOLSTERED_STOOL_ROTATED.createWithSuffix(
-            block,
-            "_rotated",
-            textureMapping,
-            modelOutput
+        )
+        val rotatedModel = BlockModelGenerators.plainVariant(
+            ModModelTemplates.UPHOLSTERED_STOOL_ROTATED.createWithSuffix(block, "_rotated", textureMapping, modelOutput)
         )
 
-        blockStateOutput.accept(createSimpleBlock(block, model).with(createRotatedDispatch(rotatedModel)))
+        blockStateOutput.accept(
+            MultiVariantGenerator.dispatch(block).with(
+                createBooleanModelDispatch(ModBlockStateProperties.ROTATED, rotatedModel, model)
+            )
+        )
     }
 
     private fun createDesk(block: DeskBlock) {
-        val dispatch: PropertyDispatch =
-            PropertyDispatch.properties(ModBlockStateProperties.LEFT, ModBlockStateProperties.RIGHT)
+        val dispatch: PropertyDispatch<MultiVariant> =
+            PropertyDispatch.initial(ModBlockStateProperties.LEFT, ModBlockStateProperties.RIGHT)
                 .generate { left, right ->
                     var variant = ""
                     if (left && right) {
@@ -352,14 +353,20 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
                         )
                     }
 
-                    val model: ResourceLocation = getDeskModel(left, right, block is DeskDrawerBlock)
-                        .createWithSuffix(block, variant, textureMapping, modelOutput)
-                    Variant.variant().with(VariantProperties.MODEL, model)
+                    BlockModelGenerators.plainVariant(
+                        getDeskModel(left, right, block is DeskDrawerBlock).createWithSuffix(
+                            block,
+                            variant,
+                            textureMapping,
+                            modelOutput
+                        )
+                    )
                 }
 
         blockStateOutput.accept(
-            MultiVariantGenerator.multiVariant(block).with(BlockModelGenerators.createHorizontalFacingDispatch())
+            MultiVariantGenerator.dispatch(block)
                 .with(dispatch)
+                .with(ROTATION_HORIZONTAL_FACING)
         )
     }
 
@@ -384,22 +391,16 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
             )
         )
 
-        val model: ResourceLocation =
+        val model = BlockModelGenerators.plainVariant(
             ModModelTemplates.FABRIC_DESK_LAMP.create(block, textureMapping, modelOutput)
-        val modelOn: ResourceLocation = ModModelTemplates.FABRIC_DESK_LAMP_ON.createWithSuffix(
-            block,
-            "_rotated",
-            textureMapping,
-            modelOutput
+        )
+        val modelOn = BlockModelGenerators.plainVariant(
+            ModModelTemplates.FABRIC_DESK_LAMP_ON.createWithSuffix(block, "_rotated", textureMapping, modelOutput)
         )
 
         blockStateOutput.accept(
-            MultiVariantGenerator.multiVariant(block).with(
-                BlockModelGenerators.createBooleanModelDispatch(
-                    ModBlockStateProperties.SWITCHED_ON,
-                    modelOn,
-                    model
-                )
+            MultiVariantGenerator.dispatch(block).with(
+                createBooleanModelDispatch(ModBlockStateProperties.SWITCHED_ON, modelOn, model)
             )
         )
     }
@@ -424,7 +425,7 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
             properties[part]?.createWithSuffix(block, part.modelName, textureMapping, modelOutput)
         }
 
-        val dispatch: PropertyDispatch = PropertyDispatch.property(property).generate { part ->
+        val dispatch: PropertyDispatch<MultiVariant> = PropertyDispatch.initial(property).generate { part ->
             var model: ResourceLocation =
                 BuiltInRegistries.BLOCK.getKey(block).withPath { s -> "block/" + s + part.modelName }
             if (properties[part] == null) {
@@ -433,29 +434,32 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
                     "block/curtain/curtain_bracket"
                 )
             }
-            Variant.variant().with(VariantProperties.MODEL, model)
+
+            BlockModelGenerators.plainVariant(model)
         }
 
         if (block is ClosedCurtainBlock) {
             defaultGenerators.registerSimpleItemModel(block, ModelLocationUtils.getModelLocation(block, "_single"))
         }
-        blockStateOutput.accept(
-            MultiVariantGenerator.multiVariant(block).with(BlockModelGenerators.createHorizontalFacingDispatch())
-                .with(dispatch)
-        )
+        blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(dispatch).with(ROTATION_HORIZONTAL_FACING))
     }
 
     companion object {
-        private fun createSimpleBlock(block: Block, resourceLocation: ResourceLocation): MultiVariantGenerator =
-            MultiVariantGenerator.multiVariant(
-                block,
-                Variant.variant().with(VariantProperties.MODEL, resourceLocation)
-            )
 
-        private fun createRotatedDispatch(model: ResourceLocation): PropertyDispatch = PropertyDispatch
-            .property(ModBlockStateProperties.ROTATED)
-            .select(false, Variant.variant())
-            .select(true, Variant.variant().with(VariantProperties.MODEL, model))
+        val ROTATION_HORIZONTAL_FACING: PropertyDispatch<VariantMutator> =
+            PropertyDispatch.modify(BlockStateProperties.HORIZONTAL_FACING)
+                .select(Direction.EAST, BlockModelGenerators.Y_ROT_90)
+                .select(Direction.SOUTH, BlockModelGenerators.Y_ROT_180)
+                .select(Direction.WEST, BlockModelGenerators.Y_ROT_270)
+                .select(Direction.NORTH, BlockModelGenerators.NOP)
+
+        private fun createBooleanModelDispatch(
+            property: BooleanProperty,
+            onTrue: MultiVariant,
+            onFalse: MultiVariant
+        ): PropertyDispatch<MultiVariant> {
+            return PropertyDispatch.initial(property).select(true, onTrue).select(false, onFalse)
+        }
 
         val modelTemplateForOpenCurtainPart = mapOf<OpenCurtainPart, ModelTemplate?>(
             OpenCurtainPart.SINGLE to ModModelTemplates.CURTAIN_BOTTOM,

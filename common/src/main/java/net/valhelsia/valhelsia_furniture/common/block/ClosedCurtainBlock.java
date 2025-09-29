@@ -2,6 +2,7 @@ package net.valhelsia.valhelsia_furniture.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -196,14 +197,15 @@ public class ClosedCurtainBlock extends AbstractCurtainBlock<ClosedCurtainPart> 
         }
     }
 
-    @Override
-    public void onRemove(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState newState, boolean isMoving) {
-        if (!(newState.getBlock() instanceof AbstractCurtainBlock)) {
-            this.updateAboveAndBelow(level, newState, pos.above(), pos.below(), state.getValue(FACING));
-        }
-
-        super.onRemove(state, level, pos, newState, isMoving);
-    }
+    //TODO
+//    @Override
+//    public void onRemove(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState newState, boolean isMoving) {
+//        if (!(newState.getBlock() instanceof AbstractCurtainBlock)) {
+//            this.updateAboveAndBelow(level, newState, pos.above(), pos.below(), state.getValue(FACING));
+//        }
+//
+//        super.onRemove(state, level, pos, newState, isMoving);
+//    }
 
     @Override
     protected void createBlockStateDefinition(@NotNull StateDefinition.Builder<Block, BlockState> builder) {

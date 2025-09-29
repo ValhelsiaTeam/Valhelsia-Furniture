@@ -1,10 +1,12 @@
 package net.valhelsia.valhelsia_furniture.common.entity;
 
+import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -116,18 +118,20 @@ public class SeatEntity extends Entity {
 
     @Override
     protected void readAdditionalSaveData(@NotNull CompoundTag tag) {
-        this.ejectType = EjectType.fromName(tag.getString("EjectType"));
+        this.ejectType = tag.read("eject_type", EjectType.CODEC).orElse(EjectType.NORTH);
     }
 
     @Override
     protected void addAdditionalSaveData(@NotNull CompoundTag tag) {
-        tag.putString("EjectType", this.ejectType.name);
+        tag.store("eject_type", EjectType.CODEC, this.ejectType);
     }
 
-    public enum EjectType {
+    public enum EjectType implements StringRepresentable {
         NORTH("north", (state, livingEntity) -> Direction.NORTH),
         BLOCK_HORIZONTAL_FACING("block_horizontal_facing", (state, livingEntity) -> state.getValue(BlockStateProperties.HORIZONTAL_FACING)),
         ENTITY_HEAD_ROTATION("entity_head_rotation", (state, livingEntity) -> Direction.fromYRot(livingEntity.yHeadRot));
+
+        static final Codec<EjectType> CODEC = StringRepresentable.fromEnum(EjectType::values);
 
         private final String name;
         private final BiFunction<BlockState, LivingEntity, Direction> preferredDirection;
@@ -147,6 +151,11 @@ public class SeatEntity extends Entity {
 
         public static EjectType fromName(String name) {
             return Arrays.stream(EjectType.values()).filter(ejectType -> ejectType.getName().equals(name)).findFirst().orElse(EjectType.NORTH);
+        }
+
+        @Override
+        public @NotNull String getSerializedName() {
+            return this.name;
         }
     }
 }

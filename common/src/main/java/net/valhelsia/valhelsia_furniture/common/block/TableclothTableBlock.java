@@ -24,10 +24,11 @@ public class TableclothTableBlock extends TableBlock {
         this.color = color;
     }
 
-    @Override
-    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
-        list.add(Component.translatable("tooltip.valhelsia_furniture." + this.color + "_tablecloth").withStyle(ChatFormatting.GRAY));
-    }
+    //TODO
+//    @Override
+//    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> list, TooltipFlag flag) {
+//        list.add(Component.translatable("tooltip.valhelsia_furniture." + this.color + "_tablecloth").withStyle(ChatFormatting.GRAY));
+//    }
 
     public DyeColor getColor() {
         return this.color;

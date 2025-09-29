@@ -153,23 +153,24 @@ public class OpenCurtainBlock extends AbstractCurtainBlock<OpenCurtainPart> {
         }
     }
 
-    @Override
-    public void onRemove(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState newState, boolean isMoving) {
-        if (!(newState.getBlock() instanceof AbstractCurtainBlock) && state.getValue(PART) != OpenCurtainPart.SINGLE) {
-            level.setBlockAndUpdate(pos, state);
-
-            this.updateOpen(state, level, pos);
-
-            level.removeBlock(pos, false);
-        }
-
-
-        if (!(newState.getBlock() instanceof AbstractCurtainBlock)) {
-            this.updateAboveAndBelow(level, newState, pos.above(), pos.below(), state.getValue(FACING));
-        }
-
-        super.onRemove(state, level, pos, newState, isMoving);
-    }
+    //TODO
+//    @Override
+//    public void onRemove(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState newState, boolean isMoving) {
+//        if (!(newState.getBlock() instanceof AbstractCurtainBlock) && state.getValue(PART) != OpenCurtainPart.SINGLE) {
+//            level.setBlockAndUpdate(pos, state);
+//
+//            this.updateOpen(state, level, pos);
+//
+//            level.removeBlock(pos, false);
+//        }
+//
+//
+//        if (!(newState.getBlock() instanceof AbstractCurtainBlock)) {
+//            this.updateAboveAndBelow(level, newState, pos.above(), pos.below(), state.getValue(FACING));
+//        }
+//
+//        super.onRemove(state, level, pos, newState, isMoving);
+//    }
 
     @Override
     protected void createBlockStateDefinition(@NotNull StateDefinition.Builder<Block, BlockState> builder) {
