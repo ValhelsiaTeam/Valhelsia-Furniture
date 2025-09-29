@@ -120,7 +120,7 @@ public class ClosedCurtainBlock extends AbstractCurtainBlock<ClosedCurtainPart> 
 
             if (length == 1) {
                 if (leftConnected && rightConnected) {
-                    newPart =  OpenCurtainPart.TOP;
+                    newPart = OpenCurtainPart.TOP;
                 }
 
                 if (leftConnected && !rightConnected) {
@@ -146,13 +146,13 @@ public class ClosedCurtainBlock extends AbstractCurtainBlock<ClosedCurtainPart> 
                         newPart = OpenCurtainPart.SINGLE_TOP;
                     }
                 } else if (part == ClosedCurtainPart.MIDDLE) {
-                       if (leftConnected && !rightConnected) {
-                           newPart = OpenCurtainPart.RIGHT_SIDE_MIDDLE;
-                       } else if (!leftConnected && rightConnected) {
-                           newPart = OpenCurtainPart.LEFT_SIDE_MIDDLE;
-                       } else if (!leftConnected){
-                           newPart = OpenCurtainPart.SINGLE_MIDDLE;
-                       }
+                    if (leftConnected && !rightConnected) {
+                        newPart = OpenCurtainPart.RIGHT_SIDE_MIDDLE;
+                    } else if (!leftConnected && rightConnected) {
+                        newPart = OpenCurtainPart.LEFT_SIDE_MIDDLE;
+                    } else if (!leftConnected) {
+                        newPart = OpenCurtainPart.SINGLE_MIDDLE;
+                    }
                 } else if (part == ClosedCurtainPart.BOTTOM) {
                     if (leftConnected && !rightConnected) {
                         newPart = OpenCurtainPart.RIGHT_SIDE_BOTTOM;
@@ -197,15 +197,14 @@ public class ClosedCurtainBlock extends AbstractCurtainBlock<ClosedCurtainPart> 
         }
     }
 
-    //TODO
-//    @Override
-//    public void onRemove(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState newState, boolean isMoving) {
-//        if (!(newState.getBlock() instanceof AbstractCurtainBlock)) {
-//            this.updateAboveAndBelow(level, newState, pos.above(), pos.below(), state.getValue(FACING));
-//        }
-//
-//        super.onRemove(state, level, pos, newState, isMoving);
-//    }
+    @Override
+    protected void affectNeighborsAfterRemoval(BlockState state, ServerLevel level, BlockPos pos, boolean movedByPiston) {
+        BlockState newState = level.getBlockState(pos);
+
+        if (!(newState.getBlock() instanceof AbstractCurtainBlock)) {
+            this.updateAboveAndBelow(level, newState, pos.above(), pos.below(), state.getValue(FACING));
+        }
+    }
 
     @Override
     protected void createBlockStateDefinition(@NotNull StateDefinition.Builder<Block, BlockState> builder) {

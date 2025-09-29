@@ -2,6 +2,7 @@ package net.valhelsia.valhelsia_furniture.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
@@ -153,24 +154,25 @@ public class OpenCurtainBlock extends AbstractCurtainBlock<OpenCurtainPart> {
         }
     }
 
-    //TODO
-//    @Override
-//    public void onRemove(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState newState, boolean isMoving) {
-//        if (!(newState.getBlock() instanceof AbstractCurtainBlock) && state.getValue(PART) != OpenCurtainPart.SINGLE) {
-//            level.setBlockAndUpdate(pos, state);
-//
-//            this.updateOpen(state, level, pos);
-//
-//            level.removeBlock(pos, false);
-//        }
-//
-//
-//        if (!(newState.getBlock() instanceof AbstractCurtainBlock)) {
-//            this.updateAboveAndBelow(level, newState, pos.above(), pos.below(), state.getValue(FACING));
-//        }
-//
-//        super.onRemove(state, level, pos, newState, isMoving);
-//    }
+    @Override
+    protected void affectNeighborsAfterRemoval(BlockState state, ServerLevel level, BlockPos pos, boolean movedByPiston) {
+        BlockState newState = level.getBlockState(pos);
+
+        if (!(newState.getBlock() instanceof AbstractCurtainBlock) && state.getValue(PART) != OpenCurtainPart.SINGLE) {
+            level.setBlockAndUpdate(pos, state);
+
+            this.updateOpen(state, level, pos);
+
+            level.removeBlock(pos, false);
+        }
+
+
+        if (!(newState.getBlock() instanceof AbstractCurtainBlock)) {
+            this.updateAboveAndBelow(level, newState, pos.above(), pos.below(), state.getValue(FACING));
+        }
+
+        super.affectNeighborsAfterRemoval(state, level, pos, movedByPiston);
+    }
 
     @Override
     protected void createBlockStateDefinition(@NotNull StateDefinition.Builder<Block, BlockState> builder) {
