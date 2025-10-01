@@ -3,7 +3,6 @@ package net.valhelsia.valhelsia_furniture.common.entity;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.StringRepresentable;
@@ -16,6 +15,8 @@ import net.minecraft.world.entity.vehicle.DismountHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.valhelsia.valhelsia_furniture.common.block.SeatableBlock;
@@ -117,13 +118,13 @@ public class SeatEntity extends Entity {
     }
 
     @Override
-    protected void readAdditionalSaveData(@NotNull CompoundTag tag) {
-        this.ejectType = tag.read("eject_type", EjectType.CODEC).orElse(EjectType.NORTH);
+    protected void readAdditionalSaveData(ValueInput input) {
+        this.ejectType = input.read("eject_type", EjectType.CODEC).orElse(EjectType.NORTH);
     }
 
     @Override
-    protected void addAdditionalSaveData(@NotNull CompoundTag tag) {
-        tag.store("eject_type", EjectType.CODEC, this.ejectType);
+    protected void addAdditionalSaveData(ValueOutput output) {
+        output.store("eject_type", EjectType.CODEC, this.ejectType);
     }
 
     public enum EjectType implements StringRepresentable {

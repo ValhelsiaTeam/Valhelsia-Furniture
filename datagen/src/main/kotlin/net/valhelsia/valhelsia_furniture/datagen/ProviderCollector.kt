@@ -14,7 +14,7 @@ import net.valhelsia.valhelsia_furniture.datagen.loot.ModBlockLoot
 import net.valhelsia.valhelsia_furniture.datagen.model.ModBlockModels
 import net.valhelsia.valhelsia_furniture.datagen.recipe.ModRecipeProvider
 import net.valhelsia.valhelsia_furniture.datagen.tags.ModBlockTagsProvider
-import net.valhelsia.valhelsia_furniture.datagen.tags.ModItemTagsProvider
+import net.valhelsia.valhelsia_furniture.datagen.tags.ModCopyItemTagsProvider
 
 class ProviderCollector : DataCollector() {
 
@@ -28,7 +28,7 @@ class ProviderCollector : DataCollector() {
         val blocks = ValhelsiaFurniture.REGISTRY_MANAGER.blockHelper.registryEntries.map { { it.value() } }
 
         addServerProvider(ModBlockTagsProvider(context))
-        addServerProvider(ModItemTagsProvider(context))
+        addServerProvider(ModCopyItemTagsProvider(context))
         addServerProvider(DataForgeRecipeRunner(context, { provider, output ->
             ModRecipeProvider(provider, output)
         }))
