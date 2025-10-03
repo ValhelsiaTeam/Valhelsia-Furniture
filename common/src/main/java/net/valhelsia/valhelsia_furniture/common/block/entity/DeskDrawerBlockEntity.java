@@ -11,6 +11,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.entity.ContainerUser;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -51,7 +52,7 @@ public class DeskDrawerBlockEntity extends RandomizableContainerBlockEntity {
         }
 
         @Override
-        protected boolean isOwnContainer(Player player) {
+        public boolean isOwnContainer(Player player) {
             if (player.containerMenu instanceof ChestMenu menu) {
                 Container container = menu.getContainer();
                 return container == DeskDrawerBlockEntity.this;
@@ -114,19 +115,17 @@ public class DeskDrawerBlockEntity extends RandomizableContainerBlockEntity {
     }
 
     @Override
-    public void startOpen(@NotNull Player player) {
-        if (!this.remove && !player.isSpectator()) {
-            this.openersCounter.incrementOpeners(player, this.getLevel(), this.getBlockPos(), this.getBlockState());
+    public void startOpen(ContainerUser containerUser) {
+        if (!this.remove && !containerUser.getLivingEntity().isSpectator()) {
+            this.openersCounter.incrementOpeners(containerUser.getLivingEntity(), this.getLevel(), this.getBlockPos(), this.getBlockState(), containerUser.getContainerInteractionRange());
         }
-
     }
 
     @Override
-    public void stopOpen(@NotNull Player player) {
-        if (!this.remove && !player.isSpectator()) {
-            this.openersCounter.decrementOpeners(player, this.getLevel(), this.getBlockPos(), this.getBlockState());
+    public void stopOpen(ContainerUser containerUser) {
+        if (!this.remove && !containerUser.getLivingEntity().isSpectator()) {
+            this.openersCounter.decrementOpeners(containerUser.getLivingEntity(), this.getLevel(), this.getBlockPos(), this.getBlockState());
         }
-
     }
 
     private void playSound(BlockState state, SoundEvent soundEvent) {

@@ -157,7 +157,7 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock, Seatabl
     }
 
     @Override
-    public int getAnalogOutputSignal(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos) {
+    protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos, Direction direction) {
         return this.isSeatOccupied(level, pos) ? 15 : 0;
     }
 
