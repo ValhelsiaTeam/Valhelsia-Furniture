@@ -2,10 +2,10 @@ package net.valhelsia.valhelsia_furniture.datagen.tags
 
 import net.minecraft.core.HolderLookup
 import net.valhelsia.dataforge.DataProviderContext
-import net.valhelsia.dataforge.tag.DataForgeCopyItemTagsProvider
+import net.valhelsia.dataforge.tag.DataForgeItemTagsProvider
 import net.valhelsia.valhelsia_furniture.core.registry.ModTags
 
-class ModCopyItemTagsProvider(context: DataProviderContext.Server) : DataForgeCopyItemTagsProvider(context) {
+class ModItemTagsProvider(context: DataProviderContext.Server) : DataForgeItemTagsProvider(context) {
     override fun addTags(provider: HolderLookup.Provider) {
         copy(ModTags.Blocks.OAK_DESKS, ModTags.Items.OAK_DESKS)
         copy(ModTags.Blocks.SPRUCE_DESKS, ModTags.Items.SPRUCE_DESKS)
