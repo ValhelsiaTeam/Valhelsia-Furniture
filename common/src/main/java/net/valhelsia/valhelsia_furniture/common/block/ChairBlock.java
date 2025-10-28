@@ -126,7 +126,7 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock, Seatabl
     }
 
     @Override
-    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier) {
+    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier, boolean intersects) {
         this.trySitEntityOnBlock(level, pos, entity);
     }
 

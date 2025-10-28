@@ -11,7 +11,7 @@ sourceSets {
 }
 
 neoForge {
-    neoFormVersion = "1.21.9-20250930.151910"
+    neoFormVersion = "1.21.10-20251010.172816"
 
     parchment {
         mappingsVersion = parchment_mappings_version
