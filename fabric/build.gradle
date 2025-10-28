@@ -20,7 +20,7 @@ repositories {
 }
 
 base {
-    archivesName = mod_id + '-fabric'
+    archivesName = "${mod_id}-fabric-${minecraft_version}"
 }
 
 sourceSets {
