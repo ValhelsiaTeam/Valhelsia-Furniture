@@ -1,5 +1,5 @@
 plugins {
-    id 'net.neoforged.moddev' version '2.0.112'
+    id 'net.neoforged.moddev' version '2.0.123'
 }
 
 sourceSets {
@@ -11,7 +11,7 @@ sourceSets {
 }
 
 neoForge {
-    neoFormVersion = "1.21.10-20251010.172816"
+    neoFormVersion = "1.21.11-20251209.172050"
 
     parchment {
         mappingsVersion = parchment_mappings_version

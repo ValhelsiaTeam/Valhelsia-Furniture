@@ -2,7 +2,7 @@ package net.valhelsia.valhelsia_furniture.datagen.models;
 
 import net.minecraft.client.data.models.model.ModelTemplate;
 import net.minecraft.client.data.models.model.TextureSlot;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 
 import java.util.Optional;
@@ -55,6 +55,6 @@ public class ModModelTemplates {
     public static final ModelTemplate FABRIC_DESK_LAMP_ON = create("template_fabric_desk_lamp_on", ModTextureSlots.COLOR);
 
     public static ModelTemplate create(String name, TextureSlot... textureSlots) {
-        return new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, "block/" + name)), Optional.empty(), textureSlots);
+        return new ModelTemplate(Optional.of(Identifier.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, "block/" + name)), Optional.empty(), textureSlots);
     }
 }

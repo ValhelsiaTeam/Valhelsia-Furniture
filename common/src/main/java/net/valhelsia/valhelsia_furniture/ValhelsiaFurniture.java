@@ -1,6 +1,6 @@
 package net.valhelsia.valhelsia_furniture;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.valhelsia.valhelsia_core.api.common.registry.RegistryManager;
 import net.valhelsia.valhelsia_core.core.ModDefinition;
 import net.valhelsia.valhelsia_furniture.client.ClientSetup;
@@ -18,7 +18,7 @@ public class ValhelsiaFurniture {
 				.create();
 	}
 
-	public static ResourceLocation location(String path) {
-		return ResourceLocation.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, path);
+	public static Identifier location(String path) {
+		return Identifier.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, path);
 	}
 }

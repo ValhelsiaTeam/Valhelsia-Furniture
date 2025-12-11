@@ -11,7 +11,7 @@ import net.minecraft.client.data.models.model.TextureSlot
 import net.minecraft.client.renderer.block.model.VariantMutator
 import net.minecraft.core.Direction
 import net.minecraft.core.registries.BuiltInRegistries
-import net.minecraft.resources.ResourceLocation
+import net.minecraft.resources.Identifier
 import net.minecraft.util.StringRepresentable
 import net.minecraft.world.item.DyeColor
 import net.minecraft.world.level.block.Block
@@ -255,14 +255,14 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
         val textureMapping: TextureMapping = TextureMapping()
             .put(
                 ModTextureSlots.WOOL,
-                ResourceLocation.fromNamespaceAndPath(
+                Identifier.fromNamespaceAndPath(
                     ValhelsiaFurniture.MOD_ID,
                     "block/upholstered_chair/colors/" + block.color
                 )
             )
             .put(
                 ModTextureSlots.WOOD,
-                ResourceLocation.fromNamespaceAndPath(
+                Identifier.fromNamespaceAndPath(
                     ValhelsiaFurniture.MOD_ID,
                     "block/upholstered_chair/base/" + block.woodType.name()
                 )
@@ -295,14 +295,14 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
         val textureMapping: TextureMapping = TextureMapping()
             .put(
                 ModTextureSlots.WOOD,
-                ResourceLocation.fromNamespaceAndPath(
+                Identifier.fromNamespaceAndPath(
                     ValhelsiaFurniture.MOD_ID,
                     "block/upholstered_stool/base/" + block.woodType.name()
                 )
             )
             .put(
                 ModTextureSlots.WOOL,
-                ResourceLocation.fromNamespaceAndPath(
+                Identifier.fromNamespaceAndPath(
                     ValhelsiaFurniture.MOD_ID,
                     "block/upholstered_stool/colors/" + block.color
                 )
@@ -346,7 +346,7 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
                     for (slot in textureSlots) {
                         textureMapping.put(
                             slot,
-                            ResourceLocation.fromNamespaceAndPath(
+                            Identifier.fromNamespaceAndPath(
                                 ValhelsiaFurniture.MOD_ID,
                                 "block/desk/" + block.woodType.name() + "/" + slot.id
                             )
@@ -385,7 +385,7 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
     private fun createDeskLamp(block: FabricDeskLampBlock, color: DyeColor) {
         val textureMapping: TextureMapping = TextureMapping().put(
             ModTextureSlots.COLOR,
-            ResourceLocation.fromNamespaceAndPath(
+            Identifier.fromNamespaceAndPath(
                 ValhelsiaFurniture.MOD_ID,
                 "block/fabric_desk_lamp/colors/" + color.serializedName
             )
@@ -426,10 +426,10 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
         }
 
         val dispatch: PropertyDispatch<MultiVariant> = PropertyDispatch.initial(property).generate { part ->
-            var model: ResourceLocation =
+            var model: Identifier =
                 BuiltInRegistries.BLOCK.getKey(block).withPath { s -> "block/" + s + part.modelName }
             if (properties[part] == null) {
-                model = ResourceLocation.fromNamespaceAndPath(
+                model = Identifier.fromNamespaceAndPath(
                     ValhelsiaFurniture.MOD_ID,
                     "block/curtain/curtain_bracket"
                 )

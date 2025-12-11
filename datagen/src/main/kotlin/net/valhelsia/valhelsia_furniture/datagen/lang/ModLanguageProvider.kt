@@ -1,7 +1,7 @@
 package net.valhelsia.valhelsia_furniture.datagen.lang
 
-import net.minecraft.Util
 import net.minecraft.data.PackOutput
+import net.minecraft.util.Util
 import net.minecraft.world.item.DyeColor
 import net.neoforged.neoforge.common.data.LanguageProvider
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture
@@ -114,23 +114,23 @@ class ModLanguageProvider(
 
     companion object {
         val COLOR_TO_STRING: MutableMap<DyeColor, String> =
-            Util.make<EnumMap<DyeColor, String>>(EnumMap<DyeColor, String>(DyeColor::class.java)) {
-                it.put(DyeColor.WHITE, "White")
-                it.put(DyeColor.ORANGE, "Orange")
-                it.put(DyeColor.MAGENTA, "Magenta")
-                it.put(DyeColor.LIGHT_BLUE, "Light Blue")
-                it.put(DyeColor.YELLOW, "Yellow")
-                it.put(DyeColor.LIME, "Lime")
-                it.put(DyeColor.PINK, "Pink")
-                it.put(DyeColor.GRAY, "Gray")
-                it.put(DyeColor.LIGHT_GRAY, "Light Gray")
-                it.put(DyeColor.CYAN, "Cyan")
-                it.put(DyeColor.PURPLE, "Purple")
-                it.put(DyeColor.BLUE, "Blue")
-                it.put(DyeColor.BROWN, "Brown")
-                it.put(DyeColor.GREEN, "Green")
-                it.put(DyeColor.RED, "Red")
-                it.put(DyeColor.BLACK, "Black")
+            Util.make(EnumMap(DyeColor::class.java)) {
+                it[DyeColor.WHITE] = "White"
+                it[DyeColor.ORANGE] = "Orange"
+                it[DyeColor.MAGENTA] = "Magenta"
+                it[DyeColor.LIGHT_BLUE] = "Light Blue"
+                it[DyeColor.YELLOW] = "Yellow"
+                it[DyeColor.LIME] = "Lime"
+                it[DyeColor.PINK] = "Pink"
+                it[DyeColor.GRAY] = "Gray"
+                it[DyeColor.LIGHT_GRAY] = "Light Gray"
+                it[DyeColor.CYAN] = "Cyan"
+                it[DyeColor.PURPLE] = "Purple"
+                it[DyeColor.BLUE] = "Blue"
+                it[DyeColor.BROWN] = "Brown"
+                it[DyeColor.GREEN] = "Green"
+                it[DyeColor.RED] = "Red"
+                it[DyeColor.BLACK] = "Black"
             }
     }
 }

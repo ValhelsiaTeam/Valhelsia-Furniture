@@ -1,7 +1,7 @@
 package net.valhelsia.valhelsia_furniture.core.registry;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -79,7 +79,7 @@ public class ModTags {
         public static final TagKey<Block> CURTAINS = modTag("curtains");
 
         private static TagKey<Block> modTag(String name) {
-            return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, name));
+            return TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, name));
         }
     }
 
@@ -99,7 +99,7 @@ public class ModTags {
         public static final TagKey<Item> FABRIC_DESK_LAMPS = modTag("fabric_desk_lamps");
 
         private static TagKey<Item> modTag(String name) {
-            return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, name));
+            return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ValhelsiaFurniture.MOD_ID, name));
         }
     }
 }

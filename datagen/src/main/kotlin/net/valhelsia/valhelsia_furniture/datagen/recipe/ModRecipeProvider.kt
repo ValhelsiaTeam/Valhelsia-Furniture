@@ -4,7 +4,7 @@ import net.minecraft.core.HolderLookup
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.data.recipes.RecipeCategory
 import net.minecraft.data.recipes.RecipeOutput
-import net.minecraft.resources.ResourceLocation
+import net.minecraft.resources.Identifier
 import net.minecraft.world.item.DyeColor
 import net.minecraft.world.item.Items
 import net.minecraft.world.level.ItemLike
@@ -156,7 +156,7 @@ class ModRecipeProvider(
 
     private fun coloredTable(block: Supplier<TableclothTableBlock>, table: Supplier<TableBlock>) {
         val carpet = BuiltInRegistries.BLOCK.getValue(
-            ResourceLocation.withDefaultNamespace(block.get().color.serializedName + "_carpet")
+            Identifier.withDefaultNamespace(block.get().color.serializedName + "_carpet")
         )
 
         this.shaped(RecipeCategory.DECORATIONS, block.get()) {
@@ -214,7 +214,7 @@ class ModRecipeProvider(
 
     private fun coloredChair(block: Supplier<ChairBlock>, material: ItemLike) {
         val wool = BuiltInRegistries.BLOCK.getValue(
-            ResourceLocation.withDefaultNamespace(block.get().color?.serializedName + "_wool")
+            Identifier.withDefaultNamespace(block.get().color?.serializedName + "_wool")
         )
 
         this.shaped(RecipeCategory.DECORATIONS, block.get(), 2) {
@@ -238,7 +238,7 @@ class ModRecipeProvider(
 
     private fun upholsteredChair(block: Supplier<UpholsteredChairBlock>, material: ItemLike) {
         val wool = BuiltInRegistries.BLOCK.getValue(
-            ResourceLocation.withDefaultNamespace(block.get().color?.serializedName + "_wool")
+            Identifier.withDefaultNamespace(block.get().color?.serializedName + "_wool")
         )
 
         this.shaped(RecipeCategory.DECORATIONS, block.get(), 2) {
@@ -250,7 +250,7 @@ class ModRecipeProvider(
 
     private fun curtain(block: Supplier<ClosedCurtainBlock>, color: DyeColor) {
         val wool =
-            BuiltInRegistries.BLOCK.getValue(ResourceLocation.withDefaultNamespace(color.serializedName + "_wool"))
+            BuiltInRegistries.BLOCK.getValue(Identifier.withDefaultNamespace(color.serializedName + "_wool"))
 
         this.shaped(RecipeCategory.DECORATIONS, block.get(), 2) {
             it.group("valhelsia_furniture:curtain").pattern("XX", "##", "##")
@@ -278,7 +278,7 @@ class ModRecipeProvider(
 
     private fun upholsteredStool(block: Supplier<StoolBlock>, material: ItemLike) {
         val wool = BuiltInRegistries.BLOCK.getValue(
-            ResourceLocation.withDefaultNamespace(block.get().color?.serializedName + "_wool")
+            Identifier.withDefaultNamespace(block.get().color?.serializedName + "_wool")
         )
 
         this.shaped(RecipeCategory.DECORATIONS, block.get(), 2) {
@@ -289,7 +289,7 @@ class ModRecipeProvider(
 
     private fun fabricDeskLamp(block: Supplier<FabricDeskLampBlock>, color: DyeColor) {
         val wool =
-            BuiltInRegistries.BLOCK.getValue(ResourceLocation.withDefaultNamespace(color.serializedName + "_wool"))
+            BuiltInRegistries.BLOCK.getValue(Identifier.withDefaultNamespace(color.serializedName + "_wool"))
 
         this.shaped(RecipeCategory.DECORATIONS, block.get()) {
             it.group("valhelsia_furniture:fabric_desk_lamp").pattern("#", "G", "X")
