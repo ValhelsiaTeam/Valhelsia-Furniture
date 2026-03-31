@@ -8,7 +8,8 @@ import net.minecraft.client.data.models.model.ModelLocationUtils
 import net.minecraft.client.data.models.model.ModelTemplate
 import net.minecraft.client.data.models.model.TextureMapping
 import net.minecraft.client.data.models.model.TextureSlot
-import net.minecraft.client.renderer.block.model.VariantMutator
+import net.minecraft.client.renderer.block.dispatch.VariantMutator
+import net.minecraft.client.resources.model.sprite.Material
 import net.minecraft.core.Direction
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.resources.Identifier
@@ -165,9 +166,9 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
     private fun createTable(block: TableBlock) {
         val folder: String = FurnitureBlock.Type.TABLE.serializedName + "/" + block.woodType.name()
         val textureMapping: TextureMapping =
-            TextureMapping().put(ModTextureSlots.TABLE, ModTextureMapping.getBlockTexture(block, folder)).put(
+            TextureMapping().put(ModTextureSlots.TABLE, Material(ModTextureMapping.getBlockTexture(block, folder))).put(
                 ModTextureSlots.CONNECTED_TABLE,
-                ModTextureMapping.getBlockTexture(block, folder, "_connected")
+                Material(ModTextureMapping.getBlockTexture(block, folder, "_connected"))
             )
 
         createTableModels(block, textureMapping)
@@ -242,7 +243,7 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
     private fun createChair(block: ChairBlock) {
         val textureMapping: TextureMapping = TextureMapping().put(
             ModTextureSlots.CHAIR,
-            ModTextureMapping.getBlockTexture(block, "chair/" + block.woodType.name())
+            Material(ModTextureMapping.getBlockTexture(block, "chair/" + block.woodType.name()))
         )
         val model = BlockModelGenerators.plainVariant(
             ModModelTemplates.CHAIR.create(block, textureMapping, modelOutput)
@@ -255,16 +256,20 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
         val textureMapping: TextureMapping = TextureMapping()
             .put(
                 ModTextureSlots.WOOL,
-                Identifier.fromNamespaceAndPath(
-                    ValhelsiaFurniture.MOD_ID,
-                    "block/upholstered_chair/colors/" + block.color
+                Material(
+                    Identifier.fromNamespaceAndPath(
+                        ValhelsiaFurniture.MOD_ID,
+                        "block/upholstered_chair/colors/" + block.color
+                    )
                 )
             )
             .put(
                 ModTextureSlots.WOOD,
-                Identifier.fromNamespaceAndPath(
-                    ValhelsiaFurniture.MOD_ID,
-                    "block/upholstered_chair/base/" + block.woodType.name()
+                Material(
+                    Identifier.fromNamespaceAndPath(
+                        ValhelsiaFurniture.MOD_ID,
+                        "block/upholstered_chair/base/" + block.woodType.name()
+                    )
                 )
             )
         val model = BlockModelGenerators.plainVariant(
@@ -276,7 +281,7 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
 
     private fun createStool(block: Block) {
         val textureMapping =
-            TextureMapping().put(ModTextureSlots.STOOL, ModTextureMapping.getBlockTexture(block, "stool"))
+            TextureMapping().put(ModTextureSlots.STOOL, Material(ModTextureMapping.getBlockTexture(block, "stool")))
         val model = BlockModelGenerators.plainVariant(
             ModModelTemplates.STOOL.create(block, textureMapping, modelOutput)
         )
@@ -295,16 +300,20 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
         val textureMapping: TextureMapping = TextureMapping()
             .put(
                 ModTextureSlots.WOOD,
-                Identifier.fromNamespaceAndPath(
-                    ValhelsiaFurniture.MOD_ID,
-                    "block/upholstered_stool/base/" + block.woodType.name()
+                Material(
+                    Identifier.fromNamespaceAndPath(
+                        ValhelsiaFurniture.MOD_ID,
+                        "block/upholstered_stool/base/" + block.woodType.name()
+                    )
                 )
             )
             .put(
                 ModTextureSlots.WOOL,
-                Identifier.fromNamespaceAndPath(
-                    ValhelsiaFurniture.MOD_ID,
-                    "block/upholstered_stool/colors/" + block.color
+                Material(
+                    Identifier.fromNamespaceAndPath(
+                        ValhelsiaFurniture.MOD_ID,
+                        "block/upholstered_stool/colors/" + block.color
+                    )
                 )
             )
 
@@ -346,9 +355,11 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
                     for (slot in textureSlots) {
                         textureMapping.put(
                             slot,
-                            Identifier.fromNamespaceAndPath(
-                                ValhelsiaFurniture.MOD_ID,
-                                "block/desk/" + block.woodType.name() + "/" + slot.id
+                            Material(
+                                Identifier.fromNamespaceAndPath(
+                                    ValhelsiaFurniture.MOD_ID,
+                                    "block/desk/" + block.woodType.name() + "/" + slot.id
+                                )
                             )
                         )
                     }
@@ -385,9 +396,11 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
     private fun createDeskLamp(block: FabricDeskLampBlock, color: DyeColor) {
         val textureMapping: TextureMapping = TextureMapping().put(
             ModTextureSlots.COLOR,
-            Identifier.fromNamespaceAndPath(
-                ValhelsiaFurniture.MOD_ID,
-                "block/fabric_desk_lamp/colors/" + color.serializedName
+            Material(
+                Identifier.fromNamespaceAndPath(
+                    ValhelsiaFurniture.MOD_ID,
+                    "block/fabric_desk_lamp/colors/" + color.serializedName
+                )
             )
         )
 
@@ -420,8 +433,8 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
             val folder = "curtain/" + block.color.serializedName
             val textureMapping: TextureMapping = TextureMapping().put(
                 TextureSlot.TOP,
-                ModTextureMapping.getBlockTexture(folder, part.topTexture)
-            ).put(TextureSlot.DOWN, ModTextureMapping.getBlockTexture(folder, part.bottomTexture))
+                Material(ModTextureMapping.getBlockTexture(folder, part.topTexture))
+            ).put(TextureSlot.DOWN, Material(ModTextureMapping.getBlockTexture(folder, part.bottomTexture)))
             properties[part]?.createWithSuffix(block, part.modelName, textureMapping, modelOutput)
         }
 

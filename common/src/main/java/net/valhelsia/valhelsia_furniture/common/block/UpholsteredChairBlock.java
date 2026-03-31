@@ -11,7 +11,6 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.valhelsia.valhelsia_core.api.common.helper.VoxelShapeHelper;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -27,7 +26,7 @@ import java.util.Map;
  */
 public class UpholsteredChairBlock extends ChairBlock {
 
-    private static final Map<Direction, VoxelShape> SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Shapes.or(
+    private static final Map<Direction, VoxelShape> SHAPES = Shapes.rotateHorizontal(Shapes.or(
             Block.box(3.0D, 0.0D, 4.0D, 5.0D, 7.0D, 6.0D),
             Block.box(11.0D, 0.0D, 4.0D, 13.0D, 7.0D, 6.0D),
             Block.box(3.0D, 0.0D, 12.0D, 5.0D, 7.0D, 14.0D),

@@ -20,7 +20,6 @@ import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.valhelsia.valhelsia_core.api.common.helper.VoxelShapeHelper;
 import net.valhelsia.valhelsia_furniture.common.block.properties.CurtainPart;
 import net.valhelsia.valhelsia_furniture.common.block.properties.OpenCurtainPart;
 import org.jetbrains.annotations.NotNull;
@@ -40,9 +39,9 @@ public abstract class AbstractCurtainBlock<T extends CurtainPart> extends Block 
     private static final VoxelShape BRACKET_SHAPE = Block.box(0.0D, 14.0D, 14.0D, 16.0D, 16.0D, 16.0D);
     private static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 15.0D, 16.0D, 16.0D, 16.0D);
 
-    public static final Map<Direction, VoxelShape> TOP_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Shapes.or(SHAPE, BRACKET_SHAPE));
-    public static final Map<Direction, VoxelShape> SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(SHAPE);
-    public static final Map<Direction, VoxelShape> BRACKET_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(BRACKET_SHAPE);
+    public static final Map<Direction, VoxelShape> TOP_SHAPES = Shapes.rotateHorizontal(Shapes.or(SHAPE, BRACKET_SHAPE));
+    public static final Map<Direction, VoxelShape> SHAPES = Shapes.rotateHorizontal(SHAPE);
+    public static final Map<Direction, VoxelShape> BRACKET_SHAPES = Shapes.rotateHorizontal(BRACKET_SHAPE);
 
     private final DyeColor color;
 

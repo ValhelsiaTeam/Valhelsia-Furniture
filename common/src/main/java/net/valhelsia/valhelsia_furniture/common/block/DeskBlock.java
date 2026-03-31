@@ -21,7 +21,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.valhelsia.valhelsia_core.api.common.helper.VoxelShapeHelper;
 import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStateProperties;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -45,7 +44,7 @@ public class DeskBlock extends Block implements SimpleWaterloggedBlock {
 
     private static final VoxelShape TOP_SHAPE = Block.box(0.0D, 12.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 
-    private static final Map<Direction, VoxelShape> TWO_LEGS_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Shapes.or(
+    private static final Map<Direction, VoxelShape> TWO_LEGS_SHAPES = Shapes.rotateHorizontal(Shapes.or(
             TOP_SHAPE,
             Block.box(12.0D, 0.0D, 12.0D, 15.0D, 12.0D, 15.0D),
             Block.box(1.0D, 0.0D, 12.0D, 4.0D, 12.0D, 15.0D)
@@ -58,10 +57,10 @@ public class DeskBlock extends Block implements SimpleWaterloggedBlock {
             Block.box(12.0D, 0.0D, 1.0D, 15.0D, 12.0D, 4.0D)
     );
 
-    private static final Map<Direction, VoxelShape> CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(4.0D, 4.0D, 1.0D, 12.0D, 12.0D, 4.0D));
-    private static final Map<Direction, VoxelShape> FULL_CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(0.0D, 4.0D, 1.0D, 16.0D, 12.0D, 4.0D));
-    private static final Map<Direction, VoxelShape> LEFT_CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(0.0D, 4.0D, 1.0D, 12.0D, 12.0D, 4.0D));
-    private static final Map<Direction, VoxelShape> RIGHT_CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(4.0D, 4.0D, 1.0D, 16.0D, 12.0D, 4.0D));
+    private static final Map<Direction, VoxelShape> CONNECT_SHAPES = Shapes.rotateHorizontal(Block.box(4.0D, 4.0D, 1.0D, 12.0D, 12.0D, 4.0D));
+    private static final Map<Direction, VoxelShape> FULL_CONNECT_SHAPES = Shapes.rotateHorizontal(Block.box(0.0D, 4.0D, 1.0D, 16.0D, 12.0D, 4.0D));
+    private static final Map<Direction, VoxelShape> LEFT_CONNECT_SHAPES = Shapes.rotateHorizontal(Block.box(0.0D, 4.0D, 1.0D, 12.0D, 12.0D, 4.0D));
+    private static final Map<Direction, VoxelShape> RIGHT_CONNECT_SHAPES = Shapes.rotateHorizontal(Block.box(4.0D, 4.0D, 1.0D, 16.0D, 12.0D, 4.0D));
 
     private final WoodType woodType;
     private final TagKey<Block> tag;

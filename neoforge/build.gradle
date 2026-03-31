@@ -33,7 +33,7 @@ base {
     archivesName = "${mod_id}-neoforge-${minecraft_version}"
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
 
 sourceSets {
     main {
@@ -48,11 +48,6 @@ sourceSets {
 
 neoForge {
     version = neo_version
-
-    parchment {
-        mappingsVersion = parchment_mappings_version
-        minecraftVersion = parchment_minecraft_version
-    }
 
     accessTransformers.from "../neoforge/src/main/resources/META-INF/accesstransformer-neoforge.cfg"
 

@@ -29,7 +29,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.valhelsia.valhelsia_core.api.common.helper.VoxelShapeHelper;
 import net.valhelsia.valhelsia_furniture.ValhelsiaFurniture;
 import net.valhelsia.valhelsia_furniture.common.entity.SeatEntity;
 import org.jetbrains.annotations.NotNull;
@@ -50,7 +49,7 @@ public class ChairBlock extends Block implements SimpleWaterloggedBlock, Seatabl
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    private static final Map<Direction, VoxelShape> SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Shapes.or(
+    private static final Map<Direction, VoxelShape> SHAPES = Shapes.rotateHorizontal(Shapes.or(
             Block.box(2.0D, 0.0D, 2.0D, 5.0D, 7.0D, 5.0D),
             Block.box(11.0D, 0.0D, 2.0D, 14.0D, 7.0D, 5.0D),
             Block.box(2.0D, 0.0D, 12.0D, 14.0D, 20.0D, 15.0D),

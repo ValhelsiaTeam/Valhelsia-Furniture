@@ -21,7 +21,7 @@ public class ModCreativeModeTabs implements RegistryClass {
     public static final RegistryEntry<CreativeModeTab, CreativeModeTab> MAIN = HELPER.register("main", ValhelsiaCore.INSTANCE.createCreativeTab(builder -> {
                 builder.icon(() -> new ItemStack(ModBlocks.HAY_OAK_CHAIR.get()))
                         .title(Component.translatable("itemGroup.valhelsia_furniture"))
-                        .displayItems((itemDisplayParameters, output) -> {
+                        .displayItems((_, output) -> {
                             ValhelsiaFurniture.REGISTRY_MANAGER.getItemHelper().getRegistryEntries().forEach(entry -> {
                                 output.accept(entry.get());
                             });

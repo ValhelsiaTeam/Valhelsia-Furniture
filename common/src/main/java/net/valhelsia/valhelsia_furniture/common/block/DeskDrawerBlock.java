@@ -21,7 +21,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.valhelsia.valhelsia_core.api.common.helper.VoxelShapeHelper;
 import net.valhelsia.valhelsia_furniture.common.block.entity.DeskDrawerBlockEntity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -36,8 +35,8 @@ import java.util.function.Function;
 public class DeskDrawerBlock extends DeskBlock implements EntityBlock {
 
     private static final VoxelShape DRAWER_SHAPE = Block.box(1.0D, 4.0D, 1.0D, 15.0D, 12.0D, 15.0D);
-    private static final Map<Direction, VoxelShape> LEFT_CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(0.0D, 4.0D, 1.0D, 1.0D, 12.0D, 4.0D));
-    private static final Map<Direction, VoxelShape> RIGHT_CONNECT_SHAPES = VoxelShapeHelper.getHorizontalRotatedShapes(Block.box(15.0D, 4.0D, 1.0D, 16.0D, 12.0D, 4.0D));
+    private static final Map<Direction, VoxelShape> LEFT_CONNECT_SHAPES = Shapes.rotateHorizontal(Block.box(0.0D, 4.0D, 1.0D, 1.0D, 12.0D, 4.0D));
+    private static final Map<Direction, VoxelShape> RIGHT_CONNECT_SHAPES = Shapes.rotateHorizontal(Block.box(15.0D, 4.0D, 1.0D, 16.0D, 12.0D, 4.0D));
 
     private final Function<BlockState, VoxelShape> shapesCache;
 
