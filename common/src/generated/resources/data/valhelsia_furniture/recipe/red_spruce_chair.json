@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "valhelsia_furniture:colored_spruce_chair",
+  "key": {
+    "#": "minecraft:spruce_planks",
+    "W": "minecraft:red_wool",
+    "X": "#c:rods/wooden"
+  },
+  "pattern": [
+    "X  ",
+    "#WW",
+    "X X"
+  ],
+  "result": {
+    "count": 2,
+    "id": "valhelsia_furniture:red_spruce_chair"
+  }
+}

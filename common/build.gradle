@@ -2,19 +2,29 @@ plugins {
     id("net.neoforged.moddev")
 }
 
-sourceSets {
-    main {
-        resources {
-            srcDir '../datagen/src/generated/resources'
-        }
-    }
-}
-
 neoForge {
-    neoFormVersion = "26.1-1"
+    neoFormVersion = neo_form_version
 }
 
 dependencies {
-    implementation "net.valhelsia:valhelsia_core-common:${minecraft_version}-1.1.7"
-    accessTransformers "net.valhelsia:valhelsia_core-common:${minecraft_version}-1.1.7"
+    if (project.hasProperty("valhelsia_core_version") && findProperty("valhelsia_core_version")?.trim()) {
+        implementation "net.valhelsia:valhelsia_core-common:${valhelsia_core_version}"
+        accessTransformers "net.valhelsia:valhelsia_core-common:${valhelsia_core_version}"
+    }
+}
+
+configurations {
+    commonJava {
+        canBeResolved = false
+        canBeConsumed = true
+    }
+    commonResources {
+        canBeResolved = false
+        canBeConsumed = true
+    }
+}
+
+artifacts {
+    commonJava sourceSets.main.java.sourceDirectories.singleFile
+    commonResources sourceSets.main.resources.sourceDirectories.singleFile
 }

@@ -18,8 +18,8 @@ public class ModRegistryCollector extends RegistryCollector {
     protected void collectHelpers() {
         this.addBlockHelper(ModBlocks.class);
         this.addItemHelper();
-        this.addMappedHelper(Registries.CREATIVE_MODE_TAB, ModCreativeModeTabs.class);
-        this.addMappedHelper(Registries.ENTITY_TYPE, EntityRegistryHelper::new, ModEntities.class);
-        this.addMappedHelper(Registries.BLOCK_ENTITY_TYPE, ModBlockEntities.class);
+        this.addHelper(Registries.CREATIVE_MODE_TAB, ModCreativeModeTabs.class);
+        this.addHelper(Registries.ENTITY_TYPE, EntityRegistryHelper::new, ModEntities.class);
+        this.addHelper(Registries.BLOCK_ENTITY_TYPE, ModBlockEntities.class);
     }
 }

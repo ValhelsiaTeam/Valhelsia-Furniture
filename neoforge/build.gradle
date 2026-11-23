@@ -1,48 +1,13 @@
 plugins {
-    id 'java-library'
-    id 'maven-publish'
     id("net.neoforged.moddev")
 }
 
-version = mod_version
-
-Project common = project(":common")
-evaluationDependsOn(common.path)
-
-repositories {
-    maven {
-        // location of the maven that hosts JEI files
-        name = "Jared's maven"
-        url = "https://maven.blamejared.com/"
+configurations {
+    commonJava {
+        canBeResolved = true
     }
-    maven {
-        // location of a maven mirror for JEI files, as a fallback
-        name = "ModMaven"
-        url = "https://modmaven.k-4u.nl"
-    }
-    maven {
-        url = "https://www.cursemaven.com"
-    }
-    flatDir {
-        dirs 'libs'
-    }
-    mavenCentral()
-}
-
-base {
-    archivesName = "${mod_id}-neoforge-${minecraft_version}"
-}
-
-java.toolchain.languageVersion = JavaLanguageVersion.of(25)
-
-sourceSets {
-    main {
-        java {
-            srcDir common.sourceSets.main.java.srcDirs
-        }
-        resources {
-            srcDir common.sourceSets.main.resources.srcDirs
-        }
+    commonResources {
+        canBeResolved = true
     }
 }
 
@@ -54,8 +19,6 @@ neoForge {
     runs {
         client {
             client()
-
-            // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             systemProperty 'neoforge.enabledGameTestNamespaces', mod_id
         }
 
@@ -65,69 +28,98 @@ neoForge {
             systemProperty 'neoforge.enabledGameTestNamespaces', mod_id
         }
 
-        // This run config launches GameTestServer and runs all registered gametests, then exits.
-        // By default, the server will crash when no gametests are provided.
-        // The gametest system is also enabled by default for other run configs under the /test command.
         gameTestServer {
             type = "gameTestServer"
             systemProperty 'neoforge.enabledGameTestNamespaces', mod_id
         }
 
-        // applies to all the run configs above
         configureEach {
-            // Recommended logging data for a userdev environment
             systemProperty 'forge.logging.markers', 'REGISTRIES'
-
-            // Recommended logging level for the console
             logLevel = org.slf4j.event.Level.DEBUG
         }
     }
 
     mods {
-        // define mod <-> source bindings
-        // these are used to tell the game which sources are for which mod
-        // mostly optional in a single mod project
-        // but multi mod projects should define one per mod
         "${mod_id}" {
             sourceSet(sourceSets.main)
         }
     }
 }
 
-dependencies {
-    compileOnly(common)
+sourceSets.main.resources { srcDir "src/generated/resources" }
 
-    implementation "net.valhelsia:valhelsia_core-neoforge-${minecraft_version}:${valhelsia_core_version}"
-    //implementation fg.deobf(files("libs/valhelsia_furniture-forge-${valhelsia_furniture_version}-dev.jar"))
 
-    // compile against the JEI API but do not include it at runtime
-//    compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
-    // at runtime, use the full JEI jar
-//    runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
+repositories {
+    maven {
+        // location of the maven that hosts JEI files
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
 }
 
-tasks.withType(ProcessResources).configureEach {
-    var replaceProperties = [minecraft_version      : minecraft_version,
-                             minecraft_version_range: minecraft_version_range,
-                             neo_version            : neo_version,
-                             neo_version_range      : neo_version_range,
-                             loader_version_range   : loader_version_range,
-                             mod_id                 : mod_id,
-                             mod_name               : mod_name,
-                             mod_license            : mod_license,
-                             mod_version            : mod_version,
-                             mod_authors            : mod_authors,
-                             mod_description        : mod_description]
+dependencies {
+    compileOnly(project(":common"))
+    commonJava project(path: ":common", configuration: "commonJava")
+    commonResources project(path: ":common", configuration: "commonResources")
+
+    if (project.hasProperty("valhelsia_core_version") && findProperty("valhelsia_core_version")?.trim()) {
+        implementation "net.valhelsia:valhelsia_core-neoforge:${valhelsia_core_version}"
+    }
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    testImplementation "net.neoforged:testframework:${neo_version}"
+
+    if (project.hasProperty("jei_version") && findProperty("jei_version")?.trim()) {
+        // compile against the JEI API but do not include it at runtime
+        compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
+        // at runtime, use the full JEI jar
+        runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.named("compileJava", JavaCompile).configure {
+    dependsOn(configurations.commonJava)
+    source(configurations.commonJava)
+}
+
+tasks.named("processResources", ProcessResources).configure {
+    dependsOn(configurations.commonResources)
+    from(configurations.commonResources)
+
+    var replaceProperties = [
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version            : neo_version,
+            neo_version_range      : neo_version_range,
+            loader_version_range   : loader_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description
+    ]
     inputs.properties replaceProperties
 
-    filesMatching(['META-INF/neoforge.mods.toml']) {
+    filesMatching(["META-INF/neoforge.mods.toml"]) {
         expand replaceProperties
     }
 }
 
-idea {
-    module {
-        downloadSources = true
-        downloadJavadoc = true
-    }
+tasks.named("sourcesJar", Jar).configure {
+    dependsOn(configurations.commonJava)
+    from(configurations.commonJava)
+    dependsOn(configurations.commonResources)
+    from(configurations.commonResources)
 }

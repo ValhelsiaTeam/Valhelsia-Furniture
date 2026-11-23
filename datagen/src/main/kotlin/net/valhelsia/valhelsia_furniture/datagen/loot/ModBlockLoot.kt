@@ -16,8 +16,8 @@ class ModBlockLoot(
             .filterNot { it is OpenCurtainBlock }
             .forEach { dropSelf(it) }
 
-        ModBlocks.OPEN_CURTAINS.forEach {
-            add(it.value.get(), createSingleItemTable(ModBlocks.CLOSED_CURTAINS[it.key]!!.value()))
+        ModBlocks.OPEN_CURTAINS.forEach { color, entry ->
+            add(entry.value(), createSingleItemTable(ModBlocks.CLOSED_CURTAINS[color]!!.value()))
         }
     }
 

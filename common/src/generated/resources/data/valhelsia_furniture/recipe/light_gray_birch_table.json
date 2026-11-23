@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "valhelsia_furniture:colored_birch_table",
+  "key": {
+    "#": "minecraft:light_gray_carpet",
+    "X": "valhelsia_furniture:birch_table"
+  },
+  "pattern": [
+    "#",
+    "X"
+  ],
+  "result": {
+    "id": "valhelsia_furniture:light_gray_birch_table"
+  }
+}

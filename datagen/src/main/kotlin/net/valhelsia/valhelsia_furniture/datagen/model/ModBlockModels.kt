@@ -149,7 +149,7 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
     }
 
     private fun <T : Block> apply(set: BlockEntrySet<T, *>, consumer: (T) -> Unit) {
-        for (entry in set.values) {
+        for (entry in set.values()) {
             consumer(entry.get())
         }
     }
@@ -158,9 +158,7 @@ class ModBlockModels(val defaultGenerators: BlockModelGenerators) : BlockModelGe
         set: BlockEntrySet<T, K>,
         consumer: (T, K) -> Unit
     ) where K : Enum<K>, K : StringRepresentable {
-        for (entry in set.entries) {
-            consumer(entry.value.get(), entry.key)
-        }
+        set.forEach { color, entry -> consumer(entry.get(), color) }
     }
 
     private fun createTable(block: TableBlock) {

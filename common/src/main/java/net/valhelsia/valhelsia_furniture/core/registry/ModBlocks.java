@@ -4,7 +4,6 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.WoodType;
-import net.valhelsia.valhelsia_core.api.common.registry.RegistryClass;
 import net.valhelsia.valhelsia_core.api.common.registry.helper.block.BlockEntrySet;
 import net.valhelsia.valhelsia_core.api.common.registry.helper.block.BlockRegistryEntry;
 import net.valhelsia.valhelsia_core.api.common.registry.helper.block.BlockRegistryHelper;
@@ -16,7 +15,7 @@ import net.valhelsia.valhelsia_furniture.common.block.properties.ModBlockStatePr
  * @author Valhelsia Team
  * @since 2023-06-11
  */
-public class ModBlocks implements RegistryClass {
+public class ModBlocks {
 
     public static final BlockRegistryHelper HELPER = ValhelsiaFurniture.REGISTRY_MANAGER.getBlockHelper();
 
@@ -138,7 +137,7 @@ public class ModBlocks implements RegistryClass {
     }), entry -> entry.withItem());
 
     // Curtains
-    public static final BlockEntrySet<ClosedCurtainBlock, DyeColor> CLOSED_CURTAINS = HELPER.registerColorEntrySet("curtain", color -> properties -> new ClosedCurtainBlock(color, properties), color -> BlockBehaviour.Properties.ofLegacyCopy(Blocks.WHITE_WOOL).noOcclusion(), entry -> entry.withItem());
+    public static final BlockEntrySet<ClosedCurtainBlock, DyeColor> CLOSED_CURTAINS = HELPER.registerColorEntrySet("curtain", color -> properties -> new ClosedCurtainBlock(color, properties), color -> BlockBehaviour.Properties.ofLegacyCopy(Blocks.WOOL.white()).noOcclusion(), entry -> entry.withItem());
 
-    public static final BlockEntrySet<OpenCurtainBlock, DyeColor> OPEN_CURTAINS = HELPER.registerColorEntrySet(s -> "open_" + s +"_curtain", color -> properties -> new OpenCurtainBlock(color, properties), color -> BlockBehaviour.Properties.ofLegacyCopy(Blocks.WHITE_WOOL).noOcclusion(), entry -> entry);
+    public static final BlockEntrySet<OpenCurtainBlock, DyeColor> OPEN_CURTAINS = HELPER.registerColorEntrySet(s -> "open_" + s +"_curtain", color -> properties -> new OpenCurtainBlock(color, properties), color -> BlockBehaviour.Properties.ofLegacyCopy(Blocks.WOOL.white()).noOcclusion(), entry -> entry);
 }

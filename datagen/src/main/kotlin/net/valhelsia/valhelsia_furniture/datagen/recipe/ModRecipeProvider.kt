@@ -117,8 +117,8 @@ class ModRecipeProvider(
             ModBlocks.WOOL_UPHOLSTERED_WARPED_CHAIRS
         )
 
-        ModBlocks.CLOSED_CURTAINS.forEach { (color, pair) ->
-            this.curtain(pair, color)
+        ModBlocks.CLOSED_CURTAINS.forEach { color, entry ->
+            this.curtain(entry, color)
         }
 
         this.stool(ModBlocks.OAK_STOOL, Blocks.OAK_SLAB, ModBlocks.WOOL_UPHOLSTERED_OAK_STOOLS)
@@ -132,8 +132,8 @@ class ModRecipeProvider(
         this.stool(ModBlocks.CRIMSON_STOOL, Blocks.CRIMSON_SLAB, ModBlocks.WOOL_UPHOLSTERED_CRIMSON_STOOLS)
         this.stool(ModBlocks.WARPED_STOOL, Blocks.WARPED_SLAB, ModBlocks.WOOL_UPHOLSTERED_WARPED_STOOLS)
 
-        ModBlocks.FABRIC_DESK_LAMPS.forEach { (color, registryObject) ->
-            this.fabricDeskLamp(registryObject, color)
+        ModBlocks.FABRIC_DESK_LAMPS.forEach { color, entry ->
+            this.fabricDeskLamp(entry, color)
         }
     }
 
@@ -144,7 +144,7 @@ class ModRecipeProvider(
     ) {
         this.table(table, material)
 
-        coloredTables.values.forEach { this.coloredTable(it, table) }
+        coloredTables.values().forEach { this.coloredTable(it, table) }
     }
 
     private fun table(block: Supplier<TableBlock>, material: ItemLike) {
@@ -200,9 +200,9 @@ class ModRecipeProvider(
         this.chair(chair, material)
         this.hayChair(hayChair, material)
 
-        coloredChairs.values.forEach { this.coloredChair(it, material) }
+        coloredChairs.values().forEach { this.coloredChair(it, material) }
 
-        upholsteredChairs.values.forEach { this.upholsteredChair(it, material) }
+        upholsteredChairs.values().forEach { this.upholsteredChair(it, material) }
     }
 
     private fun chair(block: Supplier<ChairBlock>, material: ItemLike) {
@@ -265,7 +265,7 @@ class ModRecipeProvider(
     ) {
         this.stool(stool, material)
 
-        upholsteredStools.values.forEach { this.upholsteredStool(it, material) }
+        upholsteredStools.values().forEach { this.upholsteredStool(it, material) }
     }
 
 

@@ -81,14 +81,14 @@ class ModLanguageProvider(
         this.add(ModBlocks.CRIMSON_DESK_DRAWER.get(), "Crimson Desk Drawer")
         this.add(ModBlocks.WARPED_DESK_DRAWER.get(), "Warped Desk Drawer")
 
-        ModBlocks.FABRIC_DESK_LAMPS.forEach { (color, entry) ->
+        ModBlocks.FABRIC_DESK_LAMPS.forEach { color, entry ->
             this.add(
                 entry.get(),
                 String.format("%s Fabric Desk Lamp", COLOR_TO_STRING[color])
             )
         }
 
-        ModBlocks.CLOSED_CURTAINS.forEach { (color, entry) ->
+        ModBlocks.CLOSED_CURTAINS.forEach { color, entry ->
             this.add(
                 entry.get(),
                 String.format("%s Curtain", COLOR_TO_STRING[color])

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "valhelsia_furniture:desk_drawer",
+  "key": {
+    "#": "minecraft:crimson_planks",
+    "S": "minecraft:crimson_slab",
+    "X": "#c:rods/wooden"
+  },
+  "pattern": [
+    "###",
+    "#S#",
+    "X X"
+  ],
+  "result": {
+    "id": "valhelsia_furniture:crimson_desk_drawer"
+  }
+}

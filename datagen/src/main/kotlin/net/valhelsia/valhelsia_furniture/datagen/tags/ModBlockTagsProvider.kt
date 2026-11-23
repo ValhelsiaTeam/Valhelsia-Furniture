@@ -10,16 +10,16 @@ import net.valhelsia.valhelsia_furniture.core.registry.ModTags
 
 class ModBlockTagsProvider(context: DataProviderContext.Server) : DataForgeBlockTagsProvider(context) {
     override fun addTags(provider: HolderLookup.Provider) {
-        tag(ModTags.Blocks.OAK_TABLES).add(ModBlocks.OAK_TABLE.get()).add(*ModBlocks.COLORED_OAK_TABLES.get())
-        tag(ModTags.Blocks.SPRUCE_TABLES).add(ModBlocks.OAK_TABLE.get()).add(*ModBlocks.COLORED_SPRUCE_TABLES.get())
-        tag(ModTags.Blocks.BIRCH_TABLES).add(ModBlocks.OAK_TABLE.get()).add(*ModBlocks.COLORED_BIRCH_TABLES.get())
-        tag(ModTags.Blocks.JUNGLE_TABLES).add(ModBlocks.OAK_TABLE.get()).add(*ModBlocks.COLORED_JUNGLE_TABLES.get())
-        tag(ModTags.Blocks.ACACIA_TABLES).add(ModBlocks.OAK_TABLE.get()).add(*ModBlocks.COLORED_ACACIA_TABLES.get())
-        tag(ModTags.Blocks.CHERRY_TABLES).add(ModBlocks.OAK_TABLE.get()).add(*ModBlocks.COLORED_CHERRY_TABLES.get())
-        tag(ModTags.Blocks.DARK_OAK_TABLES).add(ModBlocks.OAK_TABLE.get()).add(*ModBlocks.COLORED_DARK_OAK_TABLES.get())
-        tag(ModTags.Blocks.MANGROVE_TABLES).add(ModBlocks.OAK_TABLE.get()).add(*ModBlocks.COLORED_MANGROVE_TABLES.get())
-        tag(ModTags.Blocks.CRIMSON_TABLES).add(ModBlocks.OAK_TABLE.get()).add(*ModBlocks.COLORED_CRIMSON_TABLES.get())
-        tag(ModTags.Blocks.WARPED_TABLES).add(ModBlocks.OAK_TABLE.get()).add(*ModBlocks.COLORED_WARPED_TABLES.get())
+        tag(ModTags.Blocks.OAK_TABLES).add(ModBlocks.OAK_TABLE.key()).add(*ModBlocks.COLORED_OAK_TABLES.key())
+        tag(ModTags.Blocks.SPRUCE_TABLES).add(ModBlocks.OAK_TABLE.key()).add(*ModBlocks.COLORED_SPRUCE_TABLES.key())
+        tag(ModTags.Blocks.BIRCH_TABLES).add(ModBlocks.OAK_TABLE.key()).add(*ModBlocks.COLORED_BIRCH_TABLES.key())
+        tag(ModTags.Blocks.JUNGLE_TABLES).add(ModBlocks.OAK_TABLE.key()).add(*ModBlocks.COLORED_JUNGLE_TABLES.key())
+        tag(ModTags.Blocks.ACACIA_TABLES).add(ModBlocks.OAK_TABLE.key()).add(*ModBlocks.COLORED_ACACIA_TABLES.key())
+        tag(ModTags.Blocks.CHERRY_TABLES).add(ModBlocks.OAK_TABLE.key()).add(*ModBlocks.COLORED_CHERRY_TABLES.key())
+        tag(ModTags.Blocks.DARK_OAK_TABLES).add(ModBlocks.OAK_TABLE.key()).add(*ModBlocks.COLORED_DARK_OAK_TABLES.key())
+        tag(ModTags.Blocks.MANGROVE_TABLES).add(ModBlocks.OAK_TABLE.key()).add(*ModBlocks.COLORED_MANGROVE_TABLES.key())
+        tag(ModTags.Blocks.CRIMSON_TABLES).add(ModBlocks.OAK_TABLE.key()).add(*ModBlocks.COLORED_CRIMSON_TABLES.key())
+        tag(ModTags.Blocks.WARPED_TABLES).add(ModBlocks.OAK_TABLE.key()).add(*ModBlocks.COLORED_WARPED_TABLES.key())
         tag(ModTags.Blocks.TABLES).addTags(
             ModTags.Blocks.OAK_TABLES,
             ModTags.Blocks.SPRUCE_TABLES,
@@ -34,35 +34,35 @@ class ModBlockTagsProvider(context: DataProviderContext.Server) : DataForgeBlock
         )
 
         tag(ModTags.Blocks.OAK_CHAIRS)
-            .add(*ModBlocks.WOOL_OAK_CHAIRS.get())
-            .add(ModBlocks.OAK_CHAIR.get(), ModBlocks.HAY_OAK_CHAIR.get())
+            .add(*ModBlocks.WOOL_OAK_CHAIRS.key())
+            .add(ModBlocks.OAK_CHAIR.key(), ModBlocks.HAY_OAK_CHAIR.key())
         tag(ModTags.Blocks.SPRUCE_CHAIRS)
-            .add(*ModBlocks.WOOL_SPRUCE_CHAIRS.get())
-            .add(ModBlocks.SPRUCE_CHAIR.get(), ModBlocks.HAY_SPRUCE_CHAIR.get())
+            .add(*ModBlocks.WOOL_SPRUCE_CHAIRS.key())
+            .add(ModBlocks.SPRUCE_CHAIR.key(), ModBlocks.HAY_SPRUCE_CHAIR.key())
         tag(ModTags.Blocks.BIRCH_CHAIRS)
-            .add(*ModBlocks.WOOL_BIRCH_CHAIRS.get())
-            .add(ModBlocks.BIRCH_CHAIR.get(), ModBlocks.HAY_BIRCH_CHAIR.get())
+            .add(*ModBlocks.WOOL_BIRCH_CHAIRS.key())
+            .add(ModBlocks.BIRCH_CHAIR.key(), ModBlocks.HAY_BIRCH_CHAIR.key())
         tag(ModTags.Blocks.JUNGLE_CHAIRS)
-            .add(*ModBlocks.WOOL_JUNGLE_CHAIRS.get())
-            .add(ModBlocks.JUNGLE_CHAIR.get(), ModBlocks.HAY_JUNGLE_CHAIR.get())
+            .add(*ModBlocks.WOOL_JUNGLE_CHAIRS.key())
+            .add(ModBlocks.JUNGLE_CHAIR.key(), ModBlocks.HAY_JUNGLE_CHAIR.key())
         tag(ModTags.Blocks.ACACIA_CHAIRS)
-            .add(*ModBlocks.WOOL_ACACIA_CHAIRS.get())
-            .add(ModBlocks.ACACIA_CHAIR.get(), ModBlocks.HAY_ACACIA_CHAIR.get())
+            .add(*ModBlocks.WOOL_ACACIA_CHAIRS.key())
+            .add(ModBlocks.ACACIA_CHAIR.key(), ModBlocks.HAY_ACACIA_CHAIR.key())
         tag(ModTags.Blocks.CHERRY_CHAIRS)
-            .add(*ModBlocks.WOOL_CHERRY_CHAIRS.get())
-            .add(ModBlocks.CHERRY_CHAIR.get(), ModBlocks.HAY_CHERRY_CHAIR.get())
+            .add(*ModBlocks.WOOL_CHERRY_CHAIRS.key())
+            .add(ModBlocks.CHERRY_CHAIR.key(), ModBlocks.HAY_CHERRY_CHAIR.key())
         tag(ModTags.Blocks.DARK_OAK_CHAIRS)
-            .add(*ModBlocks.WOOL_DARK_OAK_CHAIRS.get())
-            .add(ModBlocks.DARK_OAK_CHAIR.get(), ModBlocks.HAY_DARK_OAK_CHAIR.get())
+            .add(*ModBlocks.WOOL_DARK_OAK_CHAIRS.key())
+            .add(ModBlocks.DARK_OAK_CHAIR.key(), ModBlocks.HAY_DARK_OAK_CHAIR.key())
         tag(ModTags.Blocks.MANGROVE_CHAIRS)
-            .add(*ModBlocks.WOOL_MANGROVE_CHAIRS.get())
-            .add(ModBlocks.MANGROVE_CHAIR.get(), ModBlocks.HAY_MANGROVE_CHAIR.get())
+            .add(*ModBlocks.WOOL_MANGROVE_CHAIRS.key())
+            .add(ModBlocks.MANGROVE_CHAIR.key(), ModBlocks.HAY_MANGROVE_CHAIR.key())
         tag(ModTags.Blocks.CRIMSON_CHAIRS)
-            .add(*ModBlocks.WOOL_CRIMSON_CHAIRS.get())
-            .add(ModBlocks.CRIMSON_CHAIR.get(), ModBlocks.HAY_CRIMSON_CHAIR.get())
+            .add(*ModBlocks.WOOL_CRIMSON_CHAIRS.key())
+            .add(ModBlocks.CRIMSON_CHAIR.key(), ModBlocks.HAY_CRIMSON_CHAIR.key())
         tag(ModTags.Blocks.WARPED_CHAIRS)
-            .add(*ModBlocks.WOOL_WARPED_CHAIRS.get())
-            .add(ModBlocks.WARPED_CHAIR.get(), ModBlocks.HAY_WARPED_CHAIR.get())
+            .add(*ModBlocks.WOOL_WARPED_CHAIRS.key())
+            .add(ModBlocks.WARPED_CHAIR.key(), ModBlocks.HAY_WARPED_CHAIR.key())
         tag(ModTags.Blocks.CHAIRS).addTags(
             ModTags.Blocks.OAK_CHAIRS,
             ModTags.Blocks.SPRUCE_CHAIRS,
@@ -76,15 +76,15 @@ class ModBlockTagsProvider(context: DataProviderContext.Server) : DataForgeBlock
             ModTags.Blocks.WARPED_CHAIRS
         )
 
-        tag(ModTags.Blocks.UPHOLSTERED_OAK_CHAIRS).add(*ModBlocks.WOOL_UPHOLSTERED_OAK_CHAIRS.get())
-        tag(ModTags.Blocks.UPHOLSTERED_SPRUCE_CHAIRS).add(*ModBlocks.WOOL_UPHOLSTERED_SPRUCE_CHAIRS.get())
-        tag(ModTags.Blocks.UPHOLSTERED_BIRCH_CHAIRS).add(*ModBlocks.WOOL_UPHOLSTERED_BIRCH_CHAIRS.get())
-        tag(ModTags.Blocks.UPHOLSTERED_JUNGLE_CHAIRS).add(*ModBlocks.WOOL_UPHOLSTERED_JUNGLE_CHAIRS.get())
-        tag(ModTags.Blocks.UPHOLSTERED_ACACIA_CHAIRS).add(*ModBlocks.WOOL_UPHOLSTERED_ACACIA_CHAIRS.get())
-        tag(ModTags.Blocks.UPHOLSTERED_DARK_OAK_CHAIRS).add(*ModBlocks.WOOL_UPHOLSTERED_DARK_OAK_CHAIRS.get())
-        tag(ModTags.Blocks.UPHOLSTERED_MANGROVE_CHAIRS).add(*ModBlocks.WOOL_UPHOLSTERED_MANGROVE_CHAIRS.get())
-        tag(ModTags.Blocks.UPHOLSTERED_CRIMSON_CHAIRS).add(*ModBlocks.WOOL_UPHOLSTERED_CRIMSON_CHAIRS.get())
-        tag(ModTags.Blocks.UPHOLSTERED_WARPED_CHAIRS).add(*ModBlocks.WOOL_UPHOLSTERED_WARPED_CHAIRS.get())
+        tag(ModTags.Blocks.UPHOLSTERED_OAK_CHAIRS).add(*ModBlocks.WOOL_UPHOLSTERED_OAK_CHAIRS.key())
+        tag(ModTags.Blocks.UPHOLSTERED_SPRUCE_CHAIRS).add(*ModBlocks.WOOL_UPHOLSTERED_SPRUCE_CHAIRS.key())
+        tag(ModTags.Blocks.UPHOLSTERED_BIRCH_CHAIRS).add(*ModBlocks.WOOL_UPHOLSTERED_BIRCH_CHAIRS.key())
+        tag(ModTags.Blocks.UPHOLSTERED_JUNGLE_CHAIRS).add(*ModBlocks.WOOL_UPHOLSTERED_JUNGLE_CHAIRS.key())
+        tag(ModTags.Blocks.UPHOLSTERED_ACACIA_CHAIRS).add(*ModBlocks.WOOL_UPHOLSTERED_ACACIA_CHAIRS.key())
+        tag(ModTags.Blocks.UPHOLSTERED_DARK_OAK_CHAIRS).add(*ModBlocks.WOOL_UPHOLSTERED_DARK_OAK_CHAIRS.key())
+        tag(ModTags.Blocks.UPHOLSTERED_MANGROVE_CHAIRS).add(*ModBlocks.WOOL_UPHOLSTERED_MANGROVE_CHAIRS.key())
+        tag(ModTags.Blocks.UPHOLSTERED_CRIMSON_CHAIRS).add(*ModBlocks.WOOL_UPHOLSTERED_CRIMSON_CHAIRS.key())
+        tag(ModTags.Blocks.UPHOLSTERED_WARPED_CHAIRS).add(*ModBlocks.WOOL_UPHOLSTERED_WARPED_CHAIRS.key())
         tag(ModTags.Blocks.UPHOLSTERED_CHAIRS).addTags(
             ModTags.Blocks.UPHOLSTERED_OAK_CHAIRS,
             ModTags.Blocks.UPHOLSTERED_SPRUCE_CHAIRS,
@@ -98,28 +98,28 @@ class ModBlockTagsProvider(context: DataProviderContext.Server) : DataForgeBlock
         )
 
         tag(ModTags.Blocks.STOOLS).add(
-            ModBlocks.OAK_STOOL.get(),
-            ModBlocks.SPRUCE_STOOL.get(),
-            ModBlocks.BIRCH_STOOL.get(),
-            ModBlocks.JUNGLE_STOOL.get(),
-            ModBlocks.ACACIA_STOOL.get(),
-            ModBlocks.CHERRY_STOOL.get(),
-            ModBlocks.DARK_OAK_STOOL.get(),
-            ModBlocks.MANGROVE_STOOL.get(),
-            ModBlocks.CRIMSON_STOOL.get(),
-            ModBlocks.WARPED_STOOL.get()
+            ModBlocks.OAK_STOOL.key(),
+            ModBlocks.SPRUCE_STOOL.key(),
+            ModBlocks.BIRCH_STOOL.key(),
+            ModBlocks.JUNGLE_STOOL.key(),
+            ModBlocks.ACACIA_STOOL.key(),
+            ModBlocks.CHERRY_STOOL.key(),
+            ModBlocks.DARK_OAK_STOOL.key(),
+            ModBlocks.MANGROVE_STOOL.key(),
+            ModBlocks.CRIMSON_STOOL.key(),
+            ModBlocks.WARPED_STOOL.key()
         )
 
-        tag(ModTags.Blocks.UPHOLSTERED_OAK_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_OAK_STOOLS.get())
-        tag(ModTags.Blocks.UPHOLSTERED_SPRUCE_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_SPRUCE_STOOLS.get())
-        tag(ModTags.Blocks.UPHOLSTERED_BIRCH_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_BIRCH_STOOLS.get())
-        tag(ModTags.Blocks.UPHOLSTERED_JUNGLE_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_JUNGLE_STOOLS.get())
-        tag(ModTags.Blocks.UPHOLSTERED_ACACIA_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_ACACIA_STOOLS.get())
-        tag(ModTags.Blocks.UPHOLSTERED_CHERRY_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_CHERRY_STOOLS.get())
-        tag(ModTags.Blocks.UPHOLSTERED_DARK_OAK_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_DARK_OAK_STOOLS.get())
-        tag(ModTags.Blocks.UPHOLSTERED_MANGROVE_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_MANGROVE_STOOLS.get())
-        tag(ModTags.Blocks.UPHOLSTERED_CRIMSON_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_CRIMSON_STOOLS.get())
-        tag(ModTags.Blocks.UPHOLSTERED_WARPED_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_WARPED_STOOLS.get())
+        tag(ModTags.Blocks.UPHOLSTERED_OAK_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_OAK_STOOLS.key())
+        tag(ModTags.Blocks.UPHOLSTERED_SPRUCE_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_SPRUCE_STOOLS.key())
+        tag(ModTags.Blocks.UPHOLSTERED_BIRCH_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_BIRCH_STOOLS.key())
+        tag(ModTags.Blocks.UPHOLSTERED_JUNGLE_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_JUNGLE_STOOLS.key())
+        tag(ModTags.Blocks.UPHOLSTERED_ACACIA_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_ACACIA_STOOLS.key())
+        tag(ModTags.Blocks.UPHOLSTERED_CHERRY_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_CHERRY_STOOLS.key())
+        tag(ModTags.Blocks.UPHOLSTERED_DARK_OAK_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_DARK_OAK_STOOLS.key())
+        tag(ModTags.Blocks.UPHOLSTERED_MANGROVE_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_MANGROVE_STOOLS.key())
+        tag(ModTags.Blocks.UPHOLSTERED_CRIMSON_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_CRIMSON_STOOLS.key())
+        tag(ModTags.Blocks.UPHOLSTERED_WARPED_STOOLS).add(*ModBlocks.WOOL_UPHOLSTERED_WARPED_STOOLS.key())
         tag(ModTags.Blocks.UPHOLSTERED_STOOLS).addTags(
             ModTags.Blocks.UPHOLSTERED_OAK_STOOLS,
             ModTags.Blocks.UPHOLSTERED_SPRUCE_STOOLS,
@@ -133,16 +133,16 @@ class ModBlockTagsProvider(context: DataProviderContext.Server) : DataForgeBlock
             ModTags.Blocks.UPHOLSTERED_WARPED_STOOLS
         )
 
-        tag(ModTags.Blocks.OAK_DESKS).add(ModBlocks.OAK_DESK.get(), ModBlocks.OAK_DESK_DRAWER.get())
-        tag(ModTags.Blocks.SPRUCE_DESKS).add(ModBlocks.SPRUCE_DESK.get(), ModBlocks.SPRUCE_DESK_DRAWER.get())
-        tag(ModTags.Blocks.BIRCH_DESKS).add(ModBlocks.BIRCH_DESK.get(), ModBlocks.BIRCH_DESK_DRAWER.get())
-        tag(ModTags.Blocks.JUNGLE_DESKS).add(ModBlocks.JUNGLE_DESK.get(), ModBlocks.JUNGLE_DESK_DRAWER.get())
-        tag(ModTags.Blocks.ACACIA_DESKS).add(ModBlocks.ACACIA_DESK.get(), ModBlocks.ACACIA_DESK_DRAWER.get())
-        tag(ModTags.Blocks.CHERRY_DESKS).add(ModBlocks.CHERRY_DESK.get(), ModBlocks.CHERRY_DESK_DRAWER.get())
-        tag(ModTags.Blocks.DARK_OAK_DESKS).add(ModBlocks.DARK_OAK_DESK.get(), ModBlocks.DARK_OAK_DESK_DRAWER.get())
-        tag(ModTags.Blocks.MANGROVE_DESKS).add(ModBlocks.MANGROVE_DESK.get(), ModBlocks.MANGROVE_DESK_DRAWER.get())
-        tag(ModTags.Blocks.CRIMSON_DESKS).add(ModBlocks.CRIMSON_DESK.get(), ModBlocks.CRIMSON_DESK_DRAWER.get())
-        tag(ModTags.Blocks.WARPED_DESKS).add(ModBlocks.WARPED_DESK.get(), ModBlocks.WARPED_DESK_DRAWER.get())
+        tag(ModTags.Blocks.OAK_DESKS).add(ModBlocks.OAK_DESK.key(), ModBlocks.OAK_DESK_DRAWER.key())
+        tag(ModTags.Blocks.SPRUCE_DESKS).add(ModBlocks.SPRUCE_DESK.key(), ModBlocks.SPRUCE_DESK_DRAWER.key())
+        tag(ModTags.Blocks.BIRCH_DESKS).add(ModBlocks.BIRCH_DESK.key(), ModBlocks.BIRCH_DESK_DRAWER.key())
+        tag(ModTags.Blocks.JUNGLE_DESKS).add(ModBlocks.JUNGLE_DESK.key(), ModBlocks.JUNGLE_DESK_DRAWER.key())
+        tag(ModTags.Blocks.ACACIA_DESKS).add(ModBlocks.ACACIA_DESK.key(), ModBlocks.ACACIA_DESK_DRAWER.key())
+        tag(ModTags.Blocks.CHERRY_DESKS).add(ModBlocks.CHERRY_DESK.key(), ModBlocks.CHERRY_DESK_DRAWER.key())
+        tag(ModTags.Blocks.DARK_OAK_DESKS).add(ModBlocks.DARK_OAK_DESK.key(), ModBlocks.DARK_OAK_DESK_DRAWER.key())
+        tag(ModTags.Blocks.MANGROVE_DESKS).add(ModBlocks.MANGROVE_DESK.key(), ModBlocks.MANGROVE_DESK_DRAWER.key())
+        tag(ModTags.Blocks.CRIMSON_DESKS).add(ModBlocks.CRIMSON_DESK.key(), ModBlocks.CRIMSON_DESK_DRAWER.key())
+        tag(ModTags.Blocks.WARPED_DESKS).add(ModBlocks.WARPED_DESK.key(), ModBlocks.WARPED_DESK_DRAWER.key())
         tag(ModTags.Blocks.DESKS).addTags(
             ModTags.Blocks.OAK_DESKS,
             ModTags.Blocks.SPRUCE_DESKS,
@@ -153,8 +153,8 @@ class ModBlockTagsProvider(context: DataProviderContext.Server) : DataForgeBlock
             ModTags.Blocks.CRIMSON_DESKS,
             ModTags.Blocks.WARPED_DESKS
         )
-        tag(ModTags.Blocks.FABRIC_DESK_LAMPS).add(*ModBlocks.FABRIC_DESK_LAMPS.get())
-        tag(ModTags.Blocks.CURTAINS).add(*ModBlocks.CLOSED_CURTAINS.get()).add(*ModBlocks.OPEN_CURTAINS.get())
+        tag(ModTags.Blocks.FABRIC_DESK_LAMPS).add(*ModBlocks.FABRIC_DESK_LAMPS.key())
+        tag(ModTags.Blocks.CURTAINS).add(*ModBlocks.CLOSED_CURTAINS.key()).add(*ModBlocks.OPEN_CURTAINS.key())
 
         tag(BlockTags.MINEABLE_WITH_AXE).addTags(
             ModTags.Blocks.TABLES,
@@ -167,5 +167,5 @@ class ModBlockTagsProvider(context: DataProviderContext.Server) : DataForgeBlock
         )
     }
 
-    fun BlockEntrySet<*, *>.get() = this.getEntries().map { it.get() }.toTypedArray()
+    fun BlockEntrySet<*, *>.key() = this.getEntries().map { it.key() }.toTypedArray()
 }

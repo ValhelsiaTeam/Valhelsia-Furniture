@@ -1,18 +1,59 @@
 plugins {
-    id('net.fabricmc.fabric-loom') version('1.15-SNAPSHOT') apply false
-    id("net.neoforged.moddev") version("2.0.141") apply(false)
+    id("net.neoforged.moddev") version("2.0.148") apply(false)
+    id("net.fabricmc.fabric-loom") version("1.19-SNAPSHOT") apply(false)
+    id("org.jetbrains.kotlin.jvm") version("2.3.0") apply(false)
     id("idea")
 }
 
 subprojects {
+    apply plugin: "java-library"
+    apply plugin: "maven-publish"
+    apply plugin: "idea"
+
+    group = mod_group_id
+    version = "${minecraft_version}-${mod_version}"
+
+    base {
+        archivesName = "${mod_id}-${project.name}"
+    }
+
+    java {
+        toolchain.languageVersion = JavaLanguageVersion.of(25)
+        withSourcesJar()
+    }
+
     repositories {
+        mavenLocal()
+        mavenCentral()
         maven {
-            name = "Valhelsia Core"
+            name = "ValhelsiaGitHubPackages"
             url = uri("https://maven.pkg.github.com/ValhelsiaTeam/Valhelsia-Core")
             credentials {
-                username = System.getenv("GITHUB_ACTOR") ?: findProperty("gpr.user")
-                password = System.getenv("GITHUB_TOKEN") ?: findProperty("gpr.key")
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
             }
+            content {
+                includeGroup "net.valhelsia"
+            }
+        }
+        maven {
+            name = "CurseMaven"
+            url = uri("https://www.cursemaven.com")
+            content {
+                includeGroup "curse.maven"
+            }
+        }
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        it.options.encoding = "UTF-8"
+        it.options.release = 25
+    }
+
+    idea {
+        module {
+            downloadSources = true
+            downloadJavadoc = true
         }
     }
 }

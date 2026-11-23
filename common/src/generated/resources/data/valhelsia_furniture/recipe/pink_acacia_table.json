@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "valhelsia_furniture:colored_acacia_table",
+  "key": {
+    "#": "minecraft:pink_carpet",
+    "X": "valhelsia_furniture:acacia_table"
+  },
+  "pattern": [
+    "#",
+    "X"
+  ],
+  "result": {
+    "id": "valhelsia_furniture:pink_acacia_table"
+  }
+}

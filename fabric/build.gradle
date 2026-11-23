@@ -1,36 +1,13 @@
 plugins {
-    id 'java-library'
-    id 'maven-publish'
-    id 'net.fabricmc.fabric-loom'
+    id("net.fabricmc.fabric-loom")
 }
 
-version = mod_version
-
-Project common = project(":common")
-evaluationDependsOn(common.path)
-
-repositories {
-    maven {
-        url = "https://www.cursemaven.com"
+configurations {
+    commonJava {
+        canBeResolved = true
     }
-    flatDir {
-        dirs 'libs'
-    }
-    mavenCentral()
-}
-
-base {
-    archivesName = "${mod_id}-fabric-${minecraft_version}"
-}
-
-sourceSets {
-    main {
-        java {
-            srcDir common.sourceSets.main.java.srcDirs
-        }
-        resources {
-            srcDir common.sourceSets.main.resources.srcDirs
-        }
+    commonResources {
+        canBeResolved = true
     }
 }
 
@@ -47,23 +24,47 @@ loom {
 }
 
 dependencies {
-    compileOnly(common)
+    compileOnly(project(":common"))
+    commonJava project(path: ":common", configuration: "commonJava")
+    commonResources project(path: ":common", configuration: "commonResources")
 
-    implementation "net.valhelsia:valhelsia_core-fabric-${minecraft_version}:${valhelsia_core_version}"
-
-    // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     implementation "net.fabricmc:fabric-loader:${project.fabric_loader_version}"
-    // Fabric API. This is technically optional, but you probably want it anyway.
     implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+    if (project.hasProperty("valhelsia_core_version") && findProperty("valhelsia_core_version")?.trim()) {
+        implementation "net.valhelsia:valhelsia_core-fabric:${valhelsia_core_version}"
+    }
+
+    if (project.hasProperty("jei_version") && findProperty("jei_version")?.trim()) {
+        // compile against the JEI API but do not include it at runtime
+        compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
+        // at runtime, use the full JEI jar
+        runtimeOnly "mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"
+    }
 }
 
-compileJava {
-    source project(':common').sourceSets.main.allSource
+tasks.named("compileJava", JavaCompile).configure {
+    dependsOn(configurations.commonJava)
+    source(configurations.commonJava)
 }
 
-processResources {
-    var replaceProperties = [version : mod_version]
+tasks.named("processResources", ProcessResources).configure {
+    dependsOn(configurations.commonResources)
+    from(configurations.commonResources)
+
+    var replaceProperties = [
+            version              : mod_version,
+            mod_id               : mod_id,
+            mod_name             : mod_name,
+            mod_license          : mod_license,
+            mod_version          : mod_version,
+            mod_authors          : mod_authors,
+            mod_description      : mod_description,
+            minecraft_version    : minecraft_version,
+            fabric_loader_version: fabric_loader_version,
+            fabric_api_version   : fabric_api_version
+    ]
     inputs.properties replaceProperties
 
     filesMatching("fabric.mod.json") {
@@ -71,22 +72,10 @@ processResources {
     }
 }
 
-tasks.withType(JavaCompile).configureEach {
-    it.options.release = 25
+tasks.named("sourcesJar", Jar).configure {
+    dependsOn(configurations.commonJava)
+    from(configurations.commonJava)
+    dependsOn(configurations.commonResources)
+    from(configurations.commonResources)
 }
 
-java {
-    // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-    // if it is present.
-    // If you remove this line, sources will not be generated.
-    withSourcesJar()
-
-    sourceCompatibility = JavaVersion.VERSION_25
-    targetCompatibility = JavaVersion.VERSION_25
-}
-
-jar {
-    from("LICENSE") {
-        rename { "${it}_${project.base.archivesName.get()}"}
-    }
-}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "valhelsia_furniture:desk_drawer",
+  "key": {
+    "#": "minecraft:cherry_planks",
+    "S": "minecraft:cherry_slab",
+    "X": "#c:rods/wooden"
+  },
+  "pattern": [
+    "###",
+    "#S#",
+    "X X"
+  ],
+  "result": {
+    "id": "valhelsia_furniture:cherry_desk_drawer"
+  }
+}
