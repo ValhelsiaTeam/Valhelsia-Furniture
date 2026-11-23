@@ -15,6 +15,6 @@ neoForge {
 }
 
 dependencies {
-    implementation "net.valhelsia:valhelsia_core-common:${minecraft_version}-1.1.6"
-    accessTransformers "net.valhelsia:valhelsia_core-common:${minecraft_version}-1.1.6"
+    implementation "net.valhelsia:valhelsia_core-common:${minecraft_version}-1.1.7"
+    accessTransformers "net.valhelsia:valhelsia_core-common:${minecraft_version}-1.1.7"
 }
