@@ -51,7 +51,9 @@ tasks.named("compileJava", JavaCompile).configure {
 
 tasks.named("processResources", ProcessResources).configure {
     dependsOn(configurations.commonResources)
-    from(configurations.commonResources)
+    from(configurations.commonResources) {
+        exclude(".cache/**")
+    }
 
     var replaceProperties = [
             version              : mod_version,
@@ -76,6 +78,8 @@ tasks.named("sourcesJar", Jar).configure {
     dependsOn(configurations.commonJava)
     from(configurations.commonJava)
     dependsOn(configurations.commonResources)
-    from(configurations.commonResources)
+    from(configurations.commonResources) {
+        exclude(".cache/**")
+    }
 }
 
