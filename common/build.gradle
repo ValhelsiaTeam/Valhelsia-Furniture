@@ -4,10 +4,14 @@ plugins {
 
 neoForge {
     neoFormVersion = neo_form_version
+
+    accessTransformers {
+        publish(file("src/main/resources/META-INF/accesstransformer.cfg"))
+    }
 }
 
 dependencies {
-    if (project.hasProperty("valhelsia_core_version") && findProperty("valhelsia_core_version")?.trim()) {
+    if (valhelsia_core_version?.trim()) {
         implementation "net.valhelsia:valhelsia_core-common:${valhelsia_core_version}"
         accessTransformers "net.valhelsia:valhelsia_core-common:${valhelsia_core_version}"
     }
@@ -33,4 +37,12 @@ artifacts {
     sourceSets.main.resources.sourceDirectories.each { dir ->
         commonResources dir
     }
+}
+
+tasks.named("processResources", ProcessResources).configure {
+    exclude(".cache/**")
+}
+
+tasks.named("sourcesJar", Jar).configure {
+    exclude(".cache/**")
 }

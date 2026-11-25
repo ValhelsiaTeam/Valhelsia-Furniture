@@ -6,7 +6,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'Valhelsia-Furniture'
+rootProject.name = "Valhelsia-Furniture"
 
 include("common")
 include("fabric")

@@ -14,7 +14,7 @@ configurations {
 neoForge {
     version = neo_version
 
-    accessTransformers.from "../neoforge/src/main/resources/META-INF/accesstransformer-neoforge.cfg"
+    accessTransformers.from(project(":common").file("src/main/resources/META-INF/accesstransformer.cfg"))
 
     runs {
         client {
@@ -95,7 +95,10 @@ tasks.named("compileJava", JavaCompile).configure {
 
 tasks.named("processResources", ProcessResources).configure {
     dependsOn(configurations.commonResources)
-    from(configurations.commonResources)
+    from(configurations.commonResources) {
+        exclude(".cache/**")
+    }
+    exclude(".cache/**")
 
     var replaceProperties = [
             minecraft_version      : minecraft_version,
@@ -121,5 +124,8 @@ tasks.named("sourcesJar", Jar).configure {
     dependsOn(configurations.commonJava)
     from(configurations.commonJava)
     dependsOn(configurations.commonResources)
-    from(configurations.commonResources)
+    from(configurations.commonResources) {
+        exclude(".cache/**")
+    }
+    exclude(".cache/**")
 }
