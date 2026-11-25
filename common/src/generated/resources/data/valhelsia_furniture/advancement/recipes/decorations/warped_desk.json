@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:warped_desk"
+        "recipes": "valhelsia_furniture:warped_desk"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

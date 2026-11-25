@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:red_upholstered_acacia_chair"
+        "recipes": "valhelsia_furniture:red_upholstered_acacia_chair"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

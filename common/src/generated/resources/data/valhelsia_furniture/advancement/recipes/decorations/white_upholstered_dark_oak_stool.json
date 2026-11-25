@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:white_upholstered_dark_oak_stool"
+        "recipes": "valhelsia_furniture:white_upholstered_dark_oak_stool"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:birch_desk"
+        "recipes": "valhelsia_furniture:birch_desk"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

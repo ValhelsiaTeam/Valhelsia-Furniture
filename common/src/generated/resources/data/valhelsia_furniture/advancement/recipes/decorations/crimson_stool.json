@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:crimson_stool"
+        "recipes": "valhelsia_furniture:crimson_stool"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

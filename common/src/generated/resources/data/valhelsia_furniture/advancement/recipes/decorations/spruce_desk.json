@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:spruce_desk"
+        "recipes": "valhelsia_furniture:spruce_desk"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

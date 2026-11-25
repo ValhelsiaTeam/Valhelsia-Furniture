@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:gray_curtain"
+        "recipes": "valhelsia_furniture:gray_curtain"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

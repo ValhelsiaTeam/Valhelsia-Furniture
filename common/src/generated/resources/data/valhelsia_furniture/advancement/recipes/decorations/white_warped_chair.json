@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:white_warped_chair"
+        "recipes": "valhelsia_furniture:white_warped_chair"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:cherry_table"
+        "recipes": "valhelsia_furniture:cherry_table"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:white_curtain"
+        "recipes": "valhelsia_furniture:white_curtain"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

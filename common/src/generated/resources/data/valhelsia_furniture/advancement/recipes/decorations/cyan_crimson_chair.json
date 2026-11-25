@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:cyan_crimson_chair"
+        "recipes": "valhelsia_furniture:cyan_crimson_chair"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

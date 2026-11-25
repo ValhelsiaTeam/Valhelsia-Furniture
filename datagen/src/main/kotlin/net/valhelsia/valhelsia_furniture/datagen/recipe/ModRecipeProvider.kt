@@ -1,12 +1,15 @@
 package net.valhelsia.valhelsia_furniture.datagen.recipe
 
+import net.minecraft.advancements.Advancement
 import net.minecraft.core.HolderLookup
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.data.recipes.RecipeCategory
 import net.minecraft.data.recipes.RecipeOutput
+import net.minecraft.data.worldgen.BootstrapContext
 import net.minecraft.resources.Identifier
 import net.minecraft.world.item.DyeColor
 import net.minecraft.world.item.Items
+import net.minecraft.world.item.crafting.Recipe
 import net.minecraft.world.level.ItemLike
 import net.minecraft.world.level.block.Blocks
 import net.neoforged.neoforge.common.Tags
@@ -19,9 +22,9 @@ import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks
 import java.util.function.Supplier
 
 class ModRecipeProvider(
-    lookupProvider: HolderLookup.Provider,
-    recipeOutput: RecipeOutput
-) : RecipeSubProvider(lookupProvider, recipeOutput) {
+    recipeOutput: BootstrapContext<Recipe<*>>,
+    advancementOutput: BootstrapContext<Advancement>
+) : RecipeSubProvider(recipeOutput, advancementOutput) {
     override fun buildRecipes() {
         this.table(ModBlocks.OAK_TABLE, Blocks.OAK_PLANKS, ModBlocks.COLORED_OAK_TABLES)
         this.table(ModBlocks.SPRUCE_TABLE, Blocks.SPRUCE_PLANKS, ModBlocks.COLORED_SPRUCE_TABLES)

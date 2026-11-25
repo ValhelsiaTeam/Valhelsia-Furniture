@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:white_upholstered_jungle_chair"
+        "recipes": "valhelsia_furniture:white_upholstered_jungle_chair"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

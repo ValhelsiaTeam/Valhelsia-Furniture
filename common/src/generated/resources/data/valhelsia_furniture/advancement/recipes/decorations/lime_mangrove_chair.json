@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:lime_mangrove_chair"
+        "recipes": "valhelsia_furniture:lime_mangrove_chair"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

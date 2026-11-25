@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:light_blue_spruce_chair"
+        "recipes": "valhelsia_furniture:light_blue_spruce_chair"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:orange_curtain"
+        "recipes": "valhelsia_furniture:orange_curtain"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:light_blue_cherry_table"
+        "recipes": "valhelsia_furniture:light_blue_cherry_table"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

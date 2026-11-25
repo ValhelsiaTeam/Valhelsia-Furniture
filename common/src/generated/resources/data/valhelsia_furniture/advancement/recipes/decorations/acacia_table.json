@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:acacia_table"
+        "recipes": "valhelsia_furniture:acacia_table"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

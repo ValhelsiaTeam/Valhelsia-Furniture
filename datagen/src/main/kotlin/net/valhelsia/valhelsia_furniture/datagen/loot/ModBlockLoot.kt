@@ -1,16 +1,16 @@
 package net.valhelsia.valhelsia_furniture.datagen.loot
 
-import net.minecraft.core.HolderLookup
 import net.minecraft.data.loot.BlockLootSubProvider
+import net.minecraft.data.loot.LootTableSubProvider
 import net.minecraft.world.flag.FeatureFlags
-import net.minecraft.world.item.Item
 import net.minecraft.world.level.block.Block
 import net.valhelsia.valhelsia_furniture.common.block.OpenCurtainBlock
 import net.valhelsia.valhelsia_furniture.core.registry.ModBlocks
 
 class ModBlockLoot(
-    lookupProvider: HolderLookup.Provider, val blocks: List<() -> Block>
-) : BlockLootSubProvider(setOf<Item>(), FeatureFlags.REGISTRY.allFlags(), lookupProvider) {
+    context: LootTableSubProvider.Context,
+    val blocks: List<() -> Block>
+) : BlockLootSubProvider(setOf(), FeatureFlags.REGISTRY.allFlags(), context) {
     override fun generate() {
         blocks.map { it() }
             .filterNot { it is OpenCurtainBlock }

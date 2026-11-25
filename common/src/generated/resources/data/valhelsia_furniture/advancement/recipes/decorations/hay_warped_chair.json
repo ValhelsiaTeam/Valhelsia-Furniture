@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:hay_warped_chair"
+        "recipes": "valhelsia_furniture:hay_warped_chair"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

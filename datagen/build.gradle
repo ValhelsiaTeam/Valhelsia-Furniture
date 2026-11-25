@@ -68,5 +68,5 @@ dependencies {
         implementation "net.valhelsia:valhelsia_core-neoforge:${valhelsia_core_version}"
     }
 
-    implementation interfaceInjectionData(accessTransformers("net.valhelsia:dataforge:${dataforge_version}"))
+    implementation interfaceInjectionData("net.valhelsia:dataforge:${dataforge_version}")
 }

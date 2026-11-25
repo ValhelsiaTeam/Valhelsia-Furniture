@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:pink_upholstered_cherry_stool"
+        "recipes": "valhelsia_furniture:pink_upholstered_cherry_stool"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

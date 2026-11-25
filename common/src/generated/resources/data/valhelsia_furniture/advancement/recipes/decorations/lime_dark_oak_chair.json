@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:lime_dark_oak_chair"
+        "recipes": "valhelsia_furniture:lime_dark_oak_chair"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

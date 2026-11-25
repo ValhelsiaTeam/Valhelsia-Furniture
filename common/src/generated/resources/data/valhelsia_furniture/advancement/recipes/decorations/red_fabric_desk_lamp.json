@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "valhelsia_furniture:red_fabric_desk_lamp"
+        "recipes": "valhelsia_furniture:red_fabric_desk_lamp"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
